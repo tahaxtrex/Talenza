@@ -269,7 +269,7 @@ InputState → ClarifyingState → BuildingState → ResultsState
   - Expanded view: headline strength, key risk, detailed scores
   - Rank change indicators (▲▼) when switching scenarios
 - Shimmer loading state during scenario switch (1.5s mock delay)
-- Decision panel: INTERNAL HIRE recommendation with risk matrix + rationale
+- Decision panel: INTERNAL HIRE recommendation with risk matrix +  rationale
 
 ---
 
