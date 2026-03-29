@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "scenario_id": "MIG-MUN-001",
+    "created_at": "2024-07-30T10:00:00Z",
+    "version": "1.0",
+    "status": "complete",
+    "track": "internal",
+    "updated_at": "2026-03-29T14:39:32.805Z"
+  },
+  "role": {
+    "title": "Head of Engineering, Munich Hub",
+    "seniority_level": "director",
+    "department": "Technology",
+    "primary_location": "Munich, Germany",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 10
+  },
+  "business_context": {
+    "situation_type": "growth",
+    "situation_subtype": "geographic_expansion",
+    "description": "To establish a new engineering hub in Munich, leveraging local talent and expanding market reach. This role involves relocating an experienced internal leader to kickstart the operation and build a team from scratch.",
+    "urgency_driver": "Market opportunity in DACH region, need to accelerate product development capacity and establish local presence.",
+    "board_visibility": "ceo",
+    "external_visibility_risk": false,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": true,
+    "regulatory_description": "Compliance with German labor law, immigration regulations for non-EU citizens (if applicable to the internal candidate), and local employment contracts. Understanding of works council implications.",
+    "competitive_pressure": "High competition for tech talent in Munich; need to establish a strong employer brand quickly and effectively."
+  },
+  "constraints": {
+    "urgency_weeks": 24,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": 0,
+    "can_use_search_firm": false,
+    "search_firm_constraint_reason": "Internal hire strategy; focus on existing leadership talent for new market entry and cultural alignment.",
+    "package_budget_total_eur": 200000,
+    "package_budget_base_eur": 150000,
+    "package_out_of_band_possible": true,
+    "package_approval_required": "CFO and CHRO",
+    "internal_equity_risk": true,
+    "personal_security_risk": false,
+    "language_requirements": [
+      "English",
+      "German"
+    ],
+    "cultural_requirements": [
+      "Adaptability to German business culture",
+      "Experience with cross-cultural team leadership"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Experience building and scaling engineering teams from scratch (greenfield operations).",
+    "must_have_2": "Demonstrated ability to operate autonomously, taking full ownership in a new market.",
+    "must_have_3": "Strong cultural integration skills and demonstrable experience with German/DACH business culture.",
+    "nice_to_have_1": "Existing network within the Munich tech ecosystem.",
+    "nice_to_have_2": "Previous experience with international relocations and setting up new offices.",
+    "explicit_disqualifiers": [
+      "Inability to commit to permanent relocation to Munich",
+      "Lack of German language proficiency (B2 minimum for effective local integration)"
+    ]
+  },
+  "team_context": {
+    "team_exists": false,
+    "team_size_current": 0,
+    "team_size_target_year1": 15,
+    "team_size_target_year2": 30,
+    "team_type": "Greenfield engineering hub focused on specific product lines.",
+    "inherited_technical_debt": false,
+    "inherited_culture_issues": false,
+    "key_stakeholders": [
+      {
+        "role": "CEO",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Direct reporting line, high strategic visibility for this hire."
+      },
+      {
+        "role": "CHRO",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Critical partner for international relocation, talent strategy, and local HR setup."
+      },
+      {
+        "role": "CTO",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Functional leadership and alignment on technology strategy and roadmap."
+      }
+    ]
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "growth",
+      "scenario_subtype": "geographic_expansion",
+      "classification_source": "explicit",
+      "classification_confidence": 1,
+      "classification_reasoning": "The scenario explicitly describes establishing a new engineering hub in a new geographic location (Munich) with the goal of expanding market reach and product development capacity, which aligns directly with growth and geographic expansion.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Initial weighting before scenario-specific adjustments, reflecting a generally balanced leadership role.",
+        "crisis_mgmt": 0.1,
+        "ops_depth": 0.2,
+        "change_adapt": 0.3,
+        "stakeholder": 0.25,
+        "external_net": 0.15
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Regulatory Complexity Impact",
+          "trigger_field": "business_context.regulatory_complexity",
+          "trigger_value": true,
+          "trigger_condition": "field is true",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.2,
+          "modifier_reasoning": "High regulatory complexity in Germany necessitates stronger operational depth to navigate local labor laws, permits, and compliance."
+        },
+        {
+          "modifier_name": "Urgency for Setup",
+          "trigger_field": "constraints.urgency_weeks",
+          "trigger_value": 24,
+          "trigger_condition": "value < 30",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.1,
+          "modifier_reasoning": "A tight timeline of 24 weeks to establish a new hub increases the demand for adaptability and rapid execution."
+        },
+        {
+          "modifier_name": "Greenfield Team Build",
+          "trigger_field": "team_context.team_exists",
+          "trigger_value": false,
+          "trigger_condition": "field is false",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Building a team from scratch in a new location requires significant change management and adaptability skills to define processes, culture, and hire effectively."
+        },
+        {
+          "modifier_name": "Internal Equity Risk",
+          "trigger_field": "constraints.internal_equity_risk",
+          "trigger_value": true,
+          "trigger_condition": "field is true",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Managing potential internal equity concerns due to establishing new market compensation structures requires strong stakeholder management and communication."
+        },
+        {
+          "modifier_name": "Competitive Market Pressure",
+          "trigger_field": "business_context.competitive_pressure",
+          "trigger_value": "High competition for tech talent in Munich; need to establish a strong employer brand quickly.",
+          "trigger_condition": "field indicates high pressure",
+          "dimension_affected": "external_net",
+          "multiplier": 1.15,
+          "modifier_reasoning": "Operating in a highly competitive talent market like Munich demands strong external networking to attract talent and build brand presence."
+        },
+        {
+          "modifier_name": "Relocation Complexity",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "field is true",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Managing the complexities of international relocation for an internal leader and potentially future hires requires careful coordination with internal stakeholders (HR, legal, finance) and support services."
+        }
+      ],
+      "final_weights": {
+        "description": "Calculated final weights after applying all relevant modifiers and normalization to ensure sum is 1.0.",
+        "crisis_mgmt": {
+          "value": 0.08258,
+          "confidence": 1,
+          "confidence_reasoning": "Derived from clear scenario inputs and applied modifiers, no conflicting data points.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.01742,
+          "business_logic": "This role is not primarily a crisis management role; its weighting is diluted by the increased importance of other dimensions."
+        },
+        "ops_depth": {
+          "value": 0.19818,
+          "confidence": 1,
+          "confidence_reasoning": "Derived from clear scenario inputs and applied modifiers, specifically increased due to regulatory complexity.",
+          "modifiers_that_touched_this_dimension": [
+            "Regulatory Complexity Impact"
+          ],
+          "net_movement_from_base": -0.00182,
+          "business_logic": "Crucial for establishing new operations in a regulated environment, requiring a leader with a strong grasp of operational setup and compliance."
+        },
+        "change_adapt": {
+          "value": 0.327,
+          "confidence": 1,
+          "confidence_reasoning": "Derived from clear scenario inputs and multiple applied modifiers indicating high need for adaptability.",
+          "modifiers_that_touched_this_dimension": [
+            "Urgency for Setup",
+            "Greenfield Team Build"
+          ],
+          "net_movement_from_base": 0.027,
+          "business_logic": "The highest priority dimension, reflecting the need to build a new hub from zero, in a new market, under tight timelines. Requires significant agility and entrepreneurial drive."
+        },
+        "stakeholder": {
+          "value": 0.24971,
+          "confidence": 1,
+          "confidence_reasoning": "Derived from clear scenario inputs and applied modifiers, indicating importance of internal and external relationship management.",
+          "modifiers_that_touched_this_dimension": [
+            "Internal Equity Risk",
+            "Relocation Complexity"
+          ],
+          "net_movement_from_base": -0.00029,
+          "business_logic": "Important for managing relations with HQ, local team, and navigating internal HR/legal complexities related to international relocation and equity."
+        },
+        "external_net": {
+          "value": 0.14253,
+          "confidence": 1,
+          "confidence_reasoning": "Derived from clear scenario inputs and applied modifiers, emphasizing the need for external engagement in a new market.",
+          "modifiers_that_touched_this_dimension": [
+            "Competitive Market Pressure"
+          ],
+          "net_movement_from_base": -0.00747,
+          "business_logic": "Essential for building brand presence, recruiting talent, and engaging with the local tech ecosystem in a competitive market like Munich."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+    "floor_constraints": {
+      "description": "Minimum acceptable capabilities for candidates, irrespective of overall weighting, reflecting critical requirements for the role's success.",
+      "active_floors": [
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 0.7,
+          "floor_reasoning": "Absolute necessity for a greenfield operation and new market entry; candidates must demonstrate high adaptability and entrepreneurial spirit.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 0.6,
+          "floor_reasoning": "Crucial for navigating German regulatory environment and setting up new operational processes effectively.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "external_net",
+          "minimum_score": 0.5,
+          "floor_reasoning": "Building a new presence in a competitive market requires proactive external engagement and networking.",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Floors are set based on non-negotiable aspects of building a new international hub, particularly greenfield operations, regulatory compliance, and market entry."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Identified potential correlations between different capability dimensions based on the scenario, which may imply overlap or synergistic requirements.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "change_adapt",
+          "dimension_b": "ops_depth",
+          "correlation_strength": "high",
+          "scenario_specific_note": "Building new operations in a new country heavily relies on both adaptability to new circumstances and deep operational understanding to implement efficient processes."
+        },
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "Effective internal stakeholder management (e.g., for resources, approvals) is often linked to the ability to build and leverage external networks for market insights and talent acquisition."
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "This scenario involves an internal leader relocating to Munich to establish and scale a new engineering hub. The primary focus is on growth through geographic expansion, requiring strong entrepreneurial drive, adaptability, and the ability to build an operation from scratch while navigating a new regulatory and competitive environment. Success hinges on rapid team building, cultural integration, and effective stakeholder management both internally and externally.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "timeline_pressure",
+          "description": "24-week urgency to establish the hub and build an initial team from zero.",
+          "impact_on_analysis": "Emphasizes need for candidates with proven rapid execution and start-up experience; reduces margin for error or slow ramp-up."
+        },
+        {
+          "flag_type": "cultural_friction",
+          "description": "New country, new team culture to build, requiring integration with HQ culture but also local adaptation.",
+          "impact_on_analysis": "Candidate needs strong cross-cultural communication skills, high EQ, and experience in establishing new team identities."
+        },
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "German labor laws, immigration, and local employment practices are complex and critical.",
+          "impact_on_analysis": "Requires a leader who either has direct experience or a strong ability to quickly grasp and navigate complex regulatory landscapes, partnering closely with local HR/legal."
+        },
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "The incumbent will be the first employee and must build the entire team.",
+          "impact_on_analysis": "Mandates a 'player-coach' leader with strong recruitment, onboarding, and team development capabilities, rather than someone who inherits and optimizes an existing structure."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Builder/Entrepreneur",
+          "archetype_description": "Proven track record of creating new functions, departments, or businesses from the ground up, with a hands-on approach.",
+          "why_fit_this_scenario": "This role is a greenfield operation; the leader must possess the vision, resilience, and practical skills to initiate and scale a new hub.",
+          "typical_weakness": "May struggle with optimizing highly mature, bureaucratic structures or prefer constant innovation over long-term stability."
+        },
+        {
+          "archetype_name": "The Cultural Integrator",
+          "archetype_description": "A leader with demonstrable experience in diverse cultural settings, high emotional intelligence, and a knack for fostering inclusive and high-performing cross-cultural teams.",
+          "why_fit_this_scenario": "Establishing a hub in Germany requires sensitivity to local culture, effective communication with HQ, and building a unified, effective team from diverse backgrounds.",
+          "typical_weakness": "Might sometimes prioritize harmony over challenging difficult issues if not balanced with strong decision-making."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Stabilizer/Maintainer",
+          "archetype_description": "Excels in optimizing existing, stable operations, improving efficiency within established frameworks, and managing mature teams.",
+          "why_wrong_for_this_scenario": "This role is about creation and rapid growth, not optimization. A 'maintainer' might lack the entrepreneurial drive and comfort with ambiguity needed for a greenfield setup.",
+          "typical_weakness": "May find ambiguity challenging, prefer clear processes, and struggle with the rapid, often unstructured demands of a startup environment."
+        },
+        {
+          "archetype_name": "The Lone Wolf Visionary",
+          "archetype_description": "Highly innovative and strategic, but prefers working independently or delegating heavily, with less focus on hands-on team building and stakeholder alignment.",
+          "why_wrong_for_this_scenario": "The role requires extensive hands-on team building, active collaboration with HQ stakeholders, and deep immersion in a new local ecosystem, which a 'lone wolf' might find challenging.",
+          "typical_weakness": "May struggle with the constant need for collaboration, hands-on implementation, and the nuanced people management required to build a new team and culture."
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Greenfield / Startup Experience",
+          "rationale": "Directly addresses the core requirement of building a new operation from scratch.",
+          "suggested_question": "Tell me about a time you were responsible for building a team, department, or function from its very inception. What were the key challenges, how did you prioritize, and what did you learn about your leadership style in that context?"
+        },
+        {
+          "theme": "Cross-Cultural and International Acumen",
+          "rationale": "Crucial for success in a new country with distinct business and social cultures.",
+          "suggested_question": "Describe a situation where you had to adapt your leadership or communication style significantly to succeed in a new cultural or international business environment. What specific adjustments did you make, and what was the outcome?"
+        },
+        {
+          "theme": "Talent Acquisition and Employer Branding in New Markets",
+          "rationale": "Essential for establishing the Munich hub's team in a competitive talent landscape.",
+          "suggested_question": "Imagine you have no existing employer brand in Munich. How would you approach attracting, hiring, and retaining top engineering talent for a new office, particularly given the competitive local market?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": true,
+      "weights_validated": true,
+      "completeness_percentage": 100,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}

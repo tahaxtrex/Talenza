@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'sonner';
 import {
   Upload, FileText, X, Loader2, CheckCircle, ChevronRight,
   MessageCircle, BarChart3, Users, ArrowRight, AlertCircle,
@@ -202,9 +203,11 @@ export default function InternalPipeline() {
         setCurrentQA({ field: q.field || q.dimension || 'unknown', question: q.question });
         setStep('qa');
       } else {
-        // Scenario is complete
+        // n8n scenario metadata usually contains the ID under .meta.scenario_id or .scenario_id
+        const sId = result.scenarioFinal?.meta?.scenario_id || result.scenarioFinal?.scenario_id || `scenario_${Date.now()}`;
+        
         const scenarioData: ScenarioData = {
-          id: crypto.randomUUID(),
+          id: sId,
           type: 'internal',
           raw_description: scenarioText,
           created_at: new Date().toISOString(),
@@ -241,14 +244,16 @@ export default function InternalPipeline() {
       setScenarioParsing(true);
       setCurrentQA(null);
       try {
-        const scenarioId = scenarioDraft?.meta?.scenario_id || `scenario_${Date.now()}`;
+        const scenarioId = scenarioDraft?.meta?.scenario_id || scenarioDraft?.scenario_id || `scenario_${Date.now()}`;
         const formattedAnswers = newAnswers.map(a => ({ field: a.field, value: a.answer }));
         
         const result = await n8nSubmitQA(scenarioId, 'internal', formattedAnswers);
 
-        // Complete
+        // n8n scenario metadata usually contains the ID under .meta.scenario_id or .scenario_id
+        const sId = result.scenario?.meta?.scenario_id || result.scenario?.scenario_id || scenarioId;
+
         const scenarioData: ScenarioData = {
-          id: scenarioId,
+          id: sId,
           type: 'internal',
           raw_description: scenarioText,
           created_at: new Date().toISOString(),
@@ -259,7 +264,7 @@ export default function InternalPipeline() {
         saveScenario(scenarioData);
         setStep('cost-analysis');
       } catch {
-        // Error toasted
+        // Error already toasted
       } finally {
         setScenarioParsing(false);
       }
@@ -270,10 +275,24 @@ export default function InternalPipeline() {
   const [sourcingResult, setSourcingResult] = useState<SourcingResponse | null>(null);
 
   const runCostAnalysis = async () => {
-    if (!scenario?.id) return;
-    const res = await n8nAnalyzeSourcing(scenario.id, candidates.map(c => c.id));
-    if (res) {
-      setSourcingResult(res);
+    // If we have a scenario object but id is missing, use 'latest' string (triggering n8n internal search)
+    const sId = scenario?.id || scenario?.n8n_scenario?.meta?.scenario_id || 'latest';
+    
+    if (sId === 'latest') {
+      console.warn('No specific scenario ID found, falling back to "latest" mode for analysis');
+      toast('Checking latest scenario data...');
+    }
+
+    try {
+      const res = await n8nAnalyzeSourcing(sId, candidates.map(c => c.id));
+      if (res) {
+        setSourcingResult(res);
+      } else {
+        toast.error('Analysis returned empty results. Please check n8n logs.');
+      }
+    } catch (err: any) {
+      console.error('Sourcing analysis error:', err);
+      toast.error(err.message || 'The sourcing strategy webhook failed. Check n8n console.');
     }
   };
 
@@ -289,28 +308,68 @@ export default function InternalPipeline() {
       if (report.mock) {
         setScores(report.ranked_list);
       } else {
-        // n8n report — display the raw report (structure depends on AI output)
-        // Try to extract ranked_list if available
+        // n8n report — extract ranked_list and map dimension scores
         const rankedList = report.ranked_list || report.scoring?.ranked_list || [];
-        const mapped: ScoringResult[] = rankedList.map((c: any, i: number) => ({
-          candidateId: c.candidate_id || c.candidateId || `candidate_${i}`,
-          candidateName: c.candidate_name || c.name || c.candidateName || 'Unknown',
-          candidateRole: c.role || c.candidateRole || '',
-          overallScore: Math.round((c.total_score || c.overall_score || c.overallScore || 0) * 100) / 100,
-          rank: c.rank || i + 1,
-          breakdown: {
-            scenario_fit: 0,
-            experience_match: 0,
-            leadership_fit: 0,
-            availability: 0,
-            risk_factor: 0,
-          },
-          dimensions: [],
-          strengths: c.strengths || [],
-          risks: c.risks || c.concerns || [],
-          recommendation: c.recommendation || '',
-          detailedRationale: c.rationale || c.detailed_rationale || '',
-        }));
+        const weights = report.scoring_method?.weights_used || {};
+        const dimensionKeys = Object.keys(weights).length > 0
+          ? Object.keys(weights)
+          : ['crisis_mgmt', 'ops_depth', 'change_adapt', 'stakeholder', 'external_net'];
+
+        const mapped: ScoringResult[] = rankedList.map((c: any, i: number) => {
+          const dimScores = c.dimension_scores || {};
+
+          // Build breakdown: convert 0-10 scores to 0-100 percentage
+          const breakdown: Record<string, number> = {};
+          for (const key of dimensionKeys) {
+            breakdown[key] = Math.round((dimScores[key] || 0) * 10);
+          }
+
+          // Calculate overall score as weighted sum (0-10 scale → 0-100)
+          let overallScore = c.total_score ?? c.overall_score ?? c.overallScore;
+          if (overallScore == null || overallScore === 0) {
+            // Calculate from dimension scores and weights
+            let total = 0;
+            for (const key of dimensionKeys) {
+              const w = weights[key] || (1 / dimensionKeys.length);
+              total += (dimScores[key] || 0) * w;
+            }
+            overallScore = Math.round(total * 10); // 0-10 weighted → 0-100
+          } else if (overallScore <= 1) {
+            overallScore = Math.round(overallScore * 100); // 0-1 → 0-100
+          } else if (overallScore <= 10) {
+            overallScore = Math.round(overallScore * 10); // 0-10 → 0-100
+          } else {
+            overallScore = Math.round(overallScore);
+          }
+
+          // Build dimensions array for expanded view
+          const dimensions = dimensionKeys.map((key) => {
+            const score = Math.round((dimScores[key] || 0) * 10);
+            const weight = Math.round((weights[key] || 0) * 100);
+            return {
+              label: key.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
+              score,
+              weight,
+              reasoning: c.dimension_rationale?.[key] || c.rationale_per_dimension?.[key] || '',
+              evidence: c.evidence_per_dimension?.[key] || [],
+              impact: score >= 70 ? 'positive' as const : score >= 45 ? 'neutral' as const : 'negative' as const,
+            };
+          });
+
+          return {
+            candidateId: c.candidate_id || c.candidateId || `candidate_${i}`,
+            candidateName: c.candidate_name || c.name || c.candidateName || 'Unknown',
+            candidateRole: c.role || c.candidateRole || '',
+            overallScore,
+            rank: c.rank || i + 1,
+            breakdown,
+            dimensions,
+            strengths: c.strengths || [],
+            risks: c.risks || c.concerns || [],
+            recommendation: c.recommendation || '',
+            detailedRationale: c.rationale || c.detailed_rationale || '',
+          };
+        });
         setScores(mapped.length > 0 ? mapped : []);
       }
     } catch {
@@ -895,13 +954,36 @@ export default function InternalPipeline() {
                     </>
                   )}
 
-                  {/* Raw report JSON (always show for n8n results) */}
-                  {scoringReport && !scoringReport.mock && (
+                  {/* Scoring method summary */}
+                  {scoringReport && !scoringReport.mock && scoringReport.scoring_method && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-6">
-                      <h3 style={{ fontFamily: 'var(--font-display)' }} className="text-[18px] text-[hsl(var(--color-text-primary))] mb-3">Full Scoring Report</h3>
-                      <pre className="bg-[#0F1117] text-white/70 text-[12px] leading-[1.8] rounded-xl p-5 overflow-x-auto max-h-[600px]" style={{ fontFamily: 'var(--font-mono)' }}>
-                        {JSON.stringify(scoringReport, null, 2)}
-                      </pre>
+                      <h3 style={{ fontFamily: 'var(--font-display)' }} className="text-[18px] text-[hsl(var(--color-text-primary))] mb-3">Scoring Weights</h3>
+                      <div className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                          {Object.entries(scoringReport.scoring_method.weights_used || {}).map(([key, val]) => (
+                            <div key={key} className="text-center">
+                              <div className="relative w-14 h-14 mx-auto mb-2">
+                                <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                                  <circle cx="18" cy="18" r="15.5" fill="none" stroke="hsl(var(--color-surface-2))" strokeWidth="3" />
+                                  <circle
+                                    cx="18" cy="18" r="15.5" fill="none"
+                                    stroke="hsl(var(--color-accent))"
+                                    strokeWidth="3"
+                                    strokeDasharray={`${(val as number) * 100 * 0.9735} 97.35`}
+                                    strokeLinecap="round"
+                                  />
+                                </svg>
+                                <span style={{ fontFamily: 'var(--font-display)' }} className="absolute inset-0 flex items-center justify-center text-[13px] text-[hsl(var(--color-text-primary))]">
+                                  {Math.round((val as number) * 100)}%
+                                </span>
+                              </div>
+                              <p style={{ fontFamily: 'var(--font-body)' }} className="text-[11px] text-[hsl(var(--color-text-secondary))] capitalize leading-tight">
+                                {key.replace(/_/g, ' ')}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </>

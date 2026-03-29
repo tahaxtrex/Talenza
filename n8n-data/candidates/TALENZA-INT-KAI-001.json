@@ -1,0 +1,116 @@
+{
+  "candidate_id": "TALENZA-INT-KAI-001",
+  "source_type": "internal",
+  "created_at": "2026-03-29T14:36:55.891Z",
+  "identity": {
+    "full_name": "Kai",
+    "current_role": "Director of Quality",
+    "current_employer": "BMW",
+    "email": null,
+    "phone": null,
+    "location": "Munich, Germany",
+    "years_total_experience": null,
+    "years_automotive_experience": null,
+    "languages": [
+      "French",
+      "English"
+    ]
+  },
+  "career_trajectory": [
+    {
+      "role": "Director of Quality",
+      "employer": "BMW",
+      "duration_years": null,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Achieved IATF zero-nonconformity result in 2023; piloted AI inspection generating board-level interest; developed quality documentation recognized as best in European automotive."
+    }
+  ],
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 3,
+      "evidence": [
+        "Leadership style would struggle in a role requiring rapid organisational change or political navigation."
+      ],
+      "gaps": [
+        "No full production P&L experience",
+        "Wrong for crisis leadership"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 9,
+      "evidence": [
+        "Exceptional at making existing systems excellent",
+        "IATF zero-nonconformity result in 2023 was genuinely remarkable",
+        "Munich’s quality documentation was the best seen in European automotive",
+        "AI inspection pilot is generating real interest at board level",
+        "Provides rigorous, evidence-based perspective on operational problems"
+      ],
+      "gaps": []
+    },
+    "change_adaptability": {
+      "score_raw": 3,
+      "evidence": [
+        "Not a builder of new things; he is a perfecter of existing things",
+        "Would struggle in a role requiring rapid organisational change",
+        "Uncomfortable with ambiguity and prefers structured decision frameworks",
+        "Under pressure becomes more detailed and methodical, not less"
+      ],
+      "gaps": [
+        "Not a 'builder'",
+        "Struggles with rapid organisational change"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8,
+      "evidence": [
+        "Deeply trusted cross-functionally within BMW",
+        "Production managers, engineering leads, and supply chain directors all respect his judgement",
+        "Other directors call him for rigorous, evidence-based perspectives"
+      ],
+      "gaps": []
+    },
+    "external_network": {
+      "score_raw": 2,
+      "evidence": [
+        "External network is limited to quality standards bodies"
+      ],
+      "gaps": [
+        "Limited external network"
+      ]
+    }
+  },
+  "personality_profile": {
+    "dominant_traits": [
+      "Analytical",
+      "Precise",
+      "Methodical",
+      "Self-aware",
+      "Quietly confident"
+    ],
+    "leadership_style": "Analytical and methodical",
+    "decision_making_pattern": "Structured decision frameworks, data-driven",
+    "stress_response": "Becomes more detailed and methodical",
+    "collaboration_style": "Deeply collaborative within his domain",
+    "ambiguity_tolerance": "low",
+    "change_orientation": "stabiliser"
+  },
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Strong candidate for VP Quality or a steady-state VP Operations role.",
+    "cultural_fit_rating": null,
+    "key_strength_observed": "Exceptional at making existing systems excellent, deep operational expertise in quality, highly trusted cross-functionally, self-aware about strengths and limitations.",
+    "development_area": "P&L ownership, leading rapid organisational change, expanding external network.",
+    "retention_risk": null,
+    "raw_opinion": "Kai is exceptional at making existing systems excellent. His IATF zero-nonconformity result in 2023 was genuinely remarkable — the audit team commented that Munich’s quality documentation was the best they had seen in European automotive. His AI inspection pilot is generating real interest at board level. He is deeply trusted cross-functionally within BMW. Production managers, engineering leads, and supply chain directors all respect his judgement. He is the person other directors call when they need a rigorous, evidence-based perspective on an operational problem. The honest limitations: Kai has never owned a full production P&L. His scope has always been quality — deep but narrow. He is not a builder of new things; he is a perfecter of existing things. He knows this about himself and has said so directly. His leadership style is analytical and methodical, which creates excellence in quality systems but would struggle in a role requiring rapid organisational change or political navigation. His external network is limited to quality standards bodies. Assessment: strong candidate for VP Quality or a steady-state VP Operations role. Wrong for crisis leadership (no P&L experience) and wrong for transformation (not a builder). Perfect for operational excellence in a stable environment."
+  },
+  "hiring_logistics": {
+    "notice_period_weeks": null,
+    "relocation_required": null,
+    "estimated_package_eur": null,
+    "availability_date": null
+  },
+  "tension_summary": "Kai excels in perfecting existing systems and ensuring operational excellence, as evidenced by his zero-nonconformity audits and trusted cross-functional relationships. However, his lack of full P&L ownership, discomfort with ambiguity, and preference for methodical, data-driven approaches limit his suitability for roles requiring rapid organizational change, crisis management, or significant external networking. He is a stabiliser, not a transformer or builder.",
+  "best_fit_scenario": "growth",
+  "worst_fit_scenario": "crisis"
+}

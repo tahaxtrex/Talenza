@@ -1,5 +1,6 @@
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'sonner';
 import {
   Upload, FileText, X, Loader2, CheckCircle, ChevronRight,
   MessageCircle, BarChart3, Users, ArrowRight, AlertCircle,
@@ -184,8 +185,11 @@ export default function ExternalPipeline() {
         setCurrentQA({ field: q.field || q.dimension || 'unknown', question: q.question });
         setStep('qa');
       } else {
+        // n8n scenario metadata usually contains the ID under .meta.scenario_id or .scenario_id
+        const sId = result.scenarioFinal?.meta?.scenario_id || result.scenarioFinal?.scenario_id || `scenario_${Date.now()}`;
+
         const scenarioData: ScenarioData = {
-          id: crypto.randomUUID(),
+          id: sId,
           type: 'external',
           raw_description: scenarioText,
           created_at: new Date().toISOString(),
@@ -197,7 +201,7 @@ export default function ExternalPipeline() {
         setStep('scoring');
       }
     } catch {
-      // Error toasted
+      // Error already toasted
     } finally {
       setScenarioParsing(false);
     }
@@ -221,13 +225,16 @@ export default function ExternalPipeline() {
       setScenarioParsing(true);
       setCurrentQA(null);
       try {
-        const scenarioId = scenarioDraft?.meta?.scenario_id || `scenario_${Date.now()}`;
+        const scenarioId = scenarioDraft?.meta?.scenario_id || scenarioDraft?.scenario_id || `scenario_${Date.now()}`;
         const formattedAnswers = newAnswers.map(a => ({ field: a.field, value: a.answer }));
 
         const result = await n8nSubmitQA(scenarioId, 'external', formattedAnswers);
 
+        // n8n scenario metadata usually contains the ID under .meta.scenario_id or .scenario_id
+        const sId = result.scenario?.meta?.scenario_id || result.scenario?.scenario_id || scenarioId;
+
         const scenarioData: ScenarioData = {
-          id: scenarioId,
+          id: sId,
           type: 'external',
           raw_description: scenarioText,
           created_at: new Date().toISOString(),
@@ -238,7 +245,7 @@ export default function ExternalPipeline() {
         saveScenario(scenarioData);
         setStep('scoring');
       } catch {
-        // Error toasted
+        // Error already toasted
       } finally {
         setScenarioParsing(false);
       }

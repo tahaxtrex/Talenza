@@ -1,0 +1,428 @@
+{
+  "meta": {
+    "scenario_id": "scenario_1774795405091",
+    "created_at": "2024-07-30T12:00:00Z",
+    "version": "1.0",
+    "status": "draft_needs_qa",
+    "track": "internal",
+    "updated_at": "2026-03-29T14:43:25.091Z"
+  },
+  "role": {
+    "title": null,
+    "seniority_level": null,
+    "department": null,
+    "primary_location": "Munich",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": null,
+    "travel_percentage": null
+  },
+  "business_context": {
+    "situation_type": null,
+    "situation_subtype": null,
+    "description": "An internal scenario focused on a migration to Munich. The specific context (e.g., individual, team, new office, strategic shift) is undefined.",
+    "urgency_driver": null,
+    "board_visibility": null,
+    "external_visibility_risk": null,
+    "geopolitical_complexity": null,
+    "geopolitical_description": null,
+    "regulatory_complexity": null,
+    "regulatory_description": null,
+    "competitive_pressure": null
+  },
+  "constraints": {
+    "urgency_weeks": null,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": null,
+    "can_use_search_firm": null,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": null,
+    "package_budget_base_eur": null,
+    "package_out_of_band_possible": null,
+    "package_approval_required": null,
+    "internal_equity_risk": null,
+    "personal_security_risk": null,
+    "language_requirements": [],
+    "cultural_requirements": [],
+    "legal_clearance_required": null
+  },
+  "priority_capabilities": {
+    "must_have_1": null,
+    "must_have_2": null,
+    "must_have_3": null,
+    "nice_to_have_1": null,
+    "nice_to_have_2": null,
+    "explicit_disqualifiers": []
+  },
+  "team_context": {
+    "team_exists": null,
+    "team_size_current": null,
+    "team_size_target_year1": null,
+    "team_size_target_year2": null,
+    "team_type": null,
+    "inherited_technical_debt": null,
+    "inherited_culture_issues": null,
+    "key_stakeholders": []
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": null,
+      "scenario_subtype": null,
+      "classification_source": "inferred",
+      "classification_confidence": 0.3,
+      "classification_reasoning": "The input 'migrate to munich' suggests a relocation or new office setup, but lacks detail to categorize as crisis, transformation, growth, or succession. 'internal' track indicates it's not an external hire drive per se, but could be related to any of the types for internal movement.",
+      "ambiguity_flag": true,
+      "ambiguity_note": "The core intent and drivers for the 'migration to Munich' are entirely unclear. Is it an individual move? A team move? Opening a new office? A strategic business shift? This impacts the scenario type significantly."
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Neutral starting point due to extremely limited input, with no specific signals to prioritize any dimension.",
+        "crisis_mgmt": 0.2,
+        "ops_depth": 0.2,
+        "change_adapt": 0.2,
+        "stakeholder": 0.2,
+        "external_net": 0.2
+      },
+      "modifiers_applied": [],
+      "final_weights": {
+        "description": "Final weights reflect the lack of specific inputs to emphasize any particular dimension.",
+        "crisis_mgmt": {
+          "value": 0.2,
+          "confidence": 0.3,
+          "confidence_reasoning": "Minimal input provided no specific signals to adjust weights from a neutral baseline.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": null
+        },
+        "ops_depth": {
+          "value": 0.2,
+          "confidence": 0.3,
+          "confidence_reasoning": "Minimal input provided no specific signals to adjust weights from a neutral baseline.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": null
+        },
+        "change_adapt": {
+          "value": 0.2,
+          "confidence": 0.3,
+          "confidence_reasoning": "Minimal input provided no specific signals to adjust weights from a neutral baseline.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": null
+        },
+        "stakeholder": {
+          "value": 0.2,
+          "confidence": 0.3,
+          "confidence_reasoning": "Minimal input provided no specific signals to adjust weights from a neutral baseline.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": null
+        },
+        "external_net": {
+          "value": 0.2,
+          "confidence": 0.3,
+          "confidence_reasoning": "Minimal input provided no specific signals to adjust weights from a neutral baseline.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": null
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [
+          "crisis_mgmt",
+          "ops_depth",
+          "change_adapt",
+          "stakeholder",
+          "external_net"
+        ],
+        "validation_questions_triggered": [
+          {
+            "dimension": "crisis_mgmt",
+            "question": "Is crisis management a significant factor in this migration to Munich? For example, is there a current critical issue driving the move, or a high risk of one?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "ops_depth",
+            "question": "Does this migration require deep operational expertise to manage complex processes, logistics, or integrate existing systems in Munich?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "change_adapt",
+            "question": "Is the migration to Munich primarily a change initiative requiring high adaptability, resilience, and change leadership from the individual or team involved?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "stakeholder",
+            "question": "Will navigating a complex internal and/or external stakeholder landscape be a critical aspect of successfully executing this migration to Munich?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "external_net",
+            "question": "Does this migration to Munich involve significant external networking, market development, or engagement with external entities to succeed?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          }
+        ]
+      }
+    },
+    "floor_constraints": {
+      "description": "No specific business context or constraints were provided to establish minimum floor requirements for any capability dimensions.",
+      "active_floors": [],
+      "floor_derivation_logic": "No explicit or inferable information to set floor constraints."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Not enough information to identify meaningful dimension correlations for this scenario.",
+      "correlated_pairs": []
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "An internal scenario involving a migration to Munich. The specific context, such as whether it's an individual, team, or office relocation, and the underlying business drivers, are currently undefined. This lack of detail makes it difficult to assess specific challenges or required capabilities beyond a general need for adaptability if it's a change-related move.",
+      "hidden_complexity_flags": [],
+      "candidate_archetypes_to_seek": [],
+      "candidate_archetypes_to_avoid": [],
+      "scenario_specific_interview_themes": []
+    },
+    "completeness": {
+      "null_mandatory_fields": [
+        {
+          "field_path": "role.title",
+          "field_label": "Role Title",
+          "blocks_analysis": true,
+          "qa_question": "What is the specific title of the role being considered for migration to Munich?",
+          "expected_type": "string",
+          "example_answer": "Head of Engineering, Germany"
+        },
+        {
+          "field_path": "role.seniority_level",
+          "field_label": "Seniority Level",
+          "blocks_analysis": true,
+          "qa_question": "What is the seniority level of the role for this migration?",
+          "expected_type": "string",
+          "example_answer": "director"
+        },
+        {
+          "field_path": "business_context.situation_type",
+          "field_label": "Business Situation Type",
+          "blocks_analysis": true,
+          "qa_question": "What is the primary business situation driving this migration to Munich? (e.g., crisis, transformation, growth, succession)",
+          "expected_type": "string",
+          "example_answer": "growth"
+        },
+        {
+          "field_path": "business_context.description",
+          "field_label": "Business Context Description",
+          "blocks_analysis": true,
+          "qa_question": "Please provide a detailed description of the business context and the reasons for this migration to Munich.",
+          "expected_type": "string",
+          "example_answer": "We are establishing a new R&D hub in Munich to tap into the local tech talent pool and accelerate product development for the DACH market."
+        },
+        {
+          "field_path": "constraints.urgency_weeks",
+          "field_label": "Urgency (Weeks)",
+          "blocks_analysis": true,
+          "qa_question": "How many weeks do we have to complete this migration/placement in Munich?",
+          "expected_type": "integer",
+          "example_answer": "12"
+        },
+        {
+          "field_path": "constraints.package_budget_total_eur",
+          "field_label": "Total Package Budget (EUR)",
+          "blocks_analysis": true,
+          "qa_question": "What is the total compensation package budget (in EUR) for this role or migration to Munich?",
+          "expected_type": "float",
+          "example_answer": "250000.00"
+        }
+      ],
+      "null_soft_fields": [
+        {
+          "field_path": "role.department",
+          "field_label": "Department",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits ability to target candidates with relevant departmental experience.",
+          "qa_question": "Which department will this role or team migration fall under in Munich?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "role.travel_percentage",
+          "field_label": "Travel Percentage",
+          "blocks_analysis": false,
+          "impact_if_missing": "May miss crucial candidate preferences or role requirements related to travel.",
+          "qa_question": "What percentage of travel is expected for this role?",
+          "expected_type": "integer"
+        },
+        {
+          "field_path": "role.relocation_support_available",
+          "field_label": "Relocation Support Available",
+          "blocks_analysis": false,
+          "impact_if_missing": "Crucial for attracting candidates for a mandatory relocation role. Missing this could hinder candidate interest.",
+          "qa_question": "Is relocation support (e.g., visa, housing assistance) available for this move to Munich?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "business_context.urgency_driver",
+          "field_label": "Urgency Driver",
+          "blocks_analysis": false,
+          "impact_if_missing": "Reduces understanding of search priority and potential risks of delay.",
+          "qa_question": "What is driving the urgency for this migration to Munich?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "business_context.board_visibility",
+          "field_label": "Board Visibility",
+          "blocks_analysis": false,
+          "impact_if_missing": "Affects the perceived importance and stakeholder management intensity.",
+          "qa_question": "What level of board visibility does this migration to Munich have?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "business_context.external_visibility_risk",
+          "field_label": "External Visibility Risk",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could lead to reputational or market perception issues if not managed correctly.",
+          "qa_question": "Is there any external visibility or reputational risk associated with this migration?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "business_context.geopolitical_complexity",
+          "field_label": "Geopolitical Complexity",
+          "blocks_analysis": false,
+          "impact_if_missing": "May overlook critical external factors impacting the success of the move.",
+          "qa_question": "Are there any geopolitical complexities influencing this migration to Munich?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "business_context.regulatory_complexity",
+          "field_label": "Regulatory Complexity",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could lead to legal or compliance issues if not addressed proactively.",
+          "qa_question": "Are there any significant regulatory complexities related to this migration or the role in Munich?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "constraints.can_use_search_firm",
+          "field_label": "Can Use Search Firm",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits strategic options for candidate sourcing.",
+          "qa_question": "Are we permitted to use an external search firm for this migration or role in Munich?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "constraints.package_budget_base_eur",
+          "field_label": "Base Package Budget (EUR)",
+          "blocks_analysis": false,
+          "impact_if_missing": "Crucial for defining the base salary component of the compensation structure.",
+          "qa_question": "What is the base salary component of the package budget (in EUR) for this role?",
+          "expected_type": "float"
+        },
+        {
+          "field_path": "constraints.package_out_of_band_possible",
+          "field_label": "Out-of-Band Package Possible",
+          "blocks_analysis": false,
+          "impact_if_missing": "Restricts flexibility in attracting top talent if budget is strict.",
+          "qa_question": "Is there any flexibility for an 'out-of-band' compensation package for exceptional candidates?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "constraints.internal_equity_risk",
+          "field_label": "Internal Equity Risk",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could cause internal unrest or retention issues if not managed.",
+          "qa_question": "Is there a risk to internal equity with the proposed compensation for this migration/role?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "constraints.language_requirements",
+          "field_label": "Language Requirements",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could lead to unsuitable candidate shortlists in a multi-lingual environment like Munich.",
+          "qa_question": "Are there any specific language requirements for this role in Munich (e.g., German, English)?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.cultural_requirements",
+          "field_label": "Cultural Requirements",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could lead to poor cultural fit, impacting team cohesion and success.",
+          "qa_question": "Are there specific cultural requirements or sensitivities to consider for this role/move to Munich?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.legal_clearance_required",
+          "field_label": "Legal Clearance Required",
+          "blocks_analysis": false,
+          "impact_if_missing": "Could cause significant delays or legal non-compliance.",
+          "qa_question": "Is any specific legal or security clearance required for this role in Germany/Munich?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "priority_capabilities.must_have_1",
+          "field_label": "Must-Have Capability 1",
+          "blocks_analysis": false,
+          "impact_if_missing": "Significantly hinders the ability to identify and screen suitable candidates effectively.",
+          "qa_question": "What is the absolute first 'must-have' capability for a successful candidate for this migration/role?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "team_context.team_exists",
+          "field_label": "Team Exists",
+          "blocks_analysis": false,
+          "impact_if_missing": "Impacts the type of leader required (builder vs. optimizer).",
+          "qa_question": "Is there an existing team in Munich that this role will be joining or leading?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "team_context.team_size_current",
+          "field_label": "Current Team Size",
+          "blocks_analysis": false,
+          "impact_if_missing": "Provides crucial context for leadership experience and team management scope.",
+          "qa_question": "What is the current size of the team in Munich (if it exists)?",
+          "expected_type": "integer"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [
+        {
+          "dimension": "crisis_mgmt",
+          "current_value": 0.2,
+          "confidence": 0.3,
+          "validation_question": "Is crisis management a significant factor in this migration to Munich? For example, is there a current critical issue driving the move, or a high risk of one?"
+        },
+        {
+          "dimension": "ops_depth",
+          "current_value": 0.2,
+          "confidence": 0.3,
+          "validation_question": "Does this migration require deep operational expertise to manage complex processes, logistics, or integrate existing systems in Munich?"
+        },
+        {
+          "dimension": "change_adapt",
+          "current_value": 0.2,
+          "confidence": 0.3,
+          "validation_question": "Is the migration to Munich primarily a change initiative requiring high adaptability, resilience, and change leadership from the individual or team involved?"
+        },
+        {
+          "dimension": "stakeholder",
+          "current_value": 0.2,
+          "confidence": 0.3,
+          "validation_question": "Will navigating a complex internal and/or external stakeholder landscape be a critical aspect of successfully executing this migration to Munich?"
+        },
+        {
+          "dimension": "external_net",
+          "current_value": 0.2,
+          "confidence": 0.3,
+          "validation_question": "Does this migration to Munich involve significant external networking, market development, or engagement with external entities to succeed?"
+        }
+      ],
+      "mandatory_fields_complete": false,
+      "soft_fields_complete": false,
+      "weights_validated": false,
+      "completeness_percentage": 5,
+      "is_complete": false,
+      "ready_for_analysis": false
+    }
+  }
+}

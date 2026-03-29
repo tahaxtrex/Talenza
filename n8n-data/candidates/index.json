@@ -118,5 +118,15 @@
     "created_at": "2026-03-28T09:00:00Z",
     "updated_at": "2026-03-29T13:43:57.940Z",
     "file": "candidates/internal_thomas_richter_001.json"
+  },
+  {
+    "candidate_id": "TALENZA-INT-KAI-001",
+    "source_type": "internal",
+    "full_name": "Kai",
+    "current_role": "Director of Quality",
+    "current_employer": "BMW",
+    "created_at": "2026-03-29T14:36:55.891Z",
+    "updated_at": "2026-03-29T14:36:55.896Z",
+    "file": "candidates/TALENZA-INT-KAI-001.json"
   }
 ]

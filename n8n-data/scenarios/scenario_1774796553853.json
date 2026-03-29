@@ -1,0 +1,465 @@
+{
+  "meta": {
+    "scenario_id": "scenario_1774796553853",
+    "created_at": "2024-07-30T12:00:00Z",
+    "version": "1.0",
+    "status": "draft_needs_qa",
+    "track": "internal",
+    "updated_at": "2026-03-29T15:02:33.853Z"
+  },
+  "role": {
+    "title": null,
+    "seniority_level": null,
+    "department": null,
+    "primary_location": "Stuttgart",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": null,
+    "travel_percentage": null
+  },
+  "business_context": {
+    "situation_type": "transformation",
+    "situation_subtype": "geographic_expansion",
+    "description": "Company operations or a significant part of them are migrating to Stuttgart. This implies setting up new infrastructure, processes, and potentially integrating or building new teams in a new location.",
+    "urgency_driver": null,
+    "board_visibility": null,
+    "external_visibility_risk": null,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": null,
+    "regulatory_description": null,
+    "competitive_pressure": null
+  },
+  "constraints": {
+    "urgency_weeks": null,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": null,
+    "can_use_search_firm": null,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": null,
+    "package_budget_base_eur": null,
+    "package_out_of_band_possible": null,
+    "package_approval_required": null,
+    "internal_equity_risk": null,
+    "personal_security_risk": null,
+    "language_requirements": [
+      "German"
+    ],
+    "cultural_requirements": [
+      "German business culture"
+    ],
+    "legal_clearance_required": null
+  },
+  "priority_capabilities": {
+    "must_have_1": null,
+    "must_have_2": null,
+    "must_have_3": null,
+    "nice_to_have_1": null,
+    "nice_to_have_2": null,
+    "explicit_disqualifiers": []
+  },
+  "team_context": {
+    "team_exists": null,
+    "team_size_current": null,
+    "team_size_target_year1": null,
+    "team_size_target_year2": null,
+    "team_type": null,
+    "inherited_technical_debt": null,
+    "inherited_culture_issues": null,
+    "key_stakeholders": []
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "transformation",
+      "scenario_subtype": "geographic_expansion",
+      "classification_source": "inferred",
+      "classification_confidence": 0.8,
+      "classification_reasoning": "The scenario describes a 'migrating to Stuttgart' which directly implies a geographic and operational transformation, specifically a geographic expansion or relocation.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Default weights for a general transformation scenario, prior to specific modifiers.",
+        "crisis_mgmt": 0.1,
+        "ops_depth": 0.3,
+        "change_adapt": 0.4,
+        "stakeholder": 0.1,
+        "external_net": 0.1
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Geographic Migration (Stuttgart)",
+          "trigger_field": "role.primary_location",
+          "trigger_value": "Stuttgart",
+          "trigger_condition": "equals",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Adapting to a new geographic and cultural environment in Stuttgart will increase the demand for change adaptation."
+        },
+        {
+          "modifier_name": "Geographic Migration (Stuttgart)",
+          "trigger_field": "role.primary_location",
+          "trigger_value": "Stuttgart",
+          "trigger_condition": "equals",
+          "dimension_affected": "external_net",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Establishing new local networks and integrating into the Stuttgart ecosystem will be crucial."
+        },
+        {
+          "modifier_name": "Relocation Required",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "equals",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Managing the complexities of physical relocation and setting up new operations requires significant adaptability."
+        },
+        {
+          "modifier_name": "Relocation Required",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "equals",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Ensuring operational continuity and a robust setup in the new location demands deep operational expertise."
+        }
+      ],
+      "final_weights": {
+        "description": "Normalized weights after applying scenario-specific modifiers.",
+        "crisis_mgmt": {
+          "value": 0.088,
+          "confidence": 0.8,
+          "confidence_reasoning": "Inferred from the transformation context, but specific crisis drivers are absent.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.012,
+          "business_logic": "Baseline relevance for any significant business change, proportionally adjusted."
+        },
+        "ops_depth": {
+          "value": 0.291,
+          "confidence": 0.9,
+          "confidence_reasoning": "High confidence due to direct implication of operational setup in a new location.",
+          "modifiers_that_touched_this_dimension": [
+            "Relocation Required"
+          ],
+          "net_movement_from_base": -0.009,
+          "business_logic": "Crucial for planning and executing the physical and procedural aspects of migration and establishing new operations."
+        },
+        "change_adapt": {
+          "value": 0.427,
+          "confidence": 0.95,
+          "confidence_reasoning": "Very high confidence as adaptation to a new city and operational environment is central to the scenario.",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic Migration (Stuttgart)",
+            "Relocation Required"
+          ],
+          "net_movement_from_base": 0.027,
+          "business_logic": "The core competency for successfully navigating a geographic migration, dealing with unforeseen challenges, and cultural integration."
+        },
+        "stakeholder": {
+          "value": 0.088,
+          "confidence": 0.75,
+          "confidence_reasoning": "Inferred as important for internal/external coordination, but specific stakeholder dynamics are not detailed.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.012,
+          "business_logic": "Maintaining communication and alignment with internal teams and potentially new local partners."
+        },
+        "external_net": {
+          "value": 0.106,
+          "confidence": 0.85,
+          "confidence_reasoning": "Inferred as important for new local integration, but specific external needs are not detailed.",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic Migration (Stuttgart)"
+          ],
+          "net_movement_from_base": 0.006,
+          "business_logic": "Establishing new relationships in the local Stuttgart market, be it with vendors, customers, or local authorities."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+    "floor_constraints": {
+      "description": "Floors are set based on the inferred nature of a geographic migration and transformation.",
+      "active_floors": [
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 0.3,
+          "floor_reasoning": "Essential for managing a geographic migration and adapting to a new environment. Without strong change adaptation, the migration is likely to fail.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 0.2,
+          "floor_reasoning": "Critical for ensuring smooth operational setup and continuity in the new location. Poor operational execution during migration can lead to significant business disruption.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        }
+      ],
+      "floor_derivation_logic": "For a scenario involving geographic migration, a high degree of adaptability and operational competence is non-negotiable for success. These are set as hard knockouts to ensure candidates possess the fundamental skills required for such a complex undertaking."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Correlations identified between dimensions relevant to managing a geographic migration.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "change_adapt",
+          "dimension_b": "ops_depth",
+          "correlation_strength": "high",
+          "scenario_specific_note": "Successful adaptation to a new location often relies heavily on robust operational planning and execution during the migration phase, and vice-versa."
+        },
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "Effective internal stakeholder management is often intertwined with establishing and leveraging external networks for smooth integration into a new community or market."
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "This scenario involves the internal migration of company operations or a significant part thereof to Stuttgart. The focus will be on navigating the logistical, operational, and cultural challenges associated with establishing a new presence in a different geographic location. The successful candidate will need strong change management and operational execution skills, along with the ability to integrate into a new local environment. This is a transformation-driven initiative, demanding high adaptability and effective operational oversight.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "cultural_friction",
+          "description": "Integrating into German business culture, potentially with existing local teams or new hires, can present cultural challenges and require nuanced leadership.",
+          "impact_on_analysis": "Requires a candidate with demonstrated cultural sensitivity, cross-cultural leadership experience, and an understanding of local business norms."
+        },
+        {
+          "flag_type": "timeline_pressure",
+          "description": "Migrations often come with hard deadlines for operational cutovers, lease agreements, and regulatory compliance, creating significant time pressure.",
+          "impact_on_analysis": "Implies a need for candidates with strong project management skills, experience delivering under tight deadlines, and a proactive problem-solving mindset."
+        },
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "Depending on whether existing teams relocate, or new teams are built/integrated in Stuttgart, this can be a significant undertaking, involving recruitment, onboarding, and team cohesion challenges.",
+          "impact_on_analysis": "If building a new team, candidates need strong recruitment, onboarding, and team-building capabilities. If relocating, focus on managing relocation stress and maintaining team morale."
+        },
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "Setting up operations in a new country involves navigating local German labor laws, tax regulations, and operational permits, which can be complex.",
+          "impact_on_analysis": "Suggests a need for a leader who either has experience with German regulatory environments or a strong ability to build and leverage local legal and administrative support."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Integrator / Translocator",
+          "archetype_description": "A leader skilled at merging different systems, processes, and teams into a cohesive unit, particularly across geographies. They excel at the logistical and human aspects of physical relocation and setup.",
+          "why_fit_this_scenario": "Critical for ensuring a smooth transition, establishing new operational harmony in Stuttgart, and managing the complexities of moving people and assets.",
+          "typical_weakness": "May struggle with radical innovation if too focused on the mechanics of integration; sometimes less focused on high-level strategy."
+        },
+        {
+          "archetype_name": "The Operational Transformer",
+          "archetype_description": "An individual with deep operational expertise who has successfully led significant organizational or geographic shifts, ensuring continuity and efficiency during disruptive change.",
+          "why_fit_this_scenario": "Directly addresses the need for robust execution during a migration, setting up new operations, and maintaining business as usual amidst change.",
+          "typical_weakness": "Might overlook the 'people' or cultural aspect if solely focused on processes and tangible outcomes."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Status Quo Guardian",
+          "archetype_description": "Someone who excels at maintaining existing operations and optimizing within a stable environment but is risk-averse to significant, disruptive change.",
+          "why_wrong_for_this_scenario": "This role demands embracing and actively driving extensive change, which is contrary to this archetype's strengths and comfort zone. They would likely resist or struggle with the inherent instability of a migration."
+        },
+        {
+          "archetype_name": "The Pure Strategist (without execution focus)",
+          "archetype_description": "A leader who excels at high-level planning and vision-setting but lacks direct, hands-on experience in the gritty details of operational implementation and execution.",
+          "why_wrong_for_this_scenario": "A geographic migration is heavily reliant on flawless execution, meticulous planning, and hands-on problem-solving, not just strategic vision. A pure strategist would likely lack the necessary tactical skills."
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Managing Geographic Relocation & Setup",
+          "rationale": "Directly assesses the candidate's practical experience and approach to the core challenge of the scenario: moving and establishing operations in a new physical location.",
+          "suggested_question": "Tell me about a time you led or were a key part of relocating significant operations or a team to a new geographic location. What were the biggest logistical and operational challenges you faced, and how did you overcome them?"
+        },
+        {
+          "theme": "Cultural Adaptation & Integration",
+          "rationale": "Evaluates the candidate's sensitivity, experience, and ability to thrive in a new cultural context, specifically German business culture.",
+          "suggested_question": "How do you approach understanding and integrating into a new business culture, particularly in a country like Germany? Can you share a specific example of when you had to adapt significantly and what you learned?"
+        },
+        {
+          "theme": "Operational Continuity During Transition",
+          "rationale": "Ensures the candidate prioritizes maintaining business as usual and minimizing disruption during a period of significant change.",
+          "suggested_question": "Describe your approach to ensuring business continuity and minimal disruption when undertaking a major operational change or migration. How do you mitigate risks to ongoing business functions?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [
+        {
+          "field_path": "role.title",
+          "field_label": "Role Title",
+          "blocks_analysis": true,
+          "qa_question": "What is the specific title of the role associated with leading or contributing to this migration?",
+          "expected_type": "string",
+          "example_answer": "Head of Operations, Germany"
+        },
+        {
+          "field_path": "role.department",
+          "field_label": "Department",
+          "blocks_analysis": true,
+          "qa_question": "Which department will this role belong to or primarily impact?",
+          "expected_type": "string",
+          "example_answer": "Operations"
+        },
+        {
+          "field_path": "business_context.urgency_driver",
+          "field_label": "Urgency Driver",
+          "blocks_analysis": true,
+          "qa_question": "What is driving the urgency for this migration? (e.g., lease expiration, strategic market entry, cost reduction, M&A integration)",
+          "expected_type": "string",
+          "example_answer": "Consolidation of EMEA offices"
+        },
+        {
+          "field_path": "constraints.urgency_weeks",
+          "field_label": "Urgency (Weeks)",
+          "blocks_analysis": true,
+          "qa_question": "What is the target timeframe (in weeks) for this migration to be completed or for the critical phase to conclude?",
+          "expected_type": "integer",
+          "example_answer": "24"
+        },
+        {
+          "field_path": "constraints.package_budget_total_eur",
+          "field_label": "Total Compensation Package Budget (EUR)",
+          "blocks_analysis": true,
+          "qa_question": "What is the estimated total compensation package budget (including base, bonus, benefits, etc.) for this role in EUR?",
+          "expected_type": "float",
+          "example_answer": "250000.00"
+        }
+      ],
+      "null_soft_fields": [
+        {
+          "field_path": "role.seniority_level",
+          "field_label": "Seniority Level",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits precision in candidate targeting and compensation benchmarking.",
+          "qa_question": "What is the expected seniority level for this role?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "role.relocation_support_available",
+          "field_label": "Relocation Support Available",
+          "blocks_analysis": false,
+          "impact_if_missing": "Affects attractiveness to candidates and recruitment strategy.",
+          "qa_question": "Is there a budget or established process for relocation support (e.g., visa, housing, moving expenses)?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "role.travel_percentage",
+          "field_label": "Travel Percentage",
+          "blocks_analysis": false,
+          "impact_if_missing": "Influences candidate fit and lifestyle expectations.",
+          "qa_question": "What percentage of travel is expected for this role?",
+          "expected_type": "integer"
+        },
+        {
+          "field_path": "business_context.board_visibility",
+          "field_label": "Board Visibility",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of strategic importance and pressure on the role.",
+          "qa_question": "Which level of board member (CEO, CFO, CHRO, entire board) has direct visibility and interest in this migration?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "business_context.external_visibility_risk",
+          "field_label": "External Visibility Risk",
+          "blocks_analysis": false,
+          "impact_if_missing": "Affects communication strategy and potential need for PR experience.",
+          "qa_question": "Is there a risk of this migration attracting unwanted external attention or scrutiny (e.g., media, competitors, local community)?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "business_context.regulatory_complexity",
+          "field_label": "Regulatory Complexity",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of potential legal/compliance hurdles in Germany.",
+          "qa_question": "Is there significant regulatory complexity or specific German regulations that need to be navigated for this migration?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "business_context.competitive_pressure",
+          "field_label": "Competitive Pressure",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of market context and urgency.",
+          "qa_question": "What is the nature of competitive pressure that this migration might impact or address?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.can_use_search_firm",
+          "field_label": "Can Use Search Firm",
+          "blocks_analysis": false,
+          "impact_if_missing": "Affects recruitment strategy and resourcing decisions.",
+          "qa_question": "Is it permissible to engage an external executive search firm for this role?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "constraints.package_budget_base_eur",
+          "field_label": "Base Salary Budget (EUR)",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits precision in compensation benchmarking.",
+          "qa_question": "What is the estimated base salary budget for this role in EUR?",
+          "expected_type": "float"
+        },
+        {
+          "field_path": "constraints.internal_equity_risk",
+          "field_label": "Internal Equity Risk",
+          "blocks_analysis": false,
+          "impact_if_missing": "Influences compensation strategy and internal communication.",
+          "qa_question": "Is there a risk that the compensation package for this role could disrupt internal salary equity?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "priority_capabilities.must_have_1",
+          "field_label": "Must-Have Capability 1",
+          "blocks_analysis": false,
+          "impact_if_missing": "Reduces ability to define core candidate requirements.",
+          "qa_question": "What is the single most critical capability or experience this person must possess for this scenario?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "team_context.team_exists",
+          "field_label": "Team Exists",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of whether the role involves building or inheriting a team.",
+          "qa_question": "Does a team currently exist that this role will lead or be part of in Stuttgart?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "team_context.team_size_current",
+          "field_label": "Current Team Size",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of leadership scope.",
+          "qa_question": "If a team exists, what is its current size?",
+          "expected_type": "integer"
+        },
+        {
+          "field_path": "team_context.inherited_culture_issues",
+          "field_label": "Inherited Culture Issues",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of cultural challenges the new leader might face.",
+          "qa_question": "Are there known pre-existing cultural issues within the team or organization that this role will need to address?",
+          "expected_type": "boolean"
+        },
+        {
+          "field_path": "team_context.key_stakeholders",
+          "field_label": "Key Stakeholders",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of reporting lines and critical relationships.",
+          "qa_question": "Who are the key stakeholders this role will interact with (e.g., specific executives, external partners)? Please specify their role and relationship nature.",
+          "expected_type": "array"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": false,
+      "soft_fields_complete": false,
+      "weights_validated": true,
+      "completeness_percentage": 15,
+      "is_complete": false,
+      "ready_for_analysis": false
+    }
+  }
+}

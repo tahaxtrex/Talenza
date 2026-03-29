@@ -343,13 +343,7 @@ export interface ScoringResult {
   candidateRole?: string;
   overallScore: number;
   rank: number;
-  breakdown: {
-    scenario_fit: number;
-    experience_match: number;
-    leadership_fit: number;
-    availability: number;
-    risk_factor: number;
-  };
+  breakdown: Record<string, number>;
   dimensions: ScoreDimension[];
   strengths: string[];
   risks: string[];
