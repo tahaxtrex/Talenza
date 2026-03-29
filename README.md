@@ -6,38 +6,468 @@
 
 ## Table of Contents
 
-1. [Product Overview](#product-overview)
-2. [Tech Stack](#tech-stack)
-3. [Architecture Overview](#architecture-overview)
-4. [Routing & Pages](#routing--pages)
-5. [Design System](#design-system)
-6. [Landing Page](#landing-page)
-7. [Core Pipeline — Legacy (Demo Flow)](#core-pipeline--legacy-demo-flow)
-8. [Core Pipeline — Internal Pipeline](#core-pipeline--internal-pipeline)
-9. [Core Pipeline — External Pipeline](#core-pipeline--external-pipeline)
-10. [Data Layer](#data-layer)
-11. [Scoring Engine](#scoring-engine)
-12. [Cost / Sourcing Analysis](#cost--sourcing-analysis)
-13. [3D Visuals](#3d-visuals)
-14. [Animation System](#animation-system)
-15. [Key Architectural Decisions](#key-architectural-decisions)
-16. [File Map](#file-map)
+1. [Prerequisites](#prerequisites)
+2. [Project Structure](#project-structure)
+3. [Step-by-Step Setup](#step-by-step-setup)
+   - [1. Clone the Repository](#1-clone-the-repository)
+   - [2. Install Node.js Dependencies](#2-install-nodejs-dependencies)
+   - [3. Get Your API Keys](#3-get-your-api-keys)
+   - [4. Configure Environment Variables](#4-configure-environment-variables)
+   - [5. Start n8n (Docker)](#5-start-n8n-docker)
+   - [6. Import the n8n Workflow](#6-import-the-n8n-workflow)
+   - [7. Start the Frontend](#7-start-the-frontend)
+4. [Where to Put Your Keys](#where-to-put-your-keys)
+5. [Architecture Overview](#architecture-overview)
+6. [Available Scripts](#available-scripts)
+7. [How to Use the App](#how-to-use-the-app)
+8. [Webhook Endpoints Reference](#webhook-endpoints-reference)
+9. [Data Files](#data-files)
+10. [Troubleshooting](#troubleshooting)
+11. [Tech Stack](#tech-stack)
 
 ---
 
-## Product Overview
+## Prerequisites
 
-**Talenza** is a decision-support tool for HR directors and executive hiring committees. It solves the problem that candidate rankings change when business context changes — a candidate who excels in a crisis may be wrong for a growth scenario.
+Install these **before** starting:
 
-### Core Value Proposition
+| Tool | Version | Why | Install |
+|------|---------|-----|---------|
+| **Node.js** | 18+ (LTS recommended) | Runs the frontend dev server and build tools | [nodejs.org](https://nodejs.org/) |
+| **npm** | Comes with Node.js | Installs JavaScript dependencies | Bundled with Node.js |
+| **Docker** | 20+ | Runs the n8n automation backend | [docker.com](https://docs.docker.com/get-docker/) |
+| **Docker Compose** | v2+ (included in Docker Desktop) | Orchestrates the n8n container | Bundled with Docker Desktop |
+| **Git** | Any recent version | Clone the repository | [git-scm.com](https://git-scm.com/) |
 
-1. **Context-aware ranking** — The same candidates, scored under different business scenarios (crisis, transformation, growth, succession), produce completely different rankings.
-2. **Internal vs. External sourcing** — Before ranking anyone, the system recommends whether to hire internally or externally based on cost, risk, urgency, and pipeline strength.
-3. **Agentic architecture** — Four independent AI agents (Candidate Profiler, Scenario Analyst, Scoring & Strategy, Scenario Comparison), each with separate inputs/outputs.
+Verify your installations:
 
-### Current State
+```bash
+node --version    # Should print v18.x.x or higher
+npm --version     # Should print 9.x.x or higher
+docker --version  # Should print Docker version 20+
+docker compose version  # Should print v2+
+```
 
-The app is a **frontend prototype** — all AI agents are currently simulated with deterministic mock functions. There is no backend, no database, and no real AI integration yet. Data persists in `localStorage`.
+---
+
+## Project Structure
+
+```
+Talenza-draft/
+├── src/                          # React frontend source code
+│   ├── pages/                    # Route pages
+│   │   ├── Landing.tsx           # Marketing landing page (/)
+│   │   ├── Index.tsx             # Pipeline chooser (/app)
+│   │   ├── InternalPipeline.tsx  # Internal hiring flow (/internal)
+│   │   ├── ExternalPipeline.tsx  # External hiring flow (/external)
+│   │   └── Dashboard.tsx         # Candidate management (/dashboard)
+│   ├── components/               # UI components
+│   │   ├── InputState.tsx        # Scenario text input
+│   │   ├── ClarifyingState.tsx   # Q&A conversation
+│   │   ├── BuildingState.tsx     # Loading animation
+│   │   ├── ResultsState.tsx      # Ranked results display
+│   │   ├── CandidateScoreCard.tsx# Score breakdown card
+│   │   ├── landing/              # Landing page sections
+│   │   └── ui/                   # shadcn/ui components (37)
+│   ├── lib/                      # Core logic
+│   │   ├── n8nService.ts         # n8n webhook API client
+│   │   ├── n8nTypes.ts           # TypeScript type definitions
+│   │   ├── pipelineStore.ts      # Data persistence layer
+│   │   ├── candidateStore.ts     # Candidate localStorage CRUD
+│   │   └── useN8n.ts             # React hooks for n8n
+│   └── data/
+│       └── candidates.ts         # Fallback mock data
+│
+├── n8n-data/                     # n8n server-side data (Docker volume)
+│   ├── candidates/               # 13 candidate JSON profiles
+│   │   ├── index.json            # Candidate index
+│   │   ├── internal_*.json       # 6 internal candidates
+│   │   └── external_*.json       # 6 external candidates
+│   └── scenarios/                # Scenario definitions
+│       ├── index.json            # Scenario index
+│       └── *.json                # Individual scenarios
+│
+├── talenza_pipeline.json         # n8n workflow (IMPORT THIS INTO n8n)
+├── docker-compose.yml            # n8n Docker service config
+├── .env                          # n8n environment variables
+├── .env.local                    # Frontend environment variables
+├── vite.config.ts                # Vite build configuration
+├── tailwind.config.ts            # Tailwind CSS theme
+├── package.json                  # Dependencies & scripts
+└── tsconfig.json                 # TypeScript configuration
+```
+
+---
+
+## Step-by-Step Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Talenza-draft.git
+cd Talenza-draft
+```
+
+### 2. Install Node.js Dependencies
+
+```bash
+npm install
+```
+
+This installs all frontend dependencies (React, Vite, Tailwind, shadcn/ui, Three.js, etc.) into the `node_modules/` folder. It reads from `package.json`.
+
+### 3. Get Your API Keys
+
+You need **one** LLM API key. The project supports two options:
+
+#### Option A: Google Gemini (configured in `.env`)
+
+1. Go to [Google AI Studio](https://aistudio.google.com/)
+2. Sign in with your Google account
+3. Click **"Get API Key"** or go to the API keys section
+4. Create a new API key
+5. Copy the key — it looks like `AIzaSy...`
+
+#### Option B: Anthropic Claude (configured in `docker-compose.yml`)
+
+1. Go to [Anthropic Console](https://console.anthropic.com/)
+2. Sign up or log in
+3. Go to **API Keys** section
+4. Create a new API key
+5. Copy the key — it looks like `sk-ant-...`
+
+### 4. Configure Environment Variables
+
+There are **two** environment files you need to set up. Both already exist in the repo with placeholder/example values.
+
+#### File 1: `.env` (n8n backend configuration)
+
+Open `.env` in the project root and set your Gemini API key:
+
+```env
+# ── YOUR API KEY ──────────────────────────────────────
+GEMINI_API_KEY=paste_your_gemini_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
+
+# ── Data directory (don't change) ────────────────────
+TALENZA_DATA_DIR=./n8n-data
+
+# ── CORS & Network (don't change for local dev) ─────
+N8N_CORS_ALLOWED_ORIGINS=*
+N8N_CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,OPTIONS
+N8N_CORS_ALLOWED_HEADERS=*
+N8N_LISTEN_ADDRESS=0.0.0.0
+WEBHOOK_URL=http://localhost:5678/
+
+# ── n8n internal settings (don't change) ─────────────
+N8N_EXTERNAL_ALLOWED_ENV_VARS=GEMINI_API_KEY,GEMINI_MODEL,TALENZA_DATA_DIR
+N8N_RUNNERS_DISABLED=true
+```
+
+#### File 2: `.env.local` (frontend configuration)
+
+Open `.env.local` and verify the n8n URL:
+
+```env
+VITE_N8N_BASE_URL=http://localhost:5678
+```
+
+This tells the React frontend where to find the n8n webhooks. If you deploy n8n elsewhere, change this URL.
+
+#### File 3: `docker-compose.yml` (if using Anthropic Claude instead of Gemini)
+
+If you prefer Claude over Gemini, open `docker-compose.yml` and replace the placeholder API key on **line 11**:
+
+```yaml
+services:
+  n8n:
+    environment:
+      # Replace "Your_API_KEY" with your real Anthropic key
+      - ANTHROPIC_API_KEY=sk-ant-your-real-key-here
+      - ANTHROPIC_MODEL=claude-sonnet-4-6
+```
+
+### 5. Start n8n (Docker)
+
+```bash
+docker compose up -d
+```
+
+This does the following:
+- Pulls the `n8nio/n8n:latest` Docker image (first time only, ~500MB)
+- Creates a container named `talenza-n8n`
+- Maps port **5678** on your machine to port 5678 in the container
+- Mounts the `n8n-data/` folder so n8n can read/write candidate and scenario JSON files
+- Creates a persistent Docker volume `n8n_data` for n8n's internal database
+
+Wait about 30 seconds for n8n to fully start, then verify:
+
+```bash
+# Check container is running
+docker ps
+
+# You should see:
+# CONTAINER ID  IMAGE            STATUS   PORTS                    NAMES
+# abc123...     n8nio/n8n:latest Up ...   0.0.0.0:5678->5678/tcp   talenza-n8n
+
+# Test n8n is responding
+curl http://localhost:5678
+```
+
+You can also open **http://localhost:5678** in your browser to see the n8n admin UI.
+
+**First-time n8n setup:** When you open n8n for the first time, it will ask you to create an admin account (email + password). Create one — this is just for the local n8n instance.
+
+### 6. Import the n8n Workflow
+
+The AI pipeline logic lives in the file `talenza_pipeline.json`. You **must** import it into n8n:
+
+1. Open **http://localhost:5678** in your browser
+2. Log in with the account you just created
+3. On the main dashboard, click the **"..."** menu (top-right) or go to **Workflows**
+4. Click **"Import from File"**
+5. Select the file `talenza_pipeline.json` from the project root
+6. The workflow will open — you should see multiple connected nodes (Profiler, Analyst, Scorer, Sourcing agents, etc.)
+7. Click **"Save"** to save the workflow
+8. Click the **"Active"** toggle (top-right of the workflow editor) to **activate** the workflow — this enables the webhook endpoints
+
+**The workflow must be active for the app to work.** When active, n8n listens on the webhook URLs that the frontend calls.
+
+### 7. Start the Frontend
+
+```bash
+npm run dev
+```
+
+This starts the Vite dev server:
+
+```
+  VITE v5.4.19  ready in 500ms
+
+  ➜  Local:   http://localhost:8080/
+  ➜  Network: http://[your-ip]:8080/
+```
+
+Open **http://localhost:8080** in your browser. You should see the Talenza landing page.
+
+---
+
+## Where to Put Your Keys
+
+Quick reference for where each key/config goes:
+
+| Key/Config | File | Line/Field | Example Value |
+|------------|------|------------|---------------|
+| Gemini API Key | `.env` | `GEMINI_API_KEY=` | `AIzaSyDn4bK...` |
+| Gemini Model | `.env` | `GEMINI_MODEL=` | `gemini-2.5-flash` |
+| Anthropic API Key | `docker-compose.yml` | `ANTHROPIC_API_KEY=` (line 11) | `sk-ant-api03-...` |
+| Anthropic Model | `docker-compose.yml` | `ANTHROPIC_MODEL=` (line 12) | `claude-sonnet-4-6` |
+| n8n Base URL | `.env.local` | `VITE_N8N_BASE_URL=` | `http://localhost:5678` |
+
+**Important:**
+- The `.env` file is loaded by the n8n Docker container. These variables are available inside n8n workflow expressions via `$env.GEMINI_API_KEY`.
+- The `docker-compose.yml` environment variables are injected directly into the container and override `.env` for variables defined in both places.
+- The `.env.local` file is loaded by Vite (the frontend build tool). Only variables prefixed with `VITE_` are exposed to the frontend code.
+- **Never commit real API keys to git.** The `.env` and `.env.local` files should be in `.gitignore`.
+
+---
+
+## Architecture Overview
+
+```
+┌──────────────────────────────────────────────────────┐
+│                    USER BROWSER                       │
+│                                                       │
+│   http://localhost:8080                                │
+│   ┌─────────────────────────────────────────────┐    │
+│   │         React Frontend (Vite)                │    │
+│   │                                              │    │
+│   │  Landing → Pipeline Chooser → Steps 1-5     │    │
+│   │  localStorage for client-side caching        │    │
+│   └──────────────┬──────────────────────────────┘    │
+│                  │ HTTP (fetch)                        │
+└──────────────────┼───────────────────────────────────┘
+                   │
+                   ▼
+┌──────────────────────────────────────────────────────┐
+│         n8n (Docker) — http://localhost:5678           │
+│                                                       │
+│   Webhook endpoints:                                  │
+│   POST /webhook/hiring-pipeline      (ingest CV)      │
+│   POST /webhook/hiring-scenario      (analyze role)   │
+│   POST /webhook/hiring-scenario-qa   (Q&A answers)    │
+│   POST /webhook/hiring-score         (score cands.)   │
+│   POST /webhook/hiring-sourcing      (strategy)       │
+│   GET  /webhook/hiring-candidates    (list all)       │
+│   POST /webhook/hiring-candidates-fetch (by IDs)      │
+│                                                       │
+│   AI Agents: Profiler → Analyst → Scorer → Sourcing  │
+│                                                       │
+│   ┌──────────────┐    ┌──────────────────────┐       │
+│   │ Gemini / Claude│    │ /n8n-data/ (JSON)   │       │
+│   │ LLM API       │    │ candidates & scenarios│       │
+│   └──────────────┘    └──────────────────────┘       │
+└──────────────────────────────────────────────────────┘
+```
+
+**Data flow:**
+1. User enters a hiring scenario in the React frontend
+2. Frontend POSTs to n8n webhook endpoints
+3. n8n runs AI agents (Profiler, Analyst, Scorer, Sourcing) that call the LLM (Gemini or Claude)
+4. n8n stores results as JSON files in `/n8n-data/`
+5. n8n returns structured JSON responses to the frontend
+6. Frontend renders scores, rankings, and sourcing recommendations
+
+---
+
+## Available Scripts
+
+Run these from the project root:
+
+| Command | What it does |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server on **http://localhost:8080** with hot reload |
+| `npm run build` | Build production bundle into `dist/` |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint on the codebase |
+| `npm run test` | Run unit tests (Vitest, single run) |
+| `npm run test:watch` | Run unit tests in watch mode |
+| `docker compose up -d` | Start n8n in background |
+| `docker compose down` | Stop n8n |
+| `docker compose logs -f` | Tail n8n logs (useful for debugging) |
+| `docker compose restart` | Restart n8n |
+
+---
+
+## How to Use the App
+
+1. **Landing Page** (`/`) — Marketing overview. Click **"Try Talenza Now"** to enter the app.
+
+2. **Pipeline Chooser** (`/app`) — Choose between:
+   - **Internal Pipeline**: Score existing internal candidates for a role
+   - **External Pipeline**: Score external/market candidates for a role
+
+3. **Internal Pipeline** (`/internal`) — 5 steps:
+   - **Step 1 — Candidates**: View pre-loaded internal candidates or upload new CVs
+   - **Step 2 — Scenario**: Describe the hiring scenario (role, context, urgency)
+   - **Step 3 — Q&A**: Answer clarifying questions the AI asks about missing info
+   - **Step 4 — Scoring**: AI scores all candidates across 5 dimensions
+   - **Step 5 — Sourcing**: Strategic recommendation (internal vs. external hire)
+
+4. **External Pipeline** (`/external`) — Same flow but for external candidates (4 steps, no CV upload)
+
+5. **Dashboard** (`/dashboard`) — View, edit, and manage stored candidate profiles
+
+### The 5 Scoring Dimensions
+
+| Dimension | What it measures |
+|-----------|-----------------|
+| Crisis Management | Handling emergencies, pressure, unexpected challenges |
+| Operational Depth | P&L ownership, process mastery, execution at scale |
+| Change Adaptability | Innovation, ambiguity tolerance, transformation leadership |
+| Stakeholder Trust | Communication, credibility, relationship management |
+| External Network | Industry connections, board relationships, market visibility |
+
+---
+
+## Webhook Endpoints Reference
+
+These are the n8n webhook URLs the frontend calls. They are defined in `src/lib/n8nService.ts`.
+
+| Endpoint | Method | Purpose | Request Body |
+|----------|--------|---------|-------------|
+| `/webhook/hiring-pipeline` | POST | Ingest a candidate CV | `{ track, cv_text, hr_opinion?, personality_description? }` |
+| `/webhook/hiring-scenario` | POST | Analyze a hiring scenario | `{ track, scenario_text, additional_context? }` |
+| `/webhook/hiring-scenario-qa` | POST | Submit Q&A answers | `{ scenario_id, track, answers: [{ field, value }] }` |
+| `/webhook/hiring-score` | POST | Score candidates vs scenario | `{ track }` |
+| `/webhook/hiring-sourcing` | POST | Run sourcing strategy analysis | `{ scenario_id, candidate_ids[] }` |
+| `/webhook/hiring-candidates` | GET | List all candidates | Query: `?source_type=internal\|external` |
+| `/webhook/hiring-candidates-fetch` | POST | Fetch candidates by IDs | `{ candidate_ids[] }` |
+| `/webhook/hiring-config` | GET | View n8n config | — |
+
+---
+
+## Data Files
+
+### Pre-loaded Candidates (`n8n-data/candidates/`)
+
+The repo ships with 13 sample candidate profiles:
+
+**Internal (6):**
+- Thomas Richter — Plant Manager, BMW Leipzig
+- Aisha Okonkwo-Brandt — VP Operations, BMW Group
+- Marcus Chen — Director Digital Manufacturing, BMW
+- Ingrid Solberg — SVP Supply Chain, BMW
+- Ralf Baumgärtner — Head of Production, BMW Munich
+- Leila Ahmadi — Director Strategy, BMW Group
+
+**External (6):**
+- Claire Dubois — COO, Stellantis
+- James Okafor — VP Manufacturing, Toyota Europe
+- Yuki Tanaka-Hoffmann — CDO, Continental AG
+- Sebastian Vargas — EVP Operations, Volvo
+- Natasha Volkov — SVP Supply Chain, Mercedes-Benz
+- Hans-Peter Grünewald — CEO, ZF Aftermarket
+
+### Pre-loaded Scenarios (`n8n-data/scenarios/`)
+
+Multiple hiring scenario templates for different business contexts (crisis, transformation, succession, etc.).
+
+---
+
+## Troubleshooting
+
+### n8n container won't start
+
+```bash
+# Check logs
+docker compose logs n8n
+
+# Common fix: port 5678 already in use
+lsof -i :5678
+# Kill the process or change the port in docker-compose.yml
+```
+
+### Frontend can't connect to n8n
+
+1. Verify n8n is running: `docker ps | grep talenza-n8n`
+2. Verify the URL: `curl http://localhost:5678`
+3. Check `.env.local` has `VITE_N8N_BASE_URL=http://localhost:5678`
+4. Check the n8n workflow is **active** (toggle in n8n UI)
+5. Check browser console for CORS errors
+
+### Webhook returns 404
+
+The n8n workflow is not imported or not activated:
+1. Open http://localhost:5678
+2. Import `talenza_pipeline.json` (see [Step 6](#6-import-the-n8n-workflow))
+3. Make sure the workflow **Active** toggle is ON
+
+### API key errors in n8n
+
+```bash
+# Check what env vars n8n sees
+docker exec talenza-n8n env | grep -E "GEMINI|ANTHROPIC"
+
+# If empty, restart with updated .env
+docker compose down && docker compose up -d
+```
+
+### "n8n not configured" error in frontend
+
+The `VITE_N8N_BASE_URL` variable is missing or empty. Make sure `.env.local` exists and contains:
+```
+VITE_N8N_BASE_URL=http://localhost:5678
+```
+Then restart the dev server (`npm run dev`).
+
+### npm install fails
+
+```bash
+# Clear cache and retry
+rm -rf node_modules package-lock.json
+npm install
+```
 
 ---
 
@@ -45,596 +475,38 @@ The app is a **frontend prototype** — all AI agents are currently simulated wi
 
 | Layer | Technology |
 |-------|-----------|
-| Framework | React 18 + TypeScript |
-| Build | Vite 5 |
-| Styling | Tailwind CSS 3 + custom design tokens in `index.css` |
-| Components | shadcn/ui (Radix primitives) |
-| Animation | Framer Motion 12 |
-| 3D | Three.js + @react-three/fiber + @react-three/drei |
-| Routing | React Router DOM 6 |
-| State | React useState/useEffect + localStorage persistence |
-| Data fetching | @tanstack/react-query (configured but not actively used yet) |
-| Charts | Recharts (installed, not used in current UI) |
+| **Frontend** | React 18, TypeScript 5.8, Vite 5.4 |
+| **Styling** | Tailwind CSS 3.4, shadcn/ui (Radix UI primitives) |
+| **Animation** | Framer Motion, Three.js + React Three Fiber |
+| **State** | React hooks, localStorage, React Query |
+| **Backend** | n8n (workflow automation, Docker container) |
+| **AI/LLM** | Google Gemini 2.5 Flash or Anthropic Claude |
+| **Data Storage** | JSON files (n8n-data/) + browser localStorage |
+| **Testing** | Vitest, Testing Library, Playwright |
+| **Linting** | ESLint with TypeScript rules |
 
 ---
 
-## Architecture Overview
+## Quick Start (TL;DR)
 
+```bash
+# 1. Clone and install
+git clone https://github.com/YOUR_USERNAME/Talenza-draft.git
+cd Talenza-draft
+npm install
+
+# 2. Set your API key in .env
+#    Edit .env → replace GEMINI_API_KEY value with your real key
+#    OR edit docker-compose.yml → replace ANTHROPIC_API_KEY value
+
+# 3. Start n8n
+docker compose up -d
+
+# 4. Import workflow into n8n
+#    Open http://localhost:5678 → create account → import talenza_pipeline.json → activate
+
+# 5. Start frontend
+npm run dev
+
+# 6. Open http://localhost:8080
 ```
-src/
-├── pages/                    # Route-level components
-│   ├── Landing.tsx           # Marketing landing page (/)
-│   ├── Index.tsx             # Pipeline chooser (/app)
-│   ├── InternalPipeline.tsx  # Full internal hiring pipeline (/internal)
-│   ├── ExternalPipeline.tsx  # Full external hiring pipeline (/external)
-│   ├── Dashboard.tsx         # Candidate CRUD dashboard (/dashboard)
-│   ├── Candidates.tsx        # Standalone CV upload page (unused route)
-│   └── NotFound.tsx          # 404
-│
-├── components/
-│   ├── AppNavbar.tsx          # In-app navigation bar
-│   ├── InputState.tsx         # Legacy: scenario text input with chips
-│   ├── ClarifyingState.tsx    # Legacy: conversational Q&A UI
-│   ├── BuildingState.tsx      # Legacy: JSON typing animation
-│   ├── ResultsState.tsx       # Legacy: ranked results with scenario toggle
-│   ├── CandidateScoreCard.tsx # Expandable candidate score card
-│   ├── NavLink.tsx            # Reusable nav link
-│   └── landing/               # Landing page sections
-│       ├── LandingNavbar.tsx
-│       ├── HeroSection.tsx
-│       ├── ProblemSection.tsx
-│       ├── PipelineSection.tsx
-│       ├── AgentsSection.tsx
-│       ├── MissionSection.tsx
-│       ├── Scene3D.tsx         # Three.js canvas wrapper
-│       └── NetworkGraph.tsx    # 3D network graph component
-│
-├── data/
-│   └── candidates.ts          # Static candidate data + scenario re-ranking logic
-│
-├── lib/
-│   ├── candidateStore.ts      # localStorage CRUD for legacy candidates
-│   ├── pipelineStore.ts       # Full pipeline data layer (profiles, scenarios, scoring, cost analysis)
-│   └── utils.ts               # cn() utility (clsx + tailwind-merge)
-│
-├── hooks/
-│   ├── use-mobile.tsx         # Mobile breakpoint detection
-│   └── use-toast.ts           # Toast notification hook
-│
-├── index.css                  # Design tokens, animations, global styles
-├── main.tsx                   # React entry point
-└── App.tsx                    # Router configuration
-```
-
----
-
-## Routing & Pages
-
-| Route | Component | Purpose |
-|-------|-----------|---------|
-| `/` | `Landing` | Marketing landing page with 3D visuals |
-| `/app` | `Index` | Pipeline chooser — Internal vs External |
-| `/internal` | `InternalPipeline` | 5-step internal hiring pipeline |
-| `/external` | `ExternalPipeline` | 4-step external hiring pipeline |
-| `/dashboard` | `Dashboard` | Candidate JSON viewer/editor with CRUD |
-| `*` | `NotFound` | 404 page |
-
-### Navigation Flow
-
-```
-Landing (/) 
-  → "Try Talenza Now" → /app (Pipeline Chooser)
-      → Internal Pipeline (/internal)
-      → External Pipeline (/external)
-  → AppNavbar links to /app, /dashboard
-```
-
----
-
-## Design System
-
-### Fonts (loaded via Google Fonts in `index.html`)
-
-| Token | Font | Usage |
-|-------|------|-------|
-| `--font-display` | DM Serif Display | Headlines, large titles |
-| `--font-body` | DM Sans | Body text, labels, buttons |
-| `--font-mono` | JetBrains Mono | Code, JSON, metrics |
-
-### Color Tokens (HSL, defined in `index.css :root`)
-
-| Token | HSL Value | Usage |
-|-------|-----------|-------|
-| `--color-bg` | `40 33% 97%` | Page background (warm off-white) |
-| `--color-surface` | `0 0% 100%` | Cards, panels |
-| `--color-surface-2` | `40 20% 95%` | Secondary surfaces, inputs |
-| `--color-border` | `36 14% 89%` | Default borders |
-| `--color-border-strong` | `33 8% 76%` | Hover/active borders |
-| `--color-text-primary` | `42 10% 9%` | Headings, primary text |
-| `--color-text-secondary` | `38 6% 40%` | Body copy |
-| `--color-text-tertiary` | `34 6% 63%` | Captions, labels |
-| `--color-accent` | `210 88% 40%` | Primary brand blue (#0A66C2) |
-| `--color-accent-hover` | `210 90% 33%` | Button hover |
-| `--color-accent-light` | `213 100% 95%` | Light blue backgrounds |
-| `--color-success` | `152 65% 30%` | Green — positive scores, internal |
-| `--color-amber` | `40 100% 30%` | Warning, medium scores |
-| `--color-danger` | `5 63% 46%` | Red — risks, high urgency |
-
-### Tailwind Custom Utilities (in `tailwind.config.ts`)
-
-- `surface`, `surface-2` — card backgrounds
-- `t-primary`, `t-secondary`, `t-tertiary` — text colors
-- `brand`, `brand-hover`, `brand-light` — accent colors
-- `success`, `success-light` — positive indicators
-- `amber`, `amber-light` — warning indicators
-- `danger`, `danger-light` — error/risk indicators
-- `brd`, `brd-strong` — border colors
-
-### Easing Functions
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--ease-out-expo` | `cubic-bezier(0.16, 1, 0.3, 1)` | Primary animation easing — used everywhere |
-| `--ease-out-circ` | `cubic-bezier(0, 0.55, 0.45, 1)` | Secondary easing |
-| `--ease-in-out-quart` | `cubic-bezier(0.76, 0, 0.24, 1)` | Emphasis easing |
-
-### Visual Effects
-
-- **Noise texture** — SVG fractalNoise overlay at 3% opacity on `#root::before`
-- **Focus states** — 2px solid accent outline with 2px offset
-- **Scrollbar** — Custom 6px thin scrollbar with border-strong thumb
-
----
-
-## Landing Page
-
-**File:** `src/pages/Landing.tsx` — composes 5 sections in order:
-
-### 1. LandingNavbar (`landing/LandingNavbar.tsx`)
-- Fixed position, transparent → blurred on scroll
-- Desktop: section links + "Launch App" CTA
-- Mobile: hamburger menu with AnimatePresence
-- Smooth-scrolls to section `id`s: `problem`, `pipeline`, `agents`, `mission`
-
-### 2. HeroSection (`landing/HeroSection.tsx`)
-- Full-height hero with 3D `NetworkGraph` background (variant: `hero`)
-- Radial gradient overlay to fade 3D into background
-- Headline: "Stop guessing. Start knowing."
-- Metrics strip: 4 AI Agents, 5 Dimensions, <6s Full Analysis
-- CTA → `/app`
-
-### 3. ProblemSection (`landing/ProblemSection.tsx`)
-- Two content cards explaining the core value props:
-  - **Context-Aware Ranking** — same candidates, different scenarios = different rankings
-  - **Internal vs. External** — structured sourcing recommendation before ranking
-- Each card has a pull-quote "insight" below it
-
-### 4. PipelineSection (`landing/PipelineSection.tsx`)
-- 4-step workflow cards in a 2×2 grid:
-  1. Define Candidates
-  2. Describe Your Context
-  3. AI Agents Analyze
-  4. See What Changes
-- 3D background (variant: `pipeline`)
-
-### 5. AgentsSection (`landing/AgentsSection.tsx`)
-- 4 agent cards, each split into description (left) + terminal output preview (right):
-  1. **Candidate Profiler** — CV + HR opinion → structured JSON with traits
-  2. **Scenario Analyst** — text → structured JSON, detects nulls, runs Q&A
-  3. **Scoring & Strategy** — scores candidates + internal vs external recommendation
-  4. **Scenario Comparison** — re-runs scoring under different context, shows rank shifts
-- 3D background (variant: `agents`)
-
-### 6. MissionSection (`landing/MissionSection.tsx`)
-- Closing CTA with mission statement
-- Footer with copyright
-
----
-
-## Core Pipeline — Legacy (Demo Flow)
-
-> These components exist in `src/components/` but are **not currently routed** — they were the original demo flow before the Internal/External pipeline split. They are referenced by the old `Candidates.tsx` page.
-
-### State Machine (was in old Index.tsx)
-
-```
-InputState → ClarifyingState → BuildingState → ResultsState
-```
-
-### InputState (`src/components/InputState.tsx`)
-- Full-screen textarea for scenario description
-- 6 pre-built scenario chips (supply chain crisis, digital transformation, etc.)
-- 2000 character limit, minimum 30 chars to proceed
-- Submit triggers 800ms delay → next state
-
-### ClarifyingState (`src/components/ClarifyingState.tsx`)
-- Split-panel: left (context summary + live JSON) + right (chat conversation)
-- 5 sequential questions from `data/candidates.ts`
-- Chat-style UI with AI typing indicator (3 dots)
-- Left panel shows "emerging structure" as a JSON object built progressively via `TypewriterValue` component
-- Progress bar: X of 5 questions
-
-### BuildingState (`src/components/BuildingState.tsx`)
-- Centered JSON typing animation — line-by-line character reveal
-- Derives scenario type from text keywords (crisis/transformation/succession/growth)
-- Generates a mock `scenario.json` with weighted scoring parameters
-- Syntax highlighting: blue for keys, green for strings, orange for numbers, purple for booleans
-- "Activate Scenario" button with fill animation
-
-### ResultsState (`src/components/ResultsState.tsx`)
-- Scenario toggle bar: Crisis / Transformation / Growth / Succession
-- 6 candidate cards from `data/candidates.ts` with:
-  - Rank, name, source badge (internal/external), fit score %
-  - 5 score bars (Crisis, Ops, Change, Stakeholder, Network)
-  - Expanded view: headline strength, key risk, detailed scores
-  - Rank change indicators (▲▼) when switching scenarios
-- Shimmer loading state during scenario switch (1.5s mock delay)
-- Decision panel: INTERNAL HIRE recommendation with risk matrix + rationale
-
----
-
-## Core Pipeline — Internal Pipeline
-
-**File:** `src/pages/InternalPipeline.tsx` (816 lines)
-
-### 5-Step Flow
-
-```
-Step 1: Candidates → Step 2: Scenario → Step 3: Q&A → Step 4: Sourcing Strategy → Step 5: Scoring
-```
-
-### Step 1: Candidates
-- **Select existing** — loads internal candidates from `candidateStore` (old dashboard data)
-- **Add new** — form with:
-  - CV upload (drag & drop PDF, simulated)
-  - Name*, Role* (required), Email, Phone
-  - HR Opinion (textarea) — internal-only
-  - Personality & Persona Description (textarea) — internal-only
-- Calls `mockGenerateProfile('internal', ...)` → generates `CandidateProfile` with randomized `character_traits`
-- Saves to localStorage via `pipelineStore`
-
-### Step 2: Scenario
-- Large textarea for free-text scenario description
-- "Analyze Scenario" → calls `mockParseScenario()` which intentionally returns many `null` fields to trigger Q&A
-- Shows parsed JSON preview below
-
-### Step 3: Q&A
-- Iterates through 18 possible fields via `getNextMissingField()`
-- Sequential question/answer — one at a time
-- Parses answers: "yes"/"no" → boolean, numeric strings → numbers, comma-separated → arrays
-- Live JSON preview updates as fields are filled
-- Completes when all fields have values
-
-### Step 4: Sourcing Strategy (Internal Pipeline Only)
-- Calls `mockCostAnalysis(scenario)` — evaluates 4 dimensions:
-  1. **Opportunity Cost** — internal vs external vacancy impact
-  2. **Execution Risk** — known vs unknown entity
-  3. **Cultural Damage** — promotion signals vs bypassing internal talent
-  4. **Time Cost** — 2-4 weeks internal vs 12-18 weeks external
-- Displays side-by-side comparison cards with scores and reasoning
-- Outputs recommendation: INTERNAL / EXTERNAL / BOTH with confidence reasoning
-- Adapts to scenario type (crisis → strongly internal, transformation → both)
-
-### Step 5: Scoring
-- Calls `mockScoreCandidates(candidates, scenario)`
-- Renders `CandidateScoreCard` for each candidate, sorted by overall score
-- Each card shows:
-  - Rank badge, name, role, overall score
-  - 5 mini breakdown bars (scenario fit, experience match, leadership fit, availability, risk factor)
-  - Expandable panel with:
-    - Recommendation badge
-    - Overall assessment paragraph
-    - 5 dimension-by-dimension breakdowns with score bars, reasoning, evidence bullets
-    - Strengths & Risks panels
-
----
-
-## Core Pipeline — External Pipeline
-
-**File:** `src/pages/ExternalPipeline.tsx` (502 lines)
-
-### 4-Step Flow (no sourcing strategy step)
-
-```
-Step 1: Candidates → Step 2: Scenario → Step 3: Q&A → Step 4: Scoring
-```
-
-Identical to Internal Pipeline except:
-- No HR Opinion or Personality Description fields in candidate form
-- No Sourcing Strategy step — goes directly from Q&A to Scoring
-- Filters existing candidates by `source === 'external'`
-
----
-
-## Data Layer
-
-### `src/data/candidates.ts` — Static Demo Data
-
-- **`Candidate` interface** — rank, name, role, source, fitScore, 5 scores, strength/risk headlines
-- **`crisisCandidates`** — 6 hardcoded candidates (3 internal, 3 external) with BMW context
-- **`getCandidatesForScenario(scenario)`** — reorders candidates based on scenario type:
-  - `crisis` → default order (Thomas Richter #1)
-  - `transformation` → reversed (Priya Nair #1)
-  - `growth` → custom reorder (Claire Dubois #1)
-  - `succession` → custom reorder (Mehmet Yilmaz #1)
-- **`questions`** — 5 clarifying questions for the legacy demo flow
-- **`scoreLabels`** — Maps score keys to short display labels
-
-### `src/lib/candidateStore.ts` — Legacy localStorage CRUD
-
-- **Keys:** `talenza_candidates`
-- **Functions:** `loadCandidates()`, `saveCandidates()`, `deleteCandidate()`, `updateCandidate()`, `addCandidate()`
-- Seeds with `crisisCandidates` on first load
-- Used by Dashboard page
-
-### `src/lib/pipelineStore.ts` — Full Pipeline Data Layer (566 lines)
-
-This is the core data/logic file. All AI functions are mocked.
-
-#### Types
-
-```typescript
-CandidateProfile {
-  id, type, name, role, email?, phone?,
-  experience_years?, current_company?, education?, languages?, key_competencies?,
-  character_traits?: { leadership_style, communication, decision_making, stress_response,
-                       adaptability, team_dynamics, conflict_resolution, innovation_mindset },
-  hr_opinion?, personality_description?, internal_performance_history?,
-  cv_filename?, extracted_at
-}
-
-ScenarioData {
-  id, type, role_title?, seniority_level?, department?, location?,
-  timeline_weeks?, urgency?, budget_available?, budget_range?,
-  reason_for_vacancy?, business_context?, key_challenges?, critical_capability?,
-  package_expectations?, relocation_required?, language_requirements?, travel_requirements?,
-  team_size?, reports_to?, direct_reports?,
-  raw_description, created_at, completed
-}
-
-ScoringResult {
-  candidateId, candidateName, candidateRole?, overallScore, rank,
-  breakdown: { scenario_fit, experience_match, leadership_fit, availability, risk_factor },
-  dimensions: ScoreDimension[],
-  strengths: string[], risks: string[],
-  recommendation, detailedRationale
-}
-
-CostAnalysis {
-  dimensions: CostDimension[],
-  internal/external cost estimates, time to fill,
-  internal/external overall scores,
-  recommendation: 'internal' | 'external' | 'both',
-  reasoning, scenario_type, scenario_label
-}
-```
-
-#### Key Functions
-
-| Function | Input | Output | Purpose |
-|----------|-------|--------|---------|
-| `mockGenerateProfile()` | type, cvFilename, manualFields, hrOpinion?, personalityDesc? | `CandidateProfile` | Simulates AI extraction from CV — generates random traits |
-| `mockParseScenario()` | type, rawText | `ScenarioData` | Parses text into structured JSON — intentionally leaves most fields `null` |
-| `getNextMissingField()` | `ScenarioData` | `{field, question} \| null` | Iterates 18 field definitions, returns first `null` field with its question |
-| `mockScoreCandidates()` | candidates[], scenario | `ScoringResult[]` | Generates random scores with contextual reasoning text |
-| `mockCostAnalysis()` | scenario? | `CostAnalysis` | Evaluates 4 cost dimensions, adapts to scenario type |
-
-#### Storage Keys
-
-| Key | Contents |
-|-----|----------|
-| `talenza_candidates` | Legacy candidate list (candidateStore) |
-| `talenza_internal_candidates` | Internal pipeline candidates |
-| `talenza_external_candidates` | External pipeline candidates |
-| `talenza_scenarios` | Saved scenario data |
-
----
-
-## Scoring Engine
-
-### Overall Score Formula (in `mockScoreCandidates`)
-
-```
-overallScore = scenario_fit × 0.30
-             + experience_match × 0.25
-             + leadership_fit × 0.20
-             + availability × 0.15
-             + (100 - risk_factor) × 0.10
-```
-
-Each dimension score is randomized (30-100 range) in the mock. In production, these would come from actual AI analysis.
-
-### Dimension Scoring
-
-Each of the 5 dimensions produces:
-- **Score** (0-100)
-- **Weight** (percentage)
-- **Reasoning** — 3-tier template (strong/moderate/weak) that interpolates scenario context
-- **Evidence** — 3 bullet points per tier
-- **Impact** — positive (≥70) / neutral (45-69) / negative (<45)
-
-### Recommendation Logic
-
-| Score Range | Recommendation |
-|-------------|---------------|
-| ≥ 70 | "Strong fit — fast-track to final interview round" |
-| 50-69 | "Moderate fit — include in shortlist with targeted assessment" |
-| < 50 | "Weak fit — consider only if pipeline is thin" |
-
----
-
-## Cost / Sourcing Analysis
-
-### Dimensions
-
-| Dimension | What it measures |
-|-----------|-----------------|
-| Opportunity Cost | Revenue/productivity lost during vacancy |
-| Execution Risk | Probability of placement failure |
-| Cultural Damage | Team morale impact of sourcing decision |
-| Time Cost | Timeline alignment with urgency |
-
-### Scenario Adaptation
-
-| Scenario Type | Detection | Recommendation Bias |
-|---------------|-----------|-------------------|
-| Crisis | urgency = "critical"/"high" or timeline ≤ 6 weeks | Strongly INTERNAL |
-| Transformation | context contains "transform" or challenges contain "new" | BOTH (parallel process) |
-| Stable Growth | Default | Data-driven (compare overall scores) |
-
-### Cost Estimates
-
-- Internal: €15,000 – €25,000 (redeployment, training)
-- External: €80,000 – €150,000 (agency fees, onboarding)
-- Time: Internal 2-4 weeks vs External 12-18 weeks
-
----
-
-## 3D Visuals
-
-### Scene3D (`landing/Scene3D.tsx`)
-- Wrapper component that renders a Three.js `<Canvas>` with `NetworkGraph`
-- 3 variants with different color/density configurations:
-  - `hero` — 30 nodes, blue/green, slow rotation
-  - `agents` — 18 nodes, gold/red, faster rotation
-  - `pipeline` — 20 nodes, blue/dark blue, medium speed
-- Performance: DPR capped at 1.5, pointer-events disabled
-
-### NetworkGraph (`landing/NetworkGraph.tsx`)
-- Instanced mesh for nodes (sphere geometry) distributed on a Fibonacci sphere
-- Line segments connecting nodes within `radius × 1.1` distance
-- Per-frame animation: group rotation, individual node position oscillation, scale breathing
-- Central glow sphere with emissive material
-- 70/30 split between primary and accent color nodes
-
----
-
-## Animation System
-
-### CSS Animations (in `index.css`)
-
-| Class | Keyframes | Duration | Usage |
-|-------|-----------|----------|-------|
-| `animate-page-enter` | `page-enter` (opacity + translateY 16px) | 350ms | Page transitions |
-| `animate-fade-slide` | `fade-slide-in` (opacity + translateY 24px) | 600ms | Staggered element reveals |
-| `animate-thinking-dot` | `thinking-dot` (scale + opacity pulse) | 1.2s infinite | AI typing indicator |
-| `animate-pulse-dot` | `pulse-dot` (scale + opacity) | 1.5s infinite | Status indicators |
-| `animate-blink` | `blink` (opacity step) | 1s infinite | Cursor blink |
-| `animate-char-pop` | `char-pop` (scale bounce) | 120ms | Character animation |
-
-### Framer Motion Patterns
-
-- **Ease constant:** `[0.16, 1, 0.3, 1]` (expo-out) — used in every page
-- **Scroll-triggered:** `useInView` with `once: true` for landing sections
-- **Staggered delays:** `delay: 0.15 + i * 0.1` pattern for lists
-- **AnimatePresence:** Used for step transitions in pipelines
-- **Layout animations:** Used in Dashboard candidate list
-
----
-
-## Key Architectural Decisions
-
-### 1. Client-Side Only (No Backend)
-- **Why:** Prototype stage — validates UX flow and scoring logic before investing in backend
-- **How:** All data in localStorage, all AI functions are deterministic mocks
-- **Trade-off:** No persistence across devices, no real AI, no multi-user support
-
-### 2. Two Separate Pipelines (Internal vs External)
-- **Why:** Internal hiring has fundamentally different inputs (HR opinion, personality, cost analysis) and outputs (sourcing strategy)
-- **How:** `InternalPipeline.tsx` (816 lines, 5 steps) vs `ExternalPipeline.tsx` (502 lines, 4 steps)
-- **Trade-off:** Code duplication (~60% shared logic) — should be refactored into shared hooks
-
-### 3. Mock Functions with Realistic Output Structure
-- **Why:** Allows frontend development to proceed independently of AI integration
-- **How:** `mockGenerateProfile()`, `mockParseScenario()`, `mockScoreCandidates()`, `mockCostAnalysis()` all return fully typed objects with randomized but contextually plausible data
-- **Trade-off:** Scoring randomness means repeated runs give different results
-
-### 4. Intentional Null Fields in Scenario Parsing
-- **Why:** Forces the Q&A step — the AI purposely leaves fields unfilled so the clarification agent has work to do
-- **How:** `mockParseScenario()` fills only 3-4 of 18 fields, `getNextMissingField()` iterates sequentially
-- **Trade-off:** Sequential Q&A is slow (18 questions) — should prioritize critical fields
-
-### 5. Design Token System
-- **Why:** Consistent theming, easy dark mode addition, accessibility
-- **How:** HSL values in CSS custom properties → Tailwind config maps them to utility classes
-- **Trade-off:** Some components still use inline `hsl(var(--color-*))` instead of Tailwind utilities
-
-### 6. Legacy Demo Flow Preserved
-- **Why:** Original prototype used a different UX flow (single-page state machine). Kept for reference/fallback
-- **Which files:** `InputState.tsx`, `ClarifyingState.tsx`, `BuildingState.tsx`, `ResultsState.tsx`
-- **Status:** Not currently routed but fully functional
-
-### 7. 3D Performance Optimizations
-- **Instanced meshes** for nodes (single draw call)
-- **DPR capped at 1.5** to prevent GPU thrashing on high-DPI displays
-- **Pointer events disabled** on canvas to prevent interaction overhead
-- **No shadows** — relies on emissive materials for visual depth
-
----
-
-## File Map
-
-```
-src/
-├── App.tsx                           # Router config (6 routes)
-├── main.tsx                          # React DOM entry point
-├── index.css                         # Design tokens, animations, global styles
-├── App.css                           # (empty/minimal)
-│
-├── pages/
-│   ├── Landing.tsx                   # 19 lines — composes 5 landing sections
-│   ├── Index.tsx                     # 146 lines — pipeline chooser (internal/external cards)
-│   ├── InternalPipeline.tsx          # 816 lines — 5-step internal pipeline
-│   ├── ExternalPipeline.tsx          # 502 lines — 4-step external pipeline
-│   ├── Dashboard.tsx                 # 283 lines — candidate CRUD with JSON editing
-│   ├── Candidates.tsx                # 236 lines — standalone CV upload (unused)
-│   └── NotFound.tsx                  # 404 page
-│
-├── components/
-│   ├── AppNavbar.tsx                 # 53 lines — in-app nav (Home, Analyse, Dashboard)
-│   ├── CandidateScoreCard.tsx        # 231 lines — expandable score card with dimension breakdowns
-│   ├── InputState.tsx                # 153 lines — legacy: scenario text input
-│   ├── ClarifyingState.tsx           # 215 lines — legacy: chat-style Q&A
-│   ├── BuildingState.tsx             # 189 lines — legacy: JSON typing animation
-│   ├── ResultsState.tsx              # 317 lines — legacy: ranked results with scenario toggle
-│   ├── NavLink.tsx                   # Reusable navigation link
-│   └── landing/
-│       ├── LandingNavbar.tsx          # 116 lines — fixed nav with scroll detection
-│       ├── HeroSection.tsx            # 113 lines — hero with 3D background
-│       ├── ProblemSection.tsx          # 130 lines — value proposition cards
-│       ├── PipelineSection.tsx         # 114 lines — 4-step workflow grid
-│       ├── AgentsSection.tsx           # 188 lines — 4 agent cards with terminal output
-│       ├── MissionSection.tsx          # 85 lines — closing CTA + footer
-│       ├── Scene3D.tsx                 # 57 lines — Three.js canvas wrapper
-│       └── NetworkGraph.tsx            # 150 lines — instanced 3D network graph
-│
-├── data/
-│   └── candidates.ts                 # 122 lines — static candidates, questions, scenario reranking
-│
-├── lib/
-│   ├── candidateStore.ts             # 39 lines — localStorage CRUD (legacy)
-│   ├── pipelineStore.ts              # 566 lines — full pipeline data layer + mock AI functions
-│   └── utils.ts                      # cn() utility
-│
-├── hooks/
-│   ├── use-mobile.tsx                # isMobile hook
-│   └── use-toast.ts                  # Toast notification hook
-│
-└── components/ui/                    # ~50 shadcn/ui components (accordion, button, card, dialog, etc.)
-```
-
----
-
-## Future Integration Points
-
-When connecting real AI backends, replace these mock functions in `pipelineStore.ts`:
-
-| Mock Function | Real Implementation |
-|---------------|-------------------|
-| `mockGenerateProfile()` | LLM CV parser + trait extraction API |
-| `mockParseScenario()` | LLM scenario structuring + NER |
-| `getNextMissingField()` | AI-driven prioritized question selection |
-| `mockScoreCandidates()` | Multi-agent scoring pipeline with separate reasoning chains |
-| `mockCostAnalysis()` | Data-driven cost model with market benchmarks |
-
-All mock functions return the same TypeScript types that the UI consumes, so replacing them is a drop-in operation.
