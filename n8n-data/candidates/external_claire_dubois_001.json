@@ -1,0 +1,150 @@
+{
+  "candidate_id": "external_claire_dubois_001",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:00:00Z",
+
+  "identity": {
+    "full_name": "Claire Dubois",
+    "current_role": "Chief Operating Officer — Manufacturing",
+    "current_employer": "Stellantis",
+    "email": "claire.dubois@stellantis.com",
+    "phone": "+33 1 44 09 2281",
+    "location": "Paris, France",
+    "years_total_experience": 25,
+    "years_automotive_experience": 25,
+    "languages": ["French (native)", "German (fluent)", "English (fluent)", "Arabic (basic)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Chief Operating Officer — Manufacturing",
+      "employer": "Stellantis",
+      "duration_years": 7,
+      "budget_ownership_eur": 8200000000,
+      "headcount_managed": 34000,
+      "key_achievement": "€800M manufacturing restructuring across France, Spain, Morocco. PSA-Stellantis merger integration. On-time delivery 83.1% to 91.4%."
+    },
+    {
+      "role": "VP Manufacturing — Western Europe",
+      "employer": "PSA Group",
+      "duration_years": 5,
+      "budget_ownership_eur": 4100000000,
+      "headcount_managed": 18500,
+      "key_achievement": "Paris-Madrid operational alignment. Renegotiated 14 tier-1 supplier contracts."
+    },
+    {
+      "role": "Plant Director — Flins",
+      "employer": "Renault",
+      "duration_years": 6,
+      "budget_ownership_eur": null,
+      "headcount_managed": 3200,
+      "key_achievement": "Led Flins transition to EV production — first Renault plant to achieve EV-ready certification."
+    },
+    {
+      "role": "Production Manager",
+      "employer": "Renault",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Progressed to Plant Director in 4 years."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 8.6,
+      "evidence": [
+        "Maintained production throughput within 4% of target during semiconductor shortage with 47% component disruption",
+        "Led €800M cross-border manufacturing restructuring — restructuring at this scale is sustained operational crisis management",
+        "Managed Stellantis-PSA merger integration without plant shutdowns — M&A integration is a known destabiliser"
+      ],
+      "gaps": [
+        "All crisis management is operational and supply chain — no evidence of geopolitical, reputational, or safety crisis management",
+        "No evidence of managing a sudden acute crisis — all documented crises are sustained, manageable over months"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 9.5,
+      "evidence": [
+        "€8.2B production budget, 34,000 employees, 14 plants — one of the largest manufacturing P&Ls evidenced in this candidate pool",
+        "Cross-manufacturer career: Renault → PSA → Stellantis — depth across multiple OEM production cultures",
+        "École Polytechnique engineering foundation — technical depth is genuine",
+        "EV production transition leadership at Renault Flins — specific relevance to BMW eDrive context",
+        "EAAA Manufacturing Committee Chair — recognised industry authority",
+        "Introduced Stellantis Manufacturing Excellence System adopted across 14 plants — evidence of systems thinking at scale"
+      ],
+      "gaps": [
+        "Entire career in French OEM context — German engineering culture will require adaptation",
+        "No supply chain or logistics ownership beyond plant level"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 7.4,
+      "evidence": [
+        "Led EV production transition at Renault Flins — organisational and technical transformation under commercial pressure",
+        "PSA-Stellantis merger integration — fundamental change management across legacy organisations",
+        "Cover letter explicitly references comfort with 'technically demanding, culturally complex challenge'"
+      ],
+      "gaps": [
+        "Career progression is linear and within French automotive — adaptations have always been within a familiar cultural and industrial context",
+        "No evidence of transformation outside automotive manufacturing domain"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8.2,
+      "evidence": [
+        "EAAA Manufacturing Committee Chair — peer-recognised leadership at European industry level",
+        "Successfully managed relationships across three different OEM executive teams over 22 years",
+        "Renegotiated 14 tier-1 supplier contracts — bilateral high-stakes relationship management at scale",
+        "Cover letter tone is confident and direct — signals established authority"
+      ],
+      "gaps": [
+        "No evidence of board-level investor or government relations",
+        "Stakeholder experience is concentrated in manufacturing and supplier relationships"
+      ]
+    },
+    "external_network": {
+      "score_raw": 8.1,
+      "evidence": [
+        "EAAA Manufacturing Committee Chair — pan-European automotive industry network at the highest level",
+        "École Polytechnique alumni — elite French engineering network",
+        "INSEAD AMP alumni — international executive network",
+        "22-year career across three major OEMs — deep automotive industry relationships"
+      ],
+      "gaps": [
+        "Network is concentrated in French automotive and European manufacturing",
+        "Limited evidence of digital, software, or technology network relevant to BMW's software-defined vehicle agenda"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Authority through delivery record",
+      "Technically grounded",
+      "Culturally bridge-capable (French-German)",
+      "Sustained focus under pressure"
+    ],
+    "leadership_style": "Inferred from career pattern: builds manufacturing systems, delivers through institutional authority and technical credibility. Operates at scale without visible crisis.",
+    "decision_making_pattern": "Inferred: data-driven, systems-oriented, comfortable with complexity. Cover letter language is precise and evidence-referenced — not speculative.",
+    "stress_response": "Inferred from semiconductor shortage management: maintained near-target throughput under severe external disruption — suggests methodical stress response rather than reactive.",
+    "collaboration_style": "Inferred: cross-functional by necessity across 14 plants and 3 OEM cultures. Likely directive when clarity is needed.",
+    "ambiguity_tolerance": "medium — inferred",
+    "change_orientation": "optimiser — inferred from career pattern of improving existing systems rather than building new ones",
+    "inference_confidence": 0.55,
+    "inference_note": "Personality profile is entirely inferred from CV career pattern and cover letter language. No direct personality assessment, 360 feedback, or HR observation available. Confidence is moderate."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 18,
+    "relocation_required": true,
+    "estimated_package_eur": 420000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most credentialed and operationally complete external candidate — but her 18-week notice period and French OEM cultural context mean she is structurally unavailable for any urgent scenario, and her career has never operated outside the comfort of established European automotive systems.",
+  "best_fit_scenario": "growth",
+  "worst_fit_scenario": "crisis"
+}

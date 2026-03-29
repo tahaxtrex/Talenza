@@ -1,0 +1,150 @@
+{
+  "candidate_id": "internal_aisha_okonkwo_brandt_002",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:05:00Z",
+
+  "identity": {
+    "full_name": "Aisha Okonkwo-Brandt",
+    "current_role": "Head of Supply Chain Transformation",
+    "current_employer": "BMW Group — Munich HQ",
+    "email": "a.okonkwo-brandt@bmw-group.com",
+    "phone": "+49 89 382 4417",
+    "location": "Munich, Germany",
+    "years_total_experience": 18,
+    "years_automotive_experience": 12,
+    "languages": ["English (native)", "German (fluent)", "Yoruba (conversational)", "French (professional)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Head of Supply Chain Transformation",
+      "employer": "BMW Group",
+      "duration_years": 7,
+      "budget_ownership_eur": 47000000,
+      "headcount_managed": null,
+      "key_achievement": "Delivered COVID-response supply chain resilience framework 8 weeks ahead of schedule across 14 countries and 6 divisions; negotiated emergency agreements preventing estimated €340M production loss"
+    },
+    {
+      "role": "Associate Principal — Operations Practice",
+      "employer": "McKinsey & Company",
+      "duration_years": 6,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Led VW Group post-merger supply chain integration (Porsche/VW/Audi), Airbus supplier resilience, and Nestlé global procurement transformation across 9 countries"
+    },
+    {
+      "role": "Supply Chain Analyst → Manager",
+      "employer": "Unilever — East Africa",
+      "duration_years": 5,
+      "budget_ownership_eur": null,
+      "headcount_managed": 180,
+      "key_achievement": "Led East Africa distribution network redesign across 4 DCs and 180-vehicle fleet, Nairobi and Lagos"
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 7.4,
+      "evidence": [
+        "Managed 2 executive sponsor changes mid-programme without delivery failure",
+        "Negotiated emergency supply agreements during 2022 semiconductor shortage — prevented €340M production loss",
+        "McKinsey background includes 'multiple interim programme director roles for clients in operational distress'",
+        "HR states she delivered complex multi-country programme under significant volatility"
+      ],
+      "gaps": [
+        "Crisis experience is programmatic and commercial — no evidence of physical plant crisis, safety incident management, or direct operational emergency leadership",
+        "All crises navigated as an advisor or programme manager, not as the accountable line leader"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 6.8,
+      "evidence": [
+        "7 years BMW Group supply chain programme ownership across 14 countries and 340 suppliers",
+        "P&L responsibility: €47M programme budget",
+        "Unilever East Africa: managed 4 distribution centres and 180-vehicle fleet with direct operational accountability",
+        "Industrial Engineering degree from University of Lagos"
+      ],
+      "gaps": [
+        "No plant management or production line ownership — supply chain and logistics expertise, not manufacturing operations",
+        "HR notes consulting background creates accountability gap: advisors recommend, operators own",
+        "No direct P&L at business unit or country level — programme budgets are not equivalent to operating P&L"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 8.6,
+      "evidence": [
+        "Career defined by transformation mandates — every role involves changing existing systems",
+        "Digital twin pilot reduced scenario planning cycle time from 6 weeks to 4 days",
+        "Cross-industry background (automotive, aerospace, FMCG, logistics) signals genuine adaptability",
+        "Personality description: adjusts communication register fluidly across audience types without losing authority"
+      ],
+      "gaps": [
+        "HR notes consulting-to-operator transition is still in progress — change leadership as an advisor differs from change leadership as the owner bearing consequences",
+        "No evidence of leading teams through uncertainty where she herself had no prior playbook"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8.9,
+      "evidence": [
+        "HR explicitly states: 'equally credible in a room with plant floor supervisors and in a room with the board'",
+        "Successfully managed 2 executive sponsor changes without programme derailment — required rapid trust-building with new sponsors under pressure",
+        "Personality description: 'commands a room not by raising her voice but by the quality of what she says'",
+        "Nigerian-German dual identity enables genuine code-switching across cultural registers — documented with real examples (Lagos, Stuttgart, Singapore)"
+      ],
+      "gaps": [
+        "HR notes some senior stakeholders find her directness 'confronting' — signal of stakeholder friction at senior level",
+        "No evidence of external stakeholder management at government, regulatory, or investor level"
+      ]
+    },
+    "external_network": {
+      "score_raw": 8.3,
+      "evidence": [
+        "McKinsey alumni network — one of the highest-value professional networks in consulting",
+        "WEF Global Future Council on Advanced Manufacturing — active member 2023–present",
+        "Direct relationships with several tier-1 supplier CEOs built during consulting engagements",
+        "Cross-continental career: Lagos, Nairobi, London, Munich, Singapore — genuine global network"
+      ],
+      "gaps": [
+        "Network is strongest in consulting and supply chain — thinner in plant operations or automotive engineering communities",
+        "7 years at BMW may have narrowed active external relationship maintenance"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Intellectually formidable",
+      "Diplomatically direct",
+      "High emotional intelligence",
+      "Culturally fluid",
+      "Standards-driven"
+    ],
+    "leadership_style": "Clarity-led influence: distils complexity into actionable insight, builds authority through demonstrated expertise rather than hierarchy. Adjusts communication style without losing substance.",
+    "decision_making_pattern": "Structured and analytical with strong intuitive pattern recognition from cross-industry exposure. Comfortable making recommendations quickly but still developing comfort with owning irreversible operational decisions.",
+    "stress_response": "Marathon-runner temperament — stays calm when the goal feels distant, maintains pace under sustained pressure rather than sprinting and collapsing.",
+    "collaboration_style": "Constructively challenging — pushes back when she disagrees, does so with evidence and respect, but does not avoid the conversation.",
+    "ambiguity_tolerance": "high",
+    "change_orientation": "transformer"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Ready now for P&L role. Has been explicit about wanting operational accountability. High probability of external offer within 12 months if not moved.",
+    "cultural_fit_rating": 7.8,
+    "key_strength_observed": "Cross-functional credibility at all levels combined with external network quality. Rare combination of analytical rigour and relational intelligence.",
+    "development_area": "Accountability ownership — transitioning from advisory 'I recommended' to operational 'I own the result'. Coaching has progressed well but this is worth monitoring.",
+    "retention_risk": "high",
+    "raw_opinion": "One of the most consistently impressive performers at her level. Delivered COVID supply chain programme 8 weeks ahead with 2 sponsor changes. Equally credible with floor supervisors and the board. External network from McKinsey years remains strong. Development area is the consulting-to-operator accountability shift. Retention risk is high — she wants a P&L role and will leave within 12 months if we don't move."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 8,
+    "relocation_required": null,
+    "estimated_package_eur": 280000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most sharpest strategic and relational operator in the internal pool — but her entire credibility is built on advising and transforming systems she does not own, and the first time the system burns and she cannot escalate to a client, we will learn whether the accountability coaching was enough.",
+  "best_fit_scenario": "transformation",
+  "worst_fit_scenario": "succession"
+}

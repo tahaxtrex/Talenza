@@ -1,0 +1,154 @@
+{
+  "candidate_id": "external_sebastian_vargas_004",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:15:00Z",
+
+  "identity": {
+    "full_name": "Sebastián Vargas",
+    "current_role": "CEO, BYD Latin America",
+    "current_employer": "BYD",
+    "email": "s.vargas@byd.com",
+    "phone": "+56 2 2940 3301",
+    "location": "Santiago, Chile / São Paulo, Brazil",
+    "years_total_experience": 23,
+    "years_automotive_experience": 23,
+    "languages": ["Spanish (native)", "Portuguese (fluent)", "English (fluent)", "Mandarin (intermediate)", "French (professional)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "CEO",
+      "employer": "BYD Latin America",
+      "duration_years": 5,
+      "budget_ownership_eur": 1290000000,
+      "headcount_managed": 3200,
+      "key_achievement": "Revenue $180M to $1.4B in 3 years (CAGR 97%). Built from 40-person office to full regional HQ. Manufacturing JV with Brazilian partner — first BYD facility outside Asia."
+    },
+    {
+      "role": "VP Sales & Distribution — South America",
+      "employer": "General Motors",
+      "duration_years": 5,
+      "budget_ownership_eur": 3860000000,
+      "headcount_managed": 6800,
+      "key_achievement": "Led Opel exit from Latin America: wound down 140 dealer relationships and €220M asset disposal without legal escalation."
+    },
+    {
+      "role": "Country Manager Colombia → Director Sales Brazil",
+      "employer": "General Motors",
+      "duration_years": 8,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Progressive country-level and regional sales leadership across 9 South American markets."
+    },
+    {
+      "role": "Sales & Marketing Manager",
+      "employer": "Renault Chile",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Foundation of automotive commercial career in emerging market context."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 7.2,
+      "evidence": [
+        "Led Opel exit from Latin America — market wind-down with 140 dealer relationships and €220M asset disposal without legal escalation. Managed under public market exit pressure.",
+        "Built BYD Latin America through multiple political crises in the region (Chile protests 2019, Brazil election volatility, Colombia regulatory shifts)",
+        "Worked through 'politically volatile environments where rules were still being written' per cover letter"
+      ],
+      "gaps": [
+        "Crisis management is commercial and political — no evidence of operational plant crisis, safety incident, or financial emergency management",
+        "Emerging market volatility is a different type of crisis than Western European manufacturing or geopolitical crisis"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 5.4,
+      "evidence": [
+        "CEO with full P&L: $1.4B revenue, 3,200 employees — genuine scale",
+        "Manufacturing JV negotiated and concluded — some manufacturing exposure",
+        "23 years in automotive distribution, sales, and market operations"
+      ],
+      "gaps": [
+        "Career is entirely commercial and market-side — no manufacturing, production, or supply chain operational experience",
+        "P&L is sales/distribution P&L — fundamentally different from manufacturing P&L",
+        "BYD Latin America is a fast-growth sales organisation, not an operational manufacturing business"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 9.1,
+      "evidence": [
+        "Built BYD Latin America from scratch in 3 years — greenfield in multiple simultaneous markets",
+        "Career progression across Chile, Colombia, Brazil, and Spain — genuine geographic and cultural adaptability",
+        "Cover letter: 'environments where the rules were still being written, where the infrastructure did not yet exist' — signals high ambiguity tolerance",
+        "Learning Mandarin for professional context — proactive cross-cultural investment",
+        "Harvard Kennedy School: leadership in networked/complex environments — signals awareness of and investment in adaptive leadership"
+      ],
+      "gaps": [
+        "All change has been in emerging markets — adaptation to established European institutional culture is an untested dimension",
+        "Building from zero is different from transforming an existing system"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8.6,
+      "evidence": [
+        "Concluded government EV incentive agreements in Chile, Colombia, and Brazil — senior government relations in three regulatory environments",
+        "Manufacturing JV negotiated with Brazilian partner — complex bilateral relationship management",
+        "Recruited leadership team from 6 nationalities — multi-cultural trust-building demonstrated",
+        "Cover letter is articulate, strategically framed, and non-generic — suggests strong executive communication"
+      ],
+      "gaps": [
+        "All stakeholder experience is in Latin American political and commercial context",
+        "No evidence of engagement with European institutional stakeholders — EU regulatory bodies, German works councils, institutional investors",
+        "BMW premium brand culture will expect different communication register"
+      ]
+    },
+    "external_network": {
+      "score_raw": 8.4,
+      "evidence": [
+        "CEO of fastest-growing EV operation in Latin America — high-profile in global EV community",
+        "Government minister relationships across Chile, Colombia, Brazil",
+        "Harvard Kennedy School alumni — global policy and leadership network",
+        "IE Business School alumni — European business network",
+        "BYD executive relationships — direct access to Chinese EV ecosystem and supply chain",
+        "GM alumni — one of the largest automotive networks in the world"
+      ],
+      "gaps": [
+        "Network is Latin American and emerging market concentrated",
+        "European automotive OEM network is thin — no evidence of relationships within BMW's competitive set or supplier ecosystem"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Entrepreneurial at scale",
+      "Political intelligence",
+      "Multilingual cultural fluency",
+      "Growth-oriented",
+      "Systems builder in ambiguous environments"
+    ],
+    "leadership_style": "Inferred from BYD build: greenfield entrepreneur inside a corporate structure. Builds through relationship capital and market intelligence rather than operational authority.",
+    "decision_making_pattern": "Inferred from cover letter: frames problems as trust/financing/infrastructure rather than product — indicates sophisticated multi-variable thinking. Likely comfortable with incomplete information.",
+    "stress_response": "Inferred: high tolerance for prolonged ambiguity. 97% CAGR business growth requires tolerance for simultaneous multi-market challenges without resolution sequencing.",
+    "collaboration_style": "Inferred from 6-nationality team recruitment: genuinely multicultural collaborator. Likely builds through inclusion and trust rather than hierarchy.",
+    "ambiguity_tolerance": "very high — inferred from emerging market career",
+    "change_orientation": "transformer — inferred from greenfield build pattern",
+    "inference_confidence": 0.6,
+    "inference_note": "Cover letter is sophisticated and strategically aware — higher inference confidence than average external candidate. Emerging market career limits inference for European institutional context."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 10,
+    "relocation_required": true,
+    "estimated_package_eur": 480000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most commercially dynamic and politically sophisticated candidate in the pool — proven at building from zero in volatile environments, with government relations depth across multiple markets and a CAGR track record that is extraordinary — but his entire career is commercial and emerging-market, and any role with manufacturing, supply chain, or European institutional accountability will immediately expose the operational and cultural context gaps that 23 years outside those domains have created.",
+  "best_fit_scenario": "growth",
+  "worst_fit_scenario": "crisis"
+}

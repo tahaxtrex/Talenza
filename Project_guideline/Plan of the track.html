@@ -1,0 +1,710 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plan of the track</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3303f962-a23c-807e-84f7-ede9d247d295" class="page sans"><header><h1 class="page-title" dir="auto">Plan of the track</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="c42135ee-3bd3-4e92-8325-4e70dfa77918" class="">🚫 Why Most Teams Will Lose</h2></div><div style="display:contents" dir="auto"><p id="4594e4cb-f1bf-46c0-901e-b6f90611b87e" class=""><strong>Use Case 01 (Speed vs. Right Hire)</strong> — Every team will build this. It&#x27;s the most obvious. It&#x27;ll be a CV upload → score → leaderboard. Judges will see 15 versions of it. You need a score above 85 to win. You won&#x27;t get it being the 8th team with the same idea.</p></div><div style="display:contents" dir="auto"><p id="6b5b7e05-5e25-4440-af1f-19096b84134d" class=""><strong>Use Case 02 (Dynamic JD Adaptation)</strong> — Interesting but the output is text. &quot;Here&#x27;s the updated job description.&quot; That&#x27;s a prompt wrapper. No real decision intelligence. Fails the common sense test.</p></div><div style="display:contents" dir="auto"><p id="f8a16a0e-e880-4999-b9e7-da9f97597eee" class=""><strong>Use Case 03 (Leadership Personality Fit)</strong> — Requires personality assessment data that&#x27;s either fake and unconvincing or real and illegal. The debiasing risk is high.</p></div><div style="display:contents" dir="auto"><p id="43d837b3-81f5-4568-bcc5-d75a7143f625" class=""><strong>Use Case 06 (Leadership Combination Impact)</strong> — The most novel idea in the list. But modeling chemistry between two executives with synthetic data in 72 hours and making it <em>convincing</em> is extremely hard. High ceiling, extremely high risk of a hollow demo.</p></div><div style="display:contents" dir="auto"><hr id="99420731-8b2b-4b5d-8f56-85be413e4e91"/></div><div style="display:contents" dir="auto"><h2 id="adc52e25-ddfa-4891-bd0f-c9ac6a0b5dc4" class="">✅ The Idea I&#x27;d Build</h2></div><div style="display:contents" dir="auto"><h3 id="f828dbfb-7970-4a3b-811c-61b05dbdd201" class=""><strong>&quot;ContextHire&quot; — Context-Aware Executive Hiring</strong></h3></div><div style="display:contents" dir="auto"><p id="e85f81be-f5ad-4895-872d-2d4ca1da6ac2" class="">One sentence: <em>&quot;The same candidate can be the right hire or the wrong hire depending on what BMW needs right now — we make that explicit.&quot;</em></p></div><div style="display:contents" dir="auto"><p id="0de09b9f-3302-4573-986d-87aa6e6050f3" class="">This combines Use Cases 04 + 05 (Scenario-Based Ranking + Internal vs. External) and directly addresses the <strong>hidden insider insight</strong> from the slides: the &quot;7 or 8 bias&quot; problem. Nobody else will read that deeply. Most teams won&#x27;t even know that slide is a hint.</p></div><div style="display:contents" dir="auto"><hr id="f0ec3b24-7328-4ccc-8cd7-0fb27cc919f5"/></div><div style="display:contents" dir="auto"><h2 id="7fb1bfc1-8255-4a26-ae20-1a4c925adeb7" class="">🧠 The Real Problem You&#x27;re Solving</h2></div><div style="display:contents" dir="auto"><p id="d6aeb587-bf38-4c6b-b600-44ae67085956" class="">Not &quot;who is the best candidate.&quot; That&#x27;s the first thought.</p></div><div style="display:contents" dir="auto"><p id="c927e4a6-a36c-4309-900a-6e6939e1dd88" class="">The <strong>second thought</strong> — the real problem — is:</p></div><div style="display:contents" dir="auto"><blockquote id="fd6bd567-896a-4bc8-9b15-e1cbd2a487b1" class=""><strong>BMW has a VP-level vacancy. They have 3 internal candidates and access to the external market. Their business context right now is a supply chain crisis in their Debrecen plant. They have 6 weeks to decide. Every internal evaluation they&#x27;ve done gives everyone a score between 7 and 8 out of 10 — so the data is useless for differentiation. And nobody has asked: is this even an internal hire situation?</strong></blockquote></div><div style="display:contents" dir="auto"><p id="fd99e3ba-767e-4f06-b14f-3096e38adf36" class="">That is a real, specific, daily BMW problem. Your tool solves exactly that.</p></div><div style="display:contents" dir="auto"><hr id="1370556d-80a6-4b67-b24b-90a95fec7ba1"/></div><div style="display:contents" dir="auto"><h2 id="613b3bc9-5101-4403-858e-4f4a568b4560" class="">🏗️ The Full Architecture</h2></div><div style="display:contents" dir="auto"><h3 id="e022d222-73de-498d-8b62-de32329ec10a" class="">Input (what the user provides in your app)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="4efcb1e0-e8a2-464a-acf5-c86ee22925ad" class="numbered-list" start="1"><li>A role description — e.g., &quot;VP of Production, Debrecen Plant&quot;</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="d14b839c-6a8f-445e-8d3e-0a540e3e4a6c" class="numbered-list" start="2"><li>The current business context — selected from 3-4 scenarios:<div style="display:contents" dir="auto"><ul id="04285038-4342-4b5b-a682-f2f9feef83eb" class="bulleted-list"><li style="list-style-type:disc">🔴 Operational Crisis (cost cuts, quality issues, time pressure)</li></ul></div><div style="display:contents" dir="auto"><ul id="e2cf3480-2eb2-42bc-b53b-44604f6eb1d3" class="bulleted-list"><li style="list-style-type:disc">🔵 Digital Transformation (EV shift, software-defined manufacturing)</li></ul></div><div style="display:contents" dir="auto"><ul id="7147e0ec-6417-4e0f-9153-f12c784d3fc9" class="bulleted-list"><li style="list-style-type:disc">🟡 Stable Growth (expansion, steady scaling)</li></ul></div><div style="display:contents" dir="auto"><ul id="2729ae5d-db2c-4fe7-8247-e78b62616b39" class="bulleted-list"><li style="list-style-type:disc">⚫ Succession Planning (long-term leadership continuity)</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="c80b00f9-91b3-452b-8718-7970aa7ef2a2" class="numbered-list" start="3"><li>A set of 5-6 synthetic candidate profiles (3 internal, 2-3 external)</li></ol></div><div style="display:contents" dir="auto"><p id="96453507-f39b-42e5-b9b6-296446bcffbd" class="">That&#x27;s it. No file uploads. No complex forms. Clean, fast, usable by a non-tech HR director.</p></div><div style="display:contents" dir="auto"><hr id="e904fbef-0663-48cb-ad8a-d75317e144b6"/></div><div style="display:contents" dir="auto"><h3 id="e90a0e1f-caaa-4b33-b0e0-e03fd0387d0d" class="">The 4 Real Agents (genuinely separate, not one prompt)</h3></div><div style="display:contents" dir="auto"><p id="9854873d-0de2-4cdd-a76e-7037f7d4fe4b" class=""><strong>Agent 1 — Context Agent</strong></p></div><div style="display:contents" dir="auto"><ul id="55ed9b90-e6d4-4788-8fe0-ddf12b31a4a6" class="bulleted-list"><li style="list-style-type:disc">Input: Role + business scenario</li></ul></div><div style="display:contents" dir="auto"><ul id="c6c70132-4307-4892-bc13-725d241da9ff" class="bulleted-list"><li style="list-style-type:disc">Task: Generates a weighted competency matrix <em>for that specific context</em></li></ul></div><div style="display:contents" dir="auto"><ul id="b5ecb716-3886-430b-98b1-937dd1d4ab8c" class="bulleted-list"><li style="list-style-type:disc">Output:</li></ul></div><div style="display:contents" dir="auto"><p id="037a1c03-f7fc-43a7-b5f8-884c9736d41f" class=""><code>Operational Crisis context for VP Production:<br/>  - Crisis management:        35%<br/>  - Operational depth:        30%<br/>  - Stakeholder trust:        20%<br/>  - Change adaptability:      10%<br/>  - External network:          5%</code></p></div><div style="display:contents" dir="auto"><ul id="a220ee44-d041-46f9-9af8-80a67bb1e259" class="bulleted-list"><li style="list-style-type:disc">Why it&#x27;s real: The weights are <em>derived</em> from the scenario, not hardcoded. Different scenario → genuinely different weights.</li></ul></div><div style="display:contents" dir="auto"><hr id="51276175-3862-4ce6-9b20-9f35bfb4b284"/></div><div style="display:contents" dir="auto"><p id="5b7fac59-9cd1-4061-8ca5-e4196752bc81" class=""><strong>Agent 2 — Profile Scoring Agent</strong></p></div><div style="display:contents" dir="auto"><ul id="6c92a5b9-d3e2-4ba4-9201-d6331d4c6d3a" class="bulleted-list"><li style="list-style-type:disc">Input: One candidate profile + the competency matrix from Agent 1</li></ul></div><div style="display:contents" dir="auto"><ul id="a9c3656f-4ff1-4cd0-b6ed-d65c72f81ba2" class="bulleted-list"><li style="list-style-type:disc">Task: Scores the candidate on each competency dimension with explicit reasoning</li></ul></div><div style="display:contents" dir="auto"><ul id="68717f2c-be00-484e-917c-479c86de0170" class="bulleted-list"><li style="list-style-type:disc">Runs once per candidate — separate API call, separate reasoning</li></ul></div><div style="display:contents" dir="auto"><ul id="2729a46f-d23b-4ac9-ab1e-6609aed4ddc1" class="bulleted-list"><li style="list-style-type:disc">Output:</li></ul></div><div style="display:contents" dir="auto"><p id="70e24923-6a6e-4df6-98ef-b1af1d18e0cf" class=""><code>Markus B. | Internal | 14yr ops background<br/>  - Crisis management:   8.2/10 — Led 3 plant shutdowns, IATF re-cert under pressure<br/>  - Operational depth:   9.1/10 — €2.3B production budget ownership<br/>  - Stakeholder trust:   6.4/10 — Strong with plant floor, weak with C-suite<br/>  - Change adaptability: 4.8/10 — 360 feedback flags resistance to pace of change<br/>  - External network:    3.1/10 — Internal career track, limited external exposure</code></p></div><div style="display:contents" dir="auto"><ul id="088ed59a-bf93-4198-b01a-015ad6abdf0b" class="bulleted-list"><li style="list-style-type:disc"><strong>This is where you address the 7/8 bias.</strong> Instead of asking &quot;rate 1-10,&quot; the agent forces dimension-level scoring with evidence. You never get compressed ratings because you never ask for an overall rating.</li></ul></div><div style="display:contents" dir="auto"><hr id="4480408a-68c5-497e-9d15-047e36990ab9"/></div><div style="display:contents" dir="auto"><p id="22c8b5a1-3a3c-4b78-92b3-781643e995d7" class=""><strong>Agent 3 — Internal vs. External Decision Agent</strong></p></div><div style="display:contents" dir="auto"><ul id="63c2bc68-611a-4e10-84c1-47499080f5b5" class="bulleted-list"><li style="list-style-type:disc">Input: All scored profiles + context weights</li></ul></div><div style="display:contents" dir="auto"><ul id="92302d86-32dd-4146-a3c7-06006422c6bf" class="bulleted-list"><li style="list-style-type:disc">Task: Doesn&#x27;t just rank candidates — recommends the <em>sourcing strategy</em></li></ul></div><div style="display:contents" dir="auto"><ul id="2fa8995a-336c-47ea-b26f-7e409e2f7c58" class="bulleted-list"><li style="list-style-type:disc">Output:</li></ul></div><div style="display:contents" dir="auto"><p id="642240b7-dde7-48fe-a958-41f8f97dc344" class=""><code>Recommendation: Internal hire — Markus B.<br/><br/>INTERNAL path: Speed 6 weeks, Cost €80K, Risk LOW<br/>  ✅ Context fit: 82% match for crisis scenario<br/>  ⚠️  Cultural continuity: HIGH (known quantities)<br/>  ❌  External perspective: LOW — potential blind spots on transformation<br/><br/>EXTERNAL path: Speed 18 weeks, Cost €350K, Risk HIGH<br/>  ✅  Fresh perspective, no legacy behaviors<br/>  ❌  Ramp time: 6-9 months in crisis = dangerous<br/>  <br/>4-Cost Assessment:<br/>  Opportunity Cost:  LOW if internal — moderate if external takes too long<br/>  Execution Risk:    MEDIUM — Markus needs C-suite coaching<br/>  Cultural Damage:   LOW for internal, HIGH if external hire clashes with plant culture<br/>  Time Cost:         CRITICAL — 18-week external search not viable in active crisis</code></p></div><div style="display:contents" dir="auto"><hr id="bcf51516-3d1b-4e28-88bc-1157a7ddf05b"/></div><div style="display:contents" dir="auto"><p id="e55befc7-d5b3-46a1-bcb4-d9ade40b0b63" class=""><strong>Agent 4 — Scenario Comparison Agent</strong> <em>(this is your demo moment)</em></p></div><div style="display:contents" dir="auto"><ul id="bfafab80-13c1-4e56-a893-f5eb2b613ccd" class="bulleted-list"><li style="list-style-type:disc">Input: All scored profiles</li></ul></div><div style="display:contents" dir="auto"><ul id="22d66b29-65b9-4d14-afe6-8a997105ff8a" class="bulleted-list"><li style="list-style-type:disc">Task: Re-runs the entire ranking under a different scenario automatically</li></ul></div><div style="display:contents" dir="auto"><ul id="3b4d6d2e-ae70-4c7a-873e-1a7a6eb5793e" class="bulleted-list"><li style="list-style-type:disc">Output: Side-by-side ranking table showing delta</li></ul></div><div style="display:contents" dir="auto"><p id="348bb763-bd72-4248-826f-d1577c88f88e" class=""><code>                    CRISIS SCENARIO    TRANSFORMATION SCENARIO    DELTA<br/>1. Markus B.              82%                  51%               ▼ #1→#4<br/>2. Sarah K.               71%                  88%               ▲ #3→#1<br/>3. External C.            68%                  79%               ▲ #4→#2</code></p></div><div style="display:contents" dir="auto"><p id="e7e2da51-ab2f-4972-baf7-565bd6b474df" class="">When you flip the scenario in your UI and these numbers animate — that&#x27;s your 30/30 business relevance moment.</p></div><div style="display:contents" dir="auto"><hr id="20ac1ea5-c873-4fa9-9c55-3bc3ad56633a"/></div><div style="display:contents" dir="auto"><h2 id="751e83d6-2328-4706-b138-1dfe49f34d14" class="">💻 How You Actually Build This</h2></div><div style="display:contents" dir="auto"><h3 id="a612dfdf-7003-428b-b6f8-0e0e65e72d5b" class="">Stack</h3></div><div style="display:contents" dir="auto"><ul id="de71de27-35e0-47c4-a404-9f1e6c924dc1" class="bulleted-list"><li style="list-style-type:disc"><strong>Lovable</strong> — entire frontend (use the HACKATHON2026 code)</li></ul></div><div style="display:contents" dir="auto"><ul id="60a55b78-5eb0-43bd-82fb-6eb814e344d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Claude API (claude-sonnet-4-6)</strong> — each agent is a separate API call with a specific system prompt</li></ul></div><div style="display:contents" dir="auto"><ul id="ed812d0d-855e-4b4f-aa3e-58c244785b99" class="bulleted-list"><li style="list-style-type:disc"><strong>No backend server needed</strong> — call the Claude API directly from Lovable&#x27;s frontend (or a simple serverless function)</li></ul></div><div style="display:contents" dir="auto"><ul id="8a62fd55-b2e4-4ba4-9a10-3e2b99b87083" class="bulleted-list"><li style="list-style-type:disc"><strong>Synthetic data</strong> — hardcoded as JSON in your codebase. 6 candidate profiles. Realistic, conflicted, not obviously ranked.</li></ul></div><div style="display:contents" dir="auto"><h3 id="06f8bdbb-8c8e-4614-bd27-19cc6743af5f" class="">The Lovable Prompting Strategy</h3></div><div style="display:contents" dir="auto"><p id="93aeb520-7ad5-4b6d-8b50-73de1b638798" class="">Lovable works best with very specific, structured prompts. Don&#x27;t say &quot;build a hiring tool.&quot; Say:</p></div><div style="display:contents" dir="auto"><blockquote id="0a7dc835-7662-4b9e-9a0d-4dd3caa22893" class="">&quot;Build a 3-step wizard. Step 1: Role input + scenario selector (4 cards with icons). Step 2: Show 6 candidate cards with loading states while they&#x27;re being scored. Step 3: Results page with a ranked table, score bars per competency dimension, and a scenario toggle that animates the re-ranking. Dark professional theme, BMW blue accent color (<code>#0066CC</code>).&quot;</blockquote></div><div style="display:contents" dir="auto"><p id="a7bcfed6-6d18-439c-a710-5ca3dbac2464" class="">That&#x27;s the difference between a generic output and a polished demo.</p></div><div style="display:contents" dir="auto"><h3 id="4db78d46-8598-466f-add4-bbffbcdc164f" class="">GitHub Structure</h3></div><div style="display:contents" dir="auto"><p id="935fd90c-d4c2-4845-a598-8cee81a8d52f" class=""><code>/agents<br/>  context_agent.js        ← system prompt + logic for Agent 1<br/>  profile_agent.js        ← system prompt + logic for Agent 2  <br/>  decision_agent.js       ← system prompt + logic for Agent 3<br/>  scenario_agent.js       ← system prompt + logic for Agent 4<br/>/data<br/>  candidates.json         ← your 6 synthetic profiles<br/>  scenarios.json          ← your 4 scenario weight definitions<br/>/ui (generated by Lovable, connected via GitHub)<br/>README.md                 ← architecture diagram + how to run</code></p></div><div style="display:contents" dir="auto"><hr id="66acd088-9355-41b5-8074-a8b69a801342"/></div><div style="display:contents" dir="auto"><h2 id="fe4ab6b3-21f4-4740-a1f5-2cc784a75268" class="">🔨 Now Let Me Criticize This Idea Myself</h2></div><div style="display:contents" dir="auto"><p id="60337677-b27f-414d-a133-86c915ba01c9" class="">Here are every reason this could fail, and how to mitigate each one:</p></div><div style="display:contents" dir="auto"><p id="4ebe81e9-8a31-46bc-ab1a-25cfa3b408c9" class=""><strong>❌ Problem 1: The agents are still just Claude with different prompts — is that really &quot;multi-agent&quot;?</strong></p></div><div style="display:contents" dir="auto"><p id="41c92ee6-497f-44dd-acf8-d2d5ec319f01" class="">Yes and no. Technically they&#x27;re the same model. But the judges said &quot;modular, explainable reasoning&quot; — not &quot;different models.&quot; What makes it a real multi-agent system is that each agent has a <em>defined input/output contract</em>, runs <em>independently</em>, and <em>passes structured data</em> to the next agent. As long as you can show that pipeline visually and the outputs are genuinely distinct, this passes. Be honest about it — &quot;Honest&quot; is literally one of the four judging principles.</p></div><div style="display:contents" dir="auto"><p id="17001945-5cd3-4786-80d7-e9b3597c9f38" class=""><strong>❌ Problem 2: Synthetic data will look fake and unconvincing</strong></p></div><div style="display:contents" dir="auto"><p id="9138e13f-c1aa-45c8-949d-717b507d638c" class="">This is your biggest risk. Mitigation: spend serious time (4-6 hours minimum) crafting 6 profiles that feel real. Give them BMW-specific context. German names. Real plant locations (Munich, Dingolfing, Debrecen, Leipzig). Real automotive industry jargon. Conflicted profiles — strong in 2 areas, weak in 2. A judge should look at a profile and think &quot;I&#x27;ve met this person.&quot;</p></div><div style="display:contents" dir="auto"><p id="482350c3-0771-4724-85b2-5f22f154f9cc" class=""><strong>❌ Problem 3: Internal vs. External requires cost data you don&#x27;t have</strong></p></div><div style="display:contents" dir="auto"><p id="8cf359e7-e2bf-46c8-a093-5b443c7accc2" class="">True. Solution: make the cost estimates <em>outputs of the decision agent</em>, not inputs. The agent reasons: &quot;External searches in German automotive industry average 16-20 weeks and €250-400K in fees.&quot; These are real numbers you can find publicly. The agent uses them as priors, not user inputs.</p></div><div style="display:contents" dir="auto"><p id="a058e50c-f979-409b-9d34-48b0ef5bdafc" class=""><strong>❌ Problem 4: The scenario toggle is your centerpiece but what if the re-ranking doesn&#x27;t look dramatic enough?</strong></p></div><div style="display:contents" dir="auto"><p id="c732a4da-36f1-4ac0-8762-2b194e1f1019" class="">Design your synthetic profiles specifically to CREATE dramatic re-rankings. Make sure you have at least one candidate who is clearly best for crisis but clearly worst for transformation. This isn&#x27;t cheating — it&#x27;s good demo design. The point is showing that the SYSTEM can surface this, not that it always happens.</p></div><div style="display:contents" dir="auto"><p id="2d32522f-369f-4659-bb26-127d61ab9ac7" class=""><strong>❌ Problem 5: 72 hours is not enough to build 4 agents + a full UI + a video</strong></p></div><div style="display:contents" dir="auto"><p id="5ffed990-7242-4303-9c7d-be6249f7269c" class="">This is real. Your MVP scope should be:</p></div><div style="display:contents" dir="auto"><ul id="792f52a1-b671-4535-9b92-e61185b25e45" class="bulleted-list"><li style="list-style-type:disc"><strong>Must have</strong>: Agent 1 (Context) + Agent 2 (Profile scoring) + Agent 4 (Scenario comparison)</li></ul></div><div style="display:contents" dir="auto"><ul id="f47b8b31-27ef-45d7-af5a-647682d4194b" class="bulleted-list"><li style="list-style-type:disc"><strong>Cut if needed</strong>: Agent 3 (Internal vs External full cost analysis) — simplify this to a recommendation card</li></ul></div><div style="display:contents" dir="auto"><ul id="dc76d923-9122-4243-96c4-2b74d1530b5e" class="bulleted-list"><li style="list-style-type:disc"><strong>Never cut</strong>: The scenario toggle. This is your entire demo.</li></ul></div><div style="display:contents" dir="auto"><p id="c9355f78-6633-4ef6-8bec-73f7724d6534" class=""><strong>❌ Problem 6: Non-tech users might find the competency weights confusing</strong></p></div><div style="display:contents" dir="auto"><p id="b815f257-7cbf-4952-ba76-d0b437c7884b" class="">The weights should be <em>invisible to the user</em>. The user picks a scenario, sees candidates scored and ranked. The competency weights happen in the background. Only show them in an &quot;explain this&quot; expandable panel for power users.</p></div><div style="display:contents" dir="auto"><p id="12a3a30f-29ed-45d6-9cf0-a5acb30e6e2a" class=""><strong>❌ Problem 7: What&#x27;s your &quot;out of the box&quot; angle? This isn&#x27;t that novel</strong></p></div><div style="display:contents" dir="auto"><p id="0d872f44-7e0f-40ea-a759-7675399a2081" class="">The truly novel layer is the <strong>debiasing framing</strong>. Lead with: &quot;We don&#x27;t ask for ratings. We ask for evidence. Because everyone at BMW scores a 7 or 8.&quot; That one line — if you can say it in your video — will make Dr. Ishansh Gupta lean forward. Because he said that in his slides and he knows it&#x27;s true about BMW. No other team will connect that dot.</p></div><div style="display:contents" dir="auto"><hr id="b7e2562b-5ff9-4900-8b7c-874c1c270490"/></div><div style="display:contents" dir="auto"><h2 id="0b558441-f331-4159-be90-5ef85c49bc06" class="">📌 The One-Line Pitch for Your Video Closing</h2></div><div style="display:contents" dir="auto"><blockquote id="39e808e4-4d1b-4c7a-b153-681f99d88658" class="">&quot;We don&#x27;t replace the hiring decision. We replace the gut feel with a reason.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="e70c7b7e-a745-422d-9b3e-fa25f8613f7d"/></div><div style="display:contents" dir="auto"><h2 id="ffddcd08-ee9a-42f6-bd0f-c1f71454f286" class="">Your First 8 Hours (Start Now)</h2></div><div style="display:contents" dir="auto"><ol type="1" id="f1df1c0b-8a5f-4a44-a67d-6b5d6b692497" class="numbered-list" start="1"><li><strong>Right now</strong> — Write your 6 candidate profiles. Use this structure:<div style="display:contents" dir="auto"><ul id="808976a1-9262-4369-bcc3-535e308c908b" class="bulleted-list"><li style="list-style-type:disc">Name, current role, years exp</li></ul></div><div style="display:contents" dir="auto"><ul id="a04ade08-0f7e-4835-9481-b9016a27b00c" class="bulleted-list"><li style="list-style-type:disc">3 career highlights (specific, quantified)</li></ul></div><div style="display:contents" dir="auto"><ul id="962c8319-5ad6-44db-9b87-6a373bfc1260" class="bulleted-list"><li style="list-style-type:disc">Competency scores with one-line evidence per dimension</li></ul></div><div style="display:contents" dir="auto"><ul id="a04e3b40-fb39-471e-8306-756d59852df3" class="bulleted-list"><li style="list-style-type:disc">One &quot;tension&quot; — one strength that becomes a weakness in certain contexts</li></ul></div><div style="display:contents" dir="auto"><ul id="22aff650-d7c7-463d-a306-a54331d4183b" class="bulleted-list"><li style="list-style-type:disc">Internal or external</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="95002250-a8d5-43e4-9f2c-daa9135c1a18" class="numbered-list" start="2"><li><strong>Next 2 hours</strong> — Write your 4 system prompts for the 4 agents. Test them manually in Claude before you touch any code.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="d01e47e0-a455-4752-a327-29a939a457ec" class="numbered-list" start="3"><li><strong>Then</strong> — Start the Lovable build with the scenario selector first. Get that working. Everything else is secondary.</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

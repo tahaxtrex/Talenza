@@ -1,0 +1,168 @@
+{
+  "candidate_id": "internal_ralf_baumgaertner_005",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:20:00Z",
+
+  "identity": {
+    "full_name": "Ralf Baumgärtner",
+    "current_role": "CFO, BMW Motorrad Division",
+    "current_employer": "BMW Group — Motorrad Division",
+    "email": "r.baumgaertner@bmw-group.com",
+    "phone": "+49 89 382 3302",
+    "location": "Munich, Germany",
+    "years_total_experience": 33,
+    "years_automotive_experience": 28,
+    "languages": ["German (native)", "English (fluent)", "French (professional)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "CFO, BMW Motorrad Division",
+      "employer": "BMW Group",
+      "duration_years": 10,
+      "budget_ownership_eur": 2900000000,
+      "headcount_managed": 8000,
+      "key_achievement": "Led Motorrad financial restructuring returning division to profitability after €180M loss. Managed COVID production halt with zero covenant breaches."
+    },
+    {
+      "role": "VP Finance, Group Strategy & Corporate Development",
+      "employer": "BMW Group",
+      "duration_years": 6,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Led financial due diligence on 14 acquisition targets, 3 completed including DriveNow JV."
+    },
+    {
+      "role": "Director Finance, BMW UK",
+      "employer": "BMW Group — UK",
+      "duration_years": 4,
+      "budget_ownership_eur": 3100000000,
+      "headcount_managed": null,
+      "key_achievement": "Country CFO. Led BMW UK financial restructuring post-2008 financial crisis."
+    },
+    {
+      "role": "Controller → Head of Controlling, Rolls-Royce Motor Cars",
+      "employer": "BMW Group",
+      "duration_years": 8,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Post-acquisition financial integration of Rolls-Royce into BMW Group structure."
+    },
+    {
+      "role": "Senior Auditor",
+      "employer": "Deloitte",
+      "duration_years": 5,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Automotive and manufacturing sector audit practice."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 8.1,
+      "evidence": [
+        "Led Motorrad financial restructuring after €180M loss — genuine division-level crisis with board visibility",
+        "Managed COVID production halt with zero covenant breaches — financial crisis management under extreme uncertainty",
+        "BMW UK restructuring post-2008 — navigated financial crisis in a major market",
+        "28 years includes two major BMW Group restructurings and three business cycles"
+      ],
+      "gaps": [
+        "All crisis experience is financial in nature — no evidence of operational, reputational, or geopolitical crisis management",
+        "HR notes excessive caution has occasionally prevented value-creating moves — crisis instinct may be to preserve rather than to act"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 7.2,
+      "evidence": [
+        "Full P&L ownership: €2.9B Motorrad Division revenue, 8,000 employees",
+        "28 years across multiple BMW divisions — deep institutional knowledge of operational architecture",
+        "CFA Charter — rigorous financial and analytical framework",
+        "Group-level M&A and investment appraisal experience — operational due diligence exposure"
+      ],
+      "gaps": [
+        "Operational depth is entirely financial — no production, engineering, supply chain, or market operations experience",
+        "CFO perspective on operations differs fundamentally from operating executive perspective"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 4.4,
+      "evidence": [
+        "Multiple division transitions across 28 years",
+        "Rolls-Royce post-acquisition integration required significant adaptive capacity"
+      ],
+      "gaps": [
+        "HR explicitly states: 'comfort with AI-driven financial modelling and real-time data platforms is limited'",
+        "HR: 'not a driver of digital transformation in finance and unlikely to become one'",
+        "Personality description: 'constitutionally suspicious of euphoria' and instinct to 'preserve optionality' — signals resistance to bold change",
+        "HR notes excessive caution has prevented value-creating moves in hindsight",
+        "At 61, two years from succession horizon — limited incentive to drive large-scale change"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8.7,
+      "evidence": [
+        "HR: 'senior leaders across the group seek his counsel informally' — evidence of informal influence beyond formal authority",
+        "Mentor to 6 finance directors across the group — sustained trust-building investment",
+        "Member, BMW Group Financial Risk Committee — board-proximate stakeholder management",
+        "Turned down two CFO offers at competitor groups — signals deep institutional loyalty that stakeholders read as reliability",
+        "HR states he 'uses the right to say what he thinks with care' — trusted voice in senior forums"
+      ],
+      "gaps": [
+        "Informal influence is concentrated within BMW Group finance network",
+        "No evidence of external stakeholder management at government, regulatory, or institutional investor level beyond standard CFO reporting"
+      ]
+    },
+    "external_network": {
+      "score_raw": 5.3,
+      "evidence": [
+        "HSBC JV negotiation — direct banking relationship at senior level",
+        "Deloitte alumni network — professional services connections",
+        "CFA community — peer network in investment and finance",
+        "28 years of BMW Group relationships that include external partners, suppliers, and investors"
+      ],
+      "gaps": [
+        "Entire career within BMW Group and Deloitte — limited cross-industry or cross-functional network",
+        "Network is concentrated in finance and accounting — thin in operations, technology, or market development",
+        "HR does not mention external network as a strength"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Institutional guardian",
+      "Deliberate communicator",
+      "Sceptical of euphoria",
+      "Generationally generous mentor",
+      "Precision-oriented"
+    ],
+    "leadership_style": "Wise counsel: leads through the quality and weight of his judgment rather than through energy or vision. Gravitational rather than propulsive.",
+    "decision_making_pattern": "Slow and rigorous. Values optionality preservation. More comfortable identifying risks than advocating for bold moves. Thinks before speaking — words carry weight as a result.",
+    "stress_response": "Becomes more precise under pressure. Externalises stress through woodworking and deliberate thought. Does not make poor decisions under pressure — may make overly cautious ones.",
+    "collaboration_style": "Mentor-oriented with juniors, peer-counsellor with equals. Not threatened by talent below. Genuine warmth with younger colleagues.",
+    "ambiguity_tolerance": "medium",
+    "change_orientation": "stabiliser"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Final leadership chapter — 2 years to succession horizon. Right mandate would be one where institutional wisdom and financial rigour are the primary value add.",
+    "cultural_fit_rating": 9.4,
+    "key_strength_observed": "Institutional memory, financial crisis management, and informal influence network are irreplaceable. The most trusted voice in the senior finance community.",
+    "development_area": "Digital fluency and risk appetite. Too cautious in hindsight on several value-creating moves. Limited upside in development at this career stage.",
+    "retention_risk": "low",
+    "raw_opinion": "Institutional memory of BMW's financial architecture across 28 years and three business cycles. Informal influence extends well beyond Motorrad. Mentor to 6 finance directors. Turned down two competitor CFO offers. Retention risk zero. Limitations: digital fluency low, sometimes too cautious. 2 years to succession horizon."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 16,
+    "relocation_required": null,
+    "estimated_package_eur": 520000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most institutionally credible and financially rigorous leader in the pool, whose caution and wisdom are the same quality viewed from two angles — in a financial crisis or succession scenario his risk-preserving instinct is an asset, but in a transformation or geopolitical scenario that demands bold action under uncertainty, that same instinct will cost BMW the window.",
+  "best_fit_scenario": "succession",
+  "worst_fit_scenario": "transformation"
+}

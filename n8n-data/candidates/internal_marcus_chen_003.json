@@ -1,0 +1,149 @@
+{
+  "candidate_id": "internal_marcus_chen_003",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:10:00Z",
+
+  "identity": {
+    "full_name": "Marcus Chen",
+    "current_role": "Director, Software & Connected Services",
+    "current_employer": "BMW Group — Munich HQ",
+    "email": "m.chen@bmw-group.com",
+    "phone": "+49 89 382 9834",
+    "location": "Munich, Germany",
+    "years_total_experience": 16,
+    "years_automotive_experience": 8,
+    "languages": ["German (native)", "English (native)", "Mandarin (conversational)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Director, Software & Connected Services",
+      "employer": "BMW Group",
+      "duration_years": 5,
+      "budget_ownership_eur": 410000000,
+      "headcount_managed": 140,
+      "key_achievement": "Connected drive subscription revenue €180M → €410M in 3 years (CAGR 31%). Built team from 60 to 140."
+    },
+    {
+      "role": "Staff Product Manager — Google Maps & Assistant Automotive",
+      "employer": "Google",
+      "duration_years": 8,
+      "budget_ownership_eur": null,
+      "headcount_managed": 28,
+      "key_achievement": "Led Google Maps API for automotive launch with 11 OEM integrations in 18 months. First in-vehicle voice product with >4.0 rating."
+    },
+    {
+      "role": "Freelance Developer & Early-Stage Startup",
+      "employer": "Self / Berlin Ecosystem",
+      "duration_years": 3,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "First startup acquired by Delivery Hero 2012."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 4.2,
+      "evidence": [
+        "Managed subscription platform under rapid scaling pressure — 31% CAGR requires continuous operational risk management",
+        "Google experience involved managing cross-functional delivery across 3 time zones under competitive pressure"
+      ],
+      "gaps": [
+        "No evidence of managing a genuine operational crisis — business interruption, safety incident, or financial emergency at scale",
+        "All pressure has been growth pressure, not containment pressure",
+        "HR notes board-level stakeholder management 'not fully formed' — crisis communication upward is untested"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 5.9,
+      "evidence": [
+        "€410M revenue P&L ownership in connected services",
+        "Built and scaled a 140-person product organisation from near zero",
+        "8 years automotive context — genuine understanding of OEM operating constraints"
+      ],
+      "gaps": [
+        "Software P&L differs fundamentally from manufacturing or supply chain P&L — no plant, logistics, or production line experience",
+        "No evidence of managing operations in regulated, safety-critical, or compliance-heavy environments",
+        "HR implicitly acknowledges: 'has occasionally annoyed operations teams who were not consulted'"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 9.3,
+      "evidence": [
+        "Career built entirely on building new things — startup, Google, BMW connected services all greenfield or near-greenfield",
+        "Crossed cultural and industry boundaries (startup → FAANG → OEM) successfully",
+        "Launched AI-first product (BMW Personal CoPilot) with 2.4M active users in 18 months — speed of execution is exceptional",
+        "Personality description: moves fast by instinct, finds process for its own sake suffocating"
+      ],
+      "gaps": [
+        "Change adaptability is heavily weighted toward building new things — less evidence of successfully navigating institutional resistance from below",
+        "HR notes dismissiveness toward traditional automotive colleagues — signal of impatience with slow-moving change contexts"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 6.1,
+      "evidence": [
+        "Successfully delivered Apple CarPlay Ultra partnership — requires sustained executive relationship management at Apple level",
+        "HR describes him as 'transformative' and 'genuinely bilingual between software and automotive culture'",
+        "Has earned board-level attention — was considered for Group CTO role"
+      ],
+      "gaps": [
+        "HR explicitly states: 'board-level stakeholder management is developing but not fully formed'",
+        "More comfortable with technical vision presentations than political complexity navigation",
+        "HR documents friction with traditional automotive colleagues — cross-functional trust is inconsistent",
+        "Disengagement following CTO rejection — signal of stakeholder relationship vulnerability under perceived unfairness"
+      ]
+    },
+    "external_network": {
+      "score_raw": 8.7,
+      "evidence": [
+        "Stanford MS and FAANG career — some of the highest-value technical talent networks available",
+        "34 senior FAANG/Big Tech hires through personal network — active, high-quality recruiting network",
+        "Apple CarPlay Ultra partnership — direct relationship at Apple executive level",
+        "Startup ecosystem connections from Berlin and Bay Area careers"
+      ],
+      "gaps": [
+        "Network is concentrated in software and tech — thin in traditional automotive, manufacturing, or regulatory environments",
+        "Active conversations with Rivian and a German startup suggest network is actively being used to explore exit options"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Intellectually restless",
+      "Builder by instinct",
+      "User-centric thinker",
+      "Culturally bicultural",
+      "Speed-oriented"
+    ],
+    "leadership_style": "Product-led: defines the vision, recruits exceptional people, creates space for fast execution, moves ahead of consensus.",
+    "decision_making_pattern": "Fast and intuitive, informed by strong pattern recognition from Big Tech product culture. Occasionally moves ahead of stakeholder alignment.",
+    "stress_response": "Channelled into building — under pressure he accelerates rather than consolidates. This can be brilliant or destabilising depending on context.",
+    "collaboration_style": "Highly collaborative within his team, less so with external stakeholders from traditional automotive backgrounds. Has been coached on this.",
+    "ambiguity_tolerance": "high",
+    "change_orientation": "transformer"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Ready now for the right mandate — specifically founding-executive or transformation leadership. Wrong for operational stability roles. At risk of departure if not given meaningful scope expansion.",
+    "cultural_fit_rating": 6.9,
+    "key_strength_observed": "Rarest internal profile: genuinely bilingual between software-native and automotive culture. Revenue growth and team-building track record is extraordinary for his age.",
+    "development_area": "Board-level political navigation and patience with institutional pace. Tendency to dismiss traditional automotive colleagues creates cross-functional friction that will limit him at the most senior levels.",
+    "retention_risk": "high",
+    "raw_opinion": "Transformative in connected services — €410M revenue, 140-person team built. Rare bilingual software/automotive capability. Was passed over for Group CTO which I disagreed with. Has had conversations with Rivian and a startup. Not leaving tomorrow but at risk. Occasionally dismissive of traditional automotive colleagues. Board-level stakeholder management still developing."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 8,
+    "relocation_required": null,
+    "estimated_package_eur": 380000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most digitally capable leader in the internal pool with a genuine team-building track record — but his brilliance is optimised for building new things at speed, and any scenario requiring him to maintain trust with institutional stakeholders who move slowly will test whether his coaching on patience has actually landed.",
+  "best_fit_scenario": "transformation",
+  "worst_fit_scenario": "crisis"
+}

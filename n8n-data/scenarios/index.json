@@ -1,0 +1,26 @@
+[
+  {
+    "scenario_id": "TAL_SCN_BERLIN_OPS_001",
+    "track": "internal",
+    "status": "complete",
+    "created_at": "2024-07-30T10:00:00Z",
+    "updated_at": "2026-03-29T13:21:21.588Z",
+    "file": "scenarios/TAL_SCN_BERLIN_OPS_001.json"
+  },
+  {
+    "scenario_id": "internal-migration-berlin-001",
+    "track": "internal",
+    "status": "complete",
+    "created_at": "2024-07-30T10:00:00Z",
+    "updated_at": "2026-03-29T13:27:33.987Z",
+    "file": "scenarios/internal-migration-berlin-001.json"
+  },
+  {
+    "scenario_id": "TAL_HR_BERLIN_MIG_001",
+    "track": "internal",
+    "status": "complete",
+    "created_at": "2024-07-30T10:00:00Z",
+    "updated_at": "2026-03-29T13:51:08.120Z",
+    "file": "scenarios/TAL_HR_BERLIN_MIG_001.json"
+  }
+]

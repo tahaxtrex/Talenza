@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "scenario_id": "scenario_geopolitical_crisis_001",
+    "created_at": "2026-03-29T10:00:00Z",
+    "version": "1.0",
+    "status": "complete"
+  },
+
+  "role": {
+    "title": "Regional VP, Middle East and North Africa Operations",
+    "seniority_level": "vp",
+    "department": "International Operations",
+    "primary_location": "Dubai, UAE",
+    "secondary_locations": ["Tel Aviv, Israel", "Istanbul, Turkey", "Munich, Germany"],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 60
+  },
+
+  "business_context": {
+    "situation_type": "crisis",
+    "situation_subtype": "geopolitical",
+    "description": "Urgent leadership vacancy in MENA regional operations directorate amidst severe geopolitical escalation between Israel and Iran. The role involves managing a high-revenue market (Israel) and a critical supply chain corridor (Strait of Hormuz) simultaneously under conflict conditions.",
+    "urgency_driver": "Temporary coverage by Istanbul office is unsustainable beyond 8 weeks; humanitarian relocation of previous VP left a critical gap during active conflict.",
+    "board_visibility": "board",
+    "external_visibility_risk": true,
+    "geopolitical_complexity": true,
+    "geopolitical_description": "Active military escalation between Israel and Iran; instability of US posture in region; closure of traditional logistics corridors; rare earth component supply chain under stress.",
+    "regulatory_complexity": true,
+    "regulatory_description": "Sanctions compliance; emergency trade permits; international maritime law; humanitarian relocation protocols.",
+    "competitive_pressure": "medium"
+  },
+
+  "constraints": {
+    "urgency_weeks": 8,
+    "hard_deadline_date": "2026-05-24T00:00:00Z",
+    "hard_deadline_reason": "Interim Istanbul management arrangement expires; critical supply chain window for dysprosium/neodymium compounds.",
+    "budget_for_search_eur": null,
+    "can_use_search_firm": true,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": 550000.0,
+    "package_budget_base_eur": 350000.0,
+    "package_out_of_band_possible": true,
+    "package_approval_required": "CHRO & CEO",
+    "internal_equity_risk": false,
+    "personal_security_risk": true,
+    "language_requirements": ["English (fluent)", "Arabic (advantage)", "Hebrew (advantage)", "German (advantage)"],
+    "cultural_requirements": ["MENA market experience", "Crisis negotiation", "Geopolitical sensitivity"],
+    "legal_clearance_required": true
+  },
+
+  "priority_capabilities": {
+    "must_have_1": "Proven senior leadership in high-conflict geopolitical environments",
+    "must_have_2": "Complex stakeholder management across adversarial parties (Dealer groups, Governments)",
+    "must_have_3": "Supply chain resilience and alternative logistics routing under sanctions",
+    "nice_to_have_1": "Bilingual in regional languages",
+    "nice_to_have_2": "Existing network in MENA trade and security circles",
+    "explicit_disqualifiers": ["No prior international experience", "Low tolerance for physical security risk"]
+  },
+
+  "team_context": {
+    "team_exists": true,
+    "team_size_current": 45,
+    "team_size_target_year1": 55,
+    "team_size_target_year2": 60,
+    "team_type": "Regional HQ / Distribution & After-sales",
+    "inherited_technical_debt": false,
+    "inherited_culture_issues": true,
+    "key_stakeholders": [
+      {
+        "role": "CEO, Israel Dealer Group",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "High-revenue partner requiring direct, high-trust senior representation on the ground."
+      },
+      {
+        "role": "VP International Operations (Munich)",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Requires frequent, high-precision briefings on regional volatility."
+      }
+    ]
+  },
+
+  "derived": {
+    "classification": {
+      "scenario_type": "crisis",
+      "scenario_subtype": "geopolitical",
+      "classification_source": "explicit",
+      "classification_confidence": 0.95,
+      "classification_reasoning": "Scenario explicitly describes a geopolitical escalation and an urgent leadership vacancy in a conflict zone.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Weights provided in scenario documentation.",
+        "crisis_mgmt": 0.12,
+        "ops_depth": 0.06,
+        "change_adapt": 0.28,
+        "stakeholder": 0.32,
+        "external_net": 0.22
+      },
+      "modifiers_applied": [],
+      "final_weights": {
+        "description": "Directly adopted from scenario requirements.",
+        "crisis_mgmt": {
+          "value": 0.12,
+          "confidence": 0.9,
+          "confidence_reasoning": "Explicitly defined in documentation.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Crisis management is necessary for the conflict zone but secondary to the relational trust needed to hold the dealer network together."
+        },
+        "ops_depth": {
+          "value": 0.06,
+          "confidence": 0.9,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Supply chain depth is required but subservient to the geopolitical and relational navigation."
+        },
+        "change_adapt": {
+          "value": 0.28,
+          "confidence": 0.9,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Novel environment with no playbook requires a leader who can adapt to shifting military and political realities."
+        },
+        "stakeholder": {
+          "value": 0.32,
+          "confidence": 0.9,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "The primary demand is holding the trust of a critical dealer group and the BMW board during a period of extreme volatility."
+        },
+        "external_net": {
+          "value": 0.22,
+          "confidence": 0.9,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Requires immediate access to sanctions legal experts and regional security networks."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1.0,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+
+    "floor_constraints": {
+      "description": "Minimum acceptable score per dimension for this scenario.",
+      "active_floors": [
+        {
+          "dimension": "stakeholder",
+          "minimum_score": 7.5,
+          "floor_reasoning": "Failure to build immediate trust with the Israel dealer group will lead to revenue collapse in a key market.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 7.0,
+          "floor_reasoning": "A rigid, process-only leader will break in this shifting conflict environment.",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Floors are set high for soft-power dimensions where failure results in immediate irreparable relationship damage."
+    },
+
+    "dimension_correlation_warnings": {
+      "description": "Flags pairs of dimensions that are structurally correlated in this scenario.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "In MENA, external networking often overlaps significantly with formal stakeholder management."
+        }
+      ]
+    },
+
+    "scenario_intelligence": {
+      "scenario_summary": "Demands a diplomatic heavyweight who can maintain dealer trust and reroute supply chains under active conflict and sanctions pressure. A traditional 'operations-first' manager will likely fail here by prioritizing process over the delicate political and relational navigation required.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "geopolitical_volatility",
+          "description": "Conflict escalation could render any strategy obsolete within days.",
+          "impact_on_analysis": "Prioritize candidates with high ambiguity tolerance and 'ground-up' regional experience."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Diplomatic Operator",
+          "archetype_description": "Combines operational logic with high-level political and relational intelligence.",
+          "why_fit_this_scenario": "Can navigate the board, the dealers, and the logistics corridors simultaneously.",
+          "typical_weakness": "May be less focused on long-term internal process optimization."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Process Optimizer",
+          "archetype_description": "Thrives in stable, predictable environments with clear playbooks.",
+          "why_wrong_for_this_scenario": "Will be paralyzed by the lack of existing cooperation agreements and shifting conflict lines."
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Crisis Relational Trust",
+          "rationale": "Must keep the dealer group engaged when the physical presence of the brand is under threat.",
+          "suggested_question": "Tell us about a time you had to maintain a high-stakes partnership when you could not fulfill your core operational promises due to external volatility."
+        }
+      ]
+    },
+
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": true,
+      "weights_validated": true,
+      "completeness_percentage": 100,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}

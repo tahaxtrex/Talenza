@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "scenario_id": "scenario_digital_transformation_002",
+    "created_at": "2026-03-29T10:05:00Z",
+    "version": "1.0",
+    "status": "complete"
+  },
+
+  "role": {
+    "title": "Head of BMW Operating System (BWMOS)",
+    "seniority_level": "svp",
+    "department": "Digital / BMW Operating System",
+    "primary_location": "Munich, Germany",
+    "secondary_locations": ["Mountain View, CA", "Berlin, Germany"],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 30
+  },
+
+  "business_context": {
+    "situation_type": "transformation",
+    "situation_subtype": "digital",
+    "description": "Creation of a new internal division, BMW Operating System (BWMOS), to develop a full software stack (in-vehicle OS, OTA, AI, connectivity) from scratch for model year 2028. This is a founding executive role to build a high-velocity tech culture within a legacy automotive OEM.",
+    "urgency_driver": "Competitive gap with VW and Mercedes compounding; must stand up capability in 4-5 months to meet 2028 production milestones.",
+    "board_visibility": "board",
+    "external_visibility_risk": true,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": true,
+    "regulatory_description": "Automotive software safety standards; data privacy/sovereignty; software-defined vehicle compliance.",
+    "competitive_pressure": "high"
+  },
+
+  "constraints": {
+    "urgency_weeks": 20,
+    "hard_deadline_date": "2026-08-30T00:00:00Z",
+    "hard_deadline_reason": "Cycle plan for 2028 model year requires architectural freeze on OS stack.",
+    "budget_for_search_eur": null,
+    "can_use_search_firm": true,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": 850000.0,
+    "package_budget_base_eur": 450000.0,
+    "package_out_of_band_possible": true,
+    "package_approval_required": "Board",
+    "internal_equity_risk": true,
+    "personal_security_risk": false,
+    "language_requirements": ["English (fluent)", "German (advantageous but secondary)"],
+    "cultural_requirements": ["Tech-first mindset", "Startup velocity", "Software engineering excellence"],
+    "legal_clearance_required": false
+  },
+
+  "priority_capabilities": {
+    "must_have_1": "Experience building and scaling high-performance software engineering organizations from near zero",
+    "must_have_2": "Fluency in modern software development methodologies (CI/CD, Sprints, Product Management)",
+    "must_have_3": "Ability to navigate the friction between software velocity and legacy automotive hardware cycles",
+    "nice_to_have_1": "Direct experience in automotive software (AV/ADAS/Infotainment)",
+    "nice_to_have_2": "Silicon Valley technical leadership pedigree",
+    "explicit_disqualifiers": ["No software engineering background", "Traditional project management mindset"]
+  },
+
+  "team_context": {
+    "team_exists": false,
+    "team_size_current": 0,
+    "team_size_target_year1": 80,
+    "team_size_target_year2": 250,
+    "team_type": "Founding Engineering Team / Software House",
+    "inherited_technical_debt": false,
+    "inherited_culture_issues": false,
+    "key_stakeholders": [
+      {
+        "role": "Chief Technology Officer",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Critical sponsor who must defend the new culture against legacy encroachment."
+      },
+      {
+        "role": "Head of Vehicle Engineering",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "The primary point of friction: software speed vs. hardware safety/validation cycles."
+      }
+    ]
+  },
+
+  "derived": {
+    "classification": {
+      "scenario_type": "transformation",
+      "scenario_subtype": "digital",
+      "classification_source": "explicit",
+      "classification_confidence": 0.98,
+      "classification_reasoning": "Explicitly describes building a new software-defined vehicle division from zero to transform the company's tech capability.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Weights provided in scenario documentation.",
+        "crisis_mgmt": 0.05,
+        "ops_depth": 0.09,
+        "change_adapt": 0.38,
+        "stakeholder": 0.20,
+        "external_net": 0.28
+      },
+      "modifiers_applied": [],
+      "final_weights": {
+        "description": "Directly adopted from scenario requirements.",
+        "crisis_mgmt": {
+          "value": 0.05,
+          "confidence": 0.95,
+          "confidence_reasoning": "Explicitly defined; long timeline makes crisis skills less critical.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Crisis management is not the primary driver in a long-horizon build scenario."
+        },
+        "ops_depth": {
+          "value": 0.09,
+          "confidence": 0.95,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Need just enough automotive credibility to speak the language, but deep legacy ops depth might actually be a hindrance."
+        },
+        "change_adapt": {
+          "value": 0.38,
+          "confidence": 0.95,
+          "confidence_reasoning": "Explicitly defined as the primary driver.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "The entire job is managing the friction of building a new culture inside a legacy organization."
+        },
+        "stakeholder": {
+          "value": 0.20,
+          "confidence": 0.95,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "Must maintain credibility with legacy engineering leadership while disrupting their methods."
+        },
+        "external_net": {
+          "value": 0.28,
+          "confidence": 0.95,
+          "confidence_reasoning": "Explicitly defined.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0.0,
+          "business_logic": "The leader's network IS the delivery mechanism for the massive recruitment needed (40-120 people in 18 months)."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1.0,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+
+    "floor_constraints": {
+      "description": "Minimum acceptable score per dimension for this scenario.",
+      "active_floors": [
+        {
+          "dimension": "external_net",
+          "minimum_score": 8.0,
+          "floor_reasoning": "Without a top-tier software engineering network, the hiring targets for the first 12 months are impossible.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 8.5,
+          "floor_reasoning": "The leader will face intense institutional resistance; they must be a master of navigating transformation friction.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        }
+      ],
+      "floor_derivation_logic": "Floors are set very high for the core transformation capabilities required to stand up a new entity."
+    },
+
+    "dimension_correlation_warnings": {
+      "description": "Flags pairs of dimensions that are structurally correlated in this scenario.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "change_adapt",
+          "dimension_b": "stakeholder",
+          "correlation_strength": "high",
+          "scenario_specific_note": "In a legacy org, change adaptability is almost entirely about stakeholder negotiation."
+        }
+      ]
+    },
+
+    "scenario_intelligence": {
+      "scenario_summary": "Requires a founding engineering executive who can build a high-velocity software culture from scratch while successfully defending it within a legacy OEM. A pure technologist who cannot navigate corporate politics, or a pure corporate executive who doesn't understand software velocity, will both fail.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "Starting with zero headcount; extreme recruiting pressure.",
+          "impact_on_analysis": "External network quality is the single biggest predictor of success in the first 12 months."
+        },
+        {
+          "flag_type": "cultural_friction",
+          "description": "Legacy automotive engineering vs. Silicon Valley software culture.",
+          "impact_on_analysis": "Soft-power stakeholder management is just as important as technical vision."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Greenfield Builder",
+          "archetype_description": "Has a track record of building technical organizations from zero in complex environments.",
+          "why_fit_this_scenario": "Understands the sequence of building a culture, not just a product.",
+          "typical_weakness": "Can become impatient with the 'slow' parts of the organization."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Institutional Maintainer",
+          "archetype_description": "Excellent at running large, stable, process-heavy organizations.",
+          "why_wrong_for_this_scenario": "Will inadvertently recreate the legacy culture they were hired to disrupt.",
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Culture Architecture",
+          "rationale": "The team will be defined by the first 10 hires.",
+          "suggested_question": "Describe your specific playbook for hiring the first 10 engineers in a new division where the brand name is strong but the tech reputation is unproven."
+        }
+      ]
+    },
+
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": true,
+      "weights_validated": true,
+      "completeness_percentage": 100,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}

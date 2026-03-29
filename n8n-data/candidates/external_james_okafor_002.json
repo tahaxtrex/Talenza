@@ -1,0 +1,154 @@
+{
+  "candidate_id": "external_james_okafor_002",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:05:00Z",
+
+  "identity": {
+    "full_name": "James Okafor",
+    "current_role": "SVP Global Manufacturing Operations",
+    "current_employer": "Ford Motor Company",
+    "email": "j.okafor@ford.com",
+    "phone": "+1 313 845 0094",
+    "location": "Dearborn, Michigan, USA",
+    "years_total_experience": 27,
+    "years_automotive_experience": 27,
+    "languages": ["English (native)", "Igbo (heritage)", "Spanish (conversational)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "SVP Global Manufacturing Operations",
+      "employer": "Ford Motor Company",
+      "duration_years": 6,
+      "budget_ownership_eur": 16900000000,
+      "headcount_managed": 97000,
+      "key_achievement": "EV manufacturing transition: closed 6 ICE plants, launched 3 EV facilities, $2.1B capex. Dearborn plant fire recovery in 18 days vs 45-day benchmark."
+    },
+    {
+      "role": "VP Manufacturing — North America",
+      "employer": "Ford Motor Company",
+      "duration_years": 5,
+      "budget_ownership_eur": 8450000000,
+      "headcount_managed": 54000,
+      "key_achievement": "Led Ford aluminium body truck manufacturing integration — cited as most complex material transition in Ford history."
+    },
+    {
+      "role": "Plant Manager — Kansas City Assembly",
+      "employer": "Ford Motor Company",
+      "duration_years": 5,
+      "budget_ownership_eur": null,
+      "headcount_managed": 5900,
+      "key_achievement": "Turned plant from bottom quartile to top decile performance in 3 years."
+    },
+    {
+      "role": "Quality Engineer → General Supervisor",
+      "employer": "Ford Motor Company",
+      "duration_years": 11,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Progressive leadership across Michigan, Kentucky, Ohio — floor-level to general supervisor in 11 years."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 9.6,
+      "evidence": [
+        "Dearborn plant fire 2022: full production recovery in 18 days against 45-day industry benchmark — quantified, verified crisis management outcome",
+        "CV credits this with preventing $1.2B revenue loss — financial scale signals board-level crisis",
+        "UAW strike resolution affecting 7 plants — labour relations crisis requiring negotiation under operational pressure",
+        "Manufacturing network restructuring during EV transition — sustained strategic crisis management over 4 years"
+      ],
+      "gaps": [
+        "All crisis experience is operational and labour relations — no geopolitical, reputational, or regulatory crisis management evidenced",
+        "American industrial crisis context differs from European automotive crisis context — regulatory frameworks, labour relations, and stakeholder structures are different"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 9.7,
+      "evidence": [
+        "$18.4B production budget, 97,000 employees, 47 plants across 6 continents — the largest manufacturing scope in this candidate pool by significant margin",
+        "27-year floor-to-SVP progression at a single manufacturer — deepest possible institutional operational knowledge",
+        "Led aluminium body truck transition — materials engineering complexity requiring genuine technical depth",
+        "Ford Manufacturing Academy: 12,000 workers retrained in 18 months — operational change delivery at scale",
+        "NAM Vice Chair — industry-recognised operational authority",
+        "MIT Manufacturing Futures Initiative advisory board — academic validation of manufacturing expertise"
+      ],
+      "gaps": [
+        "Entire career at Ford — no cross-manufacturer perspective. Ford and BMW manufacturing cultures differ significantly in precision standards and quality philosophy.",
+        "American manufacturing context — German works council structures, IG Metall relationships, and IATF requirements will be new territory"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 7.8,
+      "evidence": [
+        "Led closure of 6 ICE plants and launch of 3 EV facilities simultaneously — fundamental transformation of manufacturing identity",
+        "Cover letter: 'managing significant human, operational, and political complexity simultaneously'",
+        "Personal: willing to relocate family from Michigan to Europe — significant personal adaptability signal"
+      ],
+      "gaps": [
+        "All transformation has been within Ford and within automotive manufacturing — no cross-industry adaptation",
+        "27 years at one company is a significant institutional anchoring — unknown how well he adapts to genuinely different organisational cultures"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 8.4,
+      "evidence": [
+        "NAM Vice Chair — peer-elected leadership at US national manufacturing association level",
+        "UAW strike resolution: successful negotiation with union during highly adversarial conditions",
+        "Harvard AMP and MIT advisory board — credibility across business and academic communities",
+        "27-year Ford career with consistent promotion — sustained institutional trust across multiple CEO and board transitions"
+      ],
+      "gaps": [
+        "All stakeholder experience is within US context — European board dynamics, works council structures, and regulatory stakeholders are all new",
+        "No evidence of investor relations, government affairs, or media communications experience",
+        "German premium brand culture will expect different communication register than American manufacturing culture"
+      ]
+    },
+    "external_network": {
+      "score_raw": 7.6,
+      "evidence": [
+        "NAM Vice Chair — access to US industrial and policy network",
+        "MIT Manufacturing Futures Initiative — academic and research network",
+        "Harvard AMP alumni — global executive network",
+        "27 years of supply chain and manufacturing relationships across 6 continents"
+      ],
+      "gaps": [
+        "Network is American-anchored and automotive manufacturing-focused",
+        "Limited European network for a senior European role — will need significant relationship-building in BMW's stakeholder ecosystem",
+        "No evidence of European industry association, government relations, or media network"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Results-through-execution",
+      "Crisis-hardened",
+      "Institutionally loyal (27 years Ford)",
+      "Worker-credibility oriented",
+      "Ambitious at career transition stage"
+    ],
+    "leadership_style": "Inferred from career pattern and cover letter: ground-up operator who built authority from the floor level. Likely leads through operational credibility and delivery record rather than strategic vision or political finesse.",
+    "decision_making_pattern": "Inferred: speed-oriented in crisis, systematic in steady state. Cover letter references 'compressed window' comfort and 'complexity managed simultaneously' — signals comfort with multi-variable decisions under time pressure.",
+    "stress_response": "Inferred from Dearborn fire response: capable of accelerating to a faster tempo under acute crisis. 18-day recovery against 45-day benchmark implies forcing function leadership under pressure.",
+    "collaboration_style": "Inferred from UAW negotiation: capable of adversarial collaboration when required. Likely builds trust through demonstrated operational competence rather than relational warmth.",
+    "ambiguity_tolerance": "medium-high — inferred from EV transition leadership",
+    "change_orientation": "transformer — inferred from ICE plant closures and EV facility launches",
+    "inference_confidence": 0.6,
+    "inference_note": "Personality inferred from CV career pattern, quantified outcomes, and cover letter language. No direct assessment available. Ford single-company career limits cross-cultural adaptability inference."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 16,
+    "relocation_required": true,
+    "estimated_package_eur": 650000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most operationally credentialed crisis manager in the entire candidate pool — 97,000 employees, 47 plants, a plant fire recovery that set a new industry benchmark — but 27 years at a single American manufacturer means his institutional anchoring is deep and his European cultural context is zero, and the question of whether BMW's precision culture and German works council dynamics translate from Ford's environment is genuinely unanswerable without a trial.",
+  "best_fit_scenario": "crisis",
+  "worst_fit_scenario": "succession"
+}

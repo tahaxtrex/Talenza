@@ -1,0 +1,719 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>🏆 BMW Track — AI for People &amp; Leadership Strategy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3303f962-a23c-8002-8e64-eb4cb4f2ab46" class="page sans"><header><h1 class="page-title" dir="auto">🏆 BMW Track — AI for People &amp; Leadership Strategy</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="ca8435d1-af5b-46c7-83ab-50731cd9582e" class="">Constructor University GenAI Hackathon 2026</h2></div><div style="display:contents" dir="auto"><blockquote id="9b5ccb3c-6c38-43f7-a2b7-200ffa35857a" class=""><strong>&quot;This is not about showing AI. This is about improving decisions.&quot;</strong></blockquote></div><div style="display:contents" dir="auto"><hr id="288cfe62-1893-45ae-9349-71d71d1eec82"/></div><div style="display:contents" dir="auto"><h2 id="af8c65ff-9dea-4d46-ab26-1883cf65c056" class="">📅 Event Overview</h2></div><div style="display:contents" dir="ltr"><table id="9aecae5d-9f49-49db-ba27-aeff9bc73073" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="91f52c4a-a878-4e17-88f6-d031f9956322"><th id="MM\Y" class="simple-table-header-color simple-table-header">Detail</th><th id="VeoN" class="simple-table-header-color simple-table-header">Info</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="7e66c268-7eff-4add-ad90-0f5be43de9f2"><td id="MM\Y" class=""><strong>Event</strong></td><td id="VeoN" class="">Large-Scale GenAI Hackathon</td></tr></div><div style="display:contents" dir="ltr"><tr id="2b22aa37-b5f7-41d8-b237-49e9f881bc78"><td id="MM\Y" class=""><strong>Dates</strong></td><td id="VeoN" class="">March 27–30, 2026</td></tr></div><div style="display:contents" dir="ltr"><tr id="134e99b3-76ff-4ca5-ac5e-e024d6f56db3"><td id="MM\Y" class=""><strong>Venue</strong></td><td id="VeoN" class="">ICC Conference Hall, Constructor University</td></tr></div><div style="display:contents" dir="ltr"><tr id="3a2f6612-c064-4401-aa31-ad29b44318fa"><td id="MM\Y" class=""><strong>Format</strong></td><td id="VeoN" class="">72-Hour Hackathon</td></tr></div><div style="display:contents" dir="ltr"><tr id="c20f1e38-8534-44ce-9de2-982d86450750"><td id="MM\Y" class=""><strong>Attendance</strong></td><td id="VeoN" class="">200–250 participants (judges, mentors, participants)</td></tr></div><div style="display:contents" dir="ltr"><tr id="3bb03b74-6620-4b53-a369-274bcc62428a"><td id="MM\Y" class=""><strong>Organizers</strong></td><td id="VeoN" class="">Beyond the Pond Alumni Association, BMW, Lovable, Constructor Tech, Constructor Knowledge Labs</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="4bb1449b-3073-4a5c-b008-f316fd61e2a2" class="">Team Format</h3></div><div style="display:contents" dir="auto"><ul id="fdbf7445-1635-4bbd-9eef-803cd1847fa0" class="bulleted-list"><li style="list-style-type:disc">Teams of <strong>2–3 people</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="e2cc712c-ebec-43aa-9bfc-04977ee7a6b3" class="bulleted-list"><li style="list-style-type:disc">Already have a team? Register together with one submission listing all members</li></ul></div><div style="display:contents" dir="auto"><ul id="e4fdeffd-96bc-42c7-ad0a-219763450397" class="bulleted-list"><li style="list-style-type:disc">Coming solo? Register individually — Constructor Connect&#x27;s matching tool will pair you with teammates</li></ul></div><div style="display:contents" dir="auto"><hr id="ec63dd6a-b52f-4543-83fe-e997a3296c69"/></div><div style="display:contents" dir="auto"><h2 id="71f312ee-2c3f-417b-9bbc-560bb3a2cc4f" class="">🎯 Track 1: BMW — AI for People &amp; Leadership Strategy</h2></div><div style="display:contents" dir="auto"><p id="d7bb8cba-7e05-4fb4-93fa-0fa64ddf74b2" class=""><strong>Core Challenge:</strong> How can AI help a global industrial giant make smarter decisions about its people?</p></div><div style="display:contents" dir="auto"><p id="8d1a86f5-16fb-4576-ae46-5c84db5e070d" class="">Build GenAI tools that support BMW&#x27;s <strong>workforce and leadership strategy</strong> — covering areas such as:</p></div><div style="display:contents" dir="auto"><ul id="e5e93f72-f715-49c1-bb9c-a86042d07a50" class="bulleted-list"><li style="list-style-type:disc">Spotting hidden talent</li></ul></div><div style="display:contents" dir="auto"><ul id="303da213-1b42-4568-b0d6-3456be314628" class="bulleted-list"><li style="list-style-type:disc">Planning succession</li></ul></div><div style="display:contents" dir="auto"><ul id="cdad9a74-5a16-46f7-a975-ea44ac691a7d" class="bulleted-list"><li style="list-style-type:disc">Mapping upskilling paths</li></ul></div><div style="display:contents" dir="auto"><ul id="eb30b79a-2714-4fd6-b703-8da735b95a76" class="bulleted-list"><li style="list-style-type:disc">Decoding compensation trends</li></ul></div><div style="display:contents" dir="auto"><blockquote id="a2bda61b-606f-482d-a7e9-cb12c773ad8c" class=""><strong>Important principle:</strong> The final call always stays with humans. Your job is to make their decisions sharper, faster, and better informed.</blockquote></div><div style="display:contents" dir="auto"><h3 id="231d69fd-913e-452e-a9c0-f05d46a41d2f" class="">👥 Mentors / Experts</h3></div><div style="display:contents" dir="auto"><ul id="02d64fbd-5225-4762-b9d9-4cb7e21ebf7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Dr. Ishansh Gupta</strong> — AI &amp; Digitalization, BMW</li></ul></div><div style="display:contents" dir="auto"><ul id="af376853-7865-47d0-8161-381c16cc45f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Raveen Ranasinghe</strong> — GenAI Deployment Expert, representing CU Alumni Community</li></ul></div><div style="display:contents" dir="auto"><h3 id="1490baec-8ad7-44a6-b925-0a6452a76de2" class="">🎁 Prizes</h3></div><div style="display:contents" dir="auto"><ul id="7c4bb725-2c47-43a1-bcd4-d3b3a7a63b94" class="bulleted-list"><li style="list-style-type:disc">Direct <strong>interview opportunity</strong> for internship positions at BMW</li></ul></div><div style="display:contents" dir="auto"><ul id="e0f1edf5-d588-4f5f-a3cc-32ac2ab998f8" class="bulleted-list"><li style="list-style-type:disc"><strong>Referrals</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="064d3f43-f54c-4b15-af3b-d09dd79c0cc1" class="bulleted-list"><li style="list-style-type:disc"><strong>BMW merchandise</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="e955450d-4c4b-4e93-b2f6-89f2de8e1855" class="bulleted-list"><li style="list-style-type:disc"><strong>Lovable credits</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="25a062ae-76ce-45d0-a2fc-1a330a0feeaa" class="bulleted-list"><li style="list-style-type:disc"><strong>Spot at Constructor Accelerator Program</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="424f4823-6ab9-462c-ba14-c8135432c103"/></div><div style="display:contents" dir="auto"><h2 id="bb2df8bf-f4d7-47c3-a5cc-12d2380e9fb1" class="">🔍 Why This Matters (Slide 12)</h2></div><div style="display:contents" dir="auto"><blockquote id="6490194b-aed4-4f4c-bcbd-5b69f42009f8" class=""><strong>&quot;Not data. Not models. Not tools. People make the decisions that shape outcomes.&quot;</strong></blockquote></div><div style="display:contents" dir="ltr"><table id="f698c4c7-3078-45b8-940e-adc917cdbf21" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="50dba4ca-2eda-4e62-b5a2-ab716a1e304e"><th id="jauw" class="simple-table-header-color simple-table-header">Leader Type</th><th id="NHlL" class="simple-table-header-color simple-table-header">Effect</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="5a8aa7be-01d0-4bcb-9adf-2b1efc9279ec"><td id="jauw" class=""><strong>Strong leader</strong></td><td id="NHlL" class="">Can recover a failing system</td></tr></div><div style="display:contents" dir="ltr"><tr id="c09ac93d-4f6a-48e5-82ed-f870a1b60fe8"><td id="jauw" class=""><strong>Weak leader</strong></td><td id="NHlL" class="">Can destroy a strong system</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="785e6937-0a57-4f4e-9695-8f70ce7d37c7" class="">⚠️ <em>&quot;This is not a technical problem — it is a decision problem.&quot;</em></blockquote></div><div style="display:contents" dir="auto"><h3 id="10156d40-e5f4-4364-b7ba-922489e85e13" class="">Our Core Responsibility</h3></div><div style="display:contents" dir="auto"><p id="94f3bbc0-abc0-43af-9459-ab1a21965d7e" class=""><strong>Selecting the right people for the right roles at the right time</strong>, specifically for:</p></div><div style="display:contents" dir="auto"><ul id="ae6e4ede-2bdd-4011-8a2a-8f04174d6f0d" class="bulleted-list"><li style="list-style-type:disc">Senior executives</li></ul></div><div style="display:contents" dir="auto"><ul id="95a74e2d-f8ad-4857-a0b6-57cf760ff9c2" class="bulleted-list"><li style="list-style-type:disc">Leadership-critical roles</li></ul></div><div style="display:contents" dir="auto"><ul id="28b3f243-83a2-434b-a094-e3c44846a678" class="bulleted-list"><li style="list-style-type:disc">High-impact organizational decisions</li></ul></div><div style="display:contents" dir="auto"><h3 id="cd6d5e12-00fd-4e8e-8207-a14e94cce34c" class="">Stakes Are High</h3></div><div style="display:contents" dir="ltr"><table id="a10eb495-369e-4ae1-ae37-c716d05e826b" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="990c4515-01bd-4f19-a42f-025f8b537e50"><th id="te^k" class="simple-table-header-color simple-table-header">Dimension</th><th id="OhHn" class="simple-table-header-color simple-table-header">Risk</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="290d7fbd-2822-4330-b28b-49cd0a1a4bc4"><td id="te^k" class=""><strong>High Cost</strong></td><td id="OhHn" class="">of misalignment</td></tr></div><div style="display:contents" dir="ltr"><tr id="ec16f995-cc5a-45d2-8944-26aa8228b1f4"><td id="te^k" class=""><strong>High Risk</strong></td><td id="OhHn" class="">of wrong fit</td></tr></div><div style="display:contents" dir="ltr"><tr id="6e7e7e61-dec0-4c2f-8379-ce58038c75f8"><td id="te^k" class=""><strong>High Impact</strong></td><td id="OhHn" class="">on org outcomes</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="42c9a9d2-8371-4586-b559-913628df7979" class="">💡 <em>Getting it right creates leverage across the entire organization.</em></blockquote></div><div style="display:contents" dir="auto"><hr id="ed10fc52-4cab-4b03-a74a-bf6e21cdd7e9"/></div><div style="display:contents" dir="auto"><h2 id="f09efa48-b11d-486d-a18b-95f2530ba844" class="">⚠️ The Problem with Today&#x27;s Decisions (Slide 13)</h2></div><div style="display:contents" dir="auto"><h3 id="60543f86-ec35-4456-b489-58f58b7db3a8" class="">How Decisions Are Made Today (Pain Points)</h3></div><div style="display:contents" dir="auto"><ol type="1" id="95d61597-3ef8-4f56-845c-c125baabd2fc" class="numbered-list" start="1"><li>Experience-driven, intuition-heavy</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="5c1dd99c-98f0-46d0-982b-96497415f10b" class="numbered-list" start="2"><li>Biased toward safe ratings <em>(everyone is a 7 or 8)</em></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ee22e91b-4b35-416d-a102-284c82838bb8" class="numbered-list" start="3"><li>Limited scenario simulation</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b9678bed-bc0d-45d6-9845-bb3ff076a190" class="numbered-list" start="4"><li>Hiring fastest available, not best fit</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="59c3a983-0d18-4829-95ac-655710ed7729" class="numbered-list" start="5"><li>Over-reliance on past vs. future fit</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1df126cf-42cf-4f40-b457-8a7dfc4190ac" class="numbered-list" start="6"><li>Ignoring how leadership combinations interact</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="b7ae9ce7-1118-4c1c-a046-09aa8a38f399" class="numbered-list" start="7"><li>Weak visibility into downstream impact</li></ol></div><div style="display:contents" dir="auto"><h3 id="5381b050-26e5-4205-9bbc-341045167583" class="">What This Creates</h3></div><div style="display:contents" dir="auto"><blockquote id="e0ede545-99cc-49a7-a59a-bc0fd40ae6b7" class=""><em>&quot;Good-looking decisions that are not optimal decisions&quot;</em></blockquote></div><div style="display:contents" dir="ltr"><table id="6599a3cd-a9dc-41ea-9b66-bb1ee05e0810" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="356e6c3e-ed89-4ea1-b095-3edc3ec7d24a"><th id="G]Vd" class="simple-table-header-color simple-table-header">Risk</th><th id="I|Dx" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="47668cfb-615b-4a00-8fec-be56fd2c7032"><td id="G]Vd" class=""><strong>Opportunity Cost</strong></td><td id="I|Dx" class="">The best candidate went elsewhere</td></tr></div><div style="display:contents" dir="ltr"><tr id="95fe2ac4-beba-4d4a-b918-7b68ea77333d"><td id="G]Vd" class=""><strong>Execution Risk</strong></td><td id="I|Dx" class="">Wrong leader for the context</td></tr></div><div style="display:contents" dir="ltr"><tr id="dbb87354-c9d3-4c6e-864f-48f31d80617b"><td id="G]Vd" class=""><strong>Cultural Damage</strong></td><td id="I|Dx" class="">Incompatible leadership combinations</td></tr></div><div style="display:contents" dir="ltr"><tr id="e0ccf6eb-0afa-4ed3-b64d-43deba915124"><td id="G]Vd" class=""><strong>Time Cost</strong></td><td id="I|Dx" class="">Re-hiring 12–18 months later</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="aeb8d21a-6f7e-48d3-8a72-0ec57215242e"/></div><div style="display:contents" dir="auto"><h2 id="61e99463-08fa-4939-8239-f924a2362ff1" class="">🤖 AI + Decision Intelligence — The Core Principle (Slide 14)</h2></div><div style="display:contents" dir="auto"><blockquote id="ec25334e-1693-4961-95eb-5fcf3f5d6812" class=""><em>&quot;AI should not replace human judgment. It should augment decision quality.&quot;</em></blockquote></div><div style="display:contents" dir="auto"><h3 id="272ecae3-6748-4445-984f-550dd3bb3d09" class="">Design Principles</h3></div><div style="display:contents" dir="auto"><ul id="34c8e48a-eb66-4da9-a3c9-c1d2da3cd01a" class="bulleted-list"><li style="list-style-type:disc">Break complex decisions into components</li></ul></div><div style="display:contents" dir="auto"><ul id="97f77ef1-713e-4e9d-afa9-b8f14823d47b" class="bulleted-list"><li style="list-style-type:disc">Evaluate trade-offs explicitly</li></ul></div><div style="display:contents" dir="auto"><ul id="1789c88f-e9d6-4dd4-8051-0fcfeb2218e9" class="bulleted-list"><li style="list-style-type:disc">Simulate scenarios before committing</li></ul></div><div style="display:contents" dir="auto"><ul id="805d61e6-acba-4d88-9109-4c238d3983ab" class="bulleted-list"><li style="list-style-type:disc">Make reasoning transparent</li></ul></div><div style="display:contents" dir="auto"><h3 id="70b92680-1ed8-4c64-a4a5-ae64ea7c9641" class="">Example Multi-Agent Architecture</h3></div><div style="display:contents" dir="auto"><p id="4d68ddc7-fe99-49b7-9bb6-cd01fb160678" class="">Instead of: <strong>One model → One answer</strong></p></div><div style="display:contents" dir="auto"><p id="430d61cf-5b3a-4ba6-a2d8-bc357e87c071" class="">We build toward a pipeline:</p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e2149137-6ba6-4825-a4f5-cd51057e7bbe" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">JD Agent         →  Parses &amp; adapts job requirements
+CV Agent         →  Scores &amp; ranks candidates
+Scenario Agent   →  Adjusts priorities per context
+Leadership Agent →  Profiles leadership traits
+Decision Agent   →  Synthesises final recommendation</code></pre></div><div style="display:contents" dir="auto"><hr id="305b9f85-967e-4367-b7de-55ef682d2724"/></div><div style="display:contents" dir="auto"><h2 id="55591b1a-6093-441e-a03b-42e8264c76ab" class="">🛠️ Hackathon Objective, Tools &amp; Boundaries (Slide 15)</h2></div><div style="display:contents" dir="auto"><h3 id="76e3e02d-3639-45d2-9813-7d6277df894d" class="">What to Build</h3></div><div style="display:contents" dir="auto"><ul id="47c3c14d-0a08-4c3d-b00d-b2f5395e1254" class="bulleted-list"><li style="list-style-type:disc">One <strong>strong, focused use case</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="cb6a5e6a-d715-4700-81ed-7c236056862e" class="bulleted-list"><li style="list-style-type:disc">Clear <strong>decision logic</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="ea3117b6-a956-45bd-a289-6d1f5583e814" class="bulleted-list"><li style="list-style-type:disc"><strong>Real working functionality</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="3b7e707f-835b-4375-9164-27ecbaf55fe4" class="bulleted-list"><li style="list-style-type:disc"><strong>Multi-agent architecture</strong> (not a single prompt)</li></ul></div><div style="display:contents" dir="auto"><ul id="299983da-8f34-421e-abba-2fc27260e5c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Modular, explainable reasoning</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="58ec428c-b70d-495a-a5b4-bfb7b0ed2b1c" class="">💬 <em>&quot;Build a decision system that makes sense — not a flashy demo.&quot;</em></blockquote></div><div style="display:contents" dir="auto"><h3 id="94dad6ef-5569-4eb8-b77e-973bc784db94" class="">Tools You May Use</h3></div><div style="display:contents" dir="auto"><ul id="ff1e4d85-2388-4078-bbac-0790feea2f15" class="bulleted-list"><li style="list-style-type:disc"><strong>Lovable</strong> — fast UI prototyping</li></ul></div><div style="display:contents" dir="auto"><ul id="7925ed95-b997-4e69-915e-0602fcebc94b" class="bulleted-list"><li style="list-style-type:disc"><strong>Agent frameworks</strong> (e.g., n8n, OpenClaw)</li></ul></div><div style="display:contents" dir="auto"><ul id="e454d3c7-73cb-4867-888a-82087d95f306" class="bulleted-list"><li style="list-style-type:disc"><strong>Open-source tools &amp; pipelines</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="f6e66ec3-ff06-4c5b-8985-ac8be8654687" class="bulleted-list"><li style="list-style-type:disc"><strong>Custom reasoning logic</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="5d7e836d-d2fe-4109-94c6-a5727b897e7c" class="bulleted-list"><li style="list-style-type:disc"><strong>Any creative combination</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="32647f57-ca7b-43d3-8419-d88a2e8140f3" class="">💬 <em>&quot;You don&#x27;t just vibe-code a UI — you build a system with logic.&quot;</em></blockquote></div><div style="display:contents" dir="auto"><h3 id="13517b65-5ae9-4ab8-a389-d155b0b9570d" class="">✅ / ❌ Ethical Boundaries</h3></div><div style="display:contents" dir="ltr"><table id="fbe387d4-571c-43d5-8c5b-fad172036c1d" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="3a4121b3-f66c-4423-a492-a837834f1e39"><th id="E}ok" class="simple-table-header-color simple-table-header">Allowed</th><th id="UQpe" class="simple-table-header-color simple-table-header">Not Allowed</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="898ef146-3bbd-47c0-bba9-897d3168bd1f"><td id="E}ok" class="">✅ Synthetic / anonymised data</td><td id="UQpe" class="">❌ Illegal scraping</td></tr></div><div style="display:contents" dir="ltr"><tr id="4333b227-10c3-4b45-8b14-bce376d197a6"><td id="E}ok" class="">✅ Realistic scenario simulation</td><td id="UQpe" class="">❌ No personal data without consent</td></tr></div><div style="display:contents" dir="ltr"><tr id="c25b1782-d33f-4d96-bcfd-6e38d9f03916"><td id="E}ok" class="">✅ Legally compliant pipelines</td><td id="UQpe" class=""></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="6074c5fd-643d-40d0-a7b3-acd78b723c0d" class="">🔒 <em>Privacy-respecting and fully compliant with data protection law.</em></blockquote></div><div style="display:contents" dir="auto"><hr id="8215cffa-93d0-409f-8c9d-3d79c72194f1"/></div><div style="display:contents" dir="auto"><h2 id="80ec3f71-7534-4de2-a963-e0638de1b12a" class="">💡 Use Case Ideas — Pick One &amp; Build It Well (Slide 16)</h2></div><div style="display:contents" dir="ltr"><table id="7070d904-fc6f-4e7d-ac2a-1e80d1574217" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="dc99fe30-42e4-43f7-8531-b8f3c38479aa"><th id="_ybV" class="simple-table-header-color simple-table-header">#</th><th id="P=;B" class="simple-table-header-color simple-table-header">Idea</th><th id="=\{R" class="simple-table-header-color simple-table-header">Description</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="3e6a0c2d-6242-4df9-86ed-08b5c25f0dbc"><td id="_ybV" class=""><strong>01</strong></td><td id="P=;B" class=""><strong>Speed vs. Right Hire</strong></td><td id="=\{R" class="">Did we hire the best candidate or just the fastest available? Rank candidates, show fit scores &amp; highlight the trade-off.</td></tr></div><div style="display:contents" dir="ltr"><tr id="0e568838-a489-43f8-ac73-221505a7a2db"><td id="_ybV" class=""><strong>02</strong></td><td id="P=;B" class=""><strong>Dynamic JD Adaptation</strong></td><td id="=\{R" class="">Job descriptions are static; reality is not. Adapt a JD&#x27;s priorities to a supply-chain crisis scenario in real time.</td></tr></div><div style="display:contents" dir="ltr"><tr id="0d8af132-7cd5-4982-adda-cf9e3aa87d16"><td id="_ybV" class=""><strong>03</strong></td><td id="P=;B" class=""><strong>Leadership Personality Fit</strong></td><td id="=\{R" class="">Skills alone don&#x27;t define leadership success. Match leadership traits to high-risk regional assignment.</td></tr></div><div style="display:contents" dir="ltr"><tr id="a398dff3-cc6e-4caa-bed9-fc1369451a98"><td id="_ybV" class=""><strong>04</strong></td><td id="P=;B" class=""><strong>Scenario-Based Ranking</strong></td><td id="=\{R" class="">Rank candidates differently as priorities shift — transformation vs. automotive continuity vs. Amazon experience.</td></tr></div><div style="display:contents" dir="ltr"><tr id="b48124cd-c8ac-48dd-accb-d990532b85d6"><td id="_ybV" class=""><strong>05</strong></td><td id="P=;B" class=""><strong>Internal vs. External Hire</strong></td><td id="=\{R" class="">Evaluate speed, cost, risk, and pipeline strength to recommend the optimal sourcing strategy.</td></tr></div><div style="display:contents" dir="ltr"><tr id="cc3a8a04-7e12-412b-a9b0-09746490adab"><td id="_ybV" class=""><strong>06</strong></td><td id="P=;B" class=""><strong>Leadership Combination Impact</strong></td><td id="=\{R" class="">Leaders don&#x27;t operate in isolation. Model Production Head + Quality Head pairing effects on outcomes.</td></tr></div><div style="display:contents" dir="ltr"><tr id="379e8fe5-d0a4-44b3-9138-b6a7fb26ea3a"><td id="_ybV" class=""><strong>07</strong></td><td id="P=;B" class=""><strong>We have a better idea</strong></td><td id="=\{R" class="">Creativity... (bring your own concept!)</td></tr></div><div style="display:contents" dir="ltr"><tr id="05e5eec7-92e1-4e7e-a752-27af618f4f9a"><td id="_ybV" class=""><strong>Example</strong></td><td id="P=;B" class=""><strong>Multi-Agent Decision Flow</strong></td><td id="=\{R" class="">Demonstrate full agent pipeline: JD Agent → CV Agent → Scenario Agent → Decision Agent output.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="daed0018-8c40-4b13-97c4-d6438d47bfee" class="">🎯 <strong>Tip:</strong> The &quot;Example&quot; use case (Multi-Agent Decision Flow) is essentially the architecture you should aim to demonstrate regardless of which use case you pick.</blockquote></div><div style="display:contents" dir="auto"><hr id="63305aa9-5727-4c59-972b-d06260bc2efb"/></div><div style="display:contents" dir="auto"><h2 id="bba76ee7-de65-4b6b-b6eb-479533e7d4d7" class="">📦 Submission &amp; Video Requirements (Slide 17)</h2></div><div style="display:contents" dir="auto"><h3 id="330442cc-5f54-42cb-b096-054bb900df2f" class="">Submission Checklist</h3></div><div style="display:contents" dir="auto"><ul id="78086ac3-efc2-4825-bc8a-d4fe824efa4d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Lovable App Link</strong> — Publicly accessible prototype</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="adc7d3ce-7e7e-4274-b312-b53a8500fb43" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>GitHub Repository</strong> — Full source code, README included</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="739513d1-1cae-49cb-a2dc-945f97074ef2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>3-Minute Demo Video</strong> — Follows the structure below</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="6ba9b032-ee8a-4e97-b8fe-c9dcca4c42da" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Working Execution</strong> — Runs locally or deployed — <em>not just Lovable</em></span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><ul id="c2f62915-7c8c-4f49-9115-f6d6643ddb52" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Real Functionality</strong> — Reproducible, explainable, not static</span><div class="indented"></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="f0bb991e-8cdb-4db2-9c2b-4131309d318e" class="">3-Minute Video Structure</h3></div><div style="display:contents" dir="ltr"><table id="89eb1bb5-167d-46c4-816c-7731caf815e3" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="1830e1bd-1d6a-4d05-bb60-2b1fb0a04473"><th id="&gt;FIe" class="simple-table-header-color simple-table-header">Timestamp</th><th id="::@Y" class="simple-table-header-color simple-table-header">Section</th><th id="IDQW" class="simple-table-header-color simple-table-header">What to Show</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="7ce6a2ce-9841-4227-b367-ee38e3ebb339"><td id="&gt;FIe" class=""><code>0:00–0:20</code></td><td id="::@Y" class=""><strong>Problem</strong></td><td id="IDQW" class="">What you built and why it matters</td></tr></div><div style="display:contents" dir="ltr"><tr id="cb279195-2a01-4b05-bba2-cfced9877b18"><td id="&gt;FIe" class=""><code>0:20–0:50</code></td><td id="::@Y" class=""><strong>Input</strong></td><td id="IDQW" class="">Show real, meaningful inputs</td></tr></div><div style="display:contents" dir="ltr"><tr id="1af7d7e3-9503-4e50-ae62-c492b45eecaa"><td id="&gt;FIe" class=""><code>0:50–2:20</code></td><td id="::@Y" class=""><strong>Live Demo</strong></td><td id="IDQW" class="">Input → output, ranking, scenario change</td></tr></div><div style="display:contents" dir="ltr"><tr id="26373abd-8777-447c-bb16-06cbd307c6a5"><td id="&gt;FIe" class=""><code>2:20–2:50</code></td><td id="::@Y" class=""><strong>AI / Agents</strong></td><td id="IDQW" class="">Explain the system logic clearly</td></tr></div><div style="display:contents" dir="ltr"><tr id="a11065a1-6f38-4775-a3e6-0813a505492f"><td id="&gt;FIe" class=""><code>2:50–3:00</code></td><td id="::@Y" class=""><strong>Business Value</strong></td><td id="IDQW" class="">Why this makes decisions better</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="a41149e8-fe76-4ca2-90a8-b8ff07319e96"/></div><div style="display:contents" dir="auto"><h2 id="8e763353-2da5-4a11-9bf5-81174ec9eefb" class="">📊 Scoring Breakdown (Slide 18)</h2></div><div style="display:contents" dir="auto"><p id="49b03e68-0cff-40b0-900a-9c7f22cd4027" class=""><strong>Total: 100 points</strong></p></div><div style="display:contents" dir="ltr"><table id="faccea70-05fc-4ab8-af8a-bab1291a64ca" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="421cc971-0402-4b06-879c-91fad713dfbf"><th id="gbE~" class="simple-table-header-color simple-table-header">Criterion</th><th id="ZVZJ" class="simple-table-header-color simple-table-header">Points</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="b51a4beb-1a79-4147-b5ae-908e622dc0a5"><td id="gbE~" class="">Business Relevance</td><td id="ZVZJ" class=""><strong>30 pts</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="17f77669-a5c7-45f8-bdd3-134a142235f5"><td id="gbE~" class="">Working Functionality</td><td id="ZVZJ" class=""><strong>25 pts</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="74408d2d-f350-41f0-877b-15d902c36f1c"><td id="gbE~" class="">AI &amp; Agent Quality</td><td id="ZVZJ" class=""><strong>20 pts</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="5ef00223-478c-4aa8-a302-3a8ae3a2605c"><td id="gbE~" class="">Technical Implementation</td><td id="ZVZJ" class=""><strong>10 pts</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="71b20858-0cf4-47fa-97c2-17f5f4e5c204"><td id="gbE~" class="">User Experience</td><td id="ZVZJ" class=""><strong>10 pts</strong></td></tr></div><div style="display:contents" dir="ltr"><tr id="0b7529bc-bd64-4ef9-a7e4-ae3e7155be5c"><td id="gbE~" class="">Video Clarity</td><td id="ZVZJ" class=""><strong>5 pts</strong></td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="a21322aa-041b-475f-903b-188a1d9502d2" class="">⛔ <strong>Heavy penalties:</strong> Lovable-only demo / no GitHub / no real logic / non-working execution</blockquote></div><div style="display:contents" dir="auto"><h3 id="fa1b2489-5d24-4e7e-9ea4-c54cbbcdb3cc" class="">Build Something That Matters</h3></div><div style="display:contents" dir="auto"><ul id="9be2f855-beba-4d63-989b-1e7dfd4ce11f" class="bulleted-list"><li style="list-style-type:disc"><strong>Focused</strong> — One clear problem, solved well</li></ul></div><div style="display:contents" dir="auto"><ul id="fc9d9f22-e53a-486a-81b8-3e1a5564b165" class="bulleted-list"><li style="list-style-type:disc"><strong>Working</strong> — Actually runs and produces real output</li></ul></div><div style="display:contents" dir="auto"><ul id="19685e8e-2f39-4c74-8d3d-85f4db5f9e07" class="bulleted-list"><li style="list-style-type:disc"><strong>Logical</strong> — Reasoning is visible and makes sense</li></ul></div><div style="display:contents" dir="auto"><ul id="6bfc2c53-06cb-47a3-b905-c47a83353e0d" class="bulleted-list"><li style="list-style-type:disc"><strong>Honest</strong> — Doesn&#x27;t fake results or simulate without logic</li></ul></div><div style="display:contents" dir="auto"><blockquote id="d5210893-9e57-4689-a2cc-c84aa05ac98f" class="">🎯 <em>&quot;If your tool helps make a better leadership decision — you are solving the right problem.&quot;</em></blockquote></div><div style="display:contents" dir="auto"><hr id="f1bba42b-601a-439b-9b0a-531566c7fdce"/></div><div style="display:contents" dir="auto"><h2 id="b54b4cc0-2b58-4270-bf61-9ae70ffbc4cb" class="">🧠 Strategic Tips &amp; Suggestions</h2></div><div style="display:contents" dir="auto"><h3 id="4f46d660-ec77-4a0b-be04-107fcb0e6333" class="">Architecture Recommendation</h3></div><div style="display:contents" dir="auto"><p id="3216578e-aec8-43f2-bbc3-9a75f7886f8a" class="">Follow the <strong>Multi-Agent Decision Flow</strong> pattern regardless of use case:</p></div><div style="display:contents" dir="auto"><ol type="1" id="6130c4d2-c8bb-446d-9226-c2fedbd7e07d" class="numbered-list" start="1"><li>Start with a <strong>JD Agent</strong> that parses role requirements</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="9e4a2110-56f2-4ecf-9554-81c58ac9ecdd" class="numbered-list" start="2"><li>Build a <strong>CV/Profile Agent</strong> that scores and ranks candidates against the JD</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="cb980965-8ce1-453d-953b-a29e4dde6ccd" class="numbered-list" start="3"><li>Add a <strong>Scenario Agent</strong> that modifies priorities dynamically</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="9102d5da-9777-47fb-83e1-e3ac8e6f1ef3" class="numbered-list" start="4"><li>Layer in a <strong>Leadership Trait Agent</strong> that profiles soft skills and compatibility</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="8e179d69-0196-47d9-814e-96555c445eba" class="numbered-list" start="5"><li>Culminate with a <strong>Decision Agent</strong> that synthesises and explains the final recommendation with trade-offs</li></ol></div><div style="display:contents" dir="auto"><h3 id="80609869-c6b2-4afc-b289-f6a5f251ec4e" class="">Key Differentiators to Score High</h3></div><div style="display:contents" dir="auto"><ul id="2d911c51-a846-487b-91b9-f427c1ec2319" class="bulleted-list"><li style="list-style-type:disc">Show <strong>explicit trade-offs</strong> (not just rankings — explain <em>why</em>)</li></ul></div><div style="display:contents" dir="auto"><ul id="d934d80b-18fd-4608-9fd1-e97183e0e5fd" class="bulleted-list"><li style="list-style-type:disc">Make your AI&#x27;s reasoning <strong>transparent and explainable</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="de324a5f-da15-421f-989a-f49aac3007f8" class="bulleted-list"><li style="list-style-type:disc">Use <strong>synthetic/anonymised</strong> data — don&#x27;t make up real people</li></ul></div><div style="display:contents" dir="auto"><ul id="ed9a8848-1d15-4805-b513-d7e608fe2381" class="bulleted-list"><li style="list-style-type:disc">Ensure your app <strong>runs beyond Lovable</strong> (it must execute real logic)</li></ul></div><div style="display:contents" dir="auto"><ul id="1c435404-7e22-4f01-ae78-2f57881958ce" class="bulleted-list"><li style="list-style-type:disc">Your <strong>GitHub README</strong> should explain the system architecture clearly</li></ul></div><div style="display:contents" dir="auto"><h3 id="e55c5f93-021b-40f9-bdeb-ab9ffccb2056" class="">Things to Avoid</h3></div><div style="display:contents" dir="auto"><ul id="cf4920d1-57d1-4ce4-8015-0c60f6af688b" class="bulleted-list"><li style="list-style-type:disc">❌ A single giant prompt masquerading as an &quot;agent&quot;</li></ul></div><div style="display:contents" dir="auto"><ul id="53982209-e5cc-4a18-b761-f17e79f3228c" class="bulleted-list"><li style="list-style-type:disc">❌ Static hardcoded results — must be dynamic</li></ul></div><div style="display:contents" dir="auto"><ul id="9c0dc347-371b-46c1-8f8b-c0e77b6b4a28" class="bulleted-list"><li style="list-style-type:disc">❌ Vague AI answers with no scoring logic</li></ul></div><div style="display:contents" dir="auto"><ul id="16471e64-db48-4813-8b49-33401650ecc4" class="bulleted-list"><li style="list-style-type:disc">❌ Ignoring the business value / outcome framing</li></ul></div><div style="display:contents" dir="auto"><h3 id="efcd6f86-4713-4317-9ae1-fd5db7ebe1ec" class="">Bonus Ideas to Add Depth</h3></div><div style="display:contents" dir="auto"><ul id="c9309fe8-1a5b-4247-8e04-73e609f827bc" class="bulleted-list"><li style="list-style-type:disc">📈 <strong>Visualise candidate rankings</strong> with a scoring breakdown per dimension</li></ul></div><div style="display:contents" dir="auto"><ul id="008fa7cd-7577-4234-bc1b-8a0cc13fe402" class="bulleted-list"><li style="list-style-type:disc">🔄 <strong>Scenario switching UI</strong> — let the judge change the context and watch rankings shift live</li></ul></div><div style="display:contents" dir="auto"><ul id="f1a48ea6-bdb6-45b5-9e05-b8a21a042bdd" class="bulleted-list"><li style="list-style-type:disc">📋 <strong>Explainability panel</strong> — show which agent made which decision and why</li></ul></div><div style="display:contents" dir="auto"><ul id="61c1a1bd-1ea1-414f-b8a3-89ed30fd8205" class="bulleted-list"><li style="list-style-type:disc">🧩 <strong>Leadership chemistry model</strong> — score two candidates as a <em>pair</em>, not just individually</li></ul></div><div style="display:contents" dir="auto"><ul id="dcd2c907-ea24-4a25-813c-318e109cae99" class="bulleted-list"><li style="list-style-type:disc">⏱️ <strong>Time-to-hire vs. quality-of-hire trade-off slider</strong> — interactive and intuitive</li></ul></div><div style="display:contents" dir="auto"><hr id="a174d7df-7458-4a0f-bd1e-de40c32435fe"/></div><div style="display:contents" dir="auto"><h2 id="e8bd36a3-4ea6-4524-a110-114f40bd9974" class="">📌 Quick Reference Summary</h2></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5e345142-934a-44ae-aa0f-72534462a974" class="code code-wrap"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">🏁 Goal:        Build a GenAI decision tool for BMW&#x27;s leadership strategy
+🛠️ Platform:    Lovable (UI) + any agent framework for logic
+👥 Team:        2–3 people
+⏱️ Duration:    72 hours (March 27–30)
+📤 Deliverables: Lovable link + GitHub + 3-min video + working execution
+🏆 Top Prize:   BMW internship interview + accelerator spot</code></pre></div><div style="display:contents" dir="auto"><hr id="1ec24843-6170-4378-b80f-a62486339101"/></div><div style="display:contents" dir="auto"><p id="341aa54a-a337-42ca-8478-a83b7fb6cba7" class=""><em>Notes compiled from mentor slides presented at Constructor University ICC Conference Hall, March 27, 2026.</em></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

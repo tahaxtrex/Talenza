@@ -1,0 +1,411 @@
+{
+  "meta": {
+    "scenario_id": "TAL_HR_BERLIN_MIG_001",
+    "created_at": "2024-07-30T10:00:00Z",
+    "version": "1.0",
+    "status": "complete",
+    "track": "internal",
+    "updated_at": "2026-03-29T13:51:08.120Z"
+  },
+  "role": {
+    "title": "Head of Engineering, Berlin Hub",
+    "seniority_level": "director",
+    "department": "Engineering",
+    "primary_location": "Berlin, Germany",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 10
+  },
+  "business_context": {
+    "situation_type": "transformation",
+    "situation_subtype": "geographic_expansion",
+    "description": "Establish a new engineering hub in Berlin to tap into the local tech talent market, build out a new product line, and support global engineering efforts. This involves identifying an internal leader capable of setting up operations, hiring a team from scratch, and integrating with the existing global engineering organization.",
+    "urgency_driver": "Market opportunity, talent acquisition, strategic initiative to decentralize engineering.",
+    "board_visibility": "ceo",
+    "external_visibility_risk": false,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": true,
+    "regulatory_description": "Navigating German labor laws, employment contracts, and potentially immigration processes for a diverse international team.",
+    "competitive_pressure": "High for attracting and retaining skilled tech talent in Berlin."
+  },
+  "constraints": {
+    "urgency_weeks": 20,
+    "hard_deadline_date": "2024-11-30",
+    "hard_deadline_reason": "Target date for key leadership hire to be onboarded and actively building the team to meet Q1 2025 product roadmap goals.",
+    "budget_for_search_eur": null,
+    "can_use_search_firm": false,
+    "search_firm_constraint_reason": "Internal talent identification and relocation program is prioritized for this strategic leadership role.",
+    "package_budget_total_eur": 180000,
+    "package_budget_base_eur": 140000,
+    "package_out_of_band_possible": false,
+    "package_approval_required": "CHRO, CFO",
+    "internal_equity_risk": true,
+    "personal_security_risk": false,
+    "language_requirements": [
+      "English",
+      "German (desirable)"
+    ],
+    "cultural_requirements": [
+      "Adaptability to German work culture",
+      "Experience in diverse, international teams"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Proven experience in establishing and scaling engineering teams in a new location or greenfield environment.",
+    "must_have_2": "Strong technical leadership background in relevant technologies (e.g., Cloud, SaaS, Microservices).",
+    "must_have_3": "Exceptional cross-cultural communication and stakeholder management skills.",
+    "nice_to_have_1": "Proficiency in German language (B2+).",
+    "nice_to_have_2": "Prior experience working in the German tech market or with German legal/HR frameworks.",
+    "explicit_disqualifiers": [
+      "Inability or unwillingness to relocate and live in Berlin full-time.",
+      "Lack of experience building teams from scratch or in hyper-growth environments."
+    ]
+  },
+  "team_context": {
+    "team_exists": false,
+    "team_size_current": 0,
+    "team_size_target_year1": 15,
+    "team_size_target_year2": 30,
+    "team_type": "Distributed/Hybrid",
+    "inherited_technical_debt": false,
+    "inherited_culture_issues": false,
+    "key_stakeholders": [
+      {
+        "role": "CEO",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Direct report to CEO due to strategic importance; high visibility."
+      },
+      {
+        "role": "CTO (Global)",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Crucial partnership for technical alignment and integration with global engineering strategy."
+      },
+      {
+        "role": "VP Product",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Close collaboration required for product development and roadmap execution from Berlin."
+      },
+      {
+        "role": "Head of HR, Germany",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Essential partner for local hiring, labor law compliance, and cultural integration."
+      }
+    ]
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "transformation",
+      "scenario_subtype": "geographic_expansion",
+      "classification_source": "inferred",
+      "classification_confidence": 0.95,
+      "classification_reasoning": "The scenario clearly describes establishing a new engineering hub in a new location (Berlin), requiring a leader to build a team from scratch and manage the complexities of a new market and regulatory environment. This aligns perfectly with a transformation through geographic expansion.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Initial weighting for a leadership role focused on establishing a new geographic presence and building a team from scratch.",
+        "crisis_mgmt": 0.1,
+        "ops_depth": 0.2,
+        "change_adapt": 0.3,
+        "stakeholder": 0.25,
+        "external_net": 0.15
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Geographic Expansion & Relocation",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "role.relocation_required is true and primary_location is a new market",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Establishing a new hub and requiring relocation significantly increases the need for change adaptation."
+        },
+        {
+          "modifier_name": "Geographic Expansion & Relocation",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "role.relocation_required is true and primary_location is a new market",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.15,
+          "modifier_reasoning": "Setting up operations in a new location demands robust operational depth."
+        },
+        {
+          "modifier_name": "Geographic Expansion & Relocation",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "role.relocation_required is true and primary_location is a new market",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "New locations require navigating diverse internal and external stakeholders."
+        },
+        {
+          "modifier_name": "Regulatory Environment Complexity",
+          "trigger_field": "business_context.regulatory_complexity",
+          "trigger_value": true,
+          "trigger_condition": "regulatory_complexity is true",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Complex regulations increase the operational challenges and require careful management."
+        },
+        {
+          "modifier_name": "Regulatory Environment Complexity",
+          "trigger_field": "business_context.regulatory_complexity",
+          "trigger_value": true,
+          "trigger_condition": "regulatory_complexity is true",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Navigating regulatory landscapes often involves significant stakeholder engagement (e.g., legal, HR, government bodies)."
+        },
+        {
+          "modifier_name": "Greenfield Team Build",
+          "trigger_field": "team_context.team_exists",
+          "trigger_value": false,
+          "trigger_condition": "team_exists is false",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.15,
+          "modifier_reasoning": "Building a team from zero demands substantial operational execution and setup capabilities."
+        },
+        {
+          "modifier_name": "Greenfield Team Build",
+          "trigger_field": "team_context.team_exists",
+          "trigger_value": false,
+          "trigger_condition": "team_exists is false",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Creating a new team and culture requires high adaptability."
+        },
+        {
+          "modifier_name": "Greenfield Team Build",
+          "trigger_field": "team_context.team_exists",
+          "trigger_value": false,
+          "trigger_condition": "team_exists is false",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Managing expectations and securing resources for a new team involves strong stakeholder skills."
+        },
+        {
+          "modifier_name": "Competitive Talent Market Pressure",
+          "trigger_field": "business_context.competitive_pressure",
+          "trigger_value": "High for tech talent in Berlin.",
+          "trigger_condition": "competitive_pressure is 'High...'",
+          "dimension_affected": "external_net",
+          "multiplier": 1.2,
+          "modifier_reasoning": "A competitive talent market necessitates stronger external networking for talent attraction and employer branding."
+        }
+      ],
+      "final_weights": {
+        "description": "Adjusted weights reflecting the critical capabilities needed for establishing and scaling a new engineering hub in Berlin, balancing operational setup, change management, stakeholder navigation, and talent attraction within an internal track.",
+        "crisis_mgmt": {
+          "value": 0.07694,
+          "confidence": 0.95,
+          "confidence_reasoning": "The scenario is a strategic growth/transformation, not a crisis. This dimension is less critical relative to others.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.02306,
+          "business_logic": "Low base importance, slightly reduced proportionally as other dimensions saw significant increases for this growth-oriented scenario."
+        },
+        "ops_depth": {
+          "value": 0.22387,
+          "confidence": 0.95,
+          "confidence_reasoning": "Several factors (new hub, regulatory complexity, greenfield team) strongly amplify the need for operational depth.",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic Expansion & Relocation",
+            "Regulatory Environment Complexity",
+            "Greenfield Team Build"
+          ],
+          "net_movement_from_base": 0.02387,
+          "business_logic": "Increased significantly due to the imperative to establish new operations, navigate regulatory complexities, and build a team from scratch in a new location."
+        },
+        "change_adapt": {
+          "value": 0.30469,
+          "confidence": 0.95,
+          "confidence_reasoning": "The core of this role is leading a major organizational and geographic transformation. High confidence in this weight.",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic Expansion & Relocation",
+            "Greenfield Team Build"
+          ],
+          "net_movement_from_base": 0.00469,
+          "business_logic": "Remains a high priority, slightly increased proportionally, reflecting the substantial organizational, cultural, and geographic change inherent in setting up a new international hub."
+        },
+        "stakeholder": {
+          "value": 0.25603,
+          "confidence": 0.95,
+          "confidence_reasoning": "Managing internal (HQ, other departments) and external (local HR, legal, talent) stakeholders is critical for success in a new market. High confidence.",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic Expansion & Relocation",
+            "Regulatory Environment Complexity",
+            "Greenfield Team Build"
+          ],
+          "net_movement_from_base": 0.00603,
+          "business_logic": "Increased due to the necessity of navigating a complex web of internal and external relationships in a new regulatory and cultural environment to ensure successful integration and growth."
+        },
+        "external_net": {
+          "value": 0.13847,
+          "confidence": 0.9,
+          "confidence_reasoning": "While talent acquisition is key, the 'internal track' context reduces pure external search firm reliance, even with high market pressure. The net movement reflects this proportional shift.",
+          "modifiers_that_touched_this_dimension": [
+            "Competitive Talent Market Pressure"
+          ],
+          "net_movement_from_base": -0.01153,
+          "business_logic": "Slightly reduced proportionally from its base. Although the talent market is competitive (increasing its raw score), the internal track focus means less emphasis on 'external networking' for candidate sourcing compared to other dimensions like operational setup and change management for this specific hire."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+    "floor_constraints": {
+      "description": "Minimum capability scores required for a candidate to be considered viable for a strategic new market expansion and team build role.",
+      "active_floors": [
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 0.7,
+          "floor_reasoning": "The candidate must demonstrate strong capability in setting up and managing complex operations, especially in a new environment, to effectively build the Berlin hub.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 0.8,
+          "floor_reasoning": "Leading a new office and team in a different country is a significant transformation requiring exceptional adaptability and change leadership.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "stakeholder",
+          "minimum_score": 0.6,
+          "floor_reasoning": "Success hinges on effective navigation of internal corporate politics and external local stakeholders (HR, legal, talent market).",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Floors are set to reflect the absolute minimum competence required for a candidate to successfully lead a critical new strategic initiative involving geographic expansion and greenfield team building, especially considering the regulatory and cultural complexities of Berlin."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Identified correlations between key dimensions for this scenario, indicating where strengths often overlap or reinforce each other.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "ops_depth",
+          "dimension_b": "change_adapt",
+          "correlation_strength": "high",
+          "scenario_specific_note": "Establishing a new hub requires both strong operational execution and a high degree of adaptability to new challenges and unforeseen circumstances."
+        },
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "Building relationships with local talent, vendors, and partners (external networking) is often intertwined with effective internal and external stakeholder management in a new market."
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "This scenario requires an internal Head of Engineering to establish and scale a new engineering hub in Berlin. The successful candidate must possess strong operational acumen, exceptional adaptability to lead significant organizational and geographic change, and robust stakeholder management skills to build a team from scratch while integrating with the existing global structure. Navigating the competitive Berlin talent market and German regulatory environment will be crucial challenges.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "timeline_pressure",
+          "description": "Building a high-performing engineering team from scratch within an ambitious timeline (target 15 in year 1, 30 in year 2).",
+          "impact_on_analysis": "Emphasizes experience with rapid team scaling and project initiation, strong prioritization skills."
+        },
+        {
+          "flag_type": "stakeholder_tension",
+          "description": "Balancing local team autonomy and cultural integration with global company processes, standards, and reporting lines.",
+          "impact_on_analysis": "Requires a leader adept at 'managing up' and 'managing sideways' across different organizational cultures."
+        },
+        {
+          "flag_type": "compensation_risk",
+          "description": "Ensuring competitive compensation packages for the Berlin market while managing internal equity with existing global teams.",
+          "impact_on_analysis": "Need for a leader who understands compensation strategy and can partner closely with HR and finance on this sensitive topic."
+        },
+        {
+          "flag_type": "cultural_friction",
+          "description": "Integrating a new German-based team culture with the broader corporate culture, potentially bridging different work styles and expectations.",
+          "impact_on_analysis": "Highlights the importance of empathetic leadership, cultural intelligence, and team-building capabilities."
+        },
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "Strict German labor laws and employee representation requirements (e.g., works councils) must be navigated carefully.",
+          "impact_on_analysis": "Reinforces the need for a leader who can either demonstrate experience or a strong aptitude for working within complex regulatory environments, requiring close partnership with local legal and HR."
+        },
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "The new leader is responsible for all aspects of team formation, from hiring to culture setting, without an existing team structure.",
+          "impact_on_analysis": "Mandates a highly proactive, entrepreneurial leader with hands-on experience in recruitment, onboarding, and initial team development."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Builder/Founder",
+          "archetype_description": "An entrepreneurial leader with a track record of initiating and scaling new ventures or divisions, comfortable with ambiguity and creating structure from scratch.",
+          "why_fit_this_scenario": "This role demands someone who can not only manage but actively construct an entire new operation and team from the ground up in a new location.",
+          "typical_weakness": "May struggle with integrating into an established corporate hierarchy or adhering strictly to existing processes."
+        },
+        {
+          "archetype_name": "The Cultural Bridge-Builder",
+          "archetype_description": "A leader skilled in fostering inclusive environments, understanding diverse perspectives, and effectively communicating across different national and organizational cultures.",
+          "why_fit_this_scenario": "Essential for successfully integrating a new Berlin team into the global company and navigating the nuances of German work culture.",
+          "typical_weakness": "May sometimes prioritize consensus over rapid decision-making in fast-paced environments."
+        },
+        {
+          "archetype_name": "The Operational Strategist",
+          "archetype_description": "A leader with a strong strategic mind combined with an exceptional ability to execute complex operational plans and build robust processes.",
+          "why_fit_this_scenario": "Setting up a new international hub requires meticulous planning, process development, and flawless execution under regulatory and logistical constraints.",
+          "typical_weakness": "Could potentially become overly focused on process at the expense of agility or innovation if not balanced."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Status Quo Guardian",
+          "archetype_description": "A leader who excels in maintaining and optimizing existing operations and structures, but is resistant to significant change or deviation from established norms.",
+          "why_wrong_for_this_scenario": "This role is all about creating new structures and adapting to a new environment; a preference for the status quo would hinder progress.",
+          "typical_weakness": null
+        },
+        {
+          "archetype_name": "The Lone Wolf Innovator",
+          "archetype_description": "A brilliant individual contributor or leader who prefers to work independently and may struggle with extensive collaboration, stakeholder management, or team-building.",
+          "why_wrong_for_this_scenario": "Success depends heavily on cross-functional collaboration, team leadership, and integrating with the broader organization.",
+          "typical_weakness": null
+        },
+        {
+          "archetype_name": "The Pure Technologist (without leadership breadth)",
+          "archetype_description": "An individual with deep technical expertise but limited experience or interest in the broader operational, HR, legal, and cultural aspects of building and leading an organization in a new market.",
+          "why_wrong_for_this_scenario": "The role extends far beyond technical direction, demanding significant business acumen in setup and talent management.",
+          "typical_weakness": null
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Building and scaling a distributed engineering team in a new geographical location.",
+          "rationale": "Directly addresses the core challenge of establishing the Berlin hub and highlights relevant past experience.",
+          "suggested_question": "Tell me about a time you led the establishment of a new team or office in a different geographical location. What were your key challenges and successes?"
+        },
+        {
+          "theme": "Navigating regulatory and cultural complexities in an international market.",
+          "rationale": "Explores the candidate's awareness and experience with the unique challenges of operating in Germany/Europe.",
+          "suggested_question": "Describe your experience working within different regulatory or cultural frameworks. How do you ensure compliance and foster effective cross-cultural collaboration?"
+        },
+        {
+          "theme": "Strategic talent acquisition and employer branding in a competitive market.",
+          "rationale": "Assesses the candidate's understanding of talent strategy and their ability to attract top-tier talent in Berlin.",
+          "suggested_question": "Berlin's tech talent market is highly competitive. How would you approach building a strong employer brand and attracting key engineering hires for our new hub?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": true,
+      "weights_validated": true,
+      "completeness_percentage": 100,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}

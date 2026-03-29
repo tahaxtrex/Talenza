@@ -1,0 +1,157 @@
+{
+  "candidate_id": "external_natasha_volkov_005",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:20:00Z",
+
+  "identity": {
+    "full_name": "Natasha Volkov",
+    "current_role": "VP Engineering & Product",
+    "current_employer": "Waymo",
+    "email": "n.volkov@waymo.com",
+    "phone": "+1 650 802 4477",
+    "location": "San Francisco, California, USA",
+    "years_total_experience": 18,
+    "years_automotive_experience": 10,
+    "languages": ["Russian (native)", "English (fluent)", "German (conversational — developing)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "VP Engineering & Product",
+      "employer": "Waymo",
+      "duration_years": 6,
+      "budget_ownership_eur": null,
+      "headcount_managed": 1400,
+      "key_achievement": "Waymo One scaling: 700,000+ commercial rides, 99.2% availability. 340-person re-org to product-led in 9 months. Navigated NHTSA and California DMV proceedings."
+    },
+    {
+      "role": "Director of Autopilot Engineering",
+      "employer": "Tesla",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": 280,
+      "key_achievement": "10× neural network training speed improvement. FSD beta to 100,000 customers. Managed communications during 3 NHTSA investigations."
+    },
+    {
+      "role": "Principal Engineer — Special Projects Group",
+      "employer": "Apple",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Core work on Apple Project Titan autonomous vehicle initiative (undisclosed). Sensor fusion and software architecture."
+    },
+    {
+      "role": "Software Engineer → Senior Engineer",
+      "employer": "Google",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Maps and Geo infrastructure. Foundation for transition to automotive software."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 6.9,
+      "evidence": [
+        "Managed NHTSA investigations and California DMV proceedings without production restriction — regulatory crisis management at the highest-stakes level in autonomous vehicles",
+        "Managed public communications during 3 Tesla Autopilot NHTSA investigations — high-visibility, safety-adjacent crisis communications",
+        "99.2% platform availability for commercial autonomous fleet — operational reliability management under public accountability"
+      ],
+      "gaps": [
+        "All crisis management is regulatory and communications in nature — no operational plant, financial, or geopolitical crisis experience",
+        "Software regulatory crisis is structurally different from automotive manufacturing crisis",
+        "No evidence of managing acute physical operational emergencies"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 4.7,
+      "evidence": [
+        "1,400-person engineering and product organisation — genuine scale of technical leadership",
+        "MIT PhD in Robotics — deepest technical foundation in the pool",
+        "Software that runs in vehicles at commercial scale — automotive-adjacent technical depth"
+      ],
+      "gaps": [
+        "No manufacturing, plant, supply chain, or physical production experience",
+        "Software P&L and software engineering leadership ≠ manufacturing operational depth",
+        "Cover letter explicitly acknowledges the gap: 'hardest problem is integrating into organisations built around a different product model'",
+        "No automotive OEM experience — Waymo and Tesla operate with fundamentally different product development velocity than BMW"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 9.4,
+      "evidence": [
+        "Career: Google → Apple → Tesla → Waymo — each transition to greater complexity and accountability",
+        "Led 340-person functional → product-led re-organisation in 9 months — structural organisational transformation at speed",
+        "Navigated regulatory environments across US federal (NHTSA) and state (California DMV) levels simultaneously",
+        "Cover letter explicitly positions herself as someone who thrives at the intersection of software velocity and institutional accountability",
+        "Learning German proactively — personal investment in cultural integration"
+      ],
+      "gaps": [
+        "All change has been in software-native organisations — adapting to legacy manufacturing OEM culture is acknowledged as the challenge she has not yet faced",
+        "Speed of tech company change cycles may clash with BMW's more deliberate product development rhythm"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 7.3,
+      "evidence": [
+        "Navigated NHTSA and California DMV proceedings without production restriction — requires sustained credibility with hostile external regulators",
+        "Partnership on AI board member — recognised thought leader in responsible AI deployment",
+        "IEEE Intelligent Transportation Systems contributor — technical community authority",
+        "Tesla NHTSA communications during 3 investigations — high-stakes external communications demonstrated"
+      ],
+      "gaps": [
+        "All stakeholder experience is in US regulatory and tech ecosystem context",
+        "No evidence of European regulatory, governmental, or board-level stakeholder management",
+        "Works council culture and German institutional communication register are entirely unfamiliar",
+        "No evidence of investor relations or commercial partner management beyond technical context"
+      ]
+    },
+    "external_network": {
+      "score_raw": 8.9,
+      "evidence": [
+        "Waymo/Google → Apple → Tesla — FAANG and AV ecosystem network is the most valuable technical network in the world",
+        "Partnership on AI board — direct access to AI policy and ethics community across tech and government",
+        "MIT PhD alumni — elite academic and research network",
+        "NHTSA and California DMV relationship — US regulatory network",
+        "IEEE ITS contributor — global technical standards community"
+      ],
+      "gaps": [
+        "Network is overwhelmingly US West Coast and tech-concentrated",
+        "No European automotive, supplier, regulatory, or institutional network",
+        "German personal connection through partner — some cultural entry point but no professional network"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Deep technical authority",
+      "Regulatory sophistication",
+      "Principled about accountability",
+      "Organisational designer",
+      "Mission-oriented"
+    ],
+    "leadership_style": "Inferred from re-organisation and Waymo scale: systems thinker who designs organisations as products. Leads through technical authority and clarity of product vision. Cover letter suggests intellectual honesty about organisational complexity — not a visionary who ignores implementation reality.",
+    "decision_making_pattern": "Inferred: PhD-rigorous analytical foundation combined with product manager's user-first orientation. Cover letter frames the hard problem clearly and correctly — suggests she makes decisions by correctly identifying the actual problem first.",
+    "stress_response": "Inferred from regulatory navigation: maintains public composure and systematic engagement under external scrutiny. NHTSA investigation management requires controlled, evidence-based communication under pressure.",
+    "collaboration_style": "Inferred: cross-functional by training (engineering + product combined scope). MIT academic background combined with FAANG career suggests comfort in peer-debate cultures.",
+    "ambiguity_tolerance": "high — inferred from AV industry context where regulatory and technical ambiguity is constant",
+    "change_orientation": "transformer — inferred from re-org leadership and career trajectory",
+    "inference_confidence": 0.7,
+    "inference_note": "Cover letter is unusually self-aware and precise about the specific challenge she is positioning for. High inference confidence for a tech candidate — she has articulated her own profile clearly."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 12,
+    "relocation_required": true,
+    "estimated_package_eur": 720000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most technically advanced and regulatory-experienced software engineering executive in the pool — MIT PhD, Apple Project Titan, Tesla Autopilot, Waymo — with a sharp self-awareness about the specific organisational challenge of bringing software culture into an OEM, but her compensation expectations are the highest in the pool, she has never operated inside a traditional manufacturing organisation, and the cultural translation from Silicon Valley to Munich is the one she has only begun with German language classes.",
+  "best_fit_scenario": "transformation",
+  "worst_fit_scenario": "crisis"
+}

@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "scenario_id": "TAL_SCN_BERLIN_OPS_001",
+    "created_at": "2024-07-30T10:00:00Z",
+    "version": "1.0",
+    "status": "complete",
+    "track": "internal",
+    "updated_at": "2026-03-29T13:21:21.588Z"
+  },
+  "role": {
+    "title": "Head of Operations, Germany",
+    "seniority_level": "director",
+    "department": "Operations",
+    "primary_location": "Berlin, Germany",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 20
+  },
+  "business_context": {
+    "situation_type": "growth",
+    "situation_subtype": "geographic_expansion",
+    "description": "Talenza is establishing a new operational hub in Berlin to support EMEA growth and tap into the local tech talent market. This role is critical for setting up and scaling local operations, ensuring seamless integration with global strategies, and fostering a strong local culture from inception.",
+    "urgency_driver": "Market opportunity, competitive talent acquisition, and strategic expansion timeline.",
+    "board_visibility": "svp",
+    "external_visibility_risk": false,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": true,
+    "regulatory_description": "Navigating stringent German labor laws, business registration, compliance with local regulations (e.g., data protection, tax, social security), and establishing a legal entity.",
+    "competitive_pressure": "High competition for tech talent in Berlin; need to establish a strong employer brand quickly."
+  },
+  "constraints": {
+    "urgency_weeks": 20,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": 50000,
+    "can_use_search_firm": true,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": 200000,
+    "package_budget_base_eur": 130000,
+    "package_out_of_band_possible": true,
+    "package_approval_required": "Head of People, EMEA and CFO",
+    "internal_equity_risk": false,
+    "personal_security_risk": false,
+    "language_requirements": [
+      "German",
+      "English"
+    ],
+    "cultural_requirements": [
+      "Adaptability to German business culture",
+      "Experience with international teams"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Experience establishing new operational entities/offices in Germany or similar regulated European markets.",
+    "must_have_2": "Deep understanding of German labor law, HR practices, and regulatory landscape.",
+    "must_have_3": "Proven ability to hire, build, and manage high-performing teams from scratch.",
+    "nice_to_have_1": "Existing network within the Berlin tech/startup ecosystem.",
+    "nice_to_have_2": "Experience with rapid scaling in a fast-paced environment.",
+    "explicit_disqualifiers": [
+      "No German language proficiency",
+      "Lack of relevant European market experience",
+      "Inability to relocate to Berlin"
+    ]
+  },
+  "team_context": {
+    "team_exists": false,
+    "team_size_current": 0,
+    "team_size_target_year1": 15,
+    "team_size_target_year2": 40,
+    "team_type": "New market entry, greenfield operations, initially focused on support and sales functions.",
+    "inherited_technical_debt": false,
+    "inherited_culture_issues": false,
+    "key_stakeholders": [
+      {
+        "role": "Global Head of Operations",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Ensure alignment on global operational standards while allowing for local adaptation."
+      },
+      {
+        "role": "CHRO",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Critical for establishing HR policies, talent acquisition strategies, and cultural integration."
+      },
+      {
+        "role": "CFO",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Key partner for budget management, financial compliance, and legal entity setup."
+      },
+      {
+        "role": "Head of People, EMEA",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Direct partner for all people-related strategies and execution in the region."
+      }
+    ]
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "growth",
+      "scenario_subtype": "geographic_expansion",
+      "classification_source": "explicit",
+      "classification_confidence": 1,
+      "classification_reasoning": "The scenario 'migrating to Berlin' directly implies establishing a new presence and expanding geographically to support growth.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Initial assessment based on a standard 'growth: geographic_expansion' scenario, emphasizing operations and change.",
+        "crisis_mgmt": 0.1,
+        "ops_depth": 0.3,
+        "change_adapt": 0.25,
+        "stakeholder": 0.2,
+        "external_net": 0.15
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Regulatory Complexity Impact",
+          "trigger_field": "regulatory_complexity",
+          "trigger_value": true,
+          "trigger_condition": "field equals true",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Establishing operations in Germany requires significant attention to local regulatory and legal frameworks, increasing the importance of operational depth and compliance."
+        },
+        {
+          "modifier_name": "Greenfield Operations Impact",
+          "trigger_field": "team_exists",
+          "trigger_value": false,
+          "trigger_condition": "field equals false",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.15,
+          "modifier_reasoning": "Building a team and operations from scratch in a new location demands high adaptability, resilience, and a hands-on entrepreneurial approach to change."
+        },
+        {
+          "modifier_name": "Competitive Talent Pressure",
+          "trigger_field": "competitive_pressure",
+          "trigger_value": "High competition for tech talent in Berlin; need to establish a strong employer brand quickly.",
+          "trigger_condition": "field contains 'High competition' and 'talent'",
+          "dimension_affected": "external_net",
+          "multiplier": 1.2,
+          "modifier_reasoning": "High competitive pressure for talent in Berlin necessitates strong external networking and employer brand building capabilities to attract and retain key hires effectively."
+        }
+      ],
+      "final_weights": {
+        "description": "Weights adjusted based on specific scenario details, normalized to sum to 1.0.",
+        "crisis_mgmt": {
+          "value": 0.0886917969844878,
+          "confidence": 0.9,
+          "confidence_reasoning": "No explicit crisis factors; this dimension remains low and stable.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.0113082030155122,
+          "business_logic": "No direct modifiers applied, changes due to normalization."
+        },
+        "ops_depth": {
+          "value": 0.3192904656327361,
+          "confidence": 0.95,
+          "confidence_reasoning": "Directly impacted by regulatory complexity and greenfield setup, strongly justified.",
+          "modifiers_that_touched_this_dimension": [
+            "Regulatory Complexity Impact"
+          ],
+          "net_movement_from_base": 0.0192904656327361,
+          "business_logic": "Base weight increased by multiplier due to regulatory complexity."
+        },
+        "change_adapt": {
+          "value": 0.2549002217294013,
+          "confidence": 0.95,
+          "confidence_reasoning": "Directly impacted by greenfield setup, strongly justified.",
+          "modifiers_that_touched_this_dimension": [
+            "Greenfield Operations Impact"
+          ],
+          "net_movement_from_base": 0.0049002217294013,
+          "business_logic": "Base weight increased by multiplier due to building a team from scratch."
+        },
+        "stakeholder": {
+          "value": 0.17738359201773837,
+          "confidence": 0.85,
+          "confidence_reasoning": "Important for internal alignment but no specific modifiers heavily impacted it.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.02261640798226164,
+          "business_logic": "No direct modifiers applied, changes due to normalization."
+        },
+        "external_net": {
+          "value": 0.1596332594235033,
+          "confidence": 0.9,
+          "confidence_reasoning": "Directly impacted by competitive pressure, justified.",
+          "modifiers_that_touched_this_dimension": [
+            "Competitive Talent Pressure"
+          ],
+          "net_movement_from_base": 0.0096332594235033,
+          "business_logic": "Base weight increased by multiplier due to competitive talent market."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+    "floor_constraints": {
+      "description": "Constraints derived from the core requirements for establishing a new presence in a regulated European market.",
+      "active_floors": [
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 0.25,
+          "floor_reasoning": "Given the explicit need to establish a legal entity and navigate German regulations, a strong operational depth and compliance focus is non-negotiable.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 0.2,
+          "floor_reasoning": "Building a new team and office from scratch requires high adaptability, entrepreneurial drive, and comfort with ambiguity, making this a critical threshold.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        }
+      ],
+      "floor_derivation_logic": "Floors are set for operational depth due to high regulatory complexity and for change adaptability given the greenfield nature of the project and the need for a 'builder' mindset."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Potential overlaps and dependencies between key leadership dimensions relevant to this specific scenario.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "ops_depth",
+          "dimension_b": "change_adapt",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "While operational depth ensures compliance and structured setup, the individual must also be highly adaptable to unforeseen challenges in a new market. High change adaptability might sometimes imply less rigidity in operations, which could be a risk if not balanced with regulatory adherence."
+        },
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "Building a strong, cohesive internal team (stakeholder management) and simultaneously attracting external talent and partners (external networking) are both crucial for initial growth and demand strong communication and relationship-building skills from the leader."
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "This scenario involves hiring a critical leadership role to establish and scale Talenza's new operational hub in Berlin. The successful candidate must navigate complex German regulatory landscapes, build a team from scratch, and integrate seamlessly with global strategies, all while facing high competition for local talent and fostering a new cultural presence.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "German labor laws, data protection (GDPR), and business registration processes are stringent and require meticulous attention to detail and compliance.",
+          "impact_on_analysis": "Increases emphasis on operational depth and legal/HR expertise for the candidate, and requires robust due diligence during the setup phase."
+        },
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "The role involves not only strategic oversight but also hands-on work in recruiting, onboarding, and culturally integrating a new team and office from scratch.",
+          "impact_on_analysis": "Requires a candidate with strong entrepreneurial drive, proven recruitment and talent development experience, and exceptional cultural leadership skills to foster a new team identity."
+        },
+        {
+          "flag_type": "cultural_friction",
+          "description": "Integrating a new German entity with an existing global corporate culture (which may be different) might present challenges in terms of communication styles, work expectations, and organizational norms.",
+          "impact_on_analysis": "The candidate needs strong cultural intelligence, change management skills, and the ability to act as a bridge between local specifics and global company values."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Builder/Founder",
+          "archetype_description": "Someone who has successfully built operations or teams from the ground up, with a strong entrepreneurial mindset, hands-on approach, and resilience.",
+          "why_fit_this_scenario": "Essential for establishing a new office, hiring initial staff, setting up processes, and navigating the inherent uncertainties and challenges of early-stage market entry.",
+          "typical_weakness": "May struggle with integrating into existing larger corporate structures or adhering strictly to established global processes without prior experience in more mature organizations."
+        },
+        {
+          "archetype_name": "The Local Expert/Navigator",
+          "archetype_description": "An individual with deep local market knowledge, particularly in regulatory, labor law, and talent landscapes (specifically Germany), who can quickly establish credibility and networks.",
+          "why_fit_this_scenario": "Crucial for navigating German specificities, ensuring compliance, building local partnerships, and effectively attracting and retaining local talent.",
+          "typical_weakness": "Might lack global strategic perspective, experience in rapid scaling, or the ability to integrate local operations seamlessly into a broader international framework."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Pure Strategist",
+          "archetype_description": "A leader who excels at high-level strategy, vision, and planning but lacks significant experience in hands-on operational implementation or ground-level execution.",
+          "why_wrong_for_this_scenario": "This role requires significant 'doing' to physically build out the office, recruit the team, and manage daily operations in the initial phase, not just strategic oversight. A pure strategist might delegate too much, too soon, or miss critical operational details."
+        },
+        {
+          "archetype_name": "The Stabilizer/Optimizer",
+          "archetype_description": "A leader who excels at optimizing existing, stable operations and processes, typically risk-averse and focused on incremental improvements.",
+          "why_wrong_for_this_scenario": "This is a growth and greenfield scenario requiring comfort with ambiguity, rapid change, proactive problem-solving, and a high tolerance for risk, rather than simply maintaining and improving the status quo."
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Greenfield Setup & Scaling",
+          "rationale": "To assess their direct experience and comfort with building operational units and teams from scratch in a new environment.",
+          "suggested_question": "Tell me about a time you had to establish a new office or operational unit from the ground up in a new market. What were the biggest challenges you faced, and how did you overcome them, particularly in the first 6-12 months?"
+        },
+        {
+          "theme": "German Regulatory Navigation & Compliance",
+          "rationale": "To gauge their understanding of and proactive approach to navigating the specific regulatory and legal complexities of the German market.",
+          "suggested_question": "What are the key regulatory, labor law, and cultural considerations you anticipate when setting up and scaling a business in Germany? How would you ensure full compliance and smooth integration while maintaining agility?"
+        },
+        {
+          "theme": "Talent Acquisition & Employer Branding in Competitive Markets",
+          "rationale": "To understand their strategic and practical approach to attracting, recruiting, and retaining top talent in a highly competitive market like Berlin, while simultaneously building an employer brand.",
+          "suggested_question": "Berlin has a highly competitive tech talent market. How would you approach building a strong employer brand and attracting top talent for our new operations, especially when starting from zero local presence?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [
+        {
+          "field_path": "business_context.geopolitical_description",
+          "field_label": "Geopolitical Description",
+          "blocks_analysis": false,
+          "impact_if_missing": "Slightly less nuanced understanding of potential external risks, though flag indicates low complexity.",
+          "qa_question": "Is there any specific geopolitical context relevant to setting up operations in Germany that should be noted?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.hard_deadline_date",
+          "field_label": "Hard Deadline Date",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits precision on timeline adherence and critical path planning.",
+          "qa_question": "Is there a specific hard deadline date (e.g., for office opening or product launch) that this role must meet?",
+          "expected_type": "ISO8601 date"
+        },
+        {
+          "field_path": "constraints.hard_deadline_reason",
+          "field_label": "Hard Deadline Reason",
+          "blocks_analysis": false,
+          "impact_if_missing": "Limits understanding of urgency and potential risks associated with missing a deadline.",
+          "qa_question": "If there is a hard deadline, what is the underlying reason for it?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.search_firm_constraint_reason",
+          "field_label": "Search Firm Constraint Reason",
+          "blocks_analysis": false,
+          "impact_if_missing": "Loss of context for why a search firm might be restricted, if applicable.",
+          "qa_question": "Are there any specific reasons or constraints that might limit our ability to use a search firm for this role?",
+          "expected_type": "string"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": false,
+      "weights_validated": true,
+      "completeness_percentage": 96,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}

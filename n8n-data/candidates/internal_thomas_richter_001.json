@@ -1,0 +1,155 @@
+{
+  "candidate_id": "internal_thomas_richter_001",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:00:00Z",
+
+  "identity": {
+    "full_name": "Thomas Richter",
+    "current_role": "Plant Manager",
+    "current_employer": "BMW Group — Leipzig Plant",
+    "email": "t.richter@bmw-group.com",
+    "phone": "+49 341 887 2201",
+    "location": "Leipzig, Germany",
+    "years_total_experience": 23,
+    "years_automotive_experience": 23,
+    "languages": ["German (native)", "English (professional)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Plant Manager",
+      "employer": "BMW Group — Leipzig",
+      "duration_years": 8,
+      "budget_ownership_eur": 2300000000,
+      "headcount_managed": 4800,
+      "key_achievement": "Zero customer delivery breach during 11-day unplanned press line shutdown 2023 — root cause methodology adopted as BMW Group standard"
+    },
+    {
+      "role": "Deputy Plant Manager",
+      "employer": "BMW Group — Leipzig",
+      "duration_years": 4,
+      "budget_ownership_eur": 180000000,
+      "headcount_managed": 4800,
+      "key_achievement": "Managed €180M capex press shop upgrade programme. Full plant P&L deputisation during 4-month manager absence."
+    },
+    {
+      "role": "Production Manager — Body Shop",
+      "employer": "BMW Group — Munich",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": 620,
+      "key_achievement": "12% cycle time reduction through full line rebalancing"
+    },
+    {
+      "role": "Shift Supervisor → Production Engineer",
+      "employer": "BMW Group — Munich",
+      "duration_years": 7,
+      "budget_ownership_eur": null,
+      "headcount_managed": 85,
+      "key_achievement": "Graduate entry to Production Manager in 7 years. Floor-level expertise across stamping, assembly, quality."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 9.2,
+      "evidence": [
+        "Led Leipzig plant through 11-day unplanned press line shutdown in 2023 with zero customer delivery breach",
+        "Root cause analysis and corrective action adopted as BMW Group standard — signals quality of crisis response above local resolution",
+        "HR explicitly states: he is 'the person we call when something is on fire'"
+      ],
+      "gaps": [
+        "All documented crisis experience is operational/technical — no evidence of crisis management at the financial, reputational, or geopolitical level",
+        "No evidence of crisis communication at board or C-suite level under real pressure"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 9.4,
+      "evidence": [
+        "€2.3B production budget ownership, 4,800 direct and indirect headcount",
+        "23 years continuous automotive manufacturing experience, all within BMW Group",
+        "IATF 16949:2016 re-certification with zero major non-conformities",
+        "Scrap rate reduction 2.4% to 1.6% over 3 years — sustained improvement, not a one-time project",
+        "Led i4 production variant introduction 6 weeks ahead of ramp projection"
+      ],
+      "gaps": [
+        "Entire career within BMW Group — no cross-manufacturer operational perspective",
+        "No supply chain or logistics ownership above plant level"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 3.8,
+      "evidence": [
+        "Designed and implemented redesigned shift handover protocol adopted at three plants — demonstrates capability for systematic improvement-driven change",
+        "Successfully introduced i4 production variant onto existing line ahead of schedule"
+      ],
+      "gaps": [
+        "HR documents explicit resistance to AI-assisted predictive maintenance rollout in 2022",
+        "HR states: 'digital transformation engagement is minimal'",
+        "Personality description confirms: 'if you impose change from above without explanation, he becomes a blocker'",
+        "No evidence of leading transformation initiatives — only optimising within existing systems"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 7.1,
+      "evidence": [
+        "HR states floor-level credibility is 'unmatched in the Leipzig region'",
+        "Teams trust him 'absolutely' per HR assessment",
+        "Mentors two junior plant managers — active investment in people below"
+      ],
+      "gaps": [
+        "HR explicitly documents: 'interactions with Munich executive committee have occasionally been tense'",
+        "HR states he 'finds the abstraction of board-level conversation frustrating and has said so'",
+        "No evidence of external stakeholder management — dealer networks, government bodies, institutional investors",
+        "Personality description confirms trust takes significant time to establish with new contacts"
+      ]
+    },
+    "external_network": {
+      "score_raw": 1.8,
+      "evidence": [],
+      "gaps": [
+        "Personality description explicitly states: 'he does not network outside BMW by design'",
+        "Entire 23-year career within BMW Group",
+        "No external board positions, industry associations, or cross-industry relationships evidenced",
+        "No conference speaking, publications, or industry body involvement"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Methodical",
+      "Direct",
+      "Consistent",
+      "Systems-oriented",
+      "Protective of team"
+    ],
+    "leadership_style": "Command-and-trust: establishes clear systems, delegates within those systems, holds accountability rigorously. Leads by example on the floor.",
+    "decision_making_pattern": "Evidence-first, systematic. Resists decisions made without understanding the root cause. Slow to commit, highly reliable once committed.",
+    "stress_response": "Becomes quieter and more focused under pressure. Teams find this stabilising. Does not escalate emotionally.",
+    "collaboration_style": "Builds trust slowly. Loyal once trust is established. Resistant to collaboration imposed through hierarchy rather than earned through demonstrated competence.",
+    "ambiguity_tolerance": "low",
+    "change_orientation": "stabiliser"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Ready now for VP Operations in a pure operational context. 12-18 months for roles requiring C-suite political navigation or transformation leadership.",
+    "cultural_fit_rating": 8.9,
+    "key_strength_observed": "Unmatched operational credibility and crisis containment capability. The standard-setter for plant-level excellence in the group.",
+    "development_area": "Board-level communication and digital transformation leadership. Needs executive coaching to navigate abstraction and political complexity at VP level.",
+    "retention_risk": "low",
+    "raw_opinion": "Thomas has been one of our most reliable operational managers for the past 14 years. He is the person we call when something is on fire and we need it contained. His floor-level credibility is unmatched in the Leipzig region. The honest concern is that he has never operated above the plant level. His digital transformation engagement is minimal. Retention risk is low — deeply rooted in Leipzig with family."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 12,
+    "relocation_required": null,
+    "estimated_package_eur": null,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most trusted crisis operator in the group — but his entire identity is built on operational mastery within a stable system, and any role that requires him to dismantle rather than optimise that system will expose the exact blind spots that have never been tested.",
+  "best_fit_scenario": "crisis",
+  "worst_fit_scenario": "transformation"
+}

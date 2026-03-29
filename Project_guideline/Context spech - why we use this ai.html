@@ -1,0 +1,711 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Context spech - why we use this ai</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3303f962-a23c-80a5-81fd-cbc342e2352d" class="page sans"><header><h1 class="page-title" dir="auto">Context spech - why we use this ai</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="bc25ef61-e70a-41d7-85a6-01e27a9b2603" class="">ContextHire — The Tool Justification Script</h1></div><div style="display:contents" dir="auto"><h3 id="6971ba65-245e-48ed-8bff-a3092766f2ad" class="">BMW Hackathon 2026 | Evidence-Backed Presentation Speech</h3></div><div style="display:contents" dir="auto"><p id="73997e88-1a40-43ad-84c5-ec8b639d961e" class=""><em>Every claim in this document is sourced from published benchmarks, peer-reviewed research, or official documentation as of March 27, 2026.</em></p></div><div style="display:contents" dir="auto"><hr id="947d9db4-39b7-4efe-9237-e96d449d24f1"/></div><div style="display:contents" dir="auto"><h2 id="05ac295b-48a5-4634-86ba-b53ee4edd087" class="">How to Use This Document</h2></div><div style="display:contents" dir="auto"><p id="673b2289-00ab-43ec-8a26-ce26c42c26cf" class="">This is a <strong>full verbal script</strong> you can use during your live demo and Q&amp;A.<br/>It is structured in two parts:</p></div><div style="display:contents" dir="auto"><ol type="1" id="a2b706e9-ef66-49b9-98a6-552c988c2e52" class="numbered-list" start="1"><li><strong>The Problem Speech</strong> — opens your video, frames the business case with real data</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="ecd5b969-2cf6-46a5-800f-ffce312cbf15" class="numbered-list" start="2"><li><strong>The Architecture Justification</strong> — use during the &quot;AI / Agents&quot; section of your video (2:20–2:50), and verbally during judging Q&amp;A</li></ol></div><div style="display:contents" dir="auto"><p id="b9edc7cc-ea77-4817-af3c-f6c9a6dd6ad6" class="">Each section has a <strong>short version</strong> (for the video) and a <strong>full version</strong> (for Q&amp;A).<br/>Every data point has its source listed so you can cite it confidently if challenged.</p></div><div style="display:contents" dir="auto"><hr id="914ac6fe-e1fb-4c55-83cd-3afd45e2c00c"/></div><div style="display:contents" dir="auto"><h2 id="74a9b8d8-791c-4717-acc6-2871650cb3a9" class="">PART 1 — THE PROBLEM SPEECH</h2></div><div style="display:contents" dir="auto"><h3 id="166fa420-ddfb-4882-b028-75a0c9342be7" class=""><em>Use this for the 0:00–0:20 section of your video</em></h3></div><div style="display:contents" dir="auto"><hr id="4bb381f4-e665-4376-a277-26b05b26bc6e"/></div><div style="display:contents" dir="auto"><h3 id="c65189b8-8096-45af-9466-7f7681064187" class="">Short Version (20 seconds — memorise this exactly)</h3></div><div style="display:contents" dir="auto"><blockquote id="b0a236a5-9b04-4bdf-a6d2-a26df3e762f7" class="">&quot;Intuition drives 85 to 97 percent of hiring decisions at the manager level.<br/>48 percent of HR professionals have admitted that personal bias directly affected<br/>their candidate choice. And when organisations do use rating systems,<br/>research shows the dominant pattern is centrality bias —<br/>everyone scores a 7 or an 8, so the data becomes useless for differentiation.<br/>At BMW&#x27;s scale, where a wrong leadership hire can destroy a strong system,<br/>these are not acceptable odds.<br/>We built ContextHire to replace the gut feel with a reason.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="4f2bb073-002f-4f75-b806-22762fb3e620"/></div><div style="display:contents" dir="auto"><h3 id="83ddeee6-4f3d-46d1-aa5c-56f22bef946b" class="">Full Version (for Q&amp;A — use this if judges ask about the problem)</h3></div><div style="display:contents" dir="auto"><blockquote id="acec24aa-08ef-4fe9-b37b-0a3c940258fe" class="">&quot;Let us ground this in research, not assumption.<div style="display:contents" dir="auto"><p id="af6684f9-c651-4c96-aa8d-7dbdbb2b6298" class="">A LinkedIn analysis of over 1,000 hiring managers found that between<br/>85 and 97 percent of hiring decisions are driven primarily by intuition<br/>rather than structured data — and this figure is even higher for<br/>senior executive appointments, where the stakes are largest.</p></div><div style="display:contents" dir="auto"><p id="46d61feb-42ff-4be1-ae8a-1357a04d2eb9" class="">When organisations attempt to introduce structure through rating systems,<br/>they encounter a well-documented cognitive phenomenon called centrality bias —<br/>also known as central tendency bias. HR Dive defines it as the tendency<br/>to rate most candidates in the middle of a scale, making it impossible<br/>to distinguish top performers from average ones.<br/>BMW&#x27;s own slides put it bluntly: everyone is a 7 or an 8.<br/>That is not a data problem. That is a decision architecture problem.</p></div><div style="display:contents" dir="auto"><p id="0ebf305b-30ec-4f28-a6d7-34e4d4892e81" class="">A peer-reviewed quantitative study published in the German Journal of<br/>Human Resource Management, surveying 234 HR professionals in Switzerland,<br/>found something even more troubling: HR employees systematically underestimate<br/>their own susceptibility to bias while overestimating their colleagues&#x27;.<br/>This is called the bias blind spot — and it means the people making<br/>the most consequential hiring decisions are the least likely to believe<br/>they need help making them better.</p></div><div style="display:contents" dir="auto"><p id="9d448d30-8528-4b7a-906d-37d4f3b168a6" class="">The business cost is not abstract.<br/>McKinsey&#x27;s research on executive succession has consistently shown<br/>that the wrong senior leader costs organisations between 1.5 and 2 times<br/>that leader&#x27;s annual salary in replacement costs alone — before accounting<br/>for the operational damage, team turnover, and cultural regression<br/>that follow a misaligned appointment.</p></div><div style="display:contents" dir="auto"><p id="a35eb3e3-2c68-416e-bc59-696b2fe27fbb" class="">ContextHire does not ask for ratings.<br/>It asks for evidence.<br/>And it surfaces decisions that are context-aware — because the right leader<br/>for a digital transformation is not the same person you need in a production crisis.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="c7f03435-25af-4d95-9688-f0e40faf25e2" class=""><strong>Sources for this section:</strong></p></div><div style="display:contents" dir="auto"><ul id="fd5a3dad-721e-4f69-a7dd-158e059dc214" class="bulleted-list"><li style="list-style-type:disc">Centrality / Central Tendency Bias definition and impact: HR Dive (2021), &quot;6 Common Biases to Overcome for Performance Reviews&quot;</li></ul></div><div style="display:contents" dir="auto"><ul id="c0f2069b-cf61-443d-aaa4-e10a17a8caf1" class="bulleted-list"><li style="list-style-type:disc">85–97% intuition statistic: BrightTalk HR Research via LinkedIn / VidCruiter (2023)</li></ul></div><div style="display:contents" dir="auto"><ul id="cba8f285-7864-4151-bf22-0a2ba8229ed4" class="bulleted-list"><li style="list-style-type:disc">48% bias admission: HR professionals survey cited in VidCruiter recruitment bias analysis (2023)</li></ul></div><div style="display:contents" dir="auto"><ul id="73c37d5b-77d6-4f42-8fdc-ca0dd7385f68" class="bulleted-list"><li style="list-style-type:disc">Bias blind spot in HR: Thomas &amp; Reimann (2023), &quot;The bias blind spot among HR employees in hiring decisions,&quot; <em>German Journal of Human Resource Management</em>, surveying 234 HR employees in Switzerland</li></ul></div><div style="display:contents" dir="auto"><ul id="e7c878d2-0a8b-44dc-976d-126326e34fa2" class="bulleted-list"><li style="list-style-type:disc">79% of HR professionals agree unconscious bias exists in recruitment and succession planning: BrightTalk Research cited in LinkedIn Pulse (2023)</li></ul></div><div style="display:contents" dir="auto"><ul id="198d9dff-88bb-4a31-9b68-06a125a094c4" class="bulleted-list"><li style="list-style-type:disc">Executive replacement cost: McKinsey &amp; Company, &quot;Successfully transitioning to new leadership roles&quot; (multiple publications)</li></ul></div><div style="display:contents" dir="auto"><hr id="0d57dc20-1935-45f5-ab58-033c5a5899db"/></div><div style="display:contents" dir="auto"><h2 id="8412b70b-269b-4a48-9e79-b1cb5cf43fbb" class="">PART 2 — ARCHITECTURE JUSTIFICATION SPEECH</h2></div><div style="display:contents" dir="auto"><h3 id="667887e9-41d0-4ed2-81a4-f8e5353ec37f" class=""><em>Use the short versions in your video at 2:20–2:50. Use full versions in Q&amp;A.</em></h3></div><div style="display:contents" dir="auto"><hr id="7a14f2cf-7215-4570-9df1-96a4fd69ad6d"/></div><div style="display:contents" dir="auto"><h3 id="5ace8d1d-67a3-4559-b586-3813926d731c" class="">2A — Why Claude Sonnet 4.6 for the Core Agents</h3></div><div style="display:contents" dir="auto"><h3 id="0bacf130-7662-454e-8548-3d3a0d3e8831" class="">Short Version (15 seconds per agent — pick what fits)</h3></div><div style="display:contents" dir="auto"><blockquote id="6ce0ade0-7c00-4c68-a255-0ea706713527" class="">&quot;For the agents that require structured reasoning and business-context judgment,<br/>we chose Claude Sonnet 4.6. According to Anthropic&#x27;s official benchmarks,<br/>published February 17, 2026, Sonnet 4.6 leads every model in the world<br/>on GDPval-AA — the benchmark that specifically measures expert-level<br/>office and knowledge work — with an Elo score of 1,633.<br/>That is 27 points above Opus 4.6, and 316 points above Gemini 3.1 Pro.<br/>This is exactly the category our agents operate in.&quot;</blockquote></div><div style="display:contents" dir="auto"><h3 id="23440771-cef5-4a0e-9d74-ab70cdd55e4e" class="">Full Version (for Q&amp;A)</h3></div><div style="display:contents" dir="auto"><blockquote id="8e8f4f01-4e0d-4113-afc6-60b7efcb1a81" class="">&quot;Let me be precise about why we chose Sonnet 4.6 and not a more recent or<br/>more expensive model.<div style="display:contents" dir="auto"><p id="63af0cca-5298-4bca-a4c1-b248f153018b" class="">We evaluated four criteria: task alignment, benchmark performance on our<br/>specific workload type, production stability, and cost predictability<br/>during a live demo.</p></div><div style="display:contents" dir="auto"><p id="c18d58e3-ac24-4210-af9b-7f8ec943210d" class="">On task alignment: our agents perform structured knowledge work.<br/>They take a business context, reason about trade-offs, produce scored outputs<br/>with evidence, and generate comparative recommendations. This is not<br/>abstract reasoning or scientific depth — it is expert-level office cognition.</p></div><div style="display:contents" dir="auto"><p id="086d48f9-ed2b-4633-8aa5-11ef31225c06" class="">The benchmark that measures exactly this is GDPval-AA, the gold standard<br/>for real-world office productivity. On GDPval-AA, as of February 17, 2026,<br/>Claude Sonnet 4.6 scores 1,633 Elo — the highest of any model tested,<br/>including its own flagship Opus 4.6 at 1,606.<br/>Gemini 3.1 Pro scores 1,317 — 316 Elo points behind.</p></div><div style="display:contents" dir="auto"><p id="88502ab7-c084-4505-b45a-77aa194ed398" class="">On SWE-bench Verified, which measures real-world software engineering<br/>using actual GitHub issues, Sonnet 4.6 scores 79.6% — within 1.2<br/>percentage points of Opus 4.6 at 80.8%, at one-fifth the cost.</p></div><div style="display:contents" dir="auto"><p id="6e5d89f3-9fa6-45fc-8049-7e1b7615d9de" class="">On production stability: Sonnet 4.6 is generally available as of<br/>February 17, 2026. Gemini 3.1 Pro — while impressive on abstract reasoning<br/>benchmarks — is still in preview as of today, March 27, 2026.<br/>Published independent testing found response times exceeding 100 seconds<br/>under load at launch. For a live demo where the scenario toggle is<br/>our primary demonstration, that latency is an unacceptable risk.</p></div><div style="display:contents" dir="auto"><p id="7513ec10-d0b6-48c8-835a-3f9420a44b11" class="">On cost: Sonnet 4.6 is priced at $3 per million input tokens —<br/>identical to Sonnet 4.5 despite significant benchmark improvements.<br/>This means we run six parallel profile scoring calls at Haiku 4.5<br/>pricing ($0.25 per million tokens) for speed, and use Sonnet 4.6<br/>for the reasoning-heavy agents where output quality is visible<br/>to the judges.</p></div><div style="display:contents" dir="auto"><p id="58f0c4fb-56d9-4c5c-81e2-9ae42d2e84f7" class="">One last point on model choice integrity.<br/>We also evaluated GPT-5.2 and Gemini 3.1 Pro.<br/>GPT-5.2 scores 38.2% on OSWorld-Verified for agentic computer use,<br/>compared to Sonnet 4.6&#x27;s 72.5%. It is not the right tool for<br/>sustained agentic workflows.<br/>Gemini 3.1 Pro leads on abstract reasoning at 77.1% on ARC-AGI-2,<br/>but that benchmark tests novel pattern recognition — not business<br/>decision synthesis. We chose based on task fit, not prestige.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="02a90b4c-2d3a-417f-971e-c1aad6fd25e7" class=""><strong>Sources for this section:</strong></p></div><div style="display:contents" dir="auto"><ul id="1a10fd53-dccc-4976-83b6-44ad10a0a109" class="bulleted-list"><li style="list-style-type:disc">GDPval-AA Elo 1,633 (Sonnet 4.6) vs 1,606 (Opus 4.6) vs 1,317 (Gemini 3.1 Pro): Anthropic official release (Feb 17, 2026) + VentureBeat coverage (Feb 24, 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="da778a13-610c-4d50-b2e1-eac0845faeff" class="bulleted-list"><li style="list-style-type:disc">SWE-bench Verified 79.6% (Sonnet 4.6) vs 80.8% (Opus 4.6): Anthropic system card, averaged over 10 trials (anthropic.com/news/claude-sonnet-4-6)</li></ul></div><div style="display:contents" dir="auto"><ul id="c6591dad-9e91-401e-8300-4db9d8d6bc50" class="bulleted-list"><li style="list-style-type:disc">OSWorld-Verified 72.5% (Sonnet 4.6) vs 38.2% (GPT-5.2): Anthropic official benchmarks (Feb 17, 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="0d3878d2-1de6-499d-ac4d-fa7d9c6248f6" class="bulleted-list"><li style="list-style-type:disc">ARC-AGI-2 77.1% (Gemini 3.1 Pro): Google DeepMind release (Feb 19, 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="c22eca42-cbff-45c0-b8cb-faf68df2b129" class="bulleted-list"><li style="list-style-type:disc">Gemini 3.1 Pro preview instability: Independent testing reported by Verdent AI and NxCode (Feb 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="17a9283a-56a9-44c9-88d8-049b71fe8d91" class="bulleted-list"><li style="list-style-type:disc">Pricing: Anthropic pricing page, $3/$15 per million tokens, unchanged from Sonnet 4.5</li></ul></div><div style="display:contents" dir="auto"><hr id="18c2a2b6-7996-4880-9ee5-1b1b975b8a89"/></div><div style="display:contents" dir="auto"><h3 id="3eb937c6-609b-447c-9b3b-4a4c7a229a3b" class="">2B — Why n8n for Orchestration</h3></div><div style="display:contents" dir="auto"><h3 id="9c8ce965-6236-4172-bfff-fbf83e7d9452" class="">Short Version (15 seconds)</h3></div><div style="display:contents" dir="auto"><blockquote id="a4ff6b6a-0587-452c-aaa1-405d940e8ed8" class="">&quot;For orchestration, we self-hosted n8n on AWS. n8n is open-source,<br/>supports 400-plus integrations, and gives us a visual pipeline canvas<br/>you can see right here — JD Agent, CV Agent, Scenario Agent, Decision Agent.<br/>Each node is a real, independent API call with its own typed input and output.<br/>This is not a single prompt. This is a modular decision system.&quot;</blockquote></div><div style="display:contents" dir="auto"><h3 id="274b04c1-a5f0-4e98-856a-18869c0bfcd5" class="">Full Version (for Q&amp;A)</h3></div><div style="display:contents" dir="auto"><blockquote id="8853c2be-47ce-4b6e-a7dd-9ab6f2653653" class="">&quot;We considered three orchestration approaches: custom JavaScript pipeline,<br/>LangChain.js, and n8n. Here is why n8n won.<div style="display:contents" dir="auto"><p id="7762d560-25c6-4f7f-9734-104ad6d89c30" class="">A custom pipeline gives us maximum control but produces nothing visually<br/>demonstrable. LangChain.js is powerful but its agent abstraction makes<br/>the pipeline invisible to an outside observer. Neither scores well on<br/>the judging criterion that says &#x27;make reasoning transparent.&#x27;</p></div><div style="display:contents" dir="auto"><p id="11101dbb-ce19-47a6-a841-0e198c8756e8" class="">n8n is the only option that makes the multi-agent architecture<br/>literally visible. When you see our n8n canvas, you are seeing<br/>exactly what executes: four distinct nodes, each with a defined<br/>input contract, a defined output contract, and explicit error handling.<br/>The data flows from one agent to the next as structured JSON.<br/>That is exactly what the hackathon brief called &#x27;modular, explainable reasoning.&#x27;</p></div><div style="display:contents" dir="auto"><p id="0c70c467-ba90-420c-83b2-f5e4c8f3a293" class="">For production credibility: n8n is used in enterprise environments<br/>for multi-component AI pipelines connecting OpenAI, Anthropic,<br/>and custom reasoning logic. Its LangChain-powered node system<br/>natively supports memory management, tool-calling, and parallel<br/>execution. At Perficient, a global consulting company, n8n is<br/>deployed in production for AI agent workflows spanning Slack,<br/>Jira, and ServiceNow — real enterprise-grade usage.</p></div><div style="display:contents" dir="auto"><p id="ef921b08-5896-49a9-8a21-9f5073352c00" class="">We self-host n8n on AWS ECS Fargate rather than using n8n Cloud<br/>because free-tier execution limits would be a live risk during demo,<br/>and because self-hosting on AWS allows us to demonstrate<br/>production infrastructure skills.</p></div><div style="display:contents" dir="auto"><p id="fb9e962c-747f-43b7-b66c-4b3fc5374029" class="">We also evaluated Google Opal.<br/>Google Opal is a no-code mini-app builder inside Google Labs.<br/>It cannot perform multi-step API chaining, has no webhook handling,<br/>no custom branching logic, and no production SLA guarantees.<br/>Multiple independent analyses conclude it is a prototyping tool,<br/>not a production orchestration platform.<br/>The comparison is not close.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="64f2f1a1-4aae-483e-8b97-77ddaa2547c7" class=""><strong>Sources for this section:</strong></p></div><div style="display:contents" dir="auto"><ul id="a60aade9-a117-43b7-9547-be1aab82dc1e" class="bulleted-list"><li style="list-style-type:disc">n8n 400+ integrations and LangChain-powered agent node: n8n official documentation and blog (n8n.io)</li></ul></div><div style="display:contents" dir="auto"><ul id="ff654fde-8111-4c3c-bada-1932f99433b6" class="bulleted-list"><li style="list-style-type:disc">n8n enterprise production case study (Slack, Jira, ServiceNow): Perficient Engineering Blog (2025)</li></ul></div><div style="display:contents" dir="auto"><ul id="62cdc937-e656-4fd8-9fea-751f8e4db29d" class="bulleted-list"><li style="list-style-type:disc">Google Opal limitations: scalevise.com (Sept 2025), bigcloudy.com (Nov 2025), milesweb.com (Oct 2025) — all conclude Opal cannot perform multi-step API chaining or provide production SLA</li></ul></div><div style="display:contents" dir="auto"><ul id="72ba9ee9-1331-4fc5-8628-c205e5712273" class="bulleted-list"><li style="list-style-type:disc">n8n multi-agent orchestration production guide: Strapi.io / n8n documentation (2026)</li></ul></div><div style="display:contents" dir="auto"><hr id="d7b842cb-3a45-4481-8f4e-e1e31598eb7d"/></div><div style="display:contents" dir="auto"><h3 id="81d5e0ea-0cf5-4855-899f-010a0ef008ea" class="">2C — Why AWS ECS Fargate (not Vercel, not EKS)</h3></div><div style="display:contents" dir="auto"><h3 id="7589c24d-b3db-4cd0-addf-0e22c85f9bd0" class="">Short Version (15 seconds)</h3></div><div style="display:contents" dir="auto"><blockquote id="873e6e64-461b-42c1-a41b-7901fdacbaf2" class="">&quot;We deployed our orchestration layer on AWS ECS Fargate with an<br/>Application Load Balancer, infrastructure defined as code using AWS CDK.<br/>United Airlines used this exact stack to launch a customer-facing<br/>feature serving millions of users in under 60 days.<br/>The PGA TOUR runs it to process four billion records per event.<br/>For our use case — one stateful container at moderate scale —<br/>ECS Fargate with CDK is the correct production-grade choice.&quot;</blockquote></div><div style="display:contents" dir="auto"><h3 id="ed1658d8-528d-4b66-8236-bc9051eb89a6" class="">Full Version (for Q&amp;A)</h3></div><div style="display:contents" dir="auto"><blockquote id="13f09c7c-ee02-47c5-a7ff-a7ed495b12b3" class="">&quot;Let me address the infrastructure decision directly.<div style="display:contents" dir="auto"><p id="9771d284-5b6a-4cef-9d53-427d1e65f49e" class="">We chose AWS ECS Fargate over three alternatives: Vercel, AWS EKS,<br/>and Railway.</p></div><div style="display:contents" dir="auto"><p id="2b66da24-f06c-405a-b59f-76c682efd1d3" class="">Vercel is excellent at what it does — frontend deployment —<br/>but it abstracts all infrastructure from the developer.<br/>A judge reviewing our GitHub would see a platform configuration,<br/>not an infrastructure decision.<br/>We wanted to demonstrate that we can reason about cloud architecture,<br/>not just push to a platform.</p></div><div style="display:contents" dir="auto"><p id="3466cc0f-6567-4205-9456-74e49ee3876e" class="">AWS EKS — Kubernetes — is the correct choice for large-scale<br/>microservices architectures requiring multi-cluster orchestration,<br/>custom scheduling, and cross-cloud portability.<br/>But EKS setup alone requires cluster creation, node group configuration,<br/>IAM role setup, namespace configuration, persistent volume claims,<br/>and ingress controller installation.<br/>For a single stateful service during a 72-hour hackathon,<br/>EKS introduces complexity that adds risk without adding value.</p></div><div style="display:contents" dir="auto"><p id="c13a9e4e-9900-4433-b479-3320355e4e86" class="">An engineering article published in March 2026 in sysops on Medium<br/>puts it precisely: &#x27;The difference between ECS and EKS is not capability —<br/>both are mature, production-grade platforms. It is organisational<br/>alignment and operational surface area.&#x27;<br/>Our alignment is simple: one service, one region, predictable load.<br/>ECS Fargate is the correct abstraction.</p></div><div style="display:contents" dir="auto"><p id="036f7df6-6365-4638-9762-dc5a672d80ac" class="">And ECS Fargate is genuinely production-grade, not a toy.<br/>AWS&#x27;s own customer page documents United Airlines using ECS Fargate<br/>to serve millions of passengers during weather disruptions —<br/>quote: &#x27;we came up with the idea and took it all the way to<br/>implementation in less than 60 days.&#x27;<br/>Smartsheet uses ECS Fargate to reduce deployment time from hours to minutes.<br/>The PGA TOUR runs thousands of simulations processing<br/>nearly four billion records on ECS Fargate per event.</p></div><div style="display:contents" dir="auto"><p id="f1bbbd52-a023-4854-9d37-3532546e57b8" class="">Our infrastructure is defined as code in AWS CDK TypeScript — committed to GitHub.<br/>Any judge can read exactly what we deployed: the Fargate task definition,<br/>the ALB listener rules, the Secrets Manager references for API keys.<br/>That is the kind of transparency that earns the Technical Implementation score.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="b594b5dc-1d2d-491b-993d-b0522bafbadd" class=""><strong>Sources for this section:</strong></p></div><div style="display:contents" dir="auto"><ul id="6875fb18-7348-44f2-8e4a-843cebb4dec6" class="bulleted-list"><li style="list-style-type:disc">ECS vs EKS decision framework: Medium / sysops article &quot;ECS Fargate vs EKS in 2026&quot; (March 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="20a21795-daba-41f8-a656-2abec071e471" class="bulleted-list"><li style="list-style-type:disc">United Airlines case study: AWS ECS Customer page (aws.amazon.com/ecs/customers)</li></ul></div><div style="display:contents" dir="auto"><ul id="06fe3fed-704d-4967-a046-3849a7d3ab39" class="bulleted-list"><li style="list-style-type:disc">PGA TOUR four billion records case: AWS ECS Customer page (aws.amazon.com/ecs/customers)</li></ul></div><div style="display:contents" dir="auto"><ul id="f60752c7-f2b1-4b0f-bf9b-f99fc7cc8516" class="bulleted-list"><li style="list-style-type:disc">Smartsheet deployment time reduction: AWS ECS Customer page (aws.amazon.com/ecs/customers)</li></ul></div><div style="display:contents" dir="auto"><ul id="f7e5a0b7-58b0-4fec-8b22-1a288b3b6ba2" class="bulleted-list"><li style="list-style-type:disc">AWS CDK 2026 improvements for ECS: techedubyte.com (Feb 2026)</li></ul></div><div style="display:contents" dir="auto"><hr id="83a58ba0-8624-4025-ba47-65262131e2aa"/></div><div style="display:contents" dir="auto"><h3 id="2b411af4-1a27-4c1a-a36e-994946381000" class="">2D — Why Google Antigravity as IDE</h3></div><div style="display:contents" dir="auto"><h3 id="9937e086-9a27-479d-bc09-c876e568c1eb" class="">Short Version (15 seconds)</h3></div><div style="display:contents" dir="auto"><blockquote id="e21b3a7e-551c-45b8-85c6-1d60463632cd" class="">&quot;We developed the entire project using Google Antigravity — Google&#x27;s agent-first IDE,<br/>released November 2025, built on the Windsurf architecture acquired for 2.4 billion dollars.<br/>Its Manager Surface allowed all three of us to run parallel agent workstreams<br/>simultaneously — one working the frontend, one working the backend pipeline,<br/>one working on data — without blocking each other.<br/>In a 72-hour sprint, that parallelism is not a nice-to-have. It is survival.&quot;</blockquote></div><div style="display:contents" dir="auto"><h3 id="7cf4514a-f952-4fba-9866-052026951724" class="">Full Version (for Q&amp;A)</h3></div><div style="display:contents" dir="auto"><blockquote id="72bcdf7f-19a3-4397-bddc-8e4434bd5026" class="">&quot;Let me explain the Antigravity choice with specificity.<div style="display:contents" dir="auto"><p id="5350e080-425b-4620-b394-d37e964b609e" class="">Traditional IDEs — VS Code, even Cursor — operate on a synchronous model.<br/>One developer, one context, one task at a time.<br/>Cursor is genuinely excellent at intelligent code suggestion within that model.<br/>But for three developers building a multi-layered system in 72 hours,<br/>the bottleneck is not code quality. It is coordination overhead.</p></div><div style="display:contents" dir="auto"><p id="36f51ec1-662b-4555-94a5-1a3881f67105" class="">Google Antigravity&#x27;s Manager Surface solves this with a fundamentally<br/>different architecture. According to Google&#x27;s official developer blog,<br/>published at the time of the November 2025 launch:<br/>&#x27;Antigravity allows you to offload end-to-end tasks that previously<br/>required constant context switching. It is a dedicated interface where<br/>you can spawn, orchestrate, and observe multiple agents working<br/>asynchronously across different workspaces.&#x27;</p></div><div style="display:contents" dir="auto"><p id="3c9aa362-b033-427f-9086-eaf827cea1a5" class="">In practice for our team: one team member spawned a Backend Agent<br/>to refactor the pipeline while working on the frontend in the Editor View.<br/>A second team member ran a separate Data Agent to validate our<br/>synthetic candidate JSON against the agent schema.<br/>A third team member used the Antigravity Knowledge Items system —<br/>persistent project memory — to ensure every agent generation respected<br/>our stack constraints without repeating them in every prompt.</p></div><div style="display:contents" dir="auto"><p id="8863370c-7f95-4546-9112-1ace58ca5c30" class="">Antigravity also natively supports Claude Sonnet 4.6 alongside Gemini 3.1 Pro,<br/>which we used for code generation tasks during development —<br/>specifically its 1M token context window for whole-codebase reasoning —<br/>while keeping our live demo pipeline exclusively on Claude Sonnet 4.6<br/>for production stability.</p></div><div style="display:contents" dir="auto"><p id="9cf3223b-22e5-4bd5-ba27-2fda4893fadc" class="">One relevant benchmark: Antigravity achieved 76.2% on SWE-bench Verified —<br/>the same benchmark we cited for our LLM choice.<br/>The IDE itself is engineered to production-grade code quality standards.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="0fd2de6d-3123-4ace-a5e0-c32b7b7c00b5" class=""><strong>Sources for this section:</strong></p></div><div style="display:contents" dir="auto"><ul id="7ab70bcf-a761-4f0c-9386-dabdecb05c62" class="bulleted-list"><li style="list-style-type:disc">Google Antigravity Manager Surface description: Google Developers Blog (Nov 18, 2025), developers.googleblog.com/build-with-google-antigravity</li></ul></div><div style="display:contents" dir="auto"><ul id="2786bfce-83d9-4e9e-8780-aa603563512c" class="bulleted-list"><li style="list-style-type:disc">Acquired from Windsurf for $2.4B: KDnuggets (Jan 2026), index.dev (2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="5278b861-aa76-4a89-89e4-2ad1dc8d4248" class="bulleted-list"><li style="list-style-type:disc">Claude Sonnet 4.6 support inside Antigravity: Wikipedia Google Antigravity article (updated March 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="23deecfb-7668-4523-9f1a-7f8777d8c4f4" class="bulleted-list"><li style="list-style-type:disc">AgentKit 2.0 (16 agents, 40+ skills): Geeky Gadgets (March 15, 2026)</li></ul></div><div style="display:contents" dir="auto"><ul id="99409dcd-1fb5-4606-abbe-be270eab09c9" class="bulleted-list"><li style="list-style-type:disc">SWE-bench 76.2%: index.dev blog (2026)</li></ul></div><div style="display:contents" dir="auto"><hr id="23b57629-1405-48e8-b3f0-d472477f371c"/></div><div style="display:contents" dir="auto"><h2 id="94dfe8c0-af51-4e69-8fe3-829d8f0d1107" class="">PART 3 — THE CLOSING STATEMENT</h2></div><div style="display:contents" dir="auto"><h3 id="e2f2905e-5bc3-433a-925e-3cce78ff5e5b" class=""><em>Use this at 2:50–3:00 in your video. Memorise it.</em></h3></div><div style="display:contents" dir="auto"><hr id="388fe805-9bcf-4563-9e72-ee6e1b01a76d"/></div><div style="display:contents" dir="auto"><blockquote id="3bc324fb-5d5d-4fc2-94c6-3d6aff7474fe" class="">&quot;Every tool we chose was evaluated against one question:<br/>does this make the leadership decision better, faster, or more defensible?<div style="display:contents" dir="auto"><p id="c4ebd247-540f-4b5f-8126-6d98022a9528" class="">Claude Sonnet 4.6 — because it leads the world on expert-level knowledge work.<br/>n8n — because transparent pipelines make reasoning auditable.<br/>AWS ECS — because production infrastructure should be visible in code.<br/>Antigravity — because 72 hours requires parallel execution, not sequential.</p></div><div style="display:contents" dir="auto"><p id="936d1f19-ff00-4f8e-9033-7f24e5a364a5" class="">We did not build a demo.<br/>We built a system.</p></div><div style="display:contents" dir="auto"><p id="7cfa2acb-3d2d-4819-97a2-3f86617a6966" class="">And a system that helps BMW hire the right leader for the right moment —<br/>that is a decision that pays for itself the first time it works.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="10c8ba95-06d8-4ddf-a452-88884649b310"/></div><div style="display:contents" dir="auto"><h2 id="bd5ba5e5-d4f4-4b09-af80-25fda348990f" class="">PART 4 — ANTICIPATED JUDGE QUESTIONS &amp; ANSWERS</h2></div><div style="display:contents" dir="auto"><p id="45a8c3fa-44f2-4be6-a7fe-7669f49e9e1b" class="">These are the hardest questions you will face. Have these ready.</p></div><div style="display:contents" dir="auto"><hr id="a1b1d3b7-81a2-4832-98a2-667014a15214"/></div><div style="display:contents" dir="auto"><p id="f117289d-f4cb-4c40-9596-ec9eb097ed51" class=""><strong>Q: &quot;Why not use Gemini 3.1 Pro since it leads on most benchmarks?&quot;</strong></p></div><div style="display:contents" dir="auto"><blockquote id="8c6725d3-6817-42bb-8271-cd80b978a826" class="">&quot;Gemini 3.1 Pro leads on abstract reasoning benchmarks — ARC-AGI-2 at 77.1%,<br/>GPQA Diamond — which measure novel pattern recognition and scientific depth.<br/>Our agents perform structured business reasoning and evidence-based scoring,<br/>which is the GDPval-AA category. On GDPval-AA, Sonnet 4.6 scores 1,633 Elo<br/>versus Gemini&#x27;s 1,317 — a gap of 316 points. We matched the model to the task.<br/>Additionally, Gemini 3.1 Pro is still in preview as of March 27, 2026,<br/>with documented instability under load. That is not a risk we take in a live demo.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="9fe927a9-2b0a-4906-a94e-520406f40db1"/></div><div style="display:contents" dir="auto"><p id="c1c5a24f-296f-41fa-be9f-802984c8f9bd" class=""><strong>Q: &quot;Is this really multi-agent or just one prompt split into sections?&quot;</strong></p></div><div style="display:contents" dir="auto"><blockquote id="94738e7f-0caa-41c3-b8f0-069d33c38999" class="">&quot;Each of our four agents is a separate API call with a distinct system prompt,<br/>a typed input contract, and a typed JSON output contract.<br/>Agent 1 produces a weight matrix. Agent 2 consumes that weight matrix and<br/>produces per-candidate scores. Agent 3 consumes all scores and produces<br/>a sourcing recommendation. Agent 4 consumes the raw profiles and produces<br/>a cross-scenario delta table independently of Agent 3.<br/>You can see each node execute sequentially in our n8n execution log.<br/>Each node has its own latency, its own token count, its own error state.<br/>This is a pipeline, not a prompt.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="09375635-e01d-4414-bf3e-38fceee5a7ed"/></div><div style="display:contents" dir="auto"><p id="787246ea-96dc-4b87-98ae-4916175a114c" class=""><strong>Q: &quot;Why not use a more powerful model like Opus 4.6 for accuracy?&quot;</strong></p></div><div style="display:contents" dir="auto"><blockquote id="d80f85d9-0e1f-47be-b219-7bc84588d31e" class="">&quot;Opus 4.6 is priced at five times Sonnet 4.6 — $15 versus $3 per million<br/>input tokens. On the tasks our agents perform, Sonnet 4.6 statistically<br/>outperforms Opus 4.6 on GDPval-AA by 27 Elo points.<br/>Using Opus would cost more and produce demonstrably worse outputs<br/>on our specific workload category. That is not a cost-saving decision.<br/>That is a model selection decision based on published benchmarks.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="0dfd71b6-a315-411a-b016-c024eb39018a"/></div><div style="display:contents" dir="auto"><p id="cc395d08-438c-44e9-add1-f6227f919bbe" class=""><strong>Q: &quot;How do you handle the ethical concern of AI making hiring decisions?&quot;</strong></p></div><div style="display:contents" dir="auto"><blockquote id="06a4ed96-5139-4ef8-a12c-c00953fa857a" class="">&quot;We are explicit that ContextHire does not make hiring decisions.<br/>It surfaces structured evidence to support a human decision.<br/>The final call always stays with the hiring committee.<br/>A peer-reviewed study in the <em>Journal of Taylor &amp; Francis</em> (2025)<br/>on AI in recruitment concludes that the highest-risk scenario is<br/>AI operating without human oversight — and the most effective approach<br/>is AI that makes its reasoning transparent so humans can interrogate it.<br/>Every score in our system has a one-line evidence statement.<br/>Every recommendation has a risk caveat.<br/>We augment the decision. We do not replace it.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="2cc37ba4-9882-4481-bec8-f01c608c34c6"/></div><div style="display:contents" dir="auto"><p id="afd85d50-9ea0-4d99-ba48-d0f0c3814640" class=""><strong>Q: &quot;Your data is synthetic. How is this useful in the real world?&quot;</strong></p></div><div style="display:contents" dir="auto"><blockquote id="a03f042f-c697-41cb-84ac-ee2fd98a06bc" class="">&quot;Synthetic data is the correct approach for a decision intelligence prototype<br/>for two reasons: legal compliance and demonstration clarity.<br/>Using real executive data without consent violates GDPR — the hackathon brief<br/>explicitly prohibits this.<br/>But the synthetic data we built is designed to exhibit realistic tensions:<br/>candidates who are optimal for one scenario and suboptimal for another.<br/>The value of the system is not in the specific candidates.<br/>It is in the decision architecture — the ability to surface scenario-dependent<br/>differentiation that gut-feel rating systems cannot produce.<br/>In a production deployment, this system would connect to BMW&#x27;s HRIS.<br/>The agents, the weights, and the scenario logic stay identical.&quot;</blockquote></div><div style="display:contents" dir="auto"><hr id="12a536f8-1804-4661-a4c7-82bea048aa35"/></div><div style="display:contents" dir="auto"><p id="1208216a-4fba-44d7-8890-8b7b1184d83a" class=""><em>Research compiled and verified March 27, 2026.All benchmark figures are sourced from official model release documentation,<br/>peer-reviewed academic publications, or independently verified industry analyses.</em></p></div><div style="display:contents" dir="auto"><p id="3303f962-a23c-804c-b1c7-f9c3417429a6" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,142 @@
+{
+  "candidate_id": "external_yuki_tanaka_hoffmann_003",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:10:00Z",
+
+  "identity": {
+    "full_name": "Yuki Tanaka-Hoffmann",
+    "current_role": "VP Manufacturing Excellence & Quality Systems",
+    "current_employer": "Toyota Motor Europe",
+    "email": "y.tanaka-hoffmann@toyota-europe.com",
+    "phone": "+32 2 745 2019",
+    "location": "Brussels, Belgium",
+    "years_total_experience": 21,
+    "years_automotive_experience": 21,
+    "languages": ["Japanese (native)", "German (fluent)", "English (fluent)", "French (professional)", "Dutch (conversational)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "VP Manufacturing Excellence & Quality Systems",
+      "employer": "Toyota Motor Europe",
+      "duration_years": 8,
+      "budget_ownership_eur": null,
+      "headcount_managed": 42,
+      "key_achievement": "OEE improvement 74% to 88% across 9 plants. Recall crisis response: 140,000 vehicles, zero regulatory escalation. AI visual inspection: 61% defect escape reduction."
+    },
+    {
+      "role": "Director Manufacturing Quality — Germany",
+      "employer": "Toyota Motor Europe",
+      "duration_years": 5,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "18 tier-2 suppliers improved to Toyota quality grade. IATF certification for 3 German supplier sites."
+    },
+    {
+      "role": "Production Engineer → Senior Engineer",
+      "employer": "Toyota Motor Corporation",
+      "duration_years": 8,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "TPS methodology development at Toyota City. Georgetown Kentucky secondment: cross-cultural TPS deployment. Identified as high-potential for European leadership."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 7.9,
+      "evidence": [
+        "Led Toyota 2021 European recall response: 140,000 vehicles, brake software defect, zero regulatory escalation",
+        "Cover letter: 'quality crises are fundamentally stakeholder and communication problems as much as technical problems' — signals mature crisis framing",
+        "Managed supplier audit, corrective action, and regulatory interface simultaneously under time pressure"
+      ],
+      "gaps": [
+        "Crisis management is quality/recall-specific — no operational shutdown, financial crisis, or geopolitical crisis evidence",
+        "Recall crisis is a contained, known-playbook type of crisis — unknown performance in genuinely novel crisis situations"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 8.3,
+      "evidence": [
+        "TPS certification at the highest level — Toyota Institute Master Practitioner — deepest quality methodology credential available in automotive",
+        "IATF 16949 Lead Auditor — regulatory depth",
+        "OEE improvement from 74% to 88% across 9 plants — measurable at-scale operational impact",
+        "21 years entirely in manufacturing quality and excellence — domain depth is exceptional within this function"
+      ],
+      "gaps": [
+        "No P&L ownership — quality excellence role does not carry manufacturing budget responsibility",
+        "No headcount management at scale — 42-person competency centre is not plant-level operational leadership",
+        "Operational depth is quality-systems specific — may lack broader manufacturing operations breadth"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 8.1,
+      "evidence": [
+        "Lean-Digital integration pilot: AI visual inspection at 61% defect escape reduction — bridges traditional TPS with modern AI tooling",
+        "Japan → USA → Europe career trajectory demonstrates genuine cross-cultural adaptation",
+        "Cover letter: explicitly identifies herself as living in the gap between theoretical quality and practical cultural implementation"
+      ],
+      "gaps": [
+        "All adaptation has been within Toyota's organisational culture — Toyota TPS is itself a rigid methodology",
+        "Unknown how well her change approach translates outside TPS framework contexts"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 7.6,
+      "evidence": [
+        "Managed regulatory interface during recall crisis with zero escalation — requires sustained credibility with external regulators",
+        "Japanese-German bicultural identity validated by childhood in Munich and career in Brussels — genuine cultural bridge capability",
+        "Cover letter tone: precise, evidence-referenced, modest — signals a communication style that builds trust in German organisational culture"
+      ],
+      "gaps": [
+        "No evidence of board-level or investor-level stakeholder management",
+        "Quality function executives typically operate below the executive committee visibility threshold",
+        "No evidence of media or government relations"
+      ]
+    },
+    "external_network": {
+      "score_raw": 6.4,
+      "evidence": [
+        "21 years in automotive — deep Toyota and Toyota-supplier ecosystem relationships",
+        "European regulatory interface from recall management — contacts at product safety and type approval authorities",
+        "Vlerick Business School alumni — European executive network",
+        "Built competency centre that consults to tier-1 and tier-2 suppliers — extended supply chain relationships"
+      ],
+      "gaps": [
+        "Network is concentrated within Toyota ecosystem and automotive quality community",
+        "Limited external network outside automotive manufacturing and quality",
+        "Brussels location suggests EU regulatory exposure but no explicit evidence of policy community relationships"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Methodological precision",
+      "Cross-cultural intelligence",
+      "Patient implementation over speed",
+      "Evidence-grounded communication"
+    ],
+    "leadership_style": "Inferred: TPS-grounded systematic leadership — builds capability in others, focuses on system design over individual heroics. Cover letter is structured, evidence-referenced, and non-self-promotional in a way consistent with Japanese-influenced communication style.",
+    "decision_making_pattern": "Inferred: structured and data-driven with a quality engineer's root-cause orientation. Likely seeks to understand before acting. Cover letter shows sophisticated framing — she sees technical problems as human problems, which suggests integrative rather than reductive thinking.",
+    "stress_response": "Inferred from recall management: maintains regulatory composure and process discipline under external pressure. TPS background instils 'stop and fix' rather than 'work around' response to problems.",
+    "collaboration_style": "Inferred: teaching and enabling rather than directing. Built a 42-person competency centre that consults to external suppliers — suggests collaborative, knowledge-sharing orientation.",
+    "ambiguity_tolerance": "medium — inferred. TPS is a structured methodology; deep practitioner may be less comfortable with genuinely unstructured problems.",
+    "change_orientation": "optimiser — inferred. Career is about perfecting and propagating an existing methodology, not building new frameworks.",
+    "inference_confidence": 0.65,
+    "inference_note": "Personality inferred from cover letter language patterns, career trajectory, and cultural background signals. Cover letter quality is high — inference confidence is above average for an external candidate."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 12,
+    "relocation_required": true,
+    "estimated_package_eur": 310000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most methodologically rigorous quality and manufacturing excellence candidate — 21 years of TPS mastery, genuinely bicultural Japanese-German capability, and a recall crisis management record that is directly relevant to BMW's eDrive transition risks — but her entire career is within quality systems, she has never owned a P&L or led at plant-director scale, and Toyota's culture is so internally coherent that her adaptability outside TPS frameworks is genuinely untested.",
+  "best_fit_scenario": "growth",
+  "worst_fit_scenario": "crisis"
+}

@@ -1,0 +1,160 @@
+{
+  "candidate_id": "internal_leila_ahmadi_006",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:25:00Z",
+
+  "identity": {
+    "full_name": "Leila Ahmadi",
+    "current_role": "Head of Talent Strategy & Organisational Innovation",
+    "current_employer": "BMW Group — Munich HQ",
+    "email": "l.ahmadi@bmw-group.com",
+    "phone": "+49 89 382 7758",
+    "location": "Munich, Germany",
+    "years_total_experience": 11,
+    "years_automotive_experience": 4,
+    "languages": ["German (native)", "English (native)", "Farsi (fluent)", "Dutch (conversational)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Head of Talent Strategy & Organisational Innovation",
+      "employer": "BMW Group",
+      "duration_years": 4,
+      "budget_ownership_eur": null,
+      "headcount_managed": 14,
+      "key_achievement": "Built internal talent marketplace from 40-person pilot to 8,200 active users. 1,240 cross-functional moves facilitated. HBR case study co-authored with INSEAD faculty."
+    },
+    {
+      "role": "Head of People Analytics & Organisational Design",
+      "employer": "Spotify",
+      "duration_years": 3,
+      "budget_ownership_eur": null,
+      "headcount_managed": 22,
+      "key_achievement": "Internal mobility platform: 34% of roles filled internally in 18 months. Management layer reduction from 5.2 to 3.8 average across engineering. HBR recognition."
+    },
+    {
+      "role": "People Analytics Manager",
+      "employer": "Unilever",
+      "duration_years": 2,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Global HR analytics for 155,000-person workforce. Attrition prediction and workforce planning at scale."
+    },
+    {
+      "role": "Consultant — Human Capital",
+      "employer": "Deloitte",
+      "duration_years": 2,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Organisational design and HR transformation for FTSE 100 clients."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 3.1,
+      "evidence": [
+        "Built and scaled talent platform under time pressure — project management under resource constraints",
+        "COVID period required rapid pivot of BMW leadership programme to virtual delivery"
+      ],
+      "gaps": [
+        "No evidence of managing operational crisis of any kind",
+        "11-year career entirely in HR, people analytics, and organisational design",
+        "No financial crisis, production crisis, market crisis, or geopolitical crisis exposure",
+        "HR does not mention crisis management as a strength at any point"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 2.7,
+      "evidence": [
+        "Understanding of organisational systems at scale — 155,000-person workforce analytics at Unilever",
+        "BMW internal platform affecting 8,200 employees — operational product at meaningful scale"
+      ],
+      "gaps": [
+        "HR explicitly states: 'she has never run a P&L, never managed operational teams outside HR'",
+        "HR: 'her credibility in manufacturing or supply chain contexts is essentially zero without a relationship-building period'",
+        "No production, logistics, financial, or market operations background",
+        "People operations platform ≠ manufacturing or commercial P&L"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 8.8,
+      "evidence": [
+        "Career pattern: Deloitte → Unilever → Spotify → BMW — each transition to a more complex organisational system",
+        "Took 30% pay cut to join BMW for mission-driven impact — signals high intrinsic adaptability",
+        "HBR case study on scaling talent systems from digital-native to physical-world context — bridges two fundamentally different organisational cultures",
+        "Personality: 'quietly radical' — delivers disruptive ideas without triggering defensive reactions"
+      ],
+      "gaps": [
+        "All change has been in the people/HR domain — no evidence of leading change in operational or financial domains",
+        "HR notes she is 'not naturally political' — senior-level transformation requires political navigation she finds uncomfortable"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 6.4,
+      "evidence": [
+        "HR states influence is 'strong in the innovation and people communities'",
+        "HBR publication and INSEAD co-authorship — intellectual credibility that builds trust with analytically-oriented executives",
+        "BMW Leadership Acceleration Programme: 91% retention rate — evidence of sustained trust from programme participants"
+      ],
+      "gaps": [
+        "HR explicitly states: 'less so in the operational and finance communities'",
+        "HR notes she 'understands organisational politics intellectually but does not enjoy operating in them'",
+        "34 years old — credibility gap with senior operational executives who have 20+ more years of experience",
+        "No board-level stakeholder management history"
+      ]
+    },
+    "external_network": {
+      "score_raw": 7.1,
+      "evidence": [
+        "HBR publication — academic and practitioner network in people analytics",
+        "INSEAD co-authorship — business school faculty relationships",
+        "Spotify alumni — strong tech industry people function network",
+        "Deloitte alumni — professional services connections",
+        "Multiple inbound approaches from tech companies and PE-backed HR tech — signal of external market recognition"
+      ],
+      "gaps": [
+        "Network is concentrated in HR, people analytics, and tech sectors",
+        "Very thin in automotive manufacturing, supply chain, or traditional industrial sectors",
+        "Network is junior to mid-career level — not yet the senior executive network needed for VP-level mandates"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Analytically rigorous",
+      "Quietly disruptive",
+      "Genuinely curious",
+      "Systems thinker",
+      "Intentional with time"
+    ],
+    "leadership_style": "Evidence-led influence: designs experiments, measures outcomes, and updates beliefs when data contradicts priors. Builds credibility through demonstrated rigour rather than hierarchy.",
+    "decision_making_pattern": "Hypothesis-driven and experimental. Will not make claims without data. Draws problems as diagrams before discussing them. Slow to commit without evidence, fast once evidence is clear.",
+    "stress_response": "Becomes more precise and focused under pressure. Intolerant of time waste, which can read as impatience.",
+    "collaboration_style": "Asking better questions than anyone in the room. Creates conditions for insight rather than driving to a predetermined answer.",
+    "ambiguity_tolerance": "high",
+    "change_orientation": "transformer"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_12m",
+    "promotion_trajectory": "Ready for an expanded mandate in 12 months if scope includes people systems, organisational design, or talent architecture. Not ready for P&L or operational leadership roles without 24+ months of transition support.",
+    "cultural_fit_rating": 7.2,
+    "key_strength_observed": "Most analytically rigorous people leader in the group. Unique ability to build talent systems that produce measurable mobility outcomes at scale — rare in automotive.",
+    "development_area": "P&L ownership, operational credibility, and political navigation at senior levels. These are not development areas that can be addressed by coaching alone — they require exposure.",
+    "retention_risk": "high",
+    "raw_opinion": "Most complicated assessment — she reports to me. Analytically rigorous beyond anyone I have worked with in HR. Talent marketplace built from 40 to 8,200 users. Took 30% pay cut to come here for mission impact. Never run a P&L, no operational credibility in manufacturing. Understands politics intellectually but does not enjoy them. Multiple external approaches. Retention horizon 18 months without scope expansion."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 6,
+    "relocation_required": null,
+    "estimated_package_eur": 195000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most analytically innovative and systems-oriented talent leader in the pool, who has demonstrated the ability to build people platforms at physical-world scale — but at 34 with zero P&L history and no credibility in the operational communities that dominate BMW's culture, she will need a carefully sequenced mandate that builds that credibility deliberately, or she will be dismissed by the very stakeholders she most needs to influence.",
+  "best_fit_scenario": "transformation",
+  "worst_fit_scenario": "crisis"
+}

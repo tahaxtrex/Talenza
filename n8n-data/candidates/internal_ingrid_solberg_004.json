@@ -1,0 +1,149 @@
+{
+  "candidate_id": "internal_ingrid_solberg_004",
+  "source_type": "internal",
+  "created_at": "2026-03-28T09:15:00Z",
+
+  "identity": {
+    "full_name": "Ingrid Solberg",
+    "current_role": "VP International Operations & Market Expansion",
+    "current_employer": "BMW Group — Munich HQ",
+    "email": "i.solberg@bmw-group.com",
+    "phone": "+49 89 382 6641",
+    "location": "Munich, Germany",
+    "years_total_experience": 26,
+    "years_automotive_experience": 26,
+    "languages": ["Norwegian (native)", "English (fluent)", "German (fluent)", "Swedish (fluent)", "French (professional)", "Arabic (basic working knowledge)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "VP International Operations & Market Expansion",
+      "employer": "BMW Group",
+      "duration_years": 11,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Led market entry in North Africa (€85M revenue run rate in 18 months), Southeast Asia (18% CAGR over 5 years), and Eastern European consolidation (€40M efficiency target)"
+    },
+    {
+      "role": "Automotive Industry Advisor",
+      "employer": "European Commission — DG Internal Market",
+      "duration_years": 2,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Policy advisory on cross-border automotive trade, emissions standards, and EV transition at EU level"
+    },
+    {
+      "role": "Director International Sales → Director Market Development",
+      "employer": "Volvo Cars",
+      "duration_years": 10,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "Led China market expansion programme 2007–2010 during critical growth phase. Roles in Gothenburg, Beijing, Dubai."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 6.8,
+      "evidence": [
+        "Managed market operations during North Africa political instability periods",
+        "Eastern European consolidation involves managing resistance and uncertainty across 6 legacy market organisations",
+        "European Commission advisory role included crisis-adjacent regulatory response during automotive emissions scandals"
+      ],
+      "gaps": [
+        "No evidence of managing a genuine operational crisis — fire, safety incident, plant shutdown, financial emergency",
+        "Market-side career means all crisis experience is relational and regulatory, not operational",
+        "At 52, has managed through many turbulent environments but always as the strategic navigator, not the operational firefighter"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 4.1,
+      "evidence": [
+        "26 years in automotive industry — genuine deep domain knowledge of the sector",
+        "Market P&L experience across Southeast Asia and North Africa"
+      ],
+      "gaps": [
+        "HR explicitly states: 'she has no manufacturing or product experience — she is a market-side executive and this has never changed'",
+        "No plant management, production line, supply chain, or engineering background",
+        "All operational depth is in market operations, dealer networks, and government relations — not production or manufacturing"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 7.6,
+      "evidence": [
+        "Cross-cultural career spanning Norway, Sweden, Germany, China, Dubai — each transition required full cultural and operational adaptation",
+        "European Commission secondment required shift from corporate to policy environment",
+        "Led market entries in North Africa and Southeast Asia — no existing playbook for either"
+      ],
+      "gaps": [
+        "Personality description suggests methodical preparation-driven approach — may be less comfortable with genuinely improvised, fast-moving change",
+        "26-year career suggests adaptation to new environments, but all within the automotive/international business domain"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 9.4,
+      "evidence": [
+        "HR states: has sat across government ministers, sovereign wealth fund representatives, and dealer principals in 23 markets",
+        "European Commission role required credibility with regulatory and policy stakeholders — different audience from corporate executives",
+        "Personality: 'the calmest person in a difficult meeting' — HR's direct observation",
+        "Developed and promoted 3 market directors to regional VP — evidence of trust-building that lasts",
+        "Arabic basic working knowledge signals intentional investment in Middle East market relationships"
+      ],
+      "gaps": [
+        "All stakeholder experience is external-facing — government, dealers, market partners",
+        "Less evidence of internal BMW political navigation at executive committee level"
+      ]
+    },
+    "external_network": {
+      "score_raw": 9.1,
+      "evidence": [
+        "23 markets of active relationship history spanning Southeast Asia, North Africa, Eastern Europe",
+        "European Commission alumni network — direct access to EU regulatory and policy circles",
+        "Volvo Cars alumni — cross-manufacturer relationships in automotive",
+        "Institute for Security and Global Affairs, Leiden executive programme — geopolitical network",
+        "Government minister relationships in Morocco, Egypt, Singapore, and Eastern European markets"
+      ],
+      "gaps": [
+        "Network is geographically and functionally concentrated in market/government/regulatory space",
+        "Thinner in software, digital, or technology supply chain networks"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Composed under pressure",
+      "Integrative intelligence",
+      "Precision communicator",
+      "Long-horizon thinker",
+      "Process and preparation driven"
+    ],
+    "leadership_style": "Diplomatic authority: earns influence through preparation, contextual depth, and the ability to find common ground between parties with competing interests.",
+    "decision_making_pattern": "Systematic and preparatory — rarely enters a situation unprepared. Integrative rather than analytical: synthesises across domains and identifies underlying interests beneath stated positions.",
+    "stress_response": "Genuine equanimity under pressure — not performed. Developed through repeated high-stakes exposure across 26 years.",
+    "collaboration_style": "Connecting and enabling — identifies who needs to be in the room and creates conditions for agreement rather than forcing it.",
+    "ambiguity_tolerance": "high",
+    "change_orientation": "optimiser"
+  },
+
+  "hr_assessment": {
+    "overall_readiness": "ready_now",
+    "promotion_trajectory": "Ready now for any senior international or geopolitical role. Package floor constraint means she will not accept scope reduction. Not at traditional retention risk.",
+    "cultural_fit_rating": 9.1,
+    "key_strength_observed": "The most complete international executive in the internal pool. Government relationship network and multi-market P&L experience is irreplaceable.",
+    "development_area": "Manufacturing and product depth — she has none and this limits her in operational roles. For the right international mandate this is irrelevant.",
+    "retention_risk": "low",
+    "raw_opinion": "One of the most complete international executives we have. Has sat across government ministers and sovereign wealth funds in 23 markets. Composure in difficult situations is genuine, not performed. Package is €480K and that is a floor. Not at retention risk — she wants work that matters. No manufacturing or product experience at all — pure market-side career."
+  },
+
+  "hiring_logistics": {
+    "notice_period_weeks": 12,
+    "relocation_required": null,
+    "estimated_package_eur": 480000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most credible international stakeholder manager in the internal pool with irreplaceable government and multi-market relationship networks — but 26 years of market-side career means she has never touched a production line, supply chain system, or manufacturing P&L, and any role with operational accountability below the market level will expose that gap immediately.",
+  "best_fit_scenario": "growth",
+  "worst_fit_scenario": "crisis"
+}

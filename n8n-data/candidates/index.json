@@ -1,0 +1,122 @@
+[
+  {
+    "candidate_id": "external_claire_dubois_001",
+    "source_type": "external",
+    "full_name": "Claire Dubois",
+    "current_role": "Chief Operating Officer — Manufacturing",
+    "current_employer": "Stellantis",
+    "created_at": "2026-03-28T10:00:00Z",
+    "updated_at": "2026-03-29T13:43:57.939Z",
+    "file": "candidates/external_claire_dubois_001.json"
+  },
+  {
+    "candidate_id": "external_hans_peter_grunewald_006",
+    "source_type": "external",
+    "full_name": "Hans-Peter Grunewald",
+    "current_role": "Chief Operating Officer",
+    "current_employer": "Volkswagen Commercial Vehicles",
+    "created_at": "2026-03-28T10:25:00Z",
+    "updated_at": "2026-03-29T13:43:57.939Z",
+    "file": "candidates/external_hans_peter_grunewald_006.json"
+  },
+  {
+    "candidate_id": "external_james_okafor_002",
+    "source_type": "external",
+    "full_name": "James Okafor",
+    "current_role": "SVP Global Manufacturing Operations",
+    "current_employer": "Ford Motor Company",
+    "created_at": "2026-03-28T10:05:00Z",
+    "updated_at": "2026-03-29T13:43:57.939Z",
+    "file": "candidates/external_james_okafor_002.json"
+  },
+  {
+    "candidate_id": "external_natasha_volkov_005",
+    "source_type": "external",
+    "full_name": "Natasha Volkov",
+    "current_role": "VP Engineering & Product",
+    "current_employer": "Waymo",
+    "created_at": "2026-03-28T10:20:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/external_natasha_volkov_005.json"
+  },
+  {
+    "candidate_id": "external_sebastian_vargas_004",
+    "source_type": "external",
+    "full_name": "Sebastián Vargas",
+    "current_role": "CEO, BYD Latin America",
+    "current_employer": "BYD",
+    "created_at": "2026-03-28T10:15:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/external_sebastian_vargas_004.json"
+  },
+  {
+    "candidate_id": "external_yuki_tanaka_hoffmann_003",
+    "source_type": "external",
+    "full_name": "Yuki Tanaka-Hoffmann",
+    "current_role": "VP Manufacturing Excellence & Quality Systems",
+    "current_employer": "Toyota Motor Europe",
+    "created_at": "2026-03-28T10:10:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/external_yuki_tanaka_hoffmann_003.json"
+  },
+  {
+    "candidate_id": "internal_aisha_okonkwo_brandt_002",
+    "source_type": "internal",
+    "full_name": "Aisha Okonkwo-Brandt",
+    "current_role": "Head of Supply Chain Transformation",
+    "current_employer": "BMW Group — Munich HQ",
+    "created_at": "2026-03-28T09:05:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_aisha_okonkwo_brandt_002.json"
+  },
+  {
+    "candidate_id": "internal_ingrid_solberg_004",
+    "source_type": "internal",
+    "full_name": "Ingrid Solberg",
+    "current_role": "VP International Operations & Market Expansion",
+    "current_employer": "BMW Group — Munich HQ",
+    "created_at": "2026-03-28T09:15:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_ingrid_solberg_004.json"
+  },
+  {
+    "candidate_id": "internal_leila_ahmadi_006",
+    "source_type": "internal",
+    "full_name": "Leila Ahmadi",
+    "current_role": "Head of Talent Strategy & Organisational Innovation",
+    "current_employer": "BMW Group — Munich HQ",
+    "created_at": "2026-03-28T09:25:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_leila_ahmadi_006.json"
+  },
+  {
+    "candidate_id": "internal_marcus_chen_003",
+    "source_type": "internal",
+    "full_name": "Marcus Chen",
+    "current_role": "Director, Software & Connected Services",
+    "current_employer": "BMW Group — Munich HQ",
+    "created_at": "2026-03-28T09:10:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_marcus_chen_003.json"
+  },
+  {
+    "candidate_id": "internal_ralf_baumgaertner_005",
+    "source_type": "internal",
+    "full_name": "Ralf Baumgärtner",
+    "current_role": "CFO, BMW Motorrad Division",
+    "current_employer": "BMW Group — Motorrad Division",
+    "created_at": "2026-03-28T09:20:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_ralf_baumgaertner_005.json"
+  },
+  {
+    "candidate_id": "internal_thomas_richter_001",
+    "source_type": "internal",
+    "full_name": "Thomas Richter",
+    "current_role": "Plant Manager",
+    "current_employer": "BMW Group — Leipzig Plant",
+    "created_at": "2026-03-28T09:00:00Z",
+    "updated_at": "2026-03-29T13:43:57.940Z",
+    "file": "candidates/internal_thomas_richter_001.json"
+  }
+]

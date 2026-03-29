@@ -1,0 +1,156 @@
+{
+  "candidate_id": "external_hans_peter_grunewald_006",
+  "source_type": "external",
+  "created_at": "2026-03-28T10:25:00Z",
+
+  "identity": {
+    "full_name": "Hans-Peter Grunewald",
+    "current_role": "Chief Operating Officer",
+    "current_employer": "Volkswagen Commercial Vehicles",
+    "email": "hp.grunewald@vwcv.com",
+    "phone": "+49 511 798 3301",
+    "location": "Hanover, Germany",
+    "years_total_experience": 34,
+    "years_automotive_experience": 34,
+    "languages": ["German (native)", "English (fluent)", "Polish (conversational)", "Spanish (basic)"]
+  },
+
+  "career_trajectory": [
+    {
+      "role": "Chief Operating Officer",
+      "employer": "Volkswagen Commercial Vehicles",
+      "duration_years": 9,
+      "budget_ownership_eur": 14100000000,
+      "headcount_managed": 23000,
+      "key_achievement": "EBIT margin 2.1% to 6.8% over 6 years. ID.Buzz plant transition €1.8B on time on budget. Dieselgate regulatory aftermath managed. 4 direct reports transitioned to division leadership."
+    },
+    {
+      "role": "VP Manufacturing — Germany",
+      "employer": "Volkswagen AG",
+      "duration_years": 6,
+      "budget_ownership_eur": 24000000000,
+      "headcount_managed": 58000,
+      "key_achievement": "Golf VII Wolfsburg capacity expansion. Landmark works council flexible working agreement for German automotive industry."
+    },
+    {
+      "role": "Plant Director — Wolfsburg Body Shop",
+      "employer": "Volkswagen AG",
+      "duration_years": 5,
+      "budget_ownership_eur": null,
+      "headcount_managed": 7200,
+      "key_achievement": "Lean transformation of largest single production unit in VW Group."
+    },
+    {
+      "role": "Manufacturing Engineer → Management",
+      "employer": "Volkswagen AG",
+      "duration_years": 14,
+      "budget_ownership_eur": null,
+      "headcount_managed": null,
+      "key_achievement": "34-year progression from graduate engineer to COO within single organisation. Brussels international posting."
+    }
+  ],
+
+  "competency_signals": {
+    "crisis_management": {
+      "score_raw": 8.8,
+      "evidence": [
+        "Navigated VW Dieselgate operational aftermath within VWCV — among the most consequential reputational and regulatory crises in automotive history. Maintained production continuity.",
+        "Managed regulator interface and emissions protocol implementation under sustained external scrutiny",
+        "34 years across German automotive includes multiple production crises, works council disputes, and market downturns",
+        "EBIT margin recovery from 2.1% to 6.8% represents sustained crisis-to-recovery management"
+      ],
+      "gaps": [
+        "Dieselgate experience is reputational/regulatory — not a production crisis",
+        "All crisis experience is within VW Group and German automotive context",
+        "No evidence of geopolitical or supply chain crisis at an international scale"
+      ]
+    },
+    "operational_depth": {
+      "score_raw": 9.6,
+      "evidence": [
+        "€14.1B P&L, 23,000 employees, 4 plants across 4 countries — COO at division level",
+        "34-year career from graduate engineer to COO — deepest possible floor-to-board progression",
+        "ID.Buzz platform transition: €1.8B capex on time and on budget — the most directly BMW-relevant credential in this pool",
+        "German works council IG Metall executive certificate — the most important qualification for operating in German automotive labour relations",
+        "VWCV margin improvement 2.1% to 6.8% — sustained operational transformation with financial outcome",
+        "acatech Manufacturing Working Group — peer-recognised technical authority among German engineers"
+      ],
+      "gaps": [
+        "Entire career within Volkswagen Group — cross-manufacturer operational perspective is entirely absent",
+        "German manufacturing context only — international operations (Poznań, Września, Pacheco) are extensions of German model, not genuinely different contexts"
+      ]
+    },
+    "change_adaptability": {
+      "score_raw": 6.9,
+      "evidence": [
+        "Led VWCV repositioning from volume commercial to premium light commercial and EV — genuine strategic transformation over 6 years",
+        "ID.Buzz EV platform transition — led the most complex production technology change of his career",
+        "Cover letter shows genuine self-awareness about single-company limitation and curiosity about new context — high EQ signal for a 58-year-old COO"
+      ],
+      "gaps": [
+        "34 years at one organisation is the most significant single-company anchoring in the pool",
+        "All transformation has been within VW's organisational culture and German automotive context",
+        "Cover letter is honest about this: 'my perspective has been shaped by a single organisation'"
+      ]
+    },
+    "stakeholder_trust": {
+      "score_raw": 9.1,
+      "evidence": [
+        "IG Metall works council landmark agreement — one of the highest-stakes labour relations achievements in German automotive — requires extraordinary mutual trust",
+        "Dieselgate regulatory interface management — external regulator trust under adversarial conditions",
+        "4 direct reports successfully transitioned to division leadership — evidence of sustained developmental trust",
+        "acatech member — peer-selected by the German engineering academic community",
+        "Cover letter transparency about age and timeline is a sophisticated trust signal — signals he does not manage impressions"
+      ],
+      "gaps": [
+        "Stakeholder experience is almost entirely internal VW Group and German institutional",
+        "No evidence of investor relations, board-level communications, or international government relations"
+      ]
+    },
+    "external_network": {
+      "score_raw": 5.8,
+      "evidence": [
+        "acatech Manufacturing Working Group — German engineering academic network",
+        "IG Metall relationships — German labour leadership network",
+        "IMD Lausanne alumni — European executive network",
+        "34 years of automotive supplier and partner relationships within VW Group ecosystem"
+      ],
+      "gaps": [
+        "Network is overwhelmingly German and VW-ecosystem concentrated",
+        "No evidence of cross-manufacturer, international government, or digital/tech external network",
+        "Moving to BMW would require building an entirely new external network in a competitor's ecosystem — unusual and potentially sensitive"
+      ]
+    }
+  },
+
+  "personality_profile": {
+    "dominant_traits": [
+      "Institutional depth",
+      "Transparent about limitations",
+      "Works-council fluent",
+      "Quality over velocity",
+      "Selective about final chapter"
+    ],
+    "leadership_style": "Inferred from career pattern and cover letter: builds authority through sustained delivery over long time horizons. German engineering culture deeply embedded. Leads through deep institutional knowledge and technical credibility.",
+    "decision_making_pattern": "Inferred: systematic and thorough. 34-year career with zero visible missteps signals either exceptional judgment or exceptional discretion — likely both. Works council landmark agreement implies ability to hold complexity and find creative resolution.",
+    "stress_response": "Inferred from Dieselgate management: maintains operational continuity under sustained external reputational pressure. Not reactive.",
+    "collaboration_style": "Inferred: deeply embedded in German labour-management collaborative model. IG Metall executive certificate signals genuine investment in collaborative governance rather than adversarial management.",
+    "ambiguity_tolerance": "medium — inferred. German engineering culture and 34-year single-company career both suggest preference for structured operating environments.",
+    "change_orientation": "optimiser — inferred from career pattern. VWCV repositioning was transformative but deliberate and methodical.",
+    "inference_confidence": 0.72,
+    "inference_note": "Cover letter is unusually candid and self-aware for a senior candidate — he names his age, his single-company limitation, and his motivation explicitly. This transparency significantly raises inference confidence. His self-description appears highly consistent with his career pattern."
+  },
+
+  "hr_assessment": null,
+
+  "hiring_logistics": {
+    "notice_period_weeks": 20,
+    "relocation_required": true,
+    "estimated_package_eur": 890000,
+    "availability_date": null
+  },
+
+  "tension_summary": "The most operationally complete German automotive executive available externally — 34 years, floor-to-COO at VW, IG Metall landmark agreement, Dieselgate managed, ID.Buzz transition delivered — but he has never worked anywhere but Volkswagen, his compensation expectation is the highest in the pool, his notice period is the longest, and the question of whether a 34-year VW executive can genuinely transfer his authority and instincts into a BMW culture that considers itself fundamentally different is one that only the first 90 days in the role will actually answer.",
+  "best_fit_scenario": "succession",
+  "worst_fit_scenario": "transformation"
+}

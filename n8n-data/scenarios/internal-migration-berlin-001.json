@@ -1,0 +1,385 @@
+{
+  "meta": {
+    "scenario_id": "internal-migration-berlin-001",
+    "created_at": "2024-07-30T10:00:00Z",
+    "version": "1.0",
+    "status": "complete",
+    "track": "internal",
+    "updated_at": "2026-03-29T13:27:33.987Z"
+  },
+  "role": {
+    "title": "Senior Manager, European Operations Migration",
+    "seniority_level": null,
+    "department": "Operations",
+    "primary_location": "Berlin, Germany",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": true,
+    "travel_percentage": 25
+  },
+  "business_context": {
+    "situation_type": "transformation",
+    "situation_subtype": "geographic_relocation",
+    "description": "Talenza is consolidating certain EMEA operational functions into a new hub in Berlin. This role is for an existing internal leader to manage the transition of processes, systems, and potentially team members from other European locations to the Berlin office, ensuring seamless operational continuity and integration.",
+    "urgency_driver": "Strategic consolidation initiative with board-level backing; need to realize cost efficiencies and leverage Berlin's talent pool within 12-18 months.",
+    "board_visibility": "svp",
+    "external_visibility_risk": false,
+    "geopolitical_complexity": false,
+    "geopolitical_description": null,
+    "regulatory_complexity": true,
+    "regulatory_description": "Navigating German labor laws, GDPR, and country-specific operational regulations for transferred functions.",
+    "competitive_pressure": "Attracting and retaining talent in the competitive Berlin tech/operations market."
+  },
+  "constraints": {
+    "urgency_weeks": 20,
+    "hard_deadline_date": "2025-03-31",
+    "hard_deadline_reason": "End of fiscal year goal for operational readiness in Berlin; budget cycle alignment.",
+    "budget_for_search_eur": null,
+    "can_use_search_firm": false,
+    "search_firm_constraint_reason": "Internal track role, focus on internal talent mobility and development.",
+    "package_budget_total_eur": 200000,
+    "package_budget_base_eur": 120000,
+    "package_out_of_band_possible": true,
+    "package_approval_required": "CHRO and Regional Operations Head",
+    "internal_equity_risk": true,
+    "personal_security_risk": false,
+    "language_requirements": [
+      "English",
+      "German (fluent or advanced preferred)"
+    ],
+    "cultural_requirements": [
+      "German business culture integration",
+      "European cross-cultural collaboration"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Proven track record in managing complex operational transformations or migrations.",
+    "must_have_2": "Strong project management skills with experience in international settings.",
+    "must_have_3": "Ability to lead and influence across different teams and cultural backgrounds.",
+    "nice_to_have_1": "Prior experience living or working in Germany/Berlin.",
+    "nice_to_have_2": "Familiarity with German labor laws and regulatory landscape.",
+    "explicit_disqualifiers": [
+      "Inability to relocate to Berlin within 6 months",
+      "Lack of demonstrable change management experience"
+    ]
+  },
+  "team_context": {
+    "team_exists": true,
+    "team_size_current": 5,
+    "team_size_target_year1": 15,
+    "team_size_target_year2": 25,
+    "team_type": "Hybrid - existing team members relocating and new hires in Berlin.",
+    "inherited_technical_debt": true,
+    "inherited_culture_issues": false,
+    "key_stakeholders": [
+      {
+        "role": "Head of EMEA Operations",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "Crucial alignment on strategy and execution, direct line of reporting."
+      },
+      {
+        "role": "Head of HR, Germany",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Critical for legal, compensation, and cultural integration aspects."
+      },
+      {
+        "role": "Local Berlin Site Lead",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Collaboration on office integration and local team management."
+      }
+    ]
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "transformation",
+      "scenario_subtype": "structural",
+      "classification_source": "inferred",
+      "classification_confidence": 0.9,
+      "classification_reasoning": "The scenario involves consolidating functions and relocating an internal role to manage this, indicating a significant organizational change rather than pure growth or crisis. The 'migration' aspect directly points to structural transformation.",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Initial weighting based on general scenario type prior to specific modifiers.",
+        "crisis_mgmt": 0.1,
+        "ops_depth": 0.25,
+        "change_adapt": 0.35,
+        "stakeholder": 0.2,
+        "external_net": 0.1
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Relocation Required Boost",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "equals",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.3,
+          "modifier_reasoning": "Relocation inherently requires strong adaptability from the individual."
+        },
+        {
+          "modifier_name": "Relocation Required Stakeholder Boost",
+          "trigger_field": "role.relocation_required",
+          "trigger_value": true,
+          "trigger_condition": "equals",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Managing personal transition and integration with new teams/culture demands strong stakeholder skills."
+        },
+        {
+          "modifier_name": "Transformation Scenario Boost - Change Adapt",
+          "trigger_field": "business_context.situation_type",
+          "trigger_value": "transformation",
+          "trigger_condition": "equals",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Transformational scenarios demand high levels of adaptability to new processes and structures."
+        },
+        {
+          "modifier_name": "Transformation Scenario Boost - Ops Depth",
+          "trigger_field": "business_context.situation_type",
+          "trigger_value": "transformation",
+          "trigger_condition": "equals",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Ensuring operational continuity and efficiency is paramount during transformation."
+        },
+        {
+          "modifier_name": "Transformation Scenario Boost - Stakeholder",
+          "trigger_field": "business_context.situation_type",
+          "trigger_value": "transformation",
+          "trigger_condition": "equals",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Managing expectations and resistance during organizational change requires strong stakeholder engagement."
+        },
+        {
+          "modifier_name": "Department Focus - Ops Depth",
+          "trigger_field": "role.department",
+          "trigger_value": "Operations",
+          "trigger_condition": "equals",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.2,
+          "modifier_reasoning": "A role in Operations will naturally require a higher emphasis on operational depth."
+        },
+        {
+          "modifier_name": "Internal Equity Risk - Stakeholder",
+          "trigger_field": "constraints.internal_equity_risk",
+          "trigger_value": true,
+          "trigger_condition": "equals",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Navigating internal equity challenges requires superior stakeholder communication and negotiation skills."
+        },
+        {
+          "modifier_name": "Cultural Requirements - Stakeholder",
+          "trigger_field": "constraints.cultural_requirements",
+          "trigger_value": "German business culture integration",
+          "trigger_condition": "includes",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.1,
+          "modifier_reasoning": "Integrating into a new national business culture relies heavily on effective interpersonal and stakeholder skills."
+        }
+      ],
+      "final_weights": {
+        "description": "Calculated weights after applying all scenario-specific modifiers and normalizing to sum to 1.0.",
+        "crisis_mgmt": {
+          "value": 0.0702,
+          "confidence": 0.9,
+          "confidence_reasoning": "Low direct impact from modifiers, consistent with internal, non-crisis scenario.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.0298,
+          "business_logic": "No direct modifiers, relative reduction due to increased importance of other dimensions."
+        },
+        "ops_depth": {
+          "value": 0.2317,
+          "confidence": 0.95,
+          "confidence_reasoning": "Directly boosted by department and transformation modifiers, aligning with role's operational nature.",
+          "modifiers_that_touched_this_dimension": [
+            "Transformation Scenario Boost - Ops Depth",
+            "Department Focus - Ops Depth"
+          ],
+          "net_movement_from_base": -0.0183,
+          "business_logic": "Operational continuity is key during migration, hence significant weight. Slight relative decrease post-normalization."
+        },
+        "change_adapt": {
+          "value": 0.3833,
+          "confidence": 0.98,
+          "confidence_reasoning": "Significantly boosted by relocation and transformation. Core skill for this scenario.",
+          "modifiers_that_touched_this_dimension": [
+            "Relocation Required Boost",
+            "Transformation Scenario Boost - Change Adapt"
+          ],
+          "net_movement_from_base": 0.0333,
+          "business_logic": "Adaptability is the most critical dimension for a role involving migration and transformation."
+        },
+        "stakeholder": {
+          "value": 0.2446,
+          "confidence": 0.95,
+          "confidence_reasoning": "Boosted by multiple factors (relocation, transformation, internal equity, cultural needs).",
+          "modifiers_that_touched_this_dimension": [
+            "Relocation Required Stakeholder Boost",
+            "Transformation Scenario Boost - Stakeholder",
+            "Internal Equity Risk - Stakeholder",
+            "Cultural Requirements - Stakeholder"
+          ],
+          "net_movement_from_base": 0.0446,
+          "business_logic": "Managing diverse internal and potentially new external stakeholders during a complex migration is highly important."
+        },
+        "external_net": {
+          "value": 0.0702,
+          "confidence": 0.85,
+          "confidence_reasoning": "No direct external-facing modifiers, consistent with internal focus.",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.0298,
+          "business_logic": "Primarily an internal facing role; external networking is secondary to operational and change management."
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [],
+        "validation_questions_triggered": []
+      }
+    },
+    "floor_constraints": {
+      "description": "Minimum acceptable thresholds for key capabilities given the scenario's demands.",
+      "active_floors": [
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 0.6,
+          "floor_reasoning": "Absolutely critical for success in a migration/transformation role, regardless of other skills.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 0.5,
+          "floor_reasoning": "The role is in Operations, so a foundational level of operational competence is non-negotiable.",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "stakeholder",
+          "minimum_score": 0.5,
+          "floor_reasoning": "Required to navigate internal complexities, cultural integration, and potential resistance.",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Floors are set based on the mandatory nature of change and operational execution, and the significant internal/cultural stakeholder engagement required."
+    },
+    "dimension_correlation_warnings": {
+      "description": "Identified correlations between different capability dimensions that may influence candidate assessment.",
+      "correlated_pairs": [
+        {
+          "dimension_a": "change_adapt",
+          "dimension_b": "stakeholder",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "A highly adaptable individual will likely also demonstrate strong interpersonal skills to navigate resistance to change. Look for examples of 'bringing people along' during transitions."
+        },
+        {
+          "dimension_a": "ops_depth",
+          "dimension_b": "crisis_mgmt",
+          "correlation_strength": "low",
+          "scenario_specific_note": "While not a crisis, strong operational depth can mitigate potential disruptions during a migration, acting as a preventative 'crisis management' measure."
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "This is a critical internal transformation role focused on establishing a new operational hub in Berlin. Success hinges on a candidate's ability to manage complex change, ensure operational stability during transition, and expertly navigate cultural and internal stakeholder dynamics, including potential internal equity sensitivities.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "cultural_friction",
+          "description": "Integrating teams from different European countries into a new Berlin hub, along with local hires, presents significant cultural integration challenges.",
+          "impact_on_analysis": "Requires specific interview questions on cross-cultural leadership, empathy, and experience building cohesive teams from diverse backgrounds."
+        },
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "Navigating German labor law and specific industry regulations for the new operational setup.",
+          "impact_on_analysis": "Adds a layer of legal and compliance expertise to the ops_depth dimension, and requires careful partnership with local HR/legal."
+        },
+        {
+          "flag_type": "compensation_risk",
+          "description": "Ensuring internal equity for relocating employees vs. local hires, and competitive market compensation in Berlin.",
+          "impact_on_analysis": "Heightens the importance of the 'stakeholder' dimension for managing expectations and requires close collaboration with HR on package design."
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "The Operational Migrator",
+          "archetype_description": "Experienced leader in moving or integrating operational functions, strong project management, process optimization, and a track record of 'getting things done' during transitions.",
+          "why_fit_this_scenario": "Directly aligns with the core task of migrating operations to a new location while maintaining efficiency.",
+          "typical_weakness": "May sometimes lack the softer skills for deep cultural integration or change advocacy beyond process."
+        },
+        {
+          "archetype_name": "The Cultural Bridge Builder",
+          "archetype_description": "A leader with significant international experience, adept at navigating different business cultures, building consensus, and fostering team cohesion across diverse groups.",
+          "why_fit_this_scenario": "Crucial for successfully integrating a multi-national team into a new Berlin environment, addressing the 'soft' aspects of migration.",
+          "typical_weakness": "May sometimes be less focused on strict process and operational metrics if not paired with strong functional expertise."
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "The Steady State Maintainer",
+          "archetype_description": "Excellent at optimizing existing, stable operations, but uncomfortable with significant disruption or ambiguity.",
+          "why_wrong_for_this_scenario": "This role is inherently about managing change and building something new; a maintainer would struggle with the required dynamism and lack of established norms.",
+          "typical_weakness": "Resistance to change, difficulty adapting to new environments, preference for established processes."
+        },
+        {
+          "archetype_name": "The Pure Strategist",
+          "archetype_description": "Brilliant at high-level strategic planning but lacks hands-on implementation and operational execution experience.",
+          "why_wrong_for_this_scenario": "This role requires significant ground-level operational leadership and project execution, not just strategic visioning.",
+          "typical_weakness": "May delegate too much, struggle with detailed implementation, or lack patience for day-to-day operational challenges."
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Managing operational continuity during major transitions",
+          "rationale": "Directly addresses the core mandate of migrating functions without disruption.",
+          "suggested_question": "Describe a time you led a significant operational migration or restructuring. How did you ensure continuity of service and minimal disruption during the transition?"
+        },
+        {
+          "theme": "Building and integrating diverse teams in a new location",
+          "rationale": "Critical for the Berlin hub's success, involving existing team members and new hires from different cultural backgrounds.",
+          "suggested_question": "Imagine you're building a new team in Berlin, composed of relocating staff and new local hires. What steps would you take to foster a cohesive and high-performing culture, particularly bridging cultural differences?"
+        },
+        {
+          "theme": "Navigating internal political landscapes and resistance to change",
+          "rationale": "Internal transformations often face resistance, and this role has high internal visibility and potential equity risks.",
+          "suggested_question": "Tell me about a time you encountered significant resistance to a strategic change you were leading internally. How did you identify the root causes, and what actions did you take to gain buy-in and move forward?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [
+        {
+          "field_path": "role.seniority_level",
+          "field_label": "Seniority Level",
+          "blocks_analysis": false,
+          "impact_if_missing": "Less precise benchmarking for compensation and reporting structure.",
+          "qa_question": "Can you specify the typical seniority level for this type of role (e.g., Director, VP)?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "business_context.board_visibility",
+          "field_label": "Board Visibility",
+          "blocks_analysis": false,
+          "impact_if_missing": "Harder to gauge the political sensitivity and strategic importance from a top-down perspective.",
+          "qa_question": "How high up the corporate ladder does visibility for this role's success typically reach (e.g., CEO, CFO, Board)?",
+          "expected_type": "string"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": false,
+      "weights_validated": true,
+      "completeness_percentage": 98,
+      "is_complete": true,
+      "ready_for_analysis": true
+    }
+  }
+}
