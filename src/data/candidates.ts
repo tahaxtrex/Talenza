@@ -1,5 +1,6 @@
 export interface Candidate {
   rank: number;
+  candidate_id?: string;
   name: string;
   role: string;
   source: 'internal' | 'external';
@@ -13,6 +14,7 @@ export interface Candidate {
   };
   headline_strength: string;
   headline_risk: string;
+  file?: string;
 }
 
 export const crisisCandidates: Candidate[] = [

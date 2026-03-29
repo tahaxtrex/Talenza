@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "scenario_id": "scenario_1774800408588",
+    "created_at": "2024-12-19T10:15:00Z",
+    "version": "1.0",
+    "status": "draft_needs_qa",
+    "track": "internal",
+    "updated_at": "2026-03-29T16:06:57.501Z"
+  },
+  "role": {
+    "title": "SVP Global Manufacturing Operations",
+    "seniority_level": "svp",
+    "department": "Manufacturing Operations",
+    "primary_location": "Munich, Germany",
+    "secondary_locations": [
+      "Dingolfing",
+      "Shenyang",
+      "Spartanburg"
+    ],
+    "relocation_required": false,
+    "relocation_support_available": true,
+    "travel_percentage": 40
+  },
+  "business_context": {
+    "situation_type": "crisis",
+    "situation_subtype": "succession_emergency",
+    "description": "Sudden departure of 31-year veteran SVP due to cardiac event, leaving 11 global plants (42K employees, EUR 18B budget) with interim committee disagreements on EV transition priorities",
+    "urgency_driver": "EUR 3.2B Neue Klasse EV conversion cannot stall, China plant workforce reduction amid geopolitical tensions, US UAW negotiations in 14 weeks",
+    "board_visibility": "board",
+    "external_visibility_risk": true,
+    "geopolitical_complexity": true,
+    "geopolitical_description": "EU-China trade tensions affecting Shenyang plant operations and potential workforce reduction",
+    "regulatory_complexity": true,
+    "regulatory_description": "UAW contract renegotiation as lead negotiator, plus regulatory compliance across 11 global facilities",
+    "competitive_pressure": "EV transition timeline critical to BMW's market position against Tesla and other manufacturers"
+  },
+  "constraints": {
+    "urgency_weeks": 10,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": "UAW contract negotiations begin in 14 weeks requiring immediate preparation",
+    "budget_for_search_eur": null,
+    "can_use_search_firm": true,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": 1200000,
+    "package_budget_base_eur": 850000,
+    "package_out_of_band_possible": false,
+    "package_approval_required": "compensation committee pre-approved",
+    "internal_equity_risk": true,
+    "personal_security_risk": false,
+    "language_requirements": [
+      "German",
+      "English",
+      "Mandarin preferred"
+    ],
+    "cultural_requirements": [
+      "German business culture",
+      "Chinese government relations",
+      "US labor relations"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Global manufacturing operations leadership at scale (40K+ workforce)",
+    "must_have_2": "EV/automotive transformation experience with complex technology transitions",
+    "must_have_3": "Labor relations and union negotiation expertise",
+    "nice_to_have_1": "China market experience with government stakeholder management",
+    "nice_to_have_2": "BMW or premium automotive brand experience",
+    "explicit_disqualifiers": [
+      "No automotive manufacturing experience",
+      "No union negotiation experience",
+      "Cannot travel extensively"
+    ]
+  },
+  "team_context": {
+    "team_exists": true,
+    "team_size_current": 42000,
+    "team_size_target_year1": 41000,
+    "team_size_target_year2": 41000,
+    "team_type": "Global manufacturing organization across 11 plants",
+    "inherited_technical_debt": true,
+    "inherited_culture_issues": true,
+    "key_stakeholders": [
+      {
+        "role": "Interim Committee of Plant Directors",
+        "relationship_nature": "manages",
+        "sensitivity_note": "Currently disagreeing on EV vs ICE priorities"
+      },
+      {
+        "role": "BMW Board",
+        "relationship_nature": "reports_to",
+        "sensitivity_note": "High visibility role with board oversight"
+      },
+      {
+        "role": "UAW Leadership",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Critical upcoming contract negotiation"
+      },
+      {
+        "role": "Chinese Government Officials",
+        "relationship_nature": "partners_with",
+        "sensitivity_note": "Geopolitically sensitive relationship for Shenyang operations"
+      }
+    ]
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "crisis",
+      "scenario_subtype": "emergency",
+      "classification_source": "explicit",
+      "classification_confidence": 0.95,
+      "classification_reasoning": "Sudden departure of key executive with immediate operational disruption and multiple concurrent crisis elements",
+      "ambiguity_flag": false,
+      "ambiguity_note": null
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Emergency succession scenario base weights",
+        "crisis_mgmt": 0.3,
+        "ops_depth": 0.25,
+        "change_adapt": 0.2,
+        "stakeholder": 0.15,
+        "external_net": 0.1
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "geopolitical_complexity_boost",
+          "trigger_field": "geopolitical_complexity",
+          "trigger_value": true,
+          "trigger_condition": "equals true",
+          "dimension_affected": "external_net",
+          "multiplier": 1.8,
+          "modifier_reasoning": "China-EU trade tensions require sophisticated government relations"
+        },
+        {
+          "modifier_name": "large_workforce_operations",
+          "trigger_field": "team_size_current",
+          "trigger_value": 42000,
+          "trigger_condition": "greater than 30000",
+          "dimension_affected": "ops_depth",
+          "multiplier": 1.4,
+          "modifier_reasoning": "Managing 42K workforce across 11 plants requires exceptional operational depth"
+        },
+        {
+          "modifier_name": "high_stakes_stakeholder_mgmt",
+          "trigger_field": "board_visibility",
+          "trigger_value": "board",
+          "trigger_condition": "equals board",
+          "dimension_affected": "stakeholder",
+          "multiplier": 1.6,
+          "modifier_reasoning": "Board visibility plus UAW negotiations require superior stakeholder management"
+        },
+        {
+          "modifier_name": "major_transformation_underway",
+          "trigger_field": "situation_subtype",
+          "trigger_value": "succession_emergency",
+          "trigger_condition": "contains transformation elements",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.5,
+          "modifier_reasoning": "EUR 3.2B EV transition cannot be delayed despite succession crisis"
+        }
+      ],
+      "final_weights": {
+        "description": "Crisis succession with geopolitical complexity and major transformation",
+        "crisis_mgmt": {
+          "value": 0.28,
+          "confidence": 0.9,
+          "confidence_reasoning": "Clear crisis elements but operational continuity also critical",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.02,
+          "business_logic": "Immediate stabilization of interim committee and manufacturing continuity"
+        },
+        "ops_depth": {
+          "value": 0.32,
+          "confidence": 0.95,
+          "confidence_reasoning": "42K workforce across 11 plants demands exceptional operational capability",
+          "modifiers_that_touched_this_dimension": [
+            "large_workforce_operations"
+          ],
+          "net_movement_from_base": 0.07,
+          "business_logic": "Cannot compromise on manufacturing excellence during transition"
+        },
+        "change_adapt": {
+          "value": 0.22,
+          "confidence": 0.85,
+          "confidence_reasoning": "EV transformation critical but must balance with operational stability",
+          "modifiers_that_touched_this_dimension": [
+            "major_transformation_underway"
+          ],
+          "net_movement_from_base": 0.02,
+          "business_logic": "Neue Klasse programme cannot stall despite succession emergency"
+        },
+        "stakeholder": {
+          "value": 0.13,
+          "confidence": 0.8,
+          "confidence_reasoning": "UAW negotiations and board relations critical but operational delivery primary",
+          "modifiers_that_touched_this_dimension": [
+            "high_stakes_stakeholder_mgmt"
+          ],
+          "net_movement_from_base": -0.02,
+          "business_logic": "Must manage interim committee, board, and prepare for UAW negotiations"
+        },
+        "external_net": {
+          "value": 0.05,
+          "confidence": 0.75,
+          "confidence_reasoning": "China relations important but cannot replace operational fundamentals",
+          "modifiers_that_touched_this_dimension": [
+            "geopolitical_complexity_boost"
+          ],
+          "net_movement_from_base": -0.05,
+          "business_logic": "Government relations in China critical but secondary to manufacturing delivery"
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [
+          "external_net"
+        ],
+        "validation_questions_triggered": [
+          {
+            "dimension": "external_net",
+            "question": "Given the 31-year institutional knowledge loss in government relations, should external networking capability be weighted higher than 0.05?",
+            "current_value": 0.05,
+            "alternative_suggested": 0.1
+          }
+        ]
+      }
+    },
+    "floor_constraints": {
+      "description": "Minimum competency floors for global manufacturing leadership",
+      "active_floors": [
+        {
+          "dimension": "ops_depth",
+          "minimum_score": 8,
+          "floor_reasoning": "42K workforce and EUR 18B budget cannot accept operational inexperience",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "crisis_mgmt",
+          "minimum_score": 7.5,
+          "floor_reasoning": "Multiple concurrent crises require proven crisis leadership capability",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 7,
+          "floor_reasoning": "EUR 3.2B EV transition cannot be led by someone uncomfortable with transformation",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Scale of operation and concurrent crisis elements require exceptional minimum capabilities"
+    },
+    "dimension_correlation_warnings": {
+      "description": "High correlation expected between operational depth and crisis management in manufacturing context",
+      "correlated_pairs": [
+        {
+          "dimension_a": "ops_depth",
+          "dimension_b": "crisis_mgmt",
+          "correlation_strength": "high",
+          "scenario_specific_note": "Manufacturing crisis management is essentially operational problem-solving at scale"
+        },
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "UAW and government relations both require relationship-building skills"
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "Emergency succession for global manufacturing SVP managing EUR 18B budget and 42K workforce across 11 plants, with concurrent EV transition, China geopolitical tensions, and US labor negotiations",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "succession_dependency",
+          "description": "31-year institutional knowledge loss in government relations cannot be easily replaced",
+          "impact_on_analysis": "May need to weight external relationships higher than pure operational metrics suggest"
+        },
+        {
+          "flag_type": "timeline_pressure",
+          "description": "UAW negotiations begin in 14 weeks requiring immediate preparation while managing other crises",
+          "impact_on_analysis": "Candidate must be able to simultaneously manage multiple urgent priorities"
+        },
+        {
+          "flag_type": "geopolitical_volatility",
+          "description": "China workforce reduction amid EU-China trade tensions could escalate quickly",
+          "impact_on_analysis": "Requires diplomatic sensitivity beyond typical manufacturing role"
+        },
+        {
+          "flag_type": "team_build_from_zero",
+          "description": "Interim committee is dysfunctional and needs immediate leadership to prevent manufacturing disruption",
+          "impact_on_analysis": "Team-building and consensus-building skills critical from day one"
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "Global Manufacturing Veteran",
+          "archetype_description": "20+ years in automotive manufacturing with multi-region P&L responsibility and union negotiation experience",
+          "why_fit_this_scenario": "Proven ability to manage manufacturing complexity, understands automotive cycles, has negotiated with labor unions",
+          "typical_weakness": "May be less agile with EV technology transition"
+        },
+        {
+          "archetype_name": "Transformation-Experienced Operator",
+          "archetype_description": "Manufacturing leader who has successfully led major technology transitions while maintaining operational excellence",
+          "why_fit_this_scenario": "Can balance EV transition requirements with manufacturing continuity needs",
+          "typical_weakness": "May lack specific automotive or union experience"
+        },
+        {
+          "archetype_name": "Crisis-Tested Global Executive",
+          "archetype_description": "Senior manufacturing executive who has managed major disruptions across multiple geographies",
+          "why_fit_this_scenario": "Proven ability to stabilize operations during crisis while managing multiple stakeholder groups",
+          "typical_weakness": "May focus too heavily on crisis management at expense of transformation agenda"
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "Pure Technology Visionary",
+          "archetype_description": "EV/technology focused leader without deep manufacturing operations experience",
+          "why_wrong_for_this_scenario": "Cannot afford operational stumbles with EUR 18B budget and 42K workforce at risk"
+        },
+        {
+          "archetype_name": "Regional Specialist",
+          "archetype_description": "Strong manufacturing leader but limited to single geography or market",
+          "why_wrong_for_this_scenario": "Lacks the global perspective and multi-cultural stakeholder management required"
+        },
+        {
+          "archetype_name": "Consensus-Builder Only",
+          "archetype_description": "Collaborative leader who avoids tough decisions and prefers lengthy consultation",
+          "why_wrong_for_this_scenario": "Timeline pressures require decisive leadership; interim committee needs direction not facilitation"
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Multi-Crisis Prioritization",
+          "rationale": "Must assess ability to juggle EV transition, China tensions, UAW prep, and team stabilization simultaneously",
+          "suggested_question": "Walk me through how you would prioritize and sequence your first 90 days managing the EV conversion, China situation, UAW preparation, and interim committee alignment"
+        },
+        {
+          "theme": "Institutional Knowledge Transfer",
+          "rationale": "31-year veteran's departure leaves major knowledge gap, especially in government relations",
+          "suggested_question": "How would you rapidly build the government and stakeholder relationships that took your predecessor three decades to develop?"
+        },
+        {
+          "theme": "Labor Relations Under Pressure",
+          "rationale": "UAW negotiations begin soon and Spartanburg is BMW's most profitable plant",
+          "suggested_question": "Describe your approach to preparing for high-stakes union negotiations when you're new to the organization and the relationship"
+        },
+        {
+          "theme": "Geopolitical Manufacturing Decisions",
+          "rationale": "China workforce reduction must be handled without creating diplomatic incident",
+          "suggested_question": "How do you balance manufacturing efficiency requirements with geopolitical sensitivities when reducing workforce in China?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [],
+      "null_soft_fields": [
+        {
+          "field_path": "constraints.budget_for_search_eur",
+          "field_label": "Search Budget",
+          "blocks_analysis": false,
+          "impact_if_missing": "Cannot assess search approach cost constraints",
+          "qa_question": "What budget has been allocated for the executive search process?",
+          "expected_type": "float"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [
+        {
+          "dimension": "external_net",
+          "current_value": 0.05,
+          "confidence": 0.75,
+          "validation_question": "Given the loss of 31 years of government relations expertise, should external networking be weighted higher than 5%?"
+        }
+      ],
+      "mandatory_fields_complete": true,
+      "soft_fields_complete": false,
+      "weights_validated": false,
+      "completeness_percentage": 100,
+      "is_complete": false,
+      "ready_for_analysis": false
+    }
+  },
+  "external_net": "yes"
+}

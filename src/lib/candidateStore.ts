@@ -9,6 +9,7 @@ export async function fetchCandidates(): Promise<Candidate[]> {
       const data = await res.json();
       return data.map((c: any, i: number) => ({
         rank: i + 1,
+        candidate_id: c.candidate_id,
         name: c.full_name,
         role: c.current_role,
         source: c.source_type,

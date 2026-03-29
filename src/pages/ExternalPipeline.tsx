@@ -35,7 +35,7 @@ export default function ExternalPipeline() {
         old
           .filter(c => c.source === 'external')
           .map(c => ({
-            id: c.name,
+            id: c.candidate_id || c.name,
             type: 'external' as const,
             name: c.name,
             role: c.role,

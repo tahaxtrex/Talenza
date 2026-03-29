@@ -83,22 +83,84 @@ export interface ScenarioQAResponse {
   scenario: any;
 }
 
+export interface SourcingCandidateAssessment {
+  candidate_id: string;
+  candidate_name: string;
+  source_type: 'internal' | 'external';
+  weighted_total: number;
+  dimension_scores: Record<string, number>;
+  strengths: string[];
+  risks: string[];
+  fit_summary: string;
+}
+
+export interface SourcingCostDimension {
+  dimension: string;
+  internal_score: number;
+  external_score: number;
+  internal_detail: string;
+  external_detail: string;
+  weight: number;
+}
+
+export interface SourcingRiskFactor {
+  risk: string;
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  applies_to: 'internal' | 'external' | 'both';
+  mitigation: string;
+}
+
+export interface SourcingTimeline {
+  phase: string;
+  internal_weeks: number | null;
+  external_weeks: number | null;
+  description: string;
+}
+
 export interface SourcingResponse {
   status: 'success';
   scenario_id: string;
+  executive_summary: string;
   recommended_strategy: 'internal_first' | 'external_first' | 'hybrid';
   strategy_options: string[];
+  confidence_level: number;
+  confidence_reasoning: string;
   decision_inputs: {
     urgency_weeks: number | null;
+    scenario_type: string | null;
+    crisis_mode: boolean;
     internal_pipeline_strength: { candidate_count: number; top_weighted_score: number; average_weighted_score: number };
     external_pipeline_strength: { candidate_count: number; top_weighted_score: number; average_weighted_score: number };
-    cost_time_signals: { external_search_fee_eur: number; external_time_to_fill_weeks: number; urgency_weeks: number | null; urgency_vs_external_time_gap_weeks: number | null };
-    wrong_hire_risk: { scenario_type: string | null; crisis_mode: boolean; external_wrong_hire_impact: string; internal_wrong_hire_impact: string };
   };
-  top_internal: any[];
-  top_external: any[];
-  thresholds_used: Record<string, number>;
-  rationale: string[];
+  cost_analysis: {
+    dimensions: SourcingCostDimension[];
+    internal_total_cost_eur: string;
+    external_total_cost_eur: string;
+    cost_delta_narrative: string;
+  };
+  time_analysis: {
+    timelines: SourcingTimeline[];
+    urgency_weeks: number | null;
+    external_time_to_fill_weeks: number;
+    time_risk_narrative: string;
+  };
+  risk_analysis: {
+    factors: SourcingRiskFactor[];
+    wrong_hire_impact_internal: string;
+    wrong_hire_impact_external: string;
+    overall_risk_narrative: string;
+  };
+  candidate_assessments: {
+    top_internal: SourcingCandidateAssessment[];
+    top_external: SourcingCandidateAssessment[];
+    comparative_narrative: string;
+  };
+  strategic_rationale: string[];
+  implementation_roadmap: {
+    recommended_next_steps: string[];
+    quick_wins: string[];
+    watch_outs: string[];
+  };
 }
 
 export interface ScoreResponse {

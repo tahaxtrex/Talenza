@@ -1,0 +1,337 @@
+{
+  "meta": {
+    "scenario_id": "scenario_1774798718323",
+    "created_at": "2024-12-19T10:30:00Z",
+    "version": "1.0",
+    "status": "draft_needs_qa",
+    "track": "internal",
+    "updated_at": "2026-03-29T15:38:38.323Z"
+  },
+  "role": {
+    "title": null,
+    "seniority_level": null,
+    "department": null,
+    "primary_location": "Paris",
+    "secondary_locations": [],
+    "relocation_required": true,
+    "relocation_support_available": null,
+    "travel_percentage": null
+  },
+  "business_context": {
+    "situation_type": "transformation",
+    "situation_subtype": "geographic_relocation",
+    "description": "Internal executive migration to Paris location",
+    "urgency_driver": null,
+    "board_visibility": null,
+    "external_visibility_risk": null,
+    "geopolitical_complexity": true,
+    "geopolitical_description": "Cross-border relocation may involve regulatory compliance and cultural integration",
+    "regulatory_complexity": true,
+    "regulatory_description": "Potential visa, work permit, and tax implications for relocation",
+    "competitive_pressure": null
+  },
+  "constraints": {
+    "urgency_weeks": null,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": null,
+    "can_use_search_firm": null,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": null,
+    "package_budget_base_eur": null,
+    "package_out_of_band_possible": null,
+    "package_approval_required": null,
+    "internal_equity_risk": null,
+    "personal_security_risk": null,
+    "language_requirements": [
+      "French"
+    ],
+    "cultural_requirements": [
+      "European business culture adaptation"
+    ],
+    "legal_clearance_required": true
+  },
+  "priority_capabilities": {
+    "must_have_1": "Cultural adaptability",
+    "must_have_2": "International business experience",
+    "must_have_3": "Change management skills",
+    "nice_to_have_1": "French language proficiency",
+    "nice_to_have_2": "European market knowledge",
+    "explicit_disqualifiers": [
+      "Inability to relocate"
+    ]
+  },
+  "team_context": {
+    "team_exists": null,
+    "team_size_current": null,
+    "team_size_target_year1": null,
+    "team_size_target_year2": null,
+    "team_type": null,
+    "inherited_technical_debt": null,
+    "inherited_culture_issues": null,
+    "key_stakeholders": []
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": "transformation",
+      "scenario_subtype": "geographic_expansion",
+      "classification_source": "inferred",
+      "classification_confidence": 0.7,
+      "classification_reasoning": "Internal migration to Paris suggests geographic expansion or operational transformation requiring cultural and regulatory navigation",
+      "ambiguity_flag": true,
+      "ambiguity_note": "Limited context provided - unclear if this is executive relocation, team migration, or broader organizational move"
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Transformation scenario base weights",
+        "crisis_mgmt": 0.15,
+        "ops_depth": 0.25,
+        "change_adapt": 0.3,
+        "stakeholder": 0.2,
+        "external_net": 0.1
+      },
+      "modifiers_applied": [
+        {
+          "modifier_name": "Geographic complexity boost",
+          "trigger_field": "geopolitical_complexity",
+          "trigger_value": true,
+          "trigger_condition": "cross-border implications present",
+          "dimension_affected": "external_net",
+          "multiplier": 1.5,
+          "modifier_reasoning": "Paris relocation requires external regulatory and cultural navigation"
+        },
+        {
+          "modifier_name": "Cultural integration emphasis",
+          "trigger_field": "cultural_requirements",
+          "trigger_value": "present",
+          "trigger_condition": "cultural adaptation required",
+          "dimension_affected": "change_adapt",
+          "multiplier": 1.2,
+          "modifier_reasoning": "Cultural adaptation critical for Paris integration success"
+        }
+      ],
+      "final_weights": {
+        "description": "Normalized weights after geographic and cultural modifiers",
+        "crisis_mgmt": {
+          "value": 0.13,
+          "confidence": 0.6,
+          "confidence_reasoning": "Low crisis indication but some urgency possible",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.02,
+          "business_logic": "Internal migration typically less crisis-driven"
+        },
+        "ops_depth": {
+          "value": 0.22,
+          "confidence": 0.5,
+          "confidence_reasoning": "Operational requirements unclear without role details",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.03,
+          "business_logic": "Operational depth important but secondary to adaptation"
+        },
+        "change_adapt": {
+          "value": 0.32,
+          "confidence": 0.8,
+          "confidence_reasoning": "High confidence - cultural and geographic change central",
+          "modifiers_that_touched_this_dimension": [
+            "Cultural integration emphasis"
+          ],
+          "net_movement_from_base": 0.02,
+          "business_logic": "Change adaptation critical for successful Paris integration"
+        },
+        "stakeholder": {
+          "value": 0.18,
+          "confidence": 0.4,
+          "confidence_reasoning": "Stakeholder complexity unknown without organizational context",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": -0.02,
+          "business_logic": "Internal move may have fewer stakeholder complications"
+        },
+        "external_net": {
+          "value": 0.15,
+          "confidence": 0.7,
+          "confidence_reasoning": "Clear need for external navigation in new geography",
+          "modifiers_that_touched_this_dimension": [
+            "Geographic complexity boost"
+          ],
+          "net_movement_from_base": 0.05,
+          "business_logic": "External networking and regulatory navigation essential for Paris success"
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [
+          "ops_depth",
+          "stakeholder"
+        ],
+        "validation_questions_triggered": [
+          {
+            "dimension": "ops_depth",
+            "question": "What specific operational responsibilities will this role have in Paris?",
+            "current_value": 0.22,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "stakeholder",
+            "question": "Who are the key stakeholders this person will need to work with in Paris?",
+            "current_value": 0.18,
+            "alternative_suggested": null
+          }
+        ]
+      }
+    },
+    "floor_constraints": {
+      "description": "Minimum requirements for successful Paris migration",
+      "active_floors": [
+        {
+          "dimension": "change_adapt",
+          "minimum_score": 7,
+          "floor_reasoning": "Cultural and geographic adaptation absolutely critical",
+          "is_hard_knockout": true,
+          "override_possible": false
+        },
+        {
+          "dimension": "external_net",
+          "minimum_score": 6,
+          "floor_reasoning": "Must be able to navigate new regulatory and business environment",
+          "is_hard_knockout": false,
+          "override_possible": true
+        }
+      ],
+      "floor_derivation_logic": "Geographic relocation requires strong adaptability and external navigation capabilities"
+    },
+    "dimension_correlation_warnings": {
+      "description": "Potential overlaps in geographic relocation context",
+      "correlated_pairs": [
+        {
+          "dimension_a": "change_adapt",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "Cultural adaptation and external networking both crucial for Paris success"
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "Internal executive migration to Paris requiring cultural adaptation, regulatory compliance, and business integration in new geographic market",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "regulatory_exposure",
+          "description": "Visa, work permits, tax implications for relocation",
+          "impact_on_analysis": "May extend timeline and require specialized support"
+        },
+        {
+          "flag_type": "cultural_friction",
+          "description": "Adaptation to French business culture and practices",
+          "impact_on_analysis": "Critical success factor requiring specific assessment"
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "Global Nomad",
+          "archetype_description": "Executive with extensive international experience and cultural adaptability",
+          "why_fit_this_scenario": "Natural ability to integrate into new markets and navigate cross-cultural challenges",
+          "typical_weakness": "May lack deep local market knowledge initially"
+        },
+        {
+          "archetype_name": "Cultural Bridge-Builder",
+          "archetype_description": "Leader skilled at connecting different business cultures and practices",
+          "why_fit_this_scenario": "Essential for successful integration into Paris business environment",
+          "typical_weakness": "May take longer to establish operational depth"
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "Local Hero",
+          "archetype_description": "Executive successful only in their home market",
+          "why_wrong_for_this_scenario": "Lacks international experience and cultural adaptability needed for Paris success"
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "International Adaptation Experience",
+          "rationale": "Critical to assess ability to succeed in new cultural environment",
+          "suggested_question": "Describe a time when you had to adapt to a significantly different business culture. What challenges did you face and how did you overcome them?"
+        },
+        {
+          "theme": "Regulatory Navigation",
+          "rationale": "Understanding of cross-border compliance requirements",
+          "suggested_question": "How would you approach understanding and complying with French business regulations and employment law?"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [
+        {
+          "field_path": "role.title",
+          "field_label": "Role Title",
+          "blocks_analysis": true,
+          "qa_question": "What is the specific role title for this position in Paris?",
+          "expected_type": "string",
+          "example_answer": "Managing Director France"
+        },
+        {
+          "field_path": "role.seniority_level",
+          "field_label": "Seniority Level",
+          "blocks_analysis": true,
+          "qa_question": "What is the seniority level of this role (director, vp, svp, c_suite)?",
+          "expected_type": "string",
+          "example_answer": "director"
+        },
+        {
+          "field_path": "role.department",
+          "field_label": "Department",
+          "blocks_analysis": true,
+          "qa_question": "Which department will this role be responsible for in Paris?",
+          "expected_type": "string",
+          "example_answer": "Operations"
+        },
+        {
+          "field_path": "business_context.urgency_driver",
+          "field_label": "Urgency Driver",
+          "blocks_analysis": true,
+          "qa_question": "What is driving the urgency for this Paris migration?",
+          "expected_type": "string",
+          "example_answer": "Market expansion deadline"
+        }
+      ],
+      "null_soft_fields": [
+        {
+          "field_path": "constraints.urgency_weeks",
+          "field_label": "Timeline in Weeks",
+          "blocks_analysis": false,
+          "impact_if_missing": "Cannot assess time pressure impact on candidate selection",
+          "qa_question": "What is the expected timeline for this migration in weeks?",
+          "expected_type": "integer"
+        },
+        {
+          "field_path": "team_context.team_exists",
+          "field_label": "Team Status",
+          "blocks_analysis": false,
+          "impact_if_missing": "Cannot assess team building vs team management requirements",
+          "qa_question": "Does a team already exist in Paris or will this person need to build one?",
+          "expected_type": "boolean"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [
+        {
+          "dimension": "ops_depth",
+          "current_value": 0.22,
+          "confidence": 0.5,
+          "validation_question": "What specific operational responsibilities will this role have in Paris?"
+        },
+        {
+          "dimension": "stakeholder",
+          "current_value": 0.18,
+          "confidence": 0.4,
+          "validation_question": "Who are the key stakeholders this person will need to work with in Paris?"
+        }
+      ],
+      "mandatory_fields_complete": false,
+      "soft_fields_complete": false,
+      "weights_validated": false,
+      "completeness_percentage": 35,
+      "is_complete": false,
+      "ready_for_analysis": false
+    }
+  }
+}

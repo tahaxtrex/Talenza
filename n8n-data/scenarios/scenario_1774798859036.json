@@ -1,0 +1,316 @@
+{
+  "meta": {
+    "scenario_id": "scenario_1774798859036",
+    "created_at": "2026-03-29T15:40:59.036Z",
+    "version": "1.0",
+    "status": "draft_needs_qa",
+    "track": "internal",
+    "updated_at": "2026-03-29T15:40:59.036Z"
+  },
+  "role": {
+    "title": "VP",
+    "seniority_level": "vp",
+    "department": null,
+    "primary_location": "Paris",
+    "secondary_locations": [],
+    "relocation_required": null,
+    "relocation_support_available": null,
+    "travel_percentage": null
+  },
+  "business_context": {
+    "situation_type": null,
+    "situation_subtype": null,
+    "description": null,
+    "urgency_driver": null,
+    "board_visibility": null,
+    "external_visibility_risk": null,
+    "geopolitical_complexity": null,
+    "geopolitical_description": null,
+    "regulatory_complexity": null,
+    "regulatory_description": null,
+    "competitive_pressure": null
+  },
+  "constraints": {
+    "urgency_weeks": 6,
+    "hard_deadline_date": null,
+    "hard_deadline_reason": null,
+    "budget_for_search_eur": null,
+    "can_use_search_firm": null,
+    "search_firm_constraint_reason": null,
+    "package_budget_total_eur": null,
+    "package_budget_base_eur": null,
+    "package_out_of_band_possible": null,
+    "package_approval_required": null,
+    "internal_equity_risk": null,
+    "personal_security_risk": null,
+    "language_requirements": [],
+    "cultural_requirements": [],
+    "legal_clearance_required": null
+  },
+  "priority_capabilities": {
+    "must_have_1": null,
+    "must_have_2": null,
+    "must_have_3": null,
+    "nice_to_have_1": null,
+    "nice_to_have_2": null,
+    "explicit_disqualifiers": []
+  },
+  "team_context": {
+    "team_exists": null,
+    "team_size_current": null,
+    "team_size_target_year1": null,
+    "team_size_target_year2": null,
+    "team_type": null,
+    "inherited_technical_debt": null,
+    "inherited_culture_issues": null,
+    "key_stakeholders": []
+  },
+  "derived": {
+    "classification": {
+      "scenario_type": null,
+      "scenario_subtype": null,
+      "classification_source": "inferred",
+      "classification_confidence": 0.2,
+      "classification_reasoning": "Insufficient information to classify scenario type - only timeline and location provided",
+      "ambiguity_flag": true,
+      "ambiguity_note": "Critical details missing: department, business context, situation driver, capabilities needed"
+    },
+    "weight_calculation": {
+      "base_weights": {
+        "description": "Default balanced weights due to insufficient scenario information",
+        "crisis_mgmt": 0.2,
+        "ops_depth": 0.2,
+        "change_adapt": 0.2,
+        "stakeholder": 0.2,
+        "external_net": 0.2
+      },
+      "modifiers_applied": [],
+      "final_weights": {
+        "description": "No modifiers applied due to insufficient scenario data",
+        "crisis_mgmt": {
+          "value": 0.2,
+          "confidence": 0.1,
+          "confidence_reasoning": "No information available to determine crisis management needs",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": "Default weight maintained due to lack of scenario context"
+        },
+        "ops_depth": {
+          "value": 0.2,
+          "confidence": 0.1,
+          "confidence_reasoning": "Department unknown, cannot assess operational depth requirements",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": "Default weight maintained due to lack of functional context"
+        },
+        "change_adapt": {
+          "value": 0.2,
+          "confidence": 0.1,
+          "confidence_reasoning": "No transformation or change context provided",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": "Default weight maintained due to lack of change context"
+        },
+        "stakeholder": {
+          "value": 0.2,
+          "confidence": 0.1,
+          "confidence_reasoning": "No stakeholder or organizational context provided",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": "Default weight maintained due to lack of stakeholder information"
+        },
+        "external_net": {
+          "value": 0.2,
+          "confidence": 0.1,
+          "confidence_reasoning": "No information about external networking or business development needs",
+          "modifiers_that_touched_this_dimension": [],
+          "net_movement_from_base": 0,
+          "business_logic": "Default weight maintained due to lack of external context"
+        }
+      },
+      "weight_validation": {
+        "sum_check": 1,
+        "sum_valid": true,
+        "low_confidence_dimensions": [
+          "crisis_mgmt",
+          "ops_depth",
+          "change_adapt",
+          "stakeholder",
+          "external_net"
+        ],
+        "validation_questions_triggered": [
+          {
+            "dimension": "crisis_mgmt",
+            "question": "What business situation is driving the need for this VP role?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "ops_depth",
+            "question": "Which department/function will this VP lead?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "change_adapt",
+            "question": "Is this role part of a transformation or change initiative?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "stakeholder",
+            "question": "Who are the key stakeholders this VP will need to work with?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          },
+          {
+            "dimension": "external_net",
+            "question": "Does this role require external relationship building or business development?",
+            "current_value": 0.2,
+            "alternative_suggested": null
+          }
+        ]
+      }
+    },
+    "floor_constraints": {
+      "description": "No specific floor constraints established due to insufficient scenario information",
+      "active_floors": [],
+      "floor_derivation_logic": "Cannot establish minimum requirements without understanding the business context and functional area"
+    },
+    "dimension_correlation_warnings": {
+      "description": "Standard correlation patterns apply but cannot be scenario-specific without more context",
+      "correlated_pairs": [
+        {
+          "dimension_a": "stakeholder",
+          "dimension_b": "external_net",
+          "correlation_strength": "medium",
+          "scenario_specific_note": "VP-level roles typically require both internal and external relationship management"
+        }
+      ]
+    },
+    "scenario_intelligence": {
+      "scenario_summary": "Urgent VP hiring in Paris with 6-week timeline. Critical information missing about functional area, business context, and specific requirements makes targeted analysis impossible.",
+      "hidden_complexity_flags": [
+        {
+          "flag_type": "timeline_pressure",
+          "description": "6-week timeline is aggressive for VP-level search, especially without clear requirements",
+          "impact_on_analysis": "May need to prioritize immediately available candidates over perfect fit"
+        }
+      ],
+      "candidate_archetypes_to_seek": [
+        {
+          "archetype_name": "Experienced Local Executive",
+          "archetype_description": "VP-level professional already based in Paris with established networks",
+          "why_fit_this_scenario": "No relocation needed, faster onboarding, local market knowledge",
+          "typical_weakness": "May lack fresh external perspective"
+        }
+      ],
+      "candidate_archetypes_to_avoid": [
+        {
+          "archetype_name": "International Relocator",
+          "archetype_description": "Strong candidate requiring visa/relocation from outside EU",
+          "why_wrong_for_this_scenario": "6-week timeline insufficient for international relocation logistics"
+        }
+      ],
+      "scenario_specific_interview_themes": [
+        {
+          "theme": "Rapid Integration Capability",
+          "rationale": "Tight timeline requires someone who can hit the ground running",
+          "suggested_question": "Describe a time you successfully took on a leadership role with minimal ramp-up time"
+        }
+      ]
+    },
+    "completeness": {
+      "null_mandatory_fields": [
+        {
+          "field_path": "role.department",
+          "field_label": "Department/Function",
+          "blocks_analysis": true,
+          "qa_question": "Which department or functional area will this VP lead (e.g., Sales, Marketing, Operations, Finance, Technology)?",
+          "expected_type": "string",
+          "example_answer": "Sales"
+        },
+        {
+          "field_path": "business_context.situation_type",
+          "field_label": "Business Situation Type",
+          "blocks_analysis": true,
+          "qa_question": "What type of business situation is driving this hiring need (crisis, transformation, growth, or succession)?",
+          "expected_type": "string",
+          "example_answer": "growth"
+        },
+        {
+          "field_path": "priority_capabilities.must_have_1",
+          "field_label": "Primary Must-Have Capability",
+          "blocks_analysis": true,
+          "qa_question": "What is the most critical capability or experience this VP must possess?",
+          "expected_type": "string",
+          "example_answer": "10+ years enterprise sales leadership"
+        },
+        {
+          "field_path": "priority_capabilities.must_have_2",
+          "field_label": "Secondary Must-Have Capability",
+          "blocks_analysis": true,
+          "qa_question": "What is the second most important capability required for this role?",
+          "expected_type": "string",
+          "example_answer": "French market expertise"
+        }
+      ],
+      "null_soft_fields": [
+        {
+          "field_path": "business_context.urgency_driver",
+          "field_label": "Urgency Driver",
+          "blocks_analysis": false,
+          "impact_if_missing": "Cannot understand what's driving the 6-week timeline",
+          "qa_question": "What specific event or situation is creating the 6-week urgency?",
+          "expected_type": "string"
+        },
+        {
+          "field_path": "constraints.budget_for_search_eur",
+          "field_label": "Search Budget",
+          "blocks_analysis": false,
+          "impact_if_missing": "Cannot determine if external search firm is viable option",
+          "qa_question": "What budget is available for search fees and recruitment costs?",
+          "expected_type": "float"
+        }
+      ],
+      "low_confidence_weights_requiring_validation": [
+        {
+          "dimension": "crisis_mgmt",
+          "current_value": 0.2,
+          "confidence": 0.1,
+          "validation_question": "Does this VP role involve managing any crisis or urgent business situation?"
+        },
+        {
+          "dimension": "ops_depth",
+          "current_value": 0.2,
+          "confidence": 0.1,
+          "validation_question": "How operationally hands-on should this VP be in their functional area?"
+        },
+        {
+          "dimension": "change_adapt",
+          "current_value": 0.2,
+          "confidence": 0.1,
+          "validation_question": "Is this VP expected to lead transformation or significant change initiatives?"
+        },
+        {
+          "dimension": "stakeholder",
+          "current_value": 0.2,
+          "confidence": 0.1,
+          "validation_question": "How critical is stakeholder management and internal collaboration for this role?"
+        },
+        {
+          "dimension": "external_net",
+          "current_value": 0.2,
+          "confidence": 0.1,
+          "validation_question": "Does this VP role require significant external relationship building or business development?"
+        }
+      ],
+      "mandatory_fields_complete": false,
+      "soft_fields_complete": false,
+      "weights_validated": false,
+      "completeness_percentage": 15,
+      "is_complete": false,
+      "ready_for_analysis": false
+    }
+  }
+}

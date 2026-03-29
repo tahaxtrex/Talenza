@@ -5,6 +5,7 @@ import {
   Upload, FileText, X, Loader2, CheckCircle, ChevronRight,
   MessageCircle, BarChart3, Users, ArrowRight, AlertCircle,
   Plus, Check, Scale, TrendingUp, Shield, Clock, Building2, ExternalLink,
+  DollarSign, Target, Zap, ChevronDown, ChevronUp, AlertTriangle,
 } from 'lucide-react';
 import AppNavbar from '@/components/AppNavbar';
 import CandidateScoreCard from '@/components/CandidateScoreCard';
@@ -37,7 +38,7 @@ export default function InternalPipeline() {
         old
           .filter(c => c.source === 'internal')
           .map(c => ({
-            id: c.name,
+            id: c.candidate_id || c.name,
             type: 'internal' as const,
             name: c.name,
             role: c.role,
@@ -275,24 +276,18 @@ export default function InternalPipeline() {
   const [sourcingResult, setSourcingResult] = useState<SourcingResponse | null>(null);
 
   const runCostAnalysis = async () => {
-    // If we have a scenario object but id is missing, use 'latest' string (triggering n8n internal search)
     const sId = scenario?.id || scenario?.n8n_scenario?.meta?.scenario_id || 'latest';
-    
-    if (sId === 'latest') {
-      console.warn('No specific scenario ID found, falling back to "latest" mode for analysis');
-      toast('Checking latest scenario data...');
-    }
 
     try {
       const res = await n8nAnalyzeSourcing(sId, candidates.map(c => c.id));
       if (res) {
         setSourcingResult(res);
       } else {
-        toast.error('Analysis returned empty results. Please check n8n logs.');
+        toast.error('Sourcing analysis returned empty. Ensure n8n is running.');
       }
     } catch (err: any) {
       console.error('Sourcing analysis error:', err);
-      toast.error(err.message || 'The sourcing strategy webhook failed. Check n8n console.');
+      toast.error(err.message || 'Sourcing strategy analysis failed. Check n8n console.');
     }
   };
 
@@ -792,21 +787,36 @@ export default function InternalPipeline() {
                 </div>
               ) : sourcingResult && (
                 <div className="space-y-6">
-                  {/* Header with scenario type badge */}
+                  {/* ── Header ── */}
                   <div className="flex items-center justify-between">
                     <h2 style={{ fontFamily: 'var(--font-display)' }} className="text-[26px] text-[hsl(var(--color-text-primary))]">
-                      Sourcing Strategy
+                      Sourcing Strategy Analysis
                     </h2>
-                    <span className={`text-[12px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-lg ${
-                      sourcingResult.decision_inputs.wrong_hire_risk.crisis_mode
-                        ? 'bg-[hsl(var(--color-danger))]/10 text-[hsl(var(--color-danger))]'
-                        : 'bg-[hsl(var(--color-success))]/10 text-[hsl(var(--color-success))]'
-                    }`} style={{ fontFamily: 'var(--font-body)' }}>
-                      {sourcingResult.decision_inputs.wrong_hire_risk.scenario_type || 'Standard Scenario'}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {sourcingResult.decision_inputs.crisis_mode && (
+                        <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[hsl(var(--color-danger))]/10 text-[hsl(var(--color-danger))]" style={{ fontFamily: 'var(--font-body)' }}>
+                          Crisis Mode
+                        </span>
+                      )}
+                      <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-[hsl(var(--color-accent))]/10 text-[hsl(var(--color-accent))]" style={{ fontFamily: 'var(--font-body)' }}>
+                        {sourcingResult.decision_inputs.scenario_type || 'Standard'}
+                      </span>
+                      <span className="text-[11px] font-medium px-2.5 py-1 rounded-lg bg-[hsl(var(--color-surface-alt,var(--color-surface)))] text-[hsl(var(--color-text-tertiary))]" style={{ fontFamily: 'var(--font-body)' }}>
+                        Confidence: {Math.round((sourcingResult.confidence_level ?? 0) * 100)}%
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Recommendation Banner */}
+                  {/* ── Executive Summary ── */}
+                  <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}
+                    className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-2xl p-6"
+                  >
+                    <p style={{ fontFamily: 'var(--font-body)' }} className="text-[14px] text-[hsl(var(--color-text-secondary))] leading-relaxed">
+                      {sourcingResult.executive_summary}
+                    </p>
+                  </motion.div>
+
+                  {/* ── Recommendation Banner ── */}
                   <motion.div
                     initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
                     className={`rounded-2xl p-6 border-2 ${
@@ -825,78 +835,287 @@ export default function InternalPipeline() {
                           ? 'bg-[hsl(var(--color-accent))]/10 text-[hsl(var(--color-accent))]'
                           : 'bg-[hsl(var(--color-warning,45_93%_47%))]/10 text-[hsl(var(--color-warning,45_93%_47%))]'
                       }`}>
-                         {sourcingResult.recommended_strategy === 'internal_first' ? <Building2 size={20} /> : <ExternalLink size={20} />}
+                         {sourcingResult.recommended_strategy === 'internal_first' ? <Building2 size={20} /> : sourcingResult.recommended_strategy === 'external_first' ? <ExternalLink size={20} /> : <Scale size={20} />}
                       </div>
                       <div>
                         <h3 style={{ fontFamily: 'var(--font-display)' }} className="text-[20px] text-[hsl(var(--color-text-primary))]">
-                          Recommendation: {
-                            sourcingResult.recommended_strategy === 'internal_first' ? 'Internal First' :
-                            sourcingResult.recommended_strategy === 'external_first' ? 'External Search' : 'Parallel Search (Hybrid)'
-                          }
+                          {sourcingResult.recommended_strategy === 'internal_first' ? 'Internal First' :
+                           sourcingResult.recommended_strategy === 'external_first' ? 'External Search' : 'Parallel Search (Hybrid)'}
                         </h3>
                       </div>
                     </div>
-                    <div className="space-y-2">
-                       {sourcingResult.rationale.map((r, i) => (
-                          <p key={i} style={{ fontFamily: 'var(--font-body)' }} className="text-[14px] text-[hsl(var(--color-text-secondary))] leading-relaxed flex gap-2">
-                            <span className="text-[hsl(var(--color-text-tertiary))]">•</span> {r}
+                    <div className="space-y-1.5">
+                       {sourcingResult.strategic_rationale?.map((r, i) => (
+                          <p key={i} style={{ fontFamily: 'var(--font-body)' }} className="text-[13px] text-[hsl(var(--color-text-secondary))] leading-relaxed flex gap-2">
+                            <span className="text-[hsl(var(--color-text-tertiary))] shrink-0">•</span> {r}
                           </p>
                        ))}
                     </div>
+                    {sourcingResult.confidence_reasoning && (
+                      <p style={{ fontFamily: 'var(--font-body)' }} className="text-[12px] text-[hsl(var(--color-text-tertiary))] mt-3 italic">
+                        {sourcingResult.confidence_reasoning}
+                      </p>
+                    )}
                   </motion.div>
 
-                  {/* Metrics Grid */}
+                  {/* ── Pipeline Strength ── */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     {/* Pipeline Strength */}
-                     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }} className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5">
-                       <div className="flex items-center gap-3 mb-4">
-                         <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]">
-                           <Users size={16} />
-                         </div>
-                         <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Pipeline Strength</h4>
-                       </div>
-                       <div className="space-y-3">
-                         <div className="flex justify-between items-center pb-2 border-b border-[hsl(var(--color-border))]">
-                           <span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Internal Top Score</span>
-                           <span className="text-[14px] font-medium text-[hsl(var(--color-text-primary))]">{sourcingResult.decision_inputs.internal_pipeline_strength.top_weighted_score}</span>
-                         </div>
-                         <div className="flex justify-between items-center pb-2 border-b border-[hsl(var(--color-border))]">
-                           <span className="text-[13px] text-[hsl(var(--color-text-secondary))]">External Top Score</span>
-                           <span className="text-[14px] font-medium text-[hsl(var(--color-text-primary))]">{sourcingResult.decision_inputs.external_pipeline_strength.top_weighted_score}</span>
-                         </div>
-                         <div className="flex justify-between items-center text-[12px] text-[hsl(var(--color-text-tertiary))]">
-                            <span>Count: {sourcingResult.decision_inputs.internal_pipeline_strength.candidate_count} internal, {sourcingResult.decision_inputs.external_pipeline_strength.candidate_count} external</span>
-                         </div>
-                       </div>
-                     </motion.div>
-
-                     {/* Urgency & Time */}
-                     <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }} className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5">
-                       <div className="flex items-center gap-3 mb-4">
-                         <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]">
-                           <Clock size={16} />
-                         </div>
-                         <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Time Constraints</h4>
-                       </div>
-                       <div className="space-y-3">
-                         <div className="flex justify-between items-center pb-2 border-b border-[hsl(var(--color-border))]">
-                           <span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Urgency Limit</span>
-                           <span className={`text-[14px] font-medium ${sourcingResult.decision_inputs.urgency_weeks ? 'text-[hsl(var(--color-danger))]' : 'text-[hsl(var(--color-text-primary))]'}`}>{sourcingResult.decision_inputs.cost_time_signals.urgency_weeks || 'None'} w</span>
-                         </div>
-                         <div className="flex justify-between items-center pb-2 border-b border-[hsl(var(--color-border))]">
-                           <span className="text-[13px] text-[hsl(var(--color-text-secondary))]">External Assumed Time</span>
-                           <span className="text-[14px] font-medium text-[hsl(var(--color-text-primary))]">{sourcingResult.decision_inputs.cost_time_signals.external_time_to_fill_weeks} w</span>
-                         </div>
-                         <div className="flex justify-between items-center text-[12px] text-[hsl(var(--color-text-tertiary))]">
-                            {sourcingResult.decision_inputs.cost_time_signals.urgency_vs_external_time_gap_weeks != null && (
-                               <span>Risk gap: {sourcingResult.decision_inputs.cost_time_signals.urgency_vs_external_time_gap_weeks} w</span>
-                            )}
-                         </div>
-                       </div>
-                     </motion.div>
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.1 }} className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-success))]/10 flex items-center justify-center text-[hsl(var(--color-success))]"><Building2 size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Internal Pipeline</h4>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Candidates</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.internal_pipeline_strength.candidate_count}</span></div>
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Top Score</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.internal_pipeline_strength.top_weighted_score}</span></div>
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Average</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.internal_pipeline_strength.average_weighted_score}</span></div>
+                      </div>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.15 }} className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]"><ExternalLink size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">External Pipeline</h4>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Candidates</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.external_pipeline_strength.candidate_count}</span></div>
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Top Score</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.external_pipeline_strength.top_weighted_score}</span></div>
+                        <div className="flex justify-between"><span className="text-[13px] text-[hsl(var(--color-text-secondary))]">Average</span><span className="text-[14px] font-medium">{sourcingResult.decision_inputs.external_pipeline_strength.average_weighted_score}</span></div>
+                      </div>
+                    </motion.div>
                   </div>
 
-                  {/* Continue to scoring */}
+                  {/* ── Cost Analysis ── */}
+                  {sourcingResult.cost_analysis && (
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2 }}
+                      className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]"><DollarSign size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Cost Analysis</h4>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <div className="bg-[hsl(var(--color-success))]/5 rounded-lg p-3 text-center">
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-text-tertiary))] mb-1" style={{ fontFamily: 'var(--font-body)' }}>Internal Path</p>
+                          <p className="text-[16px] font-semibold text-[hsl(var(--color-success))]" style={{ fontFamily: 'var(--font-display)' }}>{sourcingResult.cost_analysis.internal_total_cost_eur}</p>
+                        </div>
+                        <div className="bg-[hsl(var(--color-accent))]/5 rounded-lg p-3 text-center">
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-text-tertiary))] mb-1" style={{ fontFamily: 'var(--font-body)' }}>External Path</p>
+                          <p className="text-[16px] font-semibold text-[hsl(var(--color-accent))]" style={{ fontFamily: 'var(--font-display)' }}>{sourcingResult.cost_analysis.external_total_cost_eur}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-2 mb-4">
+                        {sourcingResult.cost_analysis.dimensions?.map((d, i) => (
+                          <div key={i} className="border border-[hsl(var(--color-border))] rounded-lg p-3">
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-[13px] font-medium text-[hsl(var(--color-text-primary))]" style={{ fontFamily: 'var(--font-body)' }}>{d.dimension}</span>
+                              <span className="text-[11px] text-[hsl(var(--color-text-tertiary))]">weight: {Math.round(d.weight * 100)}%</span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                              <div>
+                                <div className="flex items-center gap-1.5 mb-1"><span className="text-[11px] text-[hsl(var(--color-text-tertiary))]">Internal</span><span className="text-[13px] font-semibold text-[hsl(var(--color-success))]">{d.internal_score}/100</span></div>
+                                <p className="text-[12px] text-[hsl(var(--color-text-secondary))] leading-snug">{d.internal_detail}</p>
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-1.5 mb-1"><span className="text-[11px] text-[hsl(var(--color-text-tertiary))]">External</span><span className="text-[13px] font-semibold text-[hsl(var(--color-accent))]">{d.external_score}/100</span></div>
+                                <p className="text-[12px] text-[hsl(var(--color-text-secondary))] leading-snug">{d.external_detail}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-[13px] text-[hsl(var(--color-text-secondary))] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{sourcingResult.cost_analysis.cost_delta_narrative}</p>
+                    </motion.div>
+                  )}
+
+                  {/* ── Time Analysis ── */}
+                  {sourcingResult.time_analysis && (
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.25 }}
+                      className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]"><Clock size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Timeline Comparison</h4>
+                        {sourcingResult.time_analysis.urgency_weeks && (
+                          <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-[hsl(var(--color-danger))]/10 text-[hsl(var(--color-danger))]">
+                            Urgency: {sourcingResult.time_analysis.urgency_weeks}w
+                          </span>
+                        )}
+                      </div>
+                      <div className="overflow-x-auto">
+                        <table className="w-full text-[13px]" style={{ fontFamily: 'var(--font-body)' }}>
+                          <thead>
+                            <tr className="border-b border-[hsl(var(--color-border))]">
+                              <th className="text-left py-2 pr-4 text-[hsl(var(--color-text-tertiary))] font-medium">Phase</th>
+                              <th className="text-center py-2 px-3 text-[hsl(var(--color-success))] font-medium">Internal</th>
+                              <th className="text-center py-2 px-3 text-[hsl(var(--color-accent))] font-medium">External</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {sourcingResult.time_analysis.timelines?.map((t, i) => (
+                              <tr key={i} className="border-b border-[hsl(var(--color-border))]/50">
+                                <td className="py-2.5 pr-4">
+                                  <span className="font-medium text-[hsl(var(--color-text-primary))]">{t.phase}</span>
+                                  <p className="text-[11px] text-[hsl(var(--color-text-tertiary))] mt-0.5">{t.description}</p>
+                                </td>
+                                <td className="text-center py-2.5 px-3 font-semibold text-[hsl(var(--color-success))]">{t.internal_weeks != null ? `${t.internal_weeks}w` : '—'}</td>
+                                <td className="text-center py-2.5 px-3 font-semibold text-[hsl(var(--color-accent))]">{t.external_weeks != null ? `${t.external_weeks}w` : '—'}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-[13px] text-[hsl(var(--color-text-secondary))] leading-relaxed mt-4" style={{ fontFamily: 'var(--font-body)' }}>{sourcingResult.time_analysis.time_risk_narrative}</p>
+                    </motion.div>
+                  )}
+
+                  {/* ── Risk Analysis ── */}
+                  {sourcingResult.risk_analysis && (
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.3 }}
+                      className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-danger))]/10 flex items-center justify-center text-[hsl(var(--color-danger))]"><Shield size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Risk Matrix</h4>
+                      </div>
+                      <div className="space-y-2 mb-4">
+                        {sourcingResult.risk_analysis.factors?.map((f, i) => (
+                          <div key={i} className="flex items-start gap-3 border border-[hsl(var(--color-border))]/50 rounded-lg p-3">
+                            <span className={`shrink-0 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded mt-0.5 ${
+                              f.severity === 'critical' ? 'bg-[hsl(var(--color-danger))]/15 text-[hsl(var(--color-danger))]' :
+                              f.severity === 'high' ? 'bg-orange-500/15 text-orange-600' :
+                              f.severity === 'medium' ? 'bg-yellow-500/15 text-yellow-700' :
+                              'bg-[hsl(var(--color-success))]/15 text-[hsl(var(--color-success))]'
+                            }`}>{f.severity}</span>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span className="text-[13px] font-medium text-[hsl(var(--color-text-primary))]">{f.risk}</span>
+                                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--color-border))]/50 text-[hsl(var(--color-text-tertiary))]">{f.applies_to}</span>
+                              </div>
+                              <p className="text-[12px] text-[hsl(var(--color-text-secondary))] mt-1">{f.mitigation}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                        <div className="bg-[hsl(var(--color-success))]/5 rounded-lg p-3">
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-text-tertiary))] mb-1" style={{ fontFamily: 'var(--font-body)' }}>Wrong Internal Hire Impact</p>
+                          <p className="text-[12px] text-[hsl(var(--color-text-secondary))] leading-snug">{sourcingResult.risk_analysis.wrong_hire_impact_internal}</p>
+                        </div>
+                        <div className="bg-[hsl(var(--color-accent))]/5 rounded-lg p-3">
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-text-tertiary))] mb-1" style={{ fontFamily: 'var(--font-body)' }}>Wrong External Hire Impact</p>
+                          <p className="text-[12px] text-[hsl(var(--color-text-secondary))] leading-snug">{sourcingResult.risk_analysis.wrong_hire_impact_external}</p>
+                        </div>
+                      </div>
+                      <p className="text-[13px] text-[hsl(var(--color-text-secondary))] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{sourcingResult.risk_analysis.overall_risk_narrative}</p>
+                    </motion.div>
+                  )}
+
+                  {/* ── Candidate Assessments ── */}
+                  {sourcingResult.candidate_assessments && (
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.35 }}
+                      className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]"><Users size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Top Candidate Assessments</h4>
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        {/* Internal candidates */}
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-success))] font-semibold mb-2" style={{ fontFamily: 'var(--font-body)' }}>Internal</p>
+                          <div className="space-y-2">
+                            {sourcingResult.candidate_assessments.top_internal?.map((c, i) => (
+                              <div key={i} className="border border-[hsl(var(--color-border))] rounded-lg p-3">
+                                <div className="flex justify-between items-center mb-1">
+                                  <span className="text-[13px] font-semibold text-[hsl(var(--color-text-primary))]">{c.candidate_name}</span>
+                                  <span className="text-[12px] font-bold text-[hsl(var(--color-success))]">{c.weighted_total}</span>
+                                </div>
+                                <p className="text-[12px] text-[hsl(var(--color-text-secondary))] mb-2 leading-snug">{c.fit_summary}</p>
+                                <div className="flex flex-wrap gap-1">
+                                  {c.strengths?.slice(0, 2).map((s, j) => (
+                                    <span key={j} className="text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--color-success))]/10 text-[hsl(var(--color-success))]">{s}</span>
+                                  ))}
+                                  {c.risks?.slice(0, 1).map((r, j) => (
+                                    <span key={j} className="text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--color-danger))]/10 text-[hsl(var(--color-danger))]">{r}</span>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {/* External candidates */}
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-accent))] font-semibold mb-2" style={{ fontFamily: 'var(--font-body)' }}>External</p>
+                          <div className="space-y-2">
+                            {sourcingResult.candidate_assessments.top_external?.map((c, i) => (
+                              <div key={i} className="border border-[hsl(var(--color-border))] rounded-lg p-3">
+                                <div className="flex justify-between items-center mb-1">
+                                  <span className="text-[13px] font-semibold text-[hsl(var(--color-text-primary))]">{c.candidate_name}</span>
+                                  <span className="text-[12px] font-bold text-[hsl(var(--color-accent))]">{c.weighted_total}</span>
+                                </div>
+                                <p className="text-[12px] text-[hsl(var(--color-text-secondary))] mb-2 leading-snug">{c.fit_summary}</p>
+                                <div className="flex flex-wrap gap-1">
+                                  {c.strengths?.slice(0, 2).map((s, j) => (
+                                    <span key={j} className="text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--color-success))]/10 text-[hsl(var(--color-success))]">{s}</span>
+                                  ))}
+                                  {c.risks?.slice(0, 1).map((r, j) => (
+                                    <span key={j} className="text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--color-danger))]/10 text-[hsl(var(--color-danger))]">{r}</span>
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-[13px] text-[hsl(var(--color-text-secondary))] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{sourcingResult.candidate_assessments.comparative_narrative}</p>
+                    </motion.div>
+                  )}
+
+                  {/* ── Implementation Roadmap ── */}
+                  {sourcingResult.implementation_roadmap && (
+                    <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.4 }}
+                      className="bg-[hsl(var(--color-surface))] border border-[hsl(var(--color-border))] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-8 rounded-lg bg-[hsl(var(--color-accent))]/10 flex items-center justify-center text-[hsl(var(--color-accent))]"><Target size={16} /></div>
+                        <h4 style={{ fontFamily: 'var(--font-display)' }} className="text-[16px] text-[hsl(var(--color-text-primary))]">Implementation Roadmap</h4>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-text-tertiary))] font-semibold mb-2" style={{ fontFamily: 'var(--font-body)' }}>Next Steps</p>
+                          <div className="space-y-1.5">
+                            {sourcingResult.implementation_roadmap.recommended_next_steps?.map((s, i) => (
+                              <div key={i} className="flex gap-2 text-[12px] text-[hsl(var(--color-text-secondary))]">
+                                <span className="text-[hsl(var(--color-accent))] font-bold shrink-0">{i + 1}.</span> {s}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-success))] font-semibold mb-2" style={{ fontFamily: 'var(--font-body)' }}>Quick Wins</p>
+                          <div className="space-y-1.5">
+                            {sourcingResult.implementation_roadmap.quick_wins?.map((s, i) => (
+                              <div key={i} className="flex gap-2 text-[12px] text-[hsl(var(--color-text-secondary))]">
+                                <Zap size={12} className="text-[hsl(var(--color-success))] shrink-0 mt-0.5" /> {s}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-[11px] uppercase tracking-wider text-[hsl(var(--color-danger))] font-semibold mb-2" style={{ fontFamily: 'var(--font-body)' }}>Watch Outs</p>
+                          <div className="space-y-1.5">
+                            {sourcingResult.implementation_roadmap.watch_outs?.map((s, i) => (
+                              <div key={i} className="flex gap-2 text-[12px] text-[hsl(var(--color-text-secondary))]">
+                                <AlertTriangle size={12} className="text-[hsl(var(--color-danger))] shrink-0 mt-0.5" /> {s}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* ── Continue to scoring ── */}
                   <div className="flex justify-end mt-6">
                     <button
                       onClick={() => setStep('scoring')}
